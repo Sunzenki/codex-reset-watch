@@ -19,6 +19,12 @@ type HistoryRecord = {
   originalTimeText: string; announcement: Announcement; outcome: Outcome; note: string; recordedAt: string;
 };
 
+declare global {
+  interface Window {
+    __CRW_BOOTSTRAP__?: { current: CurrentReset; history: HistoryRecord[] };
+  }
+}
+
 const supportedLocales = new Set<Locale>(['en', 'zh-CN', 'zh-TW']);
 
 function routeInfo() {
@@ -117,7 +123,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
 function CurrentPage({ locale }: { locale: Locale }) {
   const copy = ui[locale];
   const content = currentCopy[locale];
-  const [data, setData] = useState<CurrentReset | null>(null);
+  const [data, setData] = useState<CurrentReset | null>(() => window.__CRW_BOOTSTRAP__?.current ?? null);
   const [error, setError] = useState(false);
   const [now, setNow] = useState(Date.now());
   useEffect(() => {
@@ -183,13 +189,26 @@ function CurrentPage({ locale }: { locale: Locale }) {
       </article> : <article className="empty-evidence"><strong>{copy.noEvidence}</strong><p>{content.note}</p></article>}
     </section>
 
+    <section className="methodology" aria-labelledby="methodology-title">
+      <div className="methodology-heading"><p className="section-label">{copy.methodLabel}</p><h2 id="methodology-title">{copy.methodTitle}</h2><p>{copy.methodIntro}</p></div>
+      <div className="method-grid">
+        <article><span aria-hidden="true">01</span><h3>{copy.methodSourceTitle}</h3><p>{copy.methodSourceBody}</p></article>
+        <article><span aria-hidden="true">02</span><h3>{copy.methodTimeTitle}</h3><p>{copy.methodTimeBody}</p></article>
+        <article><span aria-hidden="true">03</span><h3>{copy.methodCountdownTitle}</h3><p>{copy.methodCountdownBody}</p></article>
+      </div>
+      <p className="data-links"><strong>{copy.machineData}</strong><a href="/data/current.json">{copy.currentData}</a><a href="/data/history.json">{copy.historyData}</a></p>
+    </section>
+
     <a className="history-cta" href={pagePath(locale, true)}><span><small>{copy.archive}</small><strong>{copy.viewHistory}</strong></span><i aria-hidden="true">→</i></a>
   </main>;
 }
 
 function HistoryPage({ locale }: { locale: Locale }) {
   const copy = ui[locale];
-  const [records, setRecords] = useState<HistoryRecord[] | null>(null);
+  const [records, setRecords] = useState<HistoryRecord[] | null>(() => {
+    const initial = window.__CRW_BOOTSTRAP__?.history;
+    return initial ? [...initial].sort((a, b) => +new Date(b.targetAt) - +new Date(a.targetAt)) : null;
+  });
   const [error, setError] = useState(false);
   useEffect(() => {
     fetch('/data/history.json', { cache: 'no-store' }).then((response) => {
@@ -254,7 +273,7 @@ function HistoryItem({ record, locale }: { record: HistoryRecord; locale: Locale
 
 function Footer({ locale }: { locale: Locale }) {
   const copy = ui[locale];
-  return <footer><p>{copy.footer}</p><p><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav} <span aria-hidden="true">↗</span></a></p></footer>;
+  return <footer><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav} <span aria-hidden="true">↗</span></a></p></footer>;
 }
 
 function Time({ value, label }: { value: number; label: string }) { return <span><strong>{String(value).padStart(2, '0')}</strong><small>{label}</small></span>; }

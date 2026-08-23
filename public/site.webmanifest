@@ -1,8 +1,10 @@
 {
   "name": "Codex Reset Watch",
   "short_name": "CRW",
-  "description": "Codex rate-limit reset 的人工整理预告、倒计时与历史记录。",
-  "start_url": "/",
+  "description": "A human-curated Codex reset countdown, source tracker, and history archive.",
+  "lang": "en",
+  "start_url": "/en/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FBFAF4",
   "theme_color": "#FFF7DF",

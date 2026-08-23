@@ -35,3 +35,15 @@ pnpm build
 ```
 
 `pnpm build` 会先校验两个 JSON 文件。Cloudflare Pages 构建命令为 `pnpm build`，输出目录为 `dist`。项目包含 `public/_redirects`，根地址默认进入英文版，旧 `/history` 地址会跳转到 `/en/history/`。
+
+## SEO 与机器可读输出
+
+生产构建最后会执行 `scripts/postbuild-seo.mjs`，根据当前 JSON 数据自动生成：
+
+- 六个语言页面的无 JavaScript 静态正文快照；
+- `WebSite`、`WebPage`、`CollectionPage` 与 `Dataset` JSON-LD；
+- 包含多语言 alternate 关系的 `sitemap.xml`；
+- `robots.txt` 与实验性的 `llms.txt`；
+- 首屏预载数据，避免页面先清空为加载状态。
+
+`public/data/current.json` 或 `public/data/history.json` 更新后重新构建即可同步刷新日期、来源、结构化数据与 sitemap。`llms.txt` 只是机器可读说明，不代表任何生成式搜索平台保证收录或引用。
