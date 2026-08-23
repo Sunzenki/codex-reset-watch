@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Codex Reset Watch">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="57" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D5F5FF"/>
+      <stop offset="1" stop-color="#A8E6FA"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="12" y1="53" x2="52" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9D7BFF"/>
+      <stop offset="1" stop-color="#7E61F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M44 49A22 22 0 1 1 44 17" fill="none" stroke="url(#purple)" stroke-width="8" stroke-linecap="round"/>
+  <path d="m41 9 11 9-13 4Z" fill="#8063F3"/>
+  <path d="m24 25 8 7-8 7" fill="none" stroke="#F75A80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 39h9" fill="none" stroke="#F75A80" stroke-width="5" stroke-linecap="round"/>
+</svg>

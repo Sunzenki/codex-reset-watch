@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Codex Reset Watch</title>
+  <desc id="desc">紫色重置箭头环绕粉色终端提示符</desc>
+  <defs>
+    <linearGradient id="purple" x1="18" y1="76" x2="78" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9D7BFF"/>
+      <stop offset="1" stop-color="#7E61F2"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="35" y1="34" x2="67" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B8D"/>
+      <stop offset="1" stop-color="#F45078"/>
+    </linearGradient>
+  </defs>
+  <path d="M67.5 73.5A34 34 0 1 1 67.5 22.5" fill="none" stroke="url(#purple)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M62 10.5 79 23 59 28Z" fill="#8063F3" stroke="#8063F3" stroke-linejoin="round"/>
+  <path d="m37 37 12 11-12 11" fill="none" stroke="url(#pink)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M55 59h13" fill="none" stroke="url(#pink)" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 356 88" role="img" aria-labelledby="title desc">
+  <title id="title">Codex Reset Watch</title>
+  <desc id="desc">紫色重置箭头与粉色终端提示符组成的轻松风格标志</desc>
+  <defs>
+    <linearGradient id="purple" x1="10" y1="72" x2="74" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9D7BFF"/>
+      <stop offset="1" stop-color="#7E61F2"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="29" y1="31" x2="59" y2="59" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B8D"/>
+      <stop offset="1" stop-color="#F45078"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(2 2)">
+    <path d="M61 68A30 30 0 1 1 61 20" fill="none" stroke="url(#purple)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M56 9 72 21 54 26Z" fill="#8063F3" stroke="#8063F3" stroke-linejoin="round"/>
+    <path d="m32 33 11 10-11 10" fill="none" stroke="url(#pink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M49 53h12" fill="none" stroke="url(#pink)" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M91 13v62" stroke="#6C5B88" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#62547E" font-family="ui-rounded, 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif" font-weight="800">
+    <text x="110" y="39" font-size="31">Codex</text>
+    <text x="110" y="71" font-size="31">Reset Watch</text>
+  </g>
+</svg>

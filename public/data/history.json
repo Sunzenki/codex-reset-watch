@@ -1,0 +1,138 @@
+[
+  {
+    "id": "reset-2026-08-22-banked",
+    "targetAt": "2026-08-22T00:50:36.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "The banked reset has landed",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "The banked reset has landed, I repeat, the banked reset has landed.",
+      "translation": "储备重置已经到账。",
+      "url": "https://x.com/thsottiaux/status/2090964822422949999",
+      "postedAt": "2026-08-22T00:50:36.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "面向 ChatGPT Work 与 Codex 的付费用户。这是 banked reset，需要用户在支持的客户端中自行使用；该帖是到账确认，记录时间采用确认帖发布时间。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-08-13-next-hour",
+    "targetAt": "2026-08-13T02:01:37.000Z",
+    "precision": "estimated",
+    "originalTimezone": "相对原帖发布时间",
+    "originalTimeText": "Landing in the next hour or so",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "Enjoy a nice reset everyone. Landing in the next hour or so, go /fast.",
+      "translation": "大家享受这次重置吧，预计在接下来一小时左右到来。",
+      "url": "https://x.com/thsottiaux/status/2087706104814023111",
+      "postedAt": "2026-08-13T01:01:37.000Z"
+    },
+    "outcome": "unverified",
+    "note": "原帖只给出“接下来一小时左右”的相对时间。目标时间按原帖发布时间加一小时记录，不代表精确落地时刻；未找到独立的落地确认帖。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-29-sol",
+    "targetAt": "2026-07-29T04:09:02.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "I've reset usage limits",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "I've reset usage limits for all ChatGPT Work and Codex users.",
+      "translation": "我已经为所有 ChatGPT Work 和 Codex 用户重置了使用额度。",
+      "url": "https://x.com/thsottiaux/status/2082317452755751098",
+      "postedAt": "2026-07-29T04:09:02.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "原帖明确使用完成时态，适用范围为所有 ChatGPT Work 与 Codex 用户。因没有另行给出落地时间，记录时间采用该确认帖发布时间。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-28-paid-users",
+    "targetAt": "2026-07-28T03:09:23.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "have been reset",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "The usage limits have been reset for all paid users of Codex and ChatGPT Work.",
+      "translation": "所有 Codex 与 ChatGPT Work 付费用户的使用额度已经重置。",
+      "url": "https://x.com/thsottiaux/status/2081940052154933696",
+      "postedAt": "2026-07-28T03:09:23.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "这是此前“几小时后回来处理”的后续确认帖。记录时间采用确认帖发布时间，适用范围为付费用户。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-26-outage",
+    "targetAt": "2026-07-25T19:17:12.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "We have reset usage limits",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "We have reset usage limits for all Codex and ChatGPT Work users.",
+      "translation": "我们已经为所有 Codex 与 ChatGPT Work 用户重置了使用额度。",
+      "url": "https://x.com/thsottiaux/status/2081096447718723984",
+      "postedAt": "2026-07-25T19:17:12.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo 将这次重置与此前发生的近乎全球性服务中断联系起来。原帖明确表示重置已经完成，记录时间采用发帖时间。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-22-next-hour",
+    "targetAt": "2026-07-21T17:47:15.000Z",
+    "precision": "estimated",
+    "originalTimezone": "相对原帖发布时间",
+    "originalTimeText": "Lands in the next hour",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "New day, new usage reset for paid users of Codex and ChatGPT Work. Lands in the next hour.",
+      "translation": "Codex 与 ChatGPT Work 付费用户将迎来一次新的额度重置，预计在接下来一小时内到来。",
+      "url": "https://x.com/thsottiaux/status/2079609157934886975",
+      "postedAt": "2026-07-21T16:47:15.000Z"
+    },
+    "outcome": "unverified",
+    "note": "目标时间按原帖发布时间加一小时记录。原帖没有提供精确分钟，且本次整理未找到独立的落地确认帖。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-18-weekend",
+    "targetAt": "2026-07-18T03:28:22.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "Enjoy reset usage limits",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "Enjoy reset usage limits for all paid users for Codex and ChatGPT Work.",
+      "translation": "Codex 与 ChatGPT Work 的所有付费用户可以享用这次额度重置。",
+      "url": "https://x.com/thsottiaux/status/2078320950488297917",
+      "postedAt": "2026-07-18T03:28:22.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "原帖将重置描述为已经可用，适用范围为付费用户。没有单独给出落地时刻，因此记录时间采用原帖发布时间。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  },
+  {
+    "id": "reset-2026-07-14-banked",
+    "targetAt": "2026-07-13T18:29:31.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "We have added a banked reset",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "We have added a banked reset to everyone's account to celebrate the milestone.",
+      "translation": "为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。",
+      "url": "https://x.com/thsottiaux/status/2076735790567338203",
+      "postedAt": "2026-07-13T18:29:31.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。",
+    "recordedAt": "2026-08-23T14:02:24.322Z"
+  }
+]
