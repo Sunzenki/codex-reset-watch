@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/(.:)/, '$1');
@@ -128,5 +128,6 @@ const sitemapEntries = routes.map((route) => {
 writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries}\n</urlset>\n`);
 writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 writeFileSync(join(DIST, 'llms.txt'), `# Codex Reset Watch\n\n> A multilingual, human-curated tracker for publicly announced Codex rate-limit reset estimates and outcomes. It is not affiliated with OpenAI.\n\n## Canonical pages\n- [English current reset](${ORIGIN}/en/)\n- [English reset history](${ORIGIN}/en/history/)\n- [简体中文当前重置](${ORIGIN}/zh-CN/)\n- [简体中文历史记录](${ORIGIN}/zh-CN/history/)\n- [繁體中文目前重置](${ORIGIN}/zh-TW/)\n- [繁體中文歷史記錄](${ORIGIN}/zh-TW/history/)\n\n## Machine-readable data\n- [Current status JSON](${ORIGIN}/data/current.json)\n- [History JSON](${ORIGIN}/data/history.json)\n\n## Editorial method\n- Every event links to the public post it was derived from.\n- Original quotations are preserved in English.\n- Times are stored as ISO 8601 UTC; localized pages format them for their stated time zone.\n- A countdown reaching zero does not prove that a reset occurred. Confirmed outcomes are recorded separately.\n\n## Source and ownership\n- Primary public source monitored manually: Tibo (@thsottiaux) on X.\n- Project owner: [WarpNav](https://warpnav.com/)\n- Source code: [GitHub](https://github.com/Sunzenki/codex-reset-watch)\n`);
+copyFileSync(join(ROOT, 'ads.txt'), join(DIST, 'ads.txt'));
 
-console.log('SEO postbuild complete: static snapshots, JSON-LD, sitemap, robots, and llms.txt');
+console.log('SEO postbuild complete: static snapshots, JSON-LD, sitemap, robots, llms.txt, and ads.txt');
