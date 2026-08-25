@@ -10,7 +10,7 @@ type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
 type Announcement = { source: string; text: string; translation?: string; url: string; postedAt: string };
 type CurrentReset = {
-  status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
+  kind?: 'reset' | 'rollout_observed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
   updatedAt: string; note?: string;
 };
@@ -151,13 +151,14 @@ function CurrentPage({ locale }: { locale: Locale }) {
   if (!data) return <main id="content" className="loading" role="status">{copy.loadingCurrent}</main>;
 
   const effectiveStatus: Status = remaining?.total === 0 && data.resetAt ? 'reached' : data.status;
-  const tone = effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
+  const isRolloutObserved = data.kind === 'rollout_observed';
+  const tone = isRolloutObserved ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{copy.status[effectiveStatus]}</div>
-      <p className="section-label">{copy.nextLabel}</p>
-      <h1>{resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
+      <p className="section-label">{isRolloutObserved ? copy.latestLabel : copy.nextLabel}</p>
+      <h1>{isRolloutObserved ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}. {copy.scopeSuffix}</p>
 
       {remaining && data.resetAt ? <>
@@ -170,11 +171,11 @@ function CurrentPage({ locale }: { locale: Locale }) {
           <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{copy.waitingTitle}</strong><p>{copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isRolloutObserved ? copy.rolloutTimingTitle : copy.waitingTitle}</strong><p>{isRolloutObserved ? copy.rolloutTimingBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={copy.factZone} value={localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={isRolloutObserved ? copy.factTiming : copy.factZone} value={localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>
@@ -185,6 +186,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
         <p className="source-byline"><span>{copy.source}</span><strong>{data.announcement.source}</strong></p>
         <blockquote lang="en">“{data.announcement.text}”</blockquote>
         <p className="translation">{content.context}</p>
+        <p className="editor-note">{content.note}</p>
         <div className="source-row"><span>{copy.postedAt} {dateTime(data.announcement.postedAt, locale, true)}</span><a href={data.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} <span>↗</span></a></div>
       </article> : <article className="empty-evidence"><strong>{copy.noEvidence}</strong><p>{content.note}</p></article>}
     </section>

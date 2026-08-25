@@ -1,17 +1,18 @@
 {
-  "status": "estimated",
-  "headline": "预计 8 月 24 日 06:00 左右重置",
-  "resetAt": "2026-08-23T22:00:00.000Z",
-  "sourceTimezone": "PST（UTC−8，按原文）",
-  "originalTimeText": "around 2pm PST tomorrow",
-  "scope": "Codex rate limits；原帖未说明具体套餐或额度范围",
+  "kind": "rollout_observed",
+  "status": "confirmed",
+  "headline": "Plus 5-hour limit rollout observed; exact rollout time not publicly confirmed",
+  "resetAt": null,
+  "sourceTimezone": "Relative date from X post; no time zone specified",
+  "originalTimeText": "Tomorrow",
+  "scope": "Plus accounts across ChatGPT Work and Codex; Pro $100 and Pro $200 excluded for the upcoming months",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "Reset will land around 14pm PST tomorrow. (Meant 2pm obviously.)",
-    "translation": "重置预计于明天 PST 下午 2 点左右到来。按原文 PST 字面换算为北京时间 8 月 24 日 06:00 左右；原帖使用 around，因此不是精确承诺。另因美国西海岸 8 月实际采用 PDT，若作者用 PST 泛指太平洋时间，则可能对应 05:00 左右。",
-    "url": "https://x.com/thsottiaux/status/2091412393368945027",
-    "postedAt": "2026-08-23T06:29:05.000Z"
+    "text": "Tomorrow we will bring back the 5h limit for Plus accounts across ChatGPT Work and Codex. I had mentioned this a while ago, but then postponed it. This is necessary as (a) the 5h limit allows us to smoothen the load on our compute, allowing to keep the plan generous in terms of weekly usage and (b) users on the Plus plan are relatively casual and new users, but then also just accidentally eat through their whole weeks usage and then are confused, making it not a great experience. We are for the upcoming months keeping the 5h limit not enabled for Pro $100 and Pro $200 subscriptions.",
+    "translation": "Tibo 表示将为 ChatGPT Work 与 Codex 的 Plus 账户恢复 5 小时限制；Pro $100 和 Pro $200 订阅未来几个月暂不启用。",
+    "url": "https://x.com/thsottiaux/status/2092058556707344708",
+    "postedAt": "2026-08-25T01:16:43.000Z"
   },
-  "updatedAt": "2026-08-23T13:45:01.674Z",
-  "note": "原帖写作 14pm，Tibo 随后回复纠正为 2pm；around 表明这是近似时间。"
+  "updatedAt": "2026-08-25T14:36:59.198Z",
+  "note": "站长账号在本站更新前一小时内观察到一次新重置，随后界面出现 5 小时限制。该观察与原帖所述变更一致，但只证明单个账号已落地；Tibo 尚未公开确认全体 Plus 账号的统一重置时间。"
 }

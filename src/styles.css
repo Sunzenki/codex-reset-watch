@@ -112,6 +112,7 @@ main { padding-block: 38px 24px; }
 .source-byline strong { color: var(--ink); font-weight: 800; }
 .evidence blockquote { margin: 0 0 20px; font-size: clamp(18px, 2.4vw, 25px); line-height: 1.55; letter-spacing: -.02em; }
 .translation, .empty-evidence p { color: var(--muted); line-height: 1.7; }
+.editor-note { margin-top: 14px; padding: 12px 14px; border-left: 4px solid #d9c85e; border-radius: 8px; background: #fff8d9; color: #625a32; font-size: 12px; line-height: 1.65; }
 .evidence article a { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; margin-top: 18px; color: var(--lavender-strong); text-decoration: none; font-size: 13px; font-weight: 800; }
 .empty-evidence strong { font-size: 19px; }.empty-evidence p { margin-bottom: 0; }
 .source-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 22px; padding-top: 16px; border-top: 1px dashed #cfc8ea; color: var(--dim); font-size: 11px; }.source-row a { margin-top: 0 !important; }

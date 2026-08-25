@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-08-24-around-2pm-pst",
+    "targetAt": "2026-08-23T22:00:00.000Z",
+    "precision": "estimated",
+    "originalTimezone": "PST（UTC−8，按原文）",
+    "originalTimeText": "around 2pm PST tomorrow",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "Reset will land around 14pm PST tomorrow. (Meant 2pm obviously.)",
+      "translation": "重置预计于明天 PST 下午 2 点左右到来。",
+      "url": "https://x.com/thsottiaux/status/2091412393368945027",
+      "postedAt": "2026-08-23T06:29:05.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "站长实际观察到这次重置已经落地，但 Tibo 没有另发公开确认帖。目标时间按原文 PST 字面换算；若 PST 是对太平洋夏令时间的泛称，则可能早一小时。原帖的 14pm 随后被作者纠正为 2pm。",
+    "recordedAt": "2026-08-25T14:36:59.198Z"
+  },
+  {
     "id": "reset-2026-08-22-banked",
     "targetAt": "2026-08-22T00:50:36.000Z",
     "precision": "confirmed",

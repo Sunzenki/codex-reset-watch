@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 const current = JSON.parse(readFileSync(new URL('../public/data/current.json', import.meta.url), 'utf8'));
 const history = JSON.parse(readFileSync(new URL('../public/data/history.json', import.meta.url), 'utf8'));
 const allowedStatus = new Set(['monitoring', 'estimated', 'confirmed', 'reached', 'superseded']);
+const allowedCurrentKind = new Set(['reset', 'rollout_observed']);
 const allowedOutcome = new Set(['unverified', 'as_announced', 'revised', 'cancelled']);
 
 function validDate(value, field, nullable = false) {
@@ -16,6 +17,7 @@ function validAnnouncement(value, field, nullable = false) {
 }
 
 if (!allowedStatus.has(current.status)) throw new Error('current.status 值无效');
+if (current.kind && !allowedCurrentKind.has(current.kind)) throw new Error('current.kind 值无效');
 validDate(current.resetAt, 'current.resetAt', true);
 validDate(current.updatedAt, 'current.updatedAt');
 validAnnouncement(current.announcement, 'current.announcement', true);
