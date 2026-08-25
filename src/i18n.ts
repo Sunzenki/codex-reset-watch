@@ -23,7 +23,7 @@ export const ui = {
     units: { days: 'days', hours: 'hours', minutes: 'min', seconds: 'sec' },
     railStart: 'Post published', railEnd: 'Expected reset', waitingTitle: 'Waiting for the next verified public update',
     waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.',
-    rolloutTimingTitle: 'A fresh reset and the 5-hour window were observed on one Plus account', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
+    rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factTiming: 'Timing basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View original post', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
@@ -51,7 +51,7 @@ export const ui = {
     units: { days: '天', hours: '时', minutes: '分', seconds: '秒' },
     railStart: '原帖发布', railEnd: '预计重置', waitingTitle: '等待下一条经过核对的公开预告',
     waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。',
-    rolloutTimingTitle: '一个 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
+    rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     factOriginal: '原帖时间', factZone: '原始时区', factTiming: '时间依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看原帖', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
@@ -79,7 +79,7 @@ export const ui = {
     units: { days: '天', hours: '時', minutes: '分', seconds: '秒' },
     railStart: '原帖發佈', railEnd: '預計重置', waitingTitle: '等待下一則經過核對的公開預告',
     waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。',
-    rolloutTimingTitle: '一個 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
+    rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     factOriginal: '原帖時間', factZone: '原始時區', factTiming: '時間依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看原帖', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
@@ -101,22 +101,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   en: {
-    headline: 'Plus 5-hour limit rollout observed; exact rollout time remains unconfirmed',
+    headline: 'Plus 5-hour limit rollout has begun',
     scope: 'Plus accounts across ChatGPT Work and Codex; Pro $100 and Pro $200 are excluded for the upcoming months',
-    context: 'Tibo said the 5-hour limit would return “tomorrow” for Plus accounts across ChatGPT Work and Codex. The site owner then observed a fresh reset on one Plus account followed by the new 5-hour window. This is consistent with the announced change beginning to roll out.',
-    note: 'The post did not state that every account would receive a simultaneous reset, and it gave neither a time zone nor an exact rollout time. The site-owner observation confirms one account only.',
+    context: 'Tibo said the 5-hour limit would return “tomorrow” for Plus accounts across ChatGPT Work and Codex. Fresh resets followed by the new 5-hour window have since been observed on some Plus accounts, consistent with the announced change beginning to roll out.',
+    note: 'The post did not state that every account would receive a simultaneous reset, and it gave neither a time zone nor an exact rollout time. Reports from some Plus users do not establish that the rollout is complete for everyone.',
   },
   'zh-CN': {
-    headline: 'Plus 5 小时限制开始落地，具体全量时间尚未确认',
+    headline: 'Plus 5 小时限制已开始落地',
     scope: 'ChatGPT Work 与 Codex 的 Plus 账户；Pro $100 和 Pro $200 未来几个月暂不启用',
-    context: 'Tibo 表示将于“明天”为 ChatGPT Work 与 Codex 的 Plus 账户恢复 5 小时限制。随后，站长在一个 Plus 账号上观察到新的额度重置，并紧接着出现 5 小时窗口；这与公告所述变更开始落地相吻合。',
-    note: '原帖没有说明所有账号会同时重置，也没有给出时区或具体落地时刻。站长观察只能确认单个账号，不能代替全体 Plus 账号的公开确认。',
+    context: 'Tibo 表示将于“明天”为 ChatGPT Work 与 Codex 的 Plus 账户恢复 5 小时限制。随后，部分用户的 Plus 账号观察到新的额度重置，并紧接着出现 5 小时窗口；这与公告所述变更开始落地相吻合。',
+    note: '原帖没有说明所有账号会同时重置，也没有给出时区或具体落地时刻。部分 Plus 用户的反馈不能证明所有账号均已完成变更。',
   },
   'zh-TW': {
-    headline: 'Plus 5 小時限制開始落地，具體全量時間尚未確認',
+    headline: 'Plus 5 小時限制已開始落地',
     scope: 'ChatGPT Work 與 Codex 的 Plus 帳號；Pro $100 與 Pro $200 未來幾個月暫不啟用',
-    context: 'Tibo 表示將於「明天」為 ChatGPT Work 與 Codex 的 Plus 帳號恢復 5 小時限制。隨後，站長在一個 Plus 帳號上觀察到新的額度重置，並緊接著出現 5 小時視窗；這與公告所述變更開始落地相吻合。',
-    note: '原帖沒有說明所有帳號會同時重置，也沒有提供時區或具體落地時間。站長觀察只能確認單一帳號，不能代替全體 Plus 帳號的公開確認。',
+    context: 'Tibo 表示將於「明天」為 ChatGPT Work 與 Codex 的 Plus 帳號恢復 5 小時限制。隨後，部分使用者的 Plus 帳號觀察到新的額度重置，並緊接著出現 5 小時視窗；這與公告所述變更開始落地相吻合。',
+    note: '原帖沒有說明所有帳號會同時重置，也沒有提供時區或具體落地時間。部分 Plus 使用者的回報不能證明所有帳號均已完成變更。',
   },
 };
 

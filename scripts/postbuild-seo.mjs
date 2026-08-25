@@ -13,7 +13,7 @@ const locales = {
     homeTitle: 'Codex Reset Time & Countdown (UTC)', historyTitle: 'Codex Reset History',
     description: 'Human-curated Codex rate-limit reset estimates, countdown, source posts, time conversions, and verified history.',
     expected: 'Reset expected around', reached: 'The announced reset time has passed',
-    rolloutHeadline: 'Plus 5-hour limit rollout observed; exact rollout time remains unconfirmed',
+    rolloutHeadline: 'Plus 5-hour limit rollout has begun',
     source: 'Original public source', updated: 'Last human update', historyIntro: 'Past public reset posts and their converted times.',
   },
   'zh-CN': {
@@ -21,14 +21,14 @@ const locales = {
     homeTitle: 'Codex 重置时间与倒计时', historyTitle: 'Codex 历史重置记录',
     description: '人工整理的 Codex rate-limit reset 预告、倒计时、公开原帖、时区换算与历史记录。',
     expected: '预计', reached: '预告重置时间已到', source: '公开原始来源', updated: '本站人工更新', historyIntro: '过往公开重置消息及其时间换算记录。',
-    rolloutHeadline: 'Plus 5 小时限制开始落地，具体全量时间尚未确认',
+    rolloutHeadline: 'Plus 5 小时限制已开始落地',
   },
   'zh-TW': {
     lang: 'zh-TW', intl: 'zh-TW', timeZone: 'Asia/Taipei',
     homeTitle: 'Codex 重置時間與倒數計時', historyTitle: 'Codex 歷史重置記錄',
     description: '人工整理的 Codex rate-limit reset 預告、倒數計時、公開原帖、時區換算與歷史記錄。',
     expected: '預計', reached: '預告重置時間已到', source: '公開原始來源', updated: '本站人工更新', historyIntro: '過往公開重置消息及其時間換算記錄。',
-    rolloutHeadline: 'Plus 5 小時限制開始落地，具體全量時間尚未確認',
+    rolloutHeadline: 'Plus 5 小時限制已開始落地',
   },
 };
 

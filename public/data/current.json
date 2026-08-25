@@ -1,7 +1,7 @@
 {
   "kind": "rollout_observed",
   "status": "confirmed",
-  "headline": "Plus 5-hour limit rollout observed; exact rollout time not publicly confirmed",
+  "headline": "Plus 5-hour limit rollout has begun",
   "resetAt": null,
   "sourceTimezone": "Relative date from X post; no time zone specified",
   "originalTimeText": "Tomorrow",
@@ -14,5 +14,5 @@
     "postedAt": "2026-08-25T01:16:43.000Z"
   },
   "updatedAt": "2026-08-25T14:36:59.198Z",
-  "note": "站长账号在本站更新前一小时内观察到一次新重置，随后界面出现 5 小时限制。该观察与原帖所述变更一致，但只证明单个账号已落地；Tibo 尚未公开确认全体 Plus 账号的统一重置时间。"
+  "note": "目前已有部分用户的 Plus 账号观察到新重置，随后界面出现 5 小时限制。该现象与原帖所述变更一致；Tibo 尚未公开确认全体 Plus 账号的统一重置时间。"
 }
