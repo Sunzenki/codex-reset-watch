@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 const current = JSON.parse(readFileSync(new URL('../public/data/current.json', import.meta.url), 'utf8'));
 const history = JSON.parse(readFileSync(new URL('../public/data/history.json', import.meta.url), 'utf8'));
 const allowedStatus = new Set(['monitoring', 'estimated', 'confirmed', 'reached', 'superseded']);
-const allowedCurrentKind = new Set(['reset', 'rollout_observed']);
+const allowedCurrentKind = new Set(['reset', 'rollout_observed', 'reset_confirmed']);
 const allowedOutcome = new Set(['unverified', 'as_announced', 'revised', 'cancelled']);
 
 function validDate(value, field, nullable = false) {

@@ -10,7 +10,7 @@ type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
 type Announcement = { source: string; text: string; translation?: string; url: string; postedAt: string };
 type CurrentReset = {
-  kind?: 'reset' | 'rollout_observed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
+  kind?: 'reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
   updatedAt: string; note?: string;
 };
@@ -61,6 +61,16 @@ function headlineTime(value: string, locale: Locale) {
     month: locale === 'en' ? 'short' : 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit',
     hour12: false, timeZone: config.timeZone, timeZoneName: locale === 'en' ? 'short' : undefined,
   }).format(new Date(value));
+}
+
+function confirmationHeadlineTime(value: string, locale: Locale) {
+  const config = localeConfig[locale];
+  const formatted = new Intl.DateTimeFormat(config.intl, {
+    year: 'numeric', month: locale === 'en' ? 'short' : 'numeric', day: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
+  }).format(new Date(value));
+  if (locale === 'en') return `${formatted} UTC · confirmed`;
+  return `${formatted} · ${locale === 'zh-TW' ? '確認' : '确认'}`;
 }
 
 function resetHeadline(status: Status, resetAt: string | null, locale: Locale) {
@@ -152,13 +162,18 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
   const effectiveStatus: Status = remaining?.total === 0 && data.resetAt ? 'reached' : data.status;
   const isRolloutObserved = data.kind === 'rollout_observed';
-  const tone = isRolloutObserved ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
+  const isResetConfirmed = data.kind === 'reset_confirmed';
+  const isLatestUpdate = isRolloutObserved || isResetConfirmed;
+  const tone = isLatestUpdate ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
-      <p className="section-label">{isRolloutObserved ? copy.latestLabel : copy.nextLabel}</p>
-      <h1>{isRolloutObserved ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
+      <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : copy.nextLabel}</p>
+      <h1>{isResetConfirmed && data.announcement ? <>
+        <time className="headline-confirmed-at" dateTime={data.announcement.postedAt}>{confirmationHeadlineTime(data.announcement.postedAt, locale)}</time>
+        <span>{content.headline}</span>
+      </> : isLatestUpdate ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}. {copy.scopeSuffix}</p>
 
       {remaining && data.resetAt ? <>
@@ -171,11 +186,11 @@ function CurrentPage({ locale }: { locale: Locale }) {
           <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isRolloutObserved ? copy.rolloutTimingTitle : copy.waitingTitle}</strong><p>{isRolloutObserved ? copy.rolloutTimingBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={isRolloutObserved ? copy.factTiming : copy.factZone} value={localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={isResetConfirmed ? copy.factConfirmation : isRolloutObserved ? copy.factTiming : copy.factZone} value={localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>

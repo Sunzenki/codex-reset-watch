@@ -1,18 +1,18 @@
 {
-  "kind": "rollout_observed",
+  "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "Plus 5-hour limit rollout has begun",
+  "headline": "A fresh Codex usage reset has landed",
   "resetAt": null,
-  "sourceTimezone": "Relative date from X post; no time zone specified",
-  "originalTimeText": "Tomorrow",
-  "scope": "Plus accounts across ChatGPT Work and Codex; Pro $100 and Pro $200 excluded for the upcoming months",
+  "sourceTimezone": "UTC（X 机器时间戳）",
+  "originalTimeText": "Brand new usage for all ChatGPT Work and Codex users",
+  "scope": "All ChatGPT Work and Codex users",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "Tomorrow we will bring back the 5h limit for Plus accounts across ChatGPT Work and Codex. I had mentioned this a while ago, but then postponed it. This is necessary as (a) the 5h limit allows us to smoothen the load on our compute, allowing to keep the plan generous in terms of weekly usage and (b) users on the Plus plan are relatively casual and new users, but then also just accidentally eat through their whole weeks usage and then are confused, making it not a great experience. We are for the upcoming months keeping the 5h limit not enabled for Pro $100 and Pro $200 subscriptions.",
-    "translation": "Tibo 表示将为 ChatGPT Work 与 Codex 的 Plus 账户恢复 5 小时限制；Pro $100 和 Pro $200 订阅未来几个月暂不启用。",
-    "url": "https://x.com/thsottiaux/status/2092058556707344708",
-    "postedAt": "2026-08-25T01:16:43.000Z"
+    "text": "Never slept better and feeling reseted. Brand new me and brand new usage for all ChatGPT Work and Codex users. Regaining my youth one button press at a time.\n\nHappy Thursday",
+    "translation": "Tibo 表示所有 ChatGPT Work 与 Codex 用户都获得了全新的使用额度。",
+    "url": "https://x.com/thsottiaux/status/2093014447833116908",
+    "postedAt": "2026-08-27T16:35:05.000Z"
   },
-  "updatedAt": "2026-08-25T14:36:59.198Z",
-  "note": "目前已有部分用户的 Plus 账号观察到新重置，随后界面出现 5 小时限制。该现象与原帖所述变更一致；Tibo 尚未公开确认全体 Plus 账号的统一重置时间。"
+  "updatedAt": "2026-08-27T16:53:58.779Z",
+  "note": "原帖使用完成式措辞，明确覆盖所有 ChatGPT Work 与 Codex 用户；未另行给出后台统一执行的精确时刻，因此本站只将发帖时间作为公开确认时间。"
 }

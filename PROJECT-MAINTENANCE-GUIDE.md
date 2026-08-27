@@ -1,6 +1,6 @@
 # Codex Reset Watch 项目说明与维护手册
 
-> 最后整理：2026-08-25
+> 最后整理：2026-08-28
 > 项目简称：CRW
 > 线上地址：<https://crw.warpnav.com/>
 > GitHub：<https://github.com/Sunzenki/codex-reset-watch>
@@ -126,7 +126,7 @@ codex-reset-time/
 
 | 字段 | 说明 |
 | --- | --- |
-| `kind` | 当前信息类型：普通重置事件或额度规则落地观察 |
+| `kind` | 当前信息类型：普通重置事件、额度规则落地观察或已完成重置确认 |
 | `status` | 当前状态，见下方状态表 |
 | `resetAt` | 目标时间，ISO 8601 UTC；无有效预告时为 `null` |
 | `sourceTimezone` | 原文时区说明，保留原作者的写法 |
@@ -142,8 +142,9 @@ codex-reset-time/
 | --- | --- |
 | `reset` | 有明确或近似目标时间的普通重置预告 |
 | `rollout_observed` | 官方宣布规则变更，且已有实际账号观察到开始落地，但没有统一精确时刻 |
+| `reset_confirmed` | 原帖使用完成式措辞，明确确认重置已经发生，但没有另行给出执行时刻 |
 
-`kind` 与 `status` 不可混为一谈。`kind` 描述事件形态，`status` 描述证据/进度。`rollout_observed` 可以使用 `status: "confirmed"`，同时让 `resetAt: null`，因为“已观察到开始落地”不等于“已知所有账号的统一重置时刻”。不要为了显示倒计时而虚构 `resetAt`。
+`kind` 与 `status` 不可混为一谈。`kind` 描述事件形态，`status` 描述证据/进度。`rollout_observed` 可以使用 `status: "confirmed"`，同时让 `resetAt: null`，因为“已观察到开始落地”不等于“已知所有账号的统一重置时刻”。`reset_confirmed` 同样允许 `status: "confirmed"`、`resetAt: null`：页面展示完成态，不显示倒计时，并将确认帖发布时间与后台实际执行时刻明确区分。不要为了显示倒计时而虚构 `resetAt`。
 
 允许的 `status`：
 
@@ -214,6 +215,8 @@ codex-reset-time/
 
 2026-08-25 的 Plus 5 小时限制更新是标准范例：Tibo 的公开原帖确认将恢复规则，但没有给出统一落地时刻；随后部分用户账号观察到新重置和 5 小时窗口。因此当前事件使用 `kind: "rollout_observed"`、`status: "confirmed"`、`resetAt: null`，标题使用“已开始落地”，而不是伪造倒计时或宣称全量完成。
 
+2026-08-28 的完成确认是另一种范例：Tibo 使用完成式措辞，并明确覆盖所有 ChatGPT Work 与 Codex 用户。此时使用 `kind: "reset_confirmed"`、`status: "confirmed"`、`resetAt: null`；首页 H1 以较小的时间行写“2026 年 8 月 28 日 00:35 确认”，主体写“新一轮 Codex 重置已落地”。X 发帖时间只能称为公开确认时间，除非原帖另行说明，否则不能写成后台重置精确完成时间。
+
 ### 第二步：判断时间
 
 统一把内部时间保存成 UTC ISO 8601，例如：
@@ -244,7 +247,7 @@ codex-reset-time/
 编辑 `public/data/current.json`：
 
 1. 先判断并更新 `kind` 与 `status`。
-2. 有可信目标时间时写入 UTC `resetAt`；规则落地观察没有统一时间时写 `null`。
+2. 有可信目标时间时写入 UTC `resetAt`；规则落地观察或完成确认没有独立执行时间时写 `null`。
 3. 保留 `originalTimeText` 和 `sourceTimezone`。
 4. 填写 `announcement` 原文、翻译、URL、`postedAt`。
 5. 将 `updatedAt` 改为当前人工更新时间。
@@ -266,6 +269,8 @@ codex-reset-time/
 - 观察提示：根据证据使用“一个账号”或“部分用户”，不要擅自扩大或缩小范围。
 - 上下文与警示：明确没有公开信息证明所有 Plus 账号同时完成变更。
 - `scripts/postbuild-seo.mjs` 的 `rolloutHeadline`：必须与运行时 H1 含义一致。
+
+如果 `kind` 为 `reset_confirmed`，还要同步核对三语言的完成态状态标签、短 H1、确认范围与确认依据，以及 `scripts/postbuild-seo.mjs` 的 `confirmedResetHeadline`。页面不得显示零值倒计时，也不得把发帖时间误写成后台统一执行时刻。
 
 ### 第五步：本地验证
 
@@ -670,15 +675,16 @@ https://crw.warpnav.com/
 
 - GitHub 仓库是公开仓库。
 - Cloudflare Pages 与 GitHub 自动部署已恢复。
-- `main` 与 `origin/main` 已推送到提交 `1f35ab4`（手机端 H1 自然换行修复）。
-- 2026-08-25 本轮相关提交依次为：`00aaa2d`（AdSense）、`45554d9`（Matomo）、`f43aeb2`（Plus 5 小时限制落地状态）、`e8c4949`（标题与引用排版）、`1f35ab4`（手机端换行修复）。
+- GitHub `main` 是 Cloudflare Pages 的生产部署来源；具体最新提交以 `git log -1` 和 Cloudflare 当前生产部署 SHA 为准，不在手册中长期硬编码。
+- 2026-08-25 相关历史提交包括：`00aaa2d`（AdSense）、`45554d9`（Matomo）、`f43aeb2`（Plus 5 小时限制落地状态）、`e8c4949`（标题与引用排版）、`1f35ab4`（手机端换行修复）。
 - Google AdSense 加载脚本已写入六个 HTML 入口；根目录 `ads.txt` 会在构建后复制到 `dist/ads.txt`。
 - Matomo JavaScript 跟踪已写入六个 HTML 入口，Site ID 为 `13`。
-- 当前页面支持没有统一目标时间的 `rollout_observed` 类型。
+- 当前页面支持没有统一目标时间的 `rollout_observed` 和 `reset_confirmed` 类型。
+- 2026-08-28 的当前事件为已完成重置确认，范围是所有 ChatGPT Work 与 Codex 用户；首页将 X 发帖时间标为“确认时间”，上一轮 Plus 5 小时限制落地记录已归入历史。
 - 网站支持英文、简体中文和繁体中文。
 - OG 图片和 Twitter/X 卡片标签已经配置。
 
-上述“已推送”只证明 GitHub 分支状态。2026-08-25 的 `1f35ab4` 推送后按用户要求没有继续检查 Cloudflare，因此不要把它写成已经独立验证的生产部署事实；下次如需确认线上版本，应查看 Cloudflare 当前部署 SHA。
+GitHub 推送成功只证明远端分支状态，不等于已经独立验证生产部署；每次上线仍应检查 Cloudflare 当前部署 SHA，并核对线上页面与数据文件。
 
 ### 会随时间变化，更新前必须重新核对
 

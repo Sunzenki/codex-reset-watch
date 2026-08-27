@@ -83,6 +83,8 @@ main { padding-block: 38px 24px; }
 .status-chip.reached { color: #504298; background: var(--lavender); border-color: #c9bff8; }
 .section-label { margin: 54px 0 12px; color: var(--lavender-strong); font: 800 11px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; }
 .hero-panel h1 { position: relative; z-index: 1; max-width: 100%; margin: 0; font-size: clamp(38px, 5vw, 54px); line-height: 1.08; letter-spacing: -.045em; overflow-wrap: anywhere; text-wrap: balance; }
+.headline-confirmed-at { display: block; margin-bottom: 13px; color: var(--lavender-strong); font: 800 13px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .06em; }
+.hero-panel h1 > span { display: block; }
 .scope { position: relative; z-index: 1; width: 100%; margin: 22px 0 0; color: var(--muted); font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; }
 .target-time { margin: 54px 0 18px; font: 700 15px ui-monospace, SFMono-Regular, Consolas, monospace; }
 .target-time span { margin-left: 10px; color: var(--dim); font: 12px ui-rounded, system-ui, sans-serif; }
@@ -156,7 +158,8 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .site-header, main, footer { width: min(100% - 28px, 1160px); }
   .site-header { min-height: 78px; }.site-header nav a { padding-inline: 12px; }
   main { padding-top: 24px; }.hero-panel { padding: 28px 22px; border-radius: 24px; box-shadow: 6px 7px 0 #dce9dd; }.hero-panel::before { right: 20px; top: 28px; font-size: 40px; }.hero-panel::after { display: none; }
-  .hero-panel h1 { text-wrap: wrap; }
+  .hero-panel h1 { overflow-wrap: normal; word-break: keep-all; text-wrap: wrap; }
+  .headline-confirmed-at { margin-bottom: 11px; font-size: 11px; }
   .section-label { margin-top: 40px; }.scope { font-size: 14px; }.target-time span { display: block; margin: 6px 0 0; }
   .countdown { gap: 5px; justify-content: center; }.countdown span { min-width: 50px; padding-inline: 5px; border-radius: 15px; box-shadow-width: 3px; }.countdown strong { font-size: 40px; }.countdown > i { font-size: 28px; }
   .facts { grid-template-columns: 1fr; margin-top: 44px; }.facts div { min-height: auto; display: flex; justify-content: space-between; gap: 14px; }.facts strong { margin: 0; text-align: right; }

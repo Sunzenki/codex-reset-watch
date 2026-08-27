@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-08-25-plus-five-hour-rollout",
+    "targetAt": "2026-08-25T14:36:59.198Z",
+    "precision": "estimated",
+    "originalTimezone": "Site observation timestamp (UTC)",
+    "originalTimeText": "Tomorrow",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "Tomorrow we will bring back the 5h limit for Plus accounts across ChatGPT Work and Codex. I had mentioned this a while ago, but then postponed it. This is necessary as (a) the 5h limit allows us to smoothen the load on our compute, allowing to keep the plan generous in terms of weekly usage and (b) users on the Plus plan are relatively casual and new users, but then also just accidentally eat through their whole weeks usage and then are confused, making it not a great experience. We are for the upcoming months keeping the 5h limit not enabled for Pro $100 and Pro $200 subscriptions.",
+      "translation": "Tibo 表示将为 ChatGPT Work 与 Codex 的 Plus 账户恢复 5 小时限制；Pro $100 和 Pro $200 订阅未来几个月暂不启用。",
+      "url": "https://x.com/thsottiaux/status/2092058556707344708",
+      "postedAt": "2026-08-25T01:16:43.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "随后部分用户的 Plus 账号观察到新重置和 5 小时窗口，但没有公开的统一落地时刻。targetAt 采用本站观察记录时间，仅作为档案排序锚点，不代表全量生效时间。",
+    "recordedAt": "2026-08-27T16:53:58.779Z"
+  },
+  {
     "id": "reset-2026-08-24-around-2pm-pst",
     "targetAt": "2026-08-23T22:00:00.000Z",
     "precision": "estimated",
