@@ -133,7 +133,6 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
 function CurrentPage({ locale }: { locale: Locale }) {
   const copy = ui[locale];
   const content = currentCopy[locale];
-  const forceMotionPreview = new URLSearchParams(window.location.search).get('motion') === 'on';
   const [data, setData] = useState<CurrentReset | null>(() => window.__CRW_BOOTSTRAP__?.current ?? null);
   const [error, setError] = useState(false);
   const [now, setNow] = useState(Date.now());
@@ -188,7 +187,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
           <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state"><span className={`radar${forceMotionPreview ? ' motion-preview' : ''}`} aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
