@@ -156,7 +156,9 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @keyframes radar-sweep { to { transform: rotate(360deg); } }
 @keyframes radar-wave { 0% { opacity: .72; transform: scale(.72); } 70%, 100% { opacity: 0; transform: scale(1.55); } }
 @keyframes radar-heartbeat { 0%, 100% { transform: translate(-50%, -50%) scale(.88); } 50% { transform: translate(-50%, -50%) scale(1.18); } }
-@keyframes radar-soft-pulse { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+@keyframes radar-soft-pulse { 0%, 100% { opacity: .38; filter: brightness(.78); } 50% { opacity: 1; filter: brightness(1.28); } }
+@keyframes radar-ring-pulse { 0%, 100% { opacity: .16; } 50% { opacity: .88; } }
+@keyframes radar-dot-pulse { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
 @media (min-width: 900px) {
   html[lang="en"] .hero-panel h1 { font-size: clamp(40px, 4.4vw, 50px); }
 }
@@ -189,7 +191,7 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  .radar { animation: radar-soft-pulse 2.8s ease-in-out infinite !important; }
-  .radar::before, .radar::after { animation: none !important; }
-  .radar::before { opacity: .42; transform: scale(1); }
+  .radar { animation: radar-soft-pulse 1.6s ease-in-out infinite !important; }
+  .radar::before { opacity: .16; transform: scale(1); animation: radar-ring-pulse 1.6s .2s ease-in-out infinite !important; }
+  .radar::after { animation: radar-dot-pulse 1.6s .4s ease-in-out infinite !important; }
 }
