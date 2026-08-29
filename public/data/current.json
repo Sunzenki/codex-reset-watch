@@ -1,18 +1,18 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "A fresh Codex usage reset has landed",
+  "kind": "reset",
+  "status": "monitoring",
+  "headline": "Tibo hints at a possible Codex reset tomorrow",
   "resetAt": null,
-  "sourceTimezone": "UTC（X 机器时间戳）",
-  "originalTimeText": "Brand new usage for all ChatGPT Work and Codex users",
-  "scope": "All ChatGPT Work and Codex users",
+  "sourceTimezone": null,
+  "originalTimeText": "tomorrow",
+  "scope": "Codex users; exact plan coverage was not stated",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "Never slept better and feeling reseted. Brand new me and brand new usage for all ChatGPT Work and Codex users. Regaining my youth one button press at a time.\n\nHappy Thursday",
-    "translation": "Tibo 表示所有 ChatGPT Work 与 Codex 用户都获得了全新的使用额度。",
-    "url": "https://x.com/thsottiaux/status/2093014447833116908",
-    "postedAt": "2026-08-27T16:35:05.000Z"
+    "text": "Looking at the dashboard we might hit a new milestone to celebrate tomorrow. Hold on to your Codex",
+    "translation": "Tibo 表示，从后台数据来看，明天可能会达到一个值得庆祝的新里程碑，并提醒大家先留住自己的 Codex 额度。",
+    "url": "https://x.com/thsottiaux/status/2093573991965557198",
+    "postedAt": "2026-08-29T05:38:31.000Z"
   },
-  "updatedAt": "2026-08-27T16:53:58.779Z",
-  "note": "原帖使用完成式措辞，明确覆盖所有 ChatGPT Work 与 Codex 用户；未另行给出后台统一执行的精确时刻，因此本站只将发帖时间作为公开确认时间。"
+  "updatedAt": "2026-08-29T05:50:13.837Z",
+  "note": "原帖使用 might 且没有直接写 reset，也没有给出具体时间、时区或适用套餐。结合其里程碑庆祝与保留 Codex 额度的措辞，本站将其记录为可能发生重置的提示，但不生成倒计时，也不将 2026 年 8 月 30 日描述为已确认的重置日期。"
 }

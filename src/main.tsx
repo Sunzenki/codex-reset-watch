@@ -133,6 +133,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
 function CurrentPage({ locale }: { locale: Locale }) {
   const copy = ui[locale];
   const content = currentCopy[locale];
+  const forceMotionPreview = new URLSearchParams(window.location.search).get('motion') === 'on';
   const [data, setData] = useState<CurrentReset | null>(() => window.__CRW_BOOTSTRAP__?.current ?? null);
   const [error, setError] = useState(false);
   const [now, setNow] = useState(Date.now());
@@ -163,6 +164,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const effectiveStatus: Status = remaining?.total === 0 && data.resetAt ? 'reached' : data.status;
   const isRolloutObserved = data.kind === 'rollout_observed';
   const isResetConfirmed = data.kind === 'reset_confirmed';
+  const isUntimedHint = data.kind === 'reset' && data.status === 'monitoring' && !data.resetAt && Boolean(data.announcement);
   const isLatestUpdate = isRolloutObserved || isResetConfirmed;
   const tone = isLatestUpdate ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
@@ -173,8 +175,8 @@ function CurrentPage({ locale }: { locale: Locale }) {
       <h1>{isResetConfirmed && data.announcement ? <>
         <time className="headline-confirmed-at" dateTime={data.announcement.postedAt}>{confirmationHeadlineTime(data.announcement.postedAt, locale)}</time>
         <span>{content.headline}</span>
-      </> : isLatestUpdate ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
-      <p className="scope">{content.scope}. {copy.scopeSuffix}</p>
+      </> : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      <p className="scope">{content.scope}{locale === 'en' ? '. ' : '。'}{copy.scopeSuffix}</p>
 
       {remaining && data.resetAt ? <>
         <p className="target-time">{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></p>
@@ -186,7 +188,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
           <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state"><span className={`radar${forceMotionPreview ? ' motion-preview' : ''}`} aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
