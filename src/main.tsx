@@ -63,14 +63,15 @@ function headlineTime(value: string, locale: Locale) {
   }).format(new Date(value));
 }
 
-function confirmationHeadlineTime(value: string, locale: Locale) {
+function confirmationHeadlineTime(value: string, locale: Locale, isLandingTime = false) {
   const config = localeConfig[locale];
   const formatted = new Intl.DateTimeFormat(config.intl, {
     year: 'numeric', month: locale === 'en' ? 'short' : 'numeric', day: 'numeric',
     hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
   }).format(new Date(value));
-  if (locale === 'en') return `${formatted} UTC · confirmed`;
-  return `${formatted} · ${locale === 'zh-TW' ? '確認' : '确认'}`;
+  if (locale === 'en') return `${formatted} UTC · ${isLandingTime ? 'landed' : 'confirmed'}`;
+  if (locale === 'zh-TW') return `${formatted} · ${isLandingTime ? '落地' : '確認'}`;
+  return `${formatted} · ${isLandingTime ? '落地' : '确认'}`;
 }
 
 function resetHeadline(status: Status, resetAt: string | null, locale: Locale) {
@@ -172,12 +173,12 @@ function CurrentPage({ locale }: { locale: Locale }) {
       <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
-        <time className="headline-confirmed-at" dateTime={data.announcement.postedAt}>{confirmationHeadlineTime(data.announcement.postedAt, locale)}</time>
+        <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>
         <span>{content.headline}</span>
       </> : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}{locale === 'en' ? '. ' : '。'}{copy.scopeSuffix}</p>
 
-      {remaining && data.resetAt ? <>
+      {!isResetConfirmed && remaining && data.resetAt ? <>
         <p className="target-time">{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></p>
         {locale === 'en' && <p className="viewer-time">{copy.localTime}: <strong>{localDateTime(data.resetAt)}</strong></p>}
         <div className="countdown" role="timer" aria-label={copy.countdown}>
@@ -187,7 +188,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
           <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state"><span className="radar" aria-hidden="true" /><div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state">{isResetConfirmed ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />

@@ -1,18 +1,18 @@
 {
-  "kind": "reset",
-  "status": "monitoring",
-  "headline": "Tibo hints at a possible Codex reset tomorrow",
-  "resetAt": null,
-  "sourceTimezone": null,
-  "originalTimeText": "tomorrow",
-  "scope": "Codex users; exact plan coverage was not stated",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "A fresh Codex usage reset has landed",
+  "resetAt": "2026-08-29T21:30:00.000Z",
+  "sourceTimezone": "PST in the reply; interpreted as Pacific local time (PDT, UTC−7 in August)",
+  "originalTimeText": "Landing 2:30pm PST",
+  "scope": "All paid users of Codex and ChatGPT Work",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "Looking at the dashboard we might hit a new milestone to celebrate tomorrow. Hold on to your Codex",
-    "translation": "Tibo 表示，从后台数据来看，明天可能会达到一个值得庆祝的新里程碑，并提醒大家先留住自己的 Codex 额度。",
-    "url": "https://x.com/thsottiaux/status/2093573991965557198",
-    "postedAt": "2026-08-29T05:38:31.000Z"
+    "text": "We are reseting usage for all paid users of Codex and ChatGPT Work. Please continue reading for an update on Codex usage limits.",
+    "translation": "我们正在为所有 Codex 与 ChatGPT Work 付费用户重置使用额度。请继续阅读 Codex 使用额度的更新说明。",
+    "url": "https://x.com/thsottiaux/status/2093801758665715784",
+    "postedAt": "2026-08-29T20:43:34.000Z"
   },
-  "updatedAt": "2026-08-29T05:50:13.837Z",
-  "note": "原帖使用 might 且没有直接写 reset，也没有给出具体时间、时区或适用套餐。结合其里程碑庆祝与保留 Codex 额度的措辞，本站将其记录为可能发生重置的提示，但不生成倒计时，也不将 2026 年 8 月 30 日描述为已确认的重置日期。"
+  "updatedAt": "2026-08-30T00:23:50.185Z",
+  "note": "Tibo 在主帖中明确表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在紧接着的作者回复中写明“Landing 2:30pm PST”。本站按其所在地 8 月实际采用的太平洋夏令时间 PDT（UTC−7）换算，将公开落地时间记录为 2026-08-29 21:30 UTC，即北京时间 2026-08-30 05:30。由于作者写的是 PST，若严格按 UTC−8 字面换算则为北京时间 06:30；这一小时差异属于编辑解释，页面予以保留说明。"
 }

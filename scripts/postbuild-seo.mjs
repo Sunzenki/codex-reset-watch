@@ -52,12 +52,13 @@ function displayDate(value, locale) {
 function confirmedHeadline(locale) {
   const copy = locales[locale];
   const config = locales[locale];
+  const hasLandingTime = Boolean(current.resetAt);
   const timestamp = new Intl.DateTimeFormat(config.intl, {
     year: 'numeric', month: locale === 'en' ? 'short' : 'numeric', day: 'numeric',
     hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
-  }).format(new Date(current.announcement.postedAt));
-  if (locale === 'en') return `${timestamp} UTC confirmed: ${copy.confirmedResetHeadline}`;
-  return `${timestamp} ${locale === 'zh-TW' ? '確認' : '确认'}：${copy.confirmedResetHeadline}`;
+  }).format(new Date(current.resetAt ?? current.announcement.postedAt));
+  if (locale === 'en') return `${timestamp} UTC ${hasLandingTime ? 'landed' : 'confirmed'}: ${copy.confirmedResetHeadline}`;
+  return `${timestamp} ${hasLandingTime ? '落地' : locale === 'zh-TW' ? '確認' : '确认'}：${copy.confirmedResetHeadline}`;
 }
 
 function currentHeadline(locale) {
