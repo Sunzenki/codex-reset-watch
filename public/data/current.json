@@ -1,18 +1,18 @@
 {
-  "kind": "reset_confirmed",
+  "kind": "reset",
   "status": "confirmed",
-  "headline": "A fresh Codex usage reset has landed",
-  "resetAt": "2026-08-29T21:30:00.000Z",
-  "sourceTimezone": "PST in the reply; interpreted as Pacific local time (PDT, UTC−7 in August)",
-  "originalTimeText": "Landing 2:30pm PST",
-  "scope": "All paid users of Codex and ChatGPT Work",
+  "headline": "Codex reset scheduled for 6 PM Pacific",
+  "resetAt": "2026-08-31T02:00:00.000Z",
+  "sourceTimezone": "PST (UTC−8, as written)",
+  "originalTimeText": "Your Codex and ChatGPT Work reset will land at 6pm PST",
+  "scope": "Codex and ChatGPT Work users; exact plan coverage was not stated",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "We are reseting usage for all paid users of Codex and ChatGPT Work. Please continue reading for an update on Codex usage limits.",
-    "translation": "我们正在为所有 Codex 与 ChatGPT Work 付费用户重置使用额度。请继续阅读 Codex 使用额度的更新说明。",
-    "url": "https://x.com/thsottiaux/status/2093801758665715784",
-    "postedAt": "2026-08-29T20:43:34.000Z"
+    "text": "Your Codex and ChatGPT Work reset will land at 6pm PST. I challenge you to burn as much usage as you can and discover and the latest awesome features. Time to go /fast",
+    "translation": "你的 Codex 与 ChatGPT Work 重置将在 PST 下午 6 点到来。Tibo 鼓励大家尽量使用额度、探索最新功能，并开启 /fast。",
+    "url": "https://x.com/thsottiaux/status/2094144275957350900",
+    "postedAt": "2026-08-30T19:24:37.000Z"
   },
-  "updatedAt": "2026-08-30T00:23:50.185Z",
-  "note": "Tibo 在主帖中明确表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在紧接着的作者回复中写明“Landing 2:30pm PST”。本站按其所在地 8 月实际采用的太平洋夏令时间 PDT（UTC−7）换算，将公开落地时间记录为 2026-08-29 21:30 UTC，即北京时间 2026-08-30 05:30。由于作者写的是 PST，若严格按 UTC−8 字面换算则为北京时间 06:30；这一小时差异属于编辑解释，页面予以保留说明。"
+  "updatedAt": "2026-08-31T00:29:57.625Z",
+  "note": "Tibo 明确给出 6pm PST，但没有说明具体套餐范围。本站按原文 PST（UTC−8）字面换算，将目标时间记录为 2026-08-31 02:00 UTC，即 GMT+8 的 10:00。由于美国西海岸 8 月实际采用 PDT（UTC−7），如果作者只是用 PST 泛指太平洋当地时间，则可能对应 GMT+8 的 09:00；这一小时歧义在页面保留说明。目前未发现作者的后续更正。"
 }

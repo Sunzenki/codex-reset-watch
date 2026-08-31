@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-08-29-230pm-pacific",
+    "targetAt": "2026-08-29T21:30:00.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "PST in the reply; interpreted as Pacific local time (PDT, UTC−7 in August)",
+    "originalTimeText": "Landing 2:30pm PST",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "We are reseting usage for all paid users of Codex and ChatGPT Work. Please continue reading for an update on Codex usage limits.",
+      "translation": "我们正在为所有 Codex 与 ChatGPT Work 付费用户重置使用额度。请继续阅读 Codex 使用额度的更新说明。",
+      "url": "https://x.com/thsottiaux/status/2093801758665715784",
+      "postedAt": "2026-08-29T20:43:34.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo 在主帖中表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在作者回复中给出 2:30pm PST 的落地时间。本站按 8 月当地实际采用的 PDT（UTC−7）记录为 21:30 UTC；若严格按 PST 字面换算则晚一小时。未发现后续延期或修正。",
+    "recordedAt": "2026-08-31T00:25:34.468Z"
+  },
+  {
     "id": "reset-2026-08-25-plus-five-hour-rollout",
     "targetAt": "2026-08-25T14:36:59.198Z",
     "precision": "estimated",
