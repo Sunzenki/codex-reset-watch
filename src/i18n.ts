@@ -24,7 +24,7 @@ export const ui = {
     railStart: 'Post published', railEnd: 'Expected reset', waitingTitle: 'Waiting for the next verified public update',
     waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', untimedHintTitle: 'Waiting for further details', untimedHintBody: 'The wording points toward a possible milestone reset tomorrow. A countdown will appear only if a usable time is published.',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
-    resetConfirmedTitle: 'Announced landing time: 2:30 PM Pacific', resetConfirmedBody: 'Tibo said usage was being reset for every paid Codex and ChatGPT Work user, then gave 2:30 PM PST as the landing time.',
+    resetConfirmedTitle: 'Tibo has confirmed that the reset landed', resetConfirmedBody: 'The confirmation post says usage was reset for all paid ChatGPT Work and Codex subscriptions. The earlier 10:00 GMT+8 target was a forecast, not a measured backend execution time; this page uses the post timestamp as the public confirmation time.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View original post', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
@@ -53,7 +53,7 @@ export const ui = {
     railStart: '原帖发布', railEnd: '预计重置', waitingTitle: '等待下一条经过核对的公开预告',
     waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', untimedHintTitle: '等待进一步消息', untimedHintBody: '原帖措辞指向明天可能进行一次里程碑重置；只有出现可用的公开时间后，本站才会显示倒计时。',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
-    resetConfirmedTitle: '公开落地时间：太平洋时间下午 2:30', resetConfirmedBody: 'Tibo 表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，随后给出下午 2:30 PST 的落地时间。',
+    resetConfirmedTitle: 'Tibo 已确认本轮重置落地', resetConfirmedBody: '确认帖表示，ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。此前 GMT+8 10:00 是预告目标时间，不是后台实测执行时刻；本页将原帖发布时间作为公开确认时间。',
     factOriginal: '原帖措辞', factZone: '原始时区', factTiming: '时间依据', factConfirmation: '确认依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看原帖', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
@@ -82,7 +82,7 @@ export const ui = {
     railStart: '原帖發佈', railEnd: '預計重置', waitingTitle: '等待下一則經過核對的公開預告',
     waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', untimedHintTitle: '等待進一步消息', untimedHintBody: '原帖措辭指向明天可能進行一次里程碑重置；只有出現可用的公開時間後，本站才會顯示倒數計時。',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
-    resetConfirmedTitle: '公開落地時間：太平洋時間下午 2:30', resetConfirmedBody: 'Tibo 表示正在為所有 Codex 與 ChatGPT Work 付費使用者重置額度，隨後提供下午 2:30 PST 的落地時間。',
+    resetConfirmedTitle: 'Tibo 已確認本輪重置落地', resetConfirmedBody: '確認帖表示，ChatGPT Work 與 Codex 的所有付費訂閱都已重置使用額度。先前 GMT+8 10:00 是預告目標時間，不是後台實測執行時刻；本頁將原帖發佈時間作為公開確認時間。',
     factOriginal: '原帖措辭', factZone: '原始時區', factTiming: '時間依據', factConfirmation: '確認依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看原帖', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
@@ -104,22 +104,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   en: {
-    headline: 'Codex reset scheduled for 6 PM Pacific',
-    scope: 'Codex and ChatGPT Work users; exact plan coverage was not stated',
-    context: 'Tibo said the next Codex and ChatGPT Work reset would land at 6 PM PST and encouraged users to spend their available usage exploring the latest features with /fast.',
-    note: 'CRW follows the post’s literal PST wording (UTC−8) and counts down to 02:00 UTC on August 31. Because the US West Coast was observing PDT (UTC−7), the time could be 01:00 UTC if Tibo used PST loosely to mean Pacific local time. No later correction was found.',
+    headline: 'Codex and ChatGPT Work usage reset confirmed',
+    scope: 'All paid ChatGPT Work and Codex subscriptions',
+    context: 'Tibo confirmed that usage had now been reset for all paid ChatGPT Work and Codex subscriptions.',
+    note: 'The earlier announcement targeted 10:00 GMT+8 (02:00 UTC) when its literal PST wording was converted, but that was a forecast rather than a measured backend execution time. This page uses the confirmation post timestamp, 02:29:25 UTC on August 31, as the public confirmation time.',
   },
   'zh-CN': {
-    headline: 'Codex 重置预告为太平洋时间下午 6 点',
-    scope: 'Codex 与 ChatGPT Work 用户；原帖未说明具体套餐范围',
-    context: 'Tibo 表示下一次 Codex 与 ChatGPT Work 重置将在 PST 下午 6 点到来，并鼓励用户使用现有额度，通过 /fast 探索最新功能。',
-    note: '本站按原文 PST（UTC−8）字面换算，倒计时目标为 UTC 8 月 31 日 02:00、GMT+8 的 10:00。美国西海岸 8 月实际采用 PDT（UTC−7）；若作者只是用 PST 泛指太平洋当地时间，则可能对应 GMT+8 的 09:00。目前未发现后续修正。',
+    headline: 'Codex 与 ChatGPT Work 使用额度已确认重置',
+    scope: 'ChatGPT Work 与 Codex 的所有付费订阅',
+    context: 'Tibo 确认，ChatGPT Work 与 Codex 的所有付费订阅现在都已经重置了使用额度。',
+    note: '此前预告按原文 PST（UTC−8）字面换算的目标时间为 GMT+8 10:00（UTC 02:00），但那是预告目标，不是后台实测执行时刻。本页使用 8 月 31 日 10:29:25（UTC 02:29:25）的确认帖发布时间作为公开确认时间。',
   },
   'zh-TW': {
-    headline: 'Codex 重置預告為太平洋時間下午 6 點',
-    scope: 'Codex 與 ChatGPT Work 使用者；原帖未說明具體方案範圍',
-    context: 'Tibo 表示下一次 Codex 與 ChatGPT Work 重置將於 PST 下午 6 點到來，並鼓勵使用者運用現有額度，透過 /fast 探索最新功能。',
-    note: '本站按原文 PST（UTC−8）字面換算，倒數目標為 UTC 8 月 31 日 02:00、GMT+8 的 10:00。美國西海岸 8 月實際採用 PDT（UTC−7）；若作者只是用 PST 泛指太平洋當地時間，則可能對應 GMT+8 的 09:00。目前未發現後續修正。',
+    headline: 'Codex 與 ChatGPT Work 使用額度已確認重置',
+    scope: 'ChatGPT Work 與 Codex 的所有付費訂閱',
+    context: 'Tibo 確認，ChatGPT Work 與 Codex 的所有付費訂閱現在都已經重置了使用額度。',
+    note: '先前預告按原文 PST（UTC−8）字面換算的目標時間為 GMT+8 10:00（UTC 02:00），但那是預告目標，不是後台實測執行時間。本頁使用 8 月 31 日 10:29:25（UTC 02:29:25）的確認帖發佈時間作為公開確認時間。',
   },
 };
 
@@ -169,7 +169,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
 export function localizedSourceTimezone(value: string | null, locale: Locale) {
   if (!value) return locale === 'en' ? 'Not provided' : locale === 'zh-TW' ? '未提供' : '未提供';
   if (value.startsWith('PST')) return locale === 'en' ? 'PST (UTC−8, as written)' : locale === 'zh-TW' ? 'PST（UTC−8，按原文）' : 'PST（UTC−8，按原文）';
-  if (value.includes('机器时间戳')) return locale === 'en' ? 'UTC (X timestamp)' : locale === 'zh-TW' ? 'UTC（X 時間戳）' : 'UTC（X 机器时间戳）';
+  if (value.includes('机器时间戳') || value.includes('X timestamp')) return locale === 'en' ? 'UTC (X timestamp)' : locale === 'zh-TW' ? 'UTC（X 時間戳）' : 'UTC（X 机器时间戳）';
   if (value.startsWith('Site observation timestamp')) return locale === 'en' ? 'Site observation timestamp (UTC)' : locale === 'zh-TW' ? '本站觀察記錄時間（UTC）' : '本站观察记录时间（UTC）';
   if (value.includes('相对原帖')) return locale === 'en' ? 'Relative to the post timestamp' : locale === 'zh-TW' ? '相對於原帖發佈時間' : '相对原帖发布时间';
   if (value.startsWith('Relative date from X post')) return locale === 'en' ? 'Relative date; no time zone specified' : locale === 'zh-TW' ? '相對日期；未提供時區' : '相对日期；未提供时区';

@@ -1,18 +1,18 @@
 {
-  "kind": "reset",
+  "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "Codex reset scheduled for 6 PM Pacific",
-  "resetAt": "2026-08-31T02:00:00.000Z",
-  "sourceTimezone": "PST (UTC−8, as written)",
-  "originalTimeText": "Your Codex and ChatGPT Work reset will land at 6pm PST",
-  "scope": "Codex and ChatGPT Work users; exact plan coverage was not stated",
+  "headline": "Codex and ChatGPT Work usage reset confirmed",
+  "resetAt": null,
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "we have now reset usage for all paid subscriptions for ChatGPT Work and Codex",
+  "scope": "All paid ChatGPT Work and Codex subscriptions",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "Your Codex and ChatGPT Work reset will land at 6pm PST. I challenge you to burn as much usage as you can and discover and the latest awesome features. Time to go /fast",
-    "translation": "你的 Codex 与 ChatGPT Work 重置将在 PST 下午 6 点到来。Tibo 鼓励大家尽量使用额度、探索最新功能，并开启 /fast。",
-    "url": "https://x.com/thsottiaux/status/2094144275957350900",
-    "postedAt": "2026-08-30T19:24:37.000Z"
+    "text": "What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex.\n\nSee you see for more news from The Reset Company.",
+    "translation": "我昨天想说的是，我们已经达到 2500 万活跃用户。为此庆祝，我们现在已经为 ChatGPT Work 和 Codex 的所有付费订阅重置了使用额度。\n\n关于 The Reset Company 的更多消息，回头见。",
+    "url": "https://x.com/thsottiaux/status/2094251180121854309",
+    "postedAt": "2026-08-31T02:29:25.000Z"
   },
-  "updatedAt": "2026-08-31T00:29:57.625Z",
-  "note": "Tibo 明确给出 6pm PST，但没有说明具体套餐范围。本站按原文 PST（UTC−8）字面换算，将目标时间记录为 2026-08-31 02:00 UTC，即 GMT+8 的 10:00。由于美国西海岸 8 月实际采用 PDT（UTC−7），如果作者只是用 PST 泛指太平洋当地时间，则可能对应 GMT+8 的 09:00；这一小时歧义在页面保留说明。目前未发现作者的后续更正。"
+  "updatedAt": "2026-08-31T02:35:17.101Z",
+  "note": "Tibo 在确认帖中使用完成式措辞，明确表示已为所有 ChatGPT Work 与 Codex 的付费订阅重置使用额度。本轮预告目标曾按原文 PST（UTC−8）字面换算为 2026-08-31 02:00 UTC，即 GMT+8 10:00；这只是预告目标时间，不等同于后台实际执行时刻。当前记录使用 X 确认帖发布时间 2026-08-31 02:29:25 UTC 作为公开确认时间。"
 }
