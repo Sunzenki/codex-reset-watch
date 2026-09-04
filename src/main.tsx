@@ -10,7 +10,7 @@ type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
 type Announcement = { source: string; text: string; translation?: string; url: string; postedAt: string };
 type CurrentReset = {
-  kind?: 'reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
+  kind?: 'reset' | 'banked_reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
   updatedAt: string; note?: string;
 };
@@ -164,6 +164,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const effectiveStatus: Status = remaining?.total === 0 && data.resetAt ? 'reached' : data.status;
   const isRolloutObserved = data.kind === 'rollout_observed';
   const isResetConfirmed = data.kind === 'reset_confirmed';
+  const isBankedReset = data.kind === 'banked_reset';
   const isUntimedHint = data.kind === 'reset' && data.status === 'monitoring' && !data.resetAt && Boolean(data.announcement);
   const isLatestUpdate = isRolloutObserved || isResetConfirmed;
   const isReached = effectiveStatus === 'reached' && !isLatestUpdate;
@@ -172,24 +173,24 @@ function CurrentPage({ locale }: { locale: Locale }) {
   return <main id="content">
     <section className="hero-panel">
       <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
-      <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : copy.nextLabel}</p>
+      <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
         <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>
         <span>{content.headline}</span>
-      </> : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
-      <p className="scope">{content.scope}{locale === 'en' ? '. ' : '。'}{copy.scopeSuffix}</p>
+      </> : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      <p className="scope">{content.scope}</p>
 
       {!isResetConfirmed && !isReached && remaining && data.resetAt ? <>
         <p className="target-time">{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></p>
         {locale === 'en' && <p className="viewer-time">{copy.localTime}: <strong>{localDateTime(data.resetAt)}</strong></p>}
-        <div className="countdown" role="timer" aria-label={copy.countdown}>
+        <div className="countdown" role="timer" aria-label={isBankedReset ? copy.bankedCountdown : copy.countdown}>
           <Time value={remaining.days} label={copy.units.days} /><i>:</i><Time value={remaining.hours} label={copy.units.hours} /><i>:</i><Time value={remaining.minutes} label={copy.units.minutes} /><i>:</i><Time value={remaining.seconds} label={copy.units.seconds} />
         </div>
         {progress !== null && <div className="time-rail">
-          <div className="rail-labels"><span>{copy.railStart}</span><span>{copy.railEnd}</span></div>
+          <div className="rail-labels"><span>{copy.railStart}</span><span>{isBankedReset ? copy.bankedRailEnd : copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state">{isResetConfirmed ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isReached ? copy.reachedTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state">{isResetConfirmed ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isBankedReset && isReached ? copy.bankedReachedTitle : isReached ? copy.reachedTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isBankedReset && isReached ? copy.bankedReachedBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />

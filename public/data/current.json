@@ -1,18 +1,18 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "Codex and ChatGPT Work usage reset confirmed",
-  "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "we have now reset usage for all paid subscriptions for ChatGPT Work and Codex",
-  "scope": "All paid ChatGPT Work and Codex subscriptions",
+  "kind": "banked_reset",
+  "status": "estimated",
+  "headline": "Banked reset expected in about three hours",
+  "resetAt": "2026-09-04T02:12:09.000Z",
+  "sourceTimezone": "相对原帖发布时间",
+  "originalTimeText": "First one will land in ~ 3 hours",
+  "scope": "Paid ChatGPT users who do not yet have Astra access",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X",
-    "text": "What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex.\n\nSee you see for more news from The Reset Company.",
-    "translation": "我昨天想说的是，我们已经达到 2500 万活跃用户。为此庆祝，我们现在已经为 ChatGPT Work 和 Codex 的所有付费订阅重置了使用额度。\n\n关于 The Reset Company 的更多消息，回头见。",
-    "url": "https://x.com/thsottiaux/status/2094251180121854309",
-    "postedAt": "2026-08-31T02:29:25.000Z"
+    "text": "We will give one banked reset for every day you don't have access to Astra on your paid ChatGPT plan, starting today. Team is moving mountains to give access as fast as we can.\n\nFirst one will land in ~ 3 hours. There is still time to create your account if you don't have one.",
+    "translation": "从今天开始，在你的付费 ChatGPT 方案尚未获得 Astra 使用权限的每一天，我们都会提供一次可自行选择使用的储备重置机会。团队正在全力以赴，尽快开放访问权限。\n\n第一次将在大约 3 小时后到账。如果你还没有账号，现在仍有时间创建。",
+    "url": "https://x.com/thsottiaux/status/2095651088502591861",
+    "postedAt": "2026-09-03T23:12:09.000Z"
   },
-  "updatedAt": "2026-08-31T02:35:17.101Z",
-  "note": "Tibo 在确认帖中使用完成式措辞，明确表示已为所有 ChatGPT Work 与 Codex 的付费订阅重置使用额度。本轮预告目标曾按原文 PST（UTC−8）字面换算为 2026-08-31 02:00 UTC，即 GMT+8 10:00；这只是预告目标时间，不等同于后台实际执行时刻。当前记录使用 X 确认帖发布时间 2026-08-31 02:29:25 UTC 作为公开确认时间。"
+  "updatedAt": "2026-09-04T01:41:08.787Z",
+  "note": "原帖使用约 3 小时这一近似相对时间。本站以原帖发布时间加 3 小时，将 2026-09-04 02:12:09 UTC（北京时间/台北时间 10:12:09）作为档案与倒计时锚点，不代表精确到账时刻。banked reset 是到账后由用户自行选择使用的储备重置机会，并非系统在该时刻强制重置额度。原帖没有说明每日计算截止点、储备规则或到期方式。"
 }

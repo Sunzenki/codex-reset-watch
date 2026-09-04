@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-08-31-all-paid-confirmed",
+    "targetAt": "2026-08-31T02:29:25.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC（X 机器时间戳）",
+    "originalTimeText": "we have now reset usage for all paid subscriptions for ChatGPT Work and Codex",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "What I wanted to say yesterday is that we hit 25M active users and to celebrate we have now reset usage for all paid subscriptions for ChatGPT Work and Codex.\n\nSee you see for more news from The Reset Company.",
+      "translation": "我昨天想说的是，我们已经达到 2500 万活跃用户。为此庆祝，我们现在已经为 ChatGPT Work 和 Codex 的所有付费订阅重置了使用额度。\n\n关于 The Reset Company 的更多消息，回头见。",
+      "url": "https://x.com/thsottiaux/status/2094251180121854309",
+      "postedAt": "2026-08-31T02:29:25.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo 使用完成式措辞，明确确认 ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。记录时间采用确认帖发布时间；这是公开确认时间，不等同于后台实际执行时刻。",
+    "recordedAt": "2026-09-04T01:24:56.148Z"
+  },
+  {
     "id": "reset-2026-08-29-230pm-pacific",
     "targetAt": "2026-08-29T21:30:00.000Z",
     "precision": "confirmed",
