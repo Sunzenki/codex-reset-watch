@@ -27,6 +27,8 @@ export async function onRequestPost({ request, env }) {
     const saved = JSON.parse(event.payload_json);
     const localized = saved.messages[delivery.locale] ?? saved.messages.en;
     let status = 0;
+    let failure = '';
+    let stage = 'payload';
     try {
       const requestDetails = await buildPushPayload({
         data: { ...localized, eventId: payload.eventId },
@@ -40,14 +42,24 @@ export async function onRequestPost({ request, env }) {
         publicKey: env.VAPID_PUBLIC_KEY,
         privateKey: env.VAPID_PRIVATE_KEY,
       });
+      stage = 'claim';
       const claimed = await env.PUSH_DB.prepare("UPDATE push_deliveries SET status = 'sending', updated_at = ? WHERE event_id = ? AND endpoint_hash = ? AND status = 'pending'")
         .bind(now, payload.eventId, delivery.endpoint_hash).run();
       if (Number(claimed.meta?.changes ?? 0) === 0) return json({ done: false, ...(await deliverySummary(env.PUSH_DB, payload.eventId)) });
-      const response = await fetch(delivery.endpoint, { ...requestDetails, redirect: 'error', signal: AbortSignal.timeout(10000) });
+      const headers = new Headers(requestDetails.headers);
+      headers.delete('content-length');
+      stage = 'fetch';
+      const response = await fetch(delivery.endpoint, {
+        method: requestDetails.method.toUpperCase(),
+        headers,
+        body: requestDetails.body,
+      });
       status = response.status;
-      await response.body?.cancel();
+      try { await response.body?.cancel(); } catch (error) { console.warn('Push response cleanup failed', error); }
     } catch (error) {
       status = error instanceof TypeError ? 598 : 599;
+      failure = `${stage}: ${error instanceof Error ? `${error.name}: ${error.message}` : 'unknown error'}`.slice(0, 240);
+      console.error('Push delivery failed', { stage, error });
     }
     const accepted = status === 201 || status === 202;
     await env.PUSH_DB.prepare('UPDATE push_deliveries SET status = ?, response_status = ?, updated_at = ? WHERE event_id = ? AND endpoint_hash = ?')
@@ -56,7 +68,7 @@ export async function onRequestPost({ request, env }) {
       await env.PUSH_DB.prepare('UPDATE subscriptions SET active = 0, updated_at = ? WHERE endpoint_hash = ?').bind(new Date().toISOString(), delivery.endpoint_hash).run();
     }
     const summary = await deliverySummary(env.PUSH_DB, payload.eventId);
-    return json({ done: summary.pending === 0, lastStatus: status, ...summary });
+    return json({ done: summary.pending === 0, lastStatus: status, lastError: failure || undefined, ...summary });
   } catch (error) {
     return json({ error: error instanceof Error ? error.message : 'Send failed' }, 400);
   }

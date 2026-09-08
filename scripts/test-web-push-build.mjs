@@ -27,4 +27,14 @@ assert.equal(request.headers['content-encoding'], 'aes128gcm');
 assert.match(request.headers.authorization, /^vapid t=.+, k=.+$/);
 assert.equal(request.headers.ttl, '300');
 assert.ok(request.body.byteLength > 0 && request.body.byteLength <= 4096);
+const headers = new Headers(request.headers);
+headers.delete('content-length');
+const outbound = new Request('https://fcm.googleapis.com/fcm/send/synthetic-build-test', {
+  method: request.method.toUpperCase(),
+  headers,
+  body: request.body,
+});
+assert.equal(outbound.method, 'POST');
+assert.equal(outbound.headers.get('content-length'), null);
+assert.equal((await outbound.arrayBuffer()).byteLength, request.body.byteLength);
 console.log('Worker-native Web Push payload generated successfully.');

@@ -111,10 +111,15 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     setBusy(true);
     try {
       for (let attempt = 0; attempt < 1100; attempt++) {
-        const result = await api<{ done: boolean; delivered: number; failed: number; pending: number }>('/api/push/send', {
+        const result = await api<{ done: boolean; delivered: number; failed: number; pending: number; lastStatus?: number; lastError?: string }>('/api/push/send', {
           method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload),
         });
-        setNotice(`已送达 ${result.delivered}，失败 ${result.failed}，待发送 ${result.pending}`);
+        const diagnostic = result.lastError
+          ? `；诊断：${result.lastError}`
+          : result.lastStatus && result.lastStatus !== 201 && result.lastStatus !== 202
+            ? `；推送服务 HTTP ${result.lastStatus}`
+            : '';
+        setNotice(`已送达 ${result.delivered}，失败 ${result.failed}，待发送 ${result.pending}${diagnostic}`);
         if (result.done) break;
       }
       await refresh();
