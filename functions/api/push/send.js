@@ -1,8 +1,10 @@
 import webpush from 'web-push';
-import { json, validAdmin, validateMessage } from '../../_lib/push.js';
+import { requireAdmin } from '../../_lib/admin.js';
+import { json, validateMessage } from '../../_lib/push.js';
 
 export async function onRequestPost({ request, env }) {
-  if (!(await validAdmin(request, env.PUSH_ADMIN_TOKEN))) return json({ error: 'Unauthorized' }, 401);
+  const denied = await requireAdmin(request, env, true);
+  if (denied) return denied;
   try {
     const payload = validateMessage(await request.json());
     const now = new Date().toISOString();

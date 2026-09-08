@@ -13,6 +13,7 @@ export default defineConfig({
       zhCNHistory: 'zh-CN/history/index.html',
       zhTW: 'zh-TW/index.html',
       zhTWHistory: 'zh-TW/history/index.html',
+      crwmaster: 'crwmaster/index.html',
     } },
   },
 });

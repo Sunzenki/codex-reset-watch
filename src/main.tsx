@@ -92,6 +92,13 @@ function App() {
     document.documentElement.lang = localeConfig[locale].htmlLang;
     document.title = isHistory ? copy.titleHistory : copy.titleCurrent;
   }, [copy, isHistory, locale]);
+  useEffect(() => {
+    if (isHistory || window.location.hash !== '#push-reminder') return;
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('push-reminder')?.scrollIntoView({ block: 'start' });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [isHistory]);
 
   return <>
     <a className="skip-link" href="#content">{copy.skip}</a>
@@ -116,6 +123,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
       <nav aria-label="Primary navigation">
         <a className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}>{copy.navCurrent}</a>
         <a className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}>{copy.navHistory}</a>
+        <a href={`${pagePath(locale, false)}#push-reminder`}>{copy.navPush}</a>
       </nav>
       <details className="language-menu">
         <summary aria-label={`${copy.language}: ${selected.label}`}><span aria-hidden="true">◎</span><b className="language-full">{selected.label}</b><b className="language-short">{selected.shortLabel}</b><i aria-hidden="true">⌄</i></summary>
@@ -297,8 +305,14 @@ function PushReminder({ locale }: { locale: Locale }) {
   }
 
   const message = state === 'on' ? copy.pushEnabled : state === 'denied' ? copy.pushDenied : state === 'unsupported' ? copy.pushUnsupported : state === 'error' ? copy.pushError : copy.pushBody;
-  return <section className="push-reminder" aria-labelledby="push-reminder-title">
-    <div className="push-icon" aria-hidden="true">◉</div>
+  return <section className="push-reminder" id="push-reminder" aria-labelledby="push-reminder-title">
+    <div className="push-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+        <path d="M6.6 9.7a5.4 5.4 0 0 1 10.8 0c0 5 2 5.2 2 6.7H4.6c0-1.5 2-1.7 2-6.7Z" />
+        <path d="M9.7 19a2.7 2.7 0 0 0 4.6 0" />
+        <path className="push-icon-signal" d="M4.1 7.2a8.3 8.3 0 0 1 1.8-3M19.9 7.2a8.3 8.3 0 0 0-1.8-3" />
+      </svg>
+    </div>
     <div><p className="section-label">{copy.pushLabel}</p><h2 id="push-reminder-title">{copy.pushTitle}</h2><p role="status">{message}</p></div>
     <button type="button" onClick={state === 'on' ? disable : enable} disabled={state === 'loading' || state === 'busy' || state === 'unsupported' || state === 'denied'}>
       {state === 'busy' || state === 'loading' ? copy.pushWorking : state === 'on' ? copy.pushDisable : copy.pushEnable}
