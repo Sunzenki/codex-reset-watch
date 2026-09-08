@@ -1,6 +1,6 @@
 # Codex Reset Watch 项目说明与维护手册
 
-> 最后整理：2026-08-28
+> 最后整理：2026-09-08
 > 项目简称：CRW
 > 线上地址：<https://crw.warpnav.com/>
 > GitHub：<https://github.com/Sunzenki/codex-reset-watch>
@@ -8,7 +8,7 @@
 
 ## 1. 项目概览
 
-Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit reset 信息站。它展示当前公开预告的预计重置时间、倒计时、额度规则变更的落地观察、原始来源和时区换算，并保存可核对的历史记录。
+Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit reset 信息站。它展示当前公开预告的预计重置时间、倒计时、额度规则变更的落地观察、原始来源和时区换算，保存可核对的历史记录，并允许访客主动订阅由站长手动发送的浏览器通知。
 
 ### 已确定的产品原则
 
@@ -19,6 +19,8 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 - 信息来源目前主要是 Tibo（`@thsottiaux`）在 X 上的公开发言。
 - 信息发现完全依靠站长日常浏览 X；不使用 X API、不爬取 X、不建立自动监控或邮件提醒。
 - 网站不会自动修改公开数据。站长发现新消息后，将原帖交给 Codex 或手动修改源码。
+- 网站更新后不会自动广播通知。只有站长登录管理后台并明确确认发送时，才向有效浏览器订阅投递消息。
+- 浏览器通知不要求用户注册账号；订阅以浏览器生成的 Push Subscription 为单位，站点只记录投递所需数据与订阅语言。
 - 预告时间到达只代表倒计时归零，不自动证明额度已经重置。
 - 官方预告、站长/用户实际观察和编辑推断是三种不同证据，页面必须明确区分。
 - 宁可暂时没有记录，也不为填满页面而补写无法验证的数据。
@@ -29,7 +31,8 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 - 不保证预告时间精确，也不代表 OpenAI 的服务承诺。
 - 不根据历史间隔自动预测下一次重置。
 - 不自动抓取、转发或全文复制 X 内容。
-- 不做登录、数据库、后台管理系统或付费功能。
+- 不做访客账号、用户画像、邮件名单、付费功能或自动营销。
+- D1 与管理登录只服务于浏览器推送；不把静态内容、历史记录或普通访客数据迁入数据库。
 
 ## 2. 技术栈与部署架构
 
@@ -38,7 +41,11 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 | 前端 | React 19 + TypeScript |
 | 构建工具 | Vite 8 |
 | 数据 | `public/data/*.json` 静态 JSON |
-| 样式 | 单一 `src/styles.css`，无 CSS 框架 |
+| 动态接口 | Cloudflare Pages Functions |
+| 推送数据 | Cloudflare D1（数据库 `crw-push`，绑定名 `PUSH_DB`） |
+| 浏览器推送 | Web Push + VAPID + Service Worker；Chrome/Brave 使用 FCM，Firefox 使用 Mozilla Push Service |
+| 管理后台 | React 独立入口 `/crwmaster/`，账号密码登录，4 小时签名会话 |
+| 样式 | `src/styles.css`（前台）+ `src/admin.css`（后台），无 CSS 框架 |
 | 多语言 | 三套独立静态入口，共享 React 组件与翻译数据 |
 | SEO 输出 | 构建后脚本生成静态快照、JSON-LD、sitemap、robots、llms.txt |
 | 广告 | Google AdSense 全站加载脚本 + 根目录 `ads.txt` |
@@ -54,7 +61,7 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 构建链路如下：
 
 ```text
-修改 JSON / 翻译 / 页面
+修改 JSON / 翻译 / 页面 / Functions
         ↓
 Git commit + push main
         ↓
@@ -67,7 +74,7 @@ npm run build
 dist/ 发布到 crw.warpnav.com
 ```
 
-`dist` 是构建时生成的产物，不需要提交到 GitHub。Cloudflare 会执行构建命令后得到该目录。
+`dist` 是构建时生成的产物，不需要提交到 GitHub。Cloudflare 会执行构建命令后得到该目录，并把 `functions/` 中匹配 `public/_routes.json` 的 API 一并部署为 Pages Functions。
 
 ## 3. 页面与 URL 结构
 
@@ -81,6 +88,8 @@ dist/ 发布到 crw.warpnav.com
 
 旧地址 `/history` 和 `/history/` 会跳转到 `/en/history/`。
 
+管理后台固定入口为 `/crwmaster/`，并使用 `noindex,nofollow,noarchive`。该路径只是降低误访问概率，**不是安全边界**；真正的保护来自 Cloudflare Secrets 中的账号密码、签名会话、同源校验与登录限速。不要在公开导航、sitemap、robots 或普通页面中加入后台链接。
+
 这里的“每种语言一套独立页面”是指每种语言有独立 URL、HTML 入口、canonical、hreflang 和静态 SEO 内容；运行时仍共享 `src/main.tsx` 和 `src/styles.css`，避免维护三套重复组件。
 
 ## 4. 关键目录与文件
@@ -91,13 +100,26 @@ codex-reset-time/
 ├─ en/                            # 英文首页与历史页入口
 ├─ zh-CN/                         # 简体中文入口
 ├─ zh-TW/                         # 繁体中文入口
+├─ crwmaster/                     # 私有推送管理后台 HTML 入口
 ├─ src/
 │  ├─ main.tsx                    # 页面组件、倒计时、数据读取、路由判断
 │  ├─ i18n.ts                     # 三语言 UI 与每条事件的本地化说明
-│  └─ styles.css                  # 当前实际 UI 设计规范与响应式样式
+│  ├─ styles.css                  # 正式网站 UI 与响应式样式
+│  ├─ admin.tsx                   # 推送后台、语言统计、通知编辑与发送记录
+│  └─ admin.css                   # 管理后台样式
+├─ functions/
+│  ├─ _lib/push.js                # 推送校验、哈希、同源与消息结构
+│  ├─ _lib/admin.js               # 管理登录、签名会话与登录限速
+│  └─ api/                        # config/subscribe/unsubscribe/send/admin 接口
+├─ migrations/
+│  ├─ 0001_push.sql               # 订阅、事件与投递表
+│  └─ 0002_admin.sql              # 后台登录失败计数表
 ├─ public/
 │  ├─ data/current.json           # 当前重置预告
 │  ├─ data/history.json           # 历史记录
+│  ├─ data/push-message.json      # 管理后台默认三语言通知草稿
+│  ├─ push-sw.js                  # 后台接收通知与点击跳转
+│  ├─ _routes.json                # 仅让 API 路径进入 Pages Functions
 │  ├─ logo.svg                    # 横向 Logo
 │  ├─ brand-mark.svg              # 小尺寸 CRW 标志
 │  ├─ favicon.* / icon-*.png      # 浏览器与 PWA 图标
@@ -109,9 +131,12 @@ codex-reset-time/
 ├─ scripts/
 │  ├─ validate-data.mjs           # 构建前 JSON 数据校验
 │  ├─ postbuild-seo.mjs           # 构建后 SEO/GEO 与静态内容生成
+│  ├─ test-web-push-build.mjs     # 离线验证 Web Crypto 推送报文，不发送网络请求
+│  ├─ send-push.mjs               # 可选的令牌式 CLI 发送工具
 │  └─ generate-brand-assets.py    # 品牌资源生成脚本
 ├─ social/wechat-xiaolvshu/       # 公众号“小绿书”推广图
-├─ vite.config.ts                 # 七个 HTML 构建入口
+├─ vite.config.ts                 # 八个 HTML 构建入口（根页、六个内容页、后台）
+├─ wrangler.jsonc                 # Pages、D1、兼容日期与非敏感变量
 ├─ package.json                   # 依赖与脚本
 └─ PROJECT-MAINTENANCE-GUIDE.md   # 本手册
 ```
@@ -143,6 +168,7 @@ codex-reset-time/
 | `reset` | 有明确或近似目标时间的普通重置预告 |
 | `rollout_observed` | 官方宣布规则变更，且已有实际账号观察到开始落地，但没有统一精确时刻 |
 | `reset_confirmed` | 原帖使用完成式措辞，明确确认重置已经发生，但没有另行给出执行时刻 |
+| `banked_reset` | 到账后由用户自行选择使用的一次储备重置机会，不是系统在目标时刻强制重置额度 |
 
 `kind` 与 `status` 不可混为一谈。`kind` 描述事件形态，`status` 描述证据/进度。`rollout_observed` 可以使用 `status: "confirmed"`，同时让 `resetAt: null`，因为“已观察到开始落地”不等于“已知所有账号的统一重置时刻”。`reset_confirmed` 同样允许 `status: "confirmed"`、`resetAt: null`：页面展示完成态，不显示倒计时，并将确认帖发布时间与后台实际执行时刻明确区分。不要为了显示倒计时而虚构 `resetAt`。
 
@@ -207,7 +233,7 @@ codex-reset-time/
 
 页面应使用与证据范围相匹配的措辞：
 
-- 只有一个账号证据时，写“一个账号已观察到”或“站长账号已观察到”。
+- 只有一个账号证据时，写“已有单个账号观察到”，不要把单点观察扩大成全量结论。
 - 有多个实际观察但没有全量确认时，写“部分用户的 Plus 账号已观察到”。
 - 没有官方全量确认时，不写“所有 Plus 账号已经重置”或确定的全量完成时间。
 - “部分用户”不等于“全量用户”；“已经开始落地”不等于“已经全部落地”。
@@ -216,6 +242,10 @@ codex-reset-time/
 2026-08-25 的 Plus 5 小时限制更新是标准范例：Tibo 的公开原帖确认将恢复规则，但没有给出统一落地时刻；随后部分用户账号观察到新重置和 5 小时窗口。因此当前事件使用 `kind: "rollout_observed"`、`status: "confirmed"`、`resetAt: null`，标题使用“已开始落地”，而不是伪造倒计时或宣称全量完成。
 
 2026-08-28 的完成确认是另一种范例：Tibo 使用完成式措辞，并明确覆盖所有 ChatGPT Work 与 Codex 用户。此时使用 `kind: "reset_confirmed"`、`status: "confirmed"`、`resetAt: null`；首页 H1 以较小的时间行写“2026 年 8 月 28 日 00:35 确认”，主体写“新一轮 Codex 重置已落地”。X 发帖时间只能称为公开确认时间，除非原帖另行说明，否则不能写成后台重置精确完成时间。
+
+2026-09-04 的 Astra 消息是 `banked_reset` 范例：`one banked reset` 指一次到账后可由用户自行决定何时点击使用的储备重置机会，不能翻译或展示成系统在倒计时结束时强制重置。原帖的 `in ~ 3 hours` 只能作为预计到账锚点。
+
+2026-09-08 的全局额度重置是“公开预告 + 站长侧实际观察”范例：Tibo 预告面向所有付费订阅，随后已有单个账号确认额度重置。页面可以写“已确认于 2026-09-08 10:00 GMT+8 左右落地”，但 `confirmationBasis: "owner_observed"` 和 `note` 仍要说明单一账号观察不能证明所有账号同步完成。PST/PDT 歧义必须保留：按原文 PST 字面换算约为 10:00，若作者泛指当地 PDT 则约为 09:00。
 
 ### 第二步：判断时间
 
@@ -279,6 +309,15 @@ cd D:\CodeXFolder\WarpNav\codex-reset-time
 pnpm build
 ```
 
+推送相关代码有改动时还要执行：
+
+```powershell
+pnpm test:push
+pnpm exec wrangler pages functions build
+```
+
+`test:push` 只生成模拟 ECDH 接收方和临时 VAPID 密钥，验证 `aes128gcm` 加密报文与 VAPID 头，不会访问真实推送端点，也不会发出通知。
+
 构建会依次执行：
 
 1. `scripts/validate-data.mjs`
@@ -301,6 +340,15 @@ pnpm dev
 ```powershell
 pnpm preview
 ```
+
+以上两种方式只验证 Vite 前端。若要在本地同时验证 `/api/push/*`、`/api/admin/*`、D1 和 Service Worker，先构建，再通过 Wrangler 启动 Pages 环境：
+
+```powershell
+pnpm build
+pnpm exec wrangler pages dev dist
+```
+
+本地 Functions 测试仍需使用本地 Secret 配置，但不能把真实生产密钥提交到仓库。Wrangler 是 Cloudflare 的官方命令行工具，项目已将它固定在开发依赖中，应通过 `pnpm exec wrangler ...` 调用，不要求全局安装。
 
 至少检查：
 
@@ -333,6 +381,8 @@ git push origin main
 ```
 
 推送 `main` 后 Cloudflare Pages 应自动构建。进入 Cloudflare 的“部署”页面，确认最新提交显示绿色成功状态。
+
+如果本次内容更新需要通知订阅者，再进入 `/crwmaster/` 完成手动广播。代码上线与通知发送是两项独立操作；推送 GitHub 不会自动触发浏览器通知。
 
 ## 7. 将当前预告归档为历史记录
 
@@ -606,9 +656,156 @@ Windows 的 `curl`/Schannel 偶尔也可能出现 `AcquireCredentialsHandle fail
 1. 先确认 Cloudflare 部署对应的 commit SHA。
 2. 再检查 `robots.txt`、`sitemap.xml` 或页面标题是否为新版本。
 3. 使用带临时查询参数的 URL 排除浏览器/CDN 缓存。
-4. 不要在没有确认部署 SHA 前把问题归因于 DNS 或浏览器缓存。
+4. 如果后台仍加载旧的哈希资源，使用 `Ctrl+Shift+R` 强制刷新，并对照页面实际加载的 `/assets/admin-*.js` 与最新部署产物。
+5. 不要在没有确认部署 SHA 前把问题归因于 DNS 或浏览器缓存。
 
-## 15. 上线后验收清单
+## 15. 浏览器推送通知与管理后台
+
+### 15.1 架构与费用边界
+
+当前通知方案全部运行在 Cloudflare Pages 体系内，不需要自建服务器：
+
+```text
+访客点击开启提醒
+        ↓
+浏览器 PushManager 生成 endpoint、p256dh、auth
+        ↓
+Pages Function 校验并写入 D1 subscriptions
+        ↓
+站长登录 /crwmaster/ 编辑三语言消息并确认发送
+        ↓
+Pages Function 使用 VAPID + Web Crypto 生成 aes128gcm 报文
+        ↓
+FCM / Mozilla Push Service
+        ↓
+浏览器 Service Worker 显示 Windows 通知
+```
+
+浏览器 Push Service 本身不按条向本站收费。Pages Functions、D1 读写和存储消耗 Cloudflare 套餐额度；以当前娱乐小站的订阅量和手动低频发送方式，预期可维持在免费额度内，但这不是永久价格承诺。后续应以 Cloudflare 控制台和当时的官方定价为准。代码还把有效订阅数量限制为 1000，达到上限时新订阅返回 503，避免无意扩大资源消耗。
+
+### 15.2 无账号订阅是如何识别的
+
+- 用户不需要注册 CRW 账号。浏览器为当前浏览器配置文件和站点生成唯一 Push Subscription。
+- 服务端保存 `endpoint`、`p256dh`、`auth`、语言、状态和时间；`endpoint_hash` 用作数据库主键。
+- 退订令牌只把哈希存入 D1，明文令牌保存在该浏览器的 `localStorage`，供用户点击“关闭提醒”时证明有权退订。
+- 同一用户在 Chrome、Firefox、Brave 或不同设备上订阅，会形成多条独立记录，这是正常现象。
+- 订阅时所在页面决定 `locale`：`/en/`、`/zh-CN/`、`/zh-TW/`。它代表订阅时的网站语言，不等同于国籍或操作系统语言。
+- 后台“有效订阅语言分布”只统计 `active = 1`：English、简体中文、繁體中文。刷新数据或发送完成后会同步更新。
+
+当前服务端只接受以下推送服务域名，避免把 Worker 变成任意 URL 请求器：
+
+- `fcm.googleapis.com`：Chrome 与 Brave。
+- `updates.push.services.mozilla.com`：Firefox。
+
+### 15.3 前台交互
+
+- 首页导航包含“动态通知”，从首页点击会滚动到 `#push-reminder`。
+- 从历史页点击会先进入同语言首页，再定位到该板块。
+- 顶部导航在滚动时保持置顶，并使用半透明液态玻璃效果。
+- 前台根据订阅状态显示开启、关闭、权限被拒绝、不支持或失败提示。
+- `public/push-sw.js` 负责在页面关闭后接收消息；点击通知时优先复用同源窗口并跳转到消息指定语言路径。
+- 浏览器与 Windows 最终是否展示通知仍受系统通知、勿扰模式、浏览器后台运行和厂商策略影响。“已送达”只表示推送服务返回 201/202，不等于用户必然看到。
+
+Brave 需要额外注意：网站权限显示“通知已允许”仍不足以证明 Push Service 可用。如果订阅失败，打开 `brave://settings/privacy`，启用“使用 Google 服务进行推送消息”，完全退出并重启 Brave 后再试。网站不能替用户开启这项浏览器全局隐私设置。
+
+### 15.4 管理后台与 Secrets
+
+管理地址：`https://crw.warpnav.com/crwmaster/`。
+
+后台提供：
+
+- 有效、停用、累计订阅总数。
+- English、简体中文、繁體中文的有效订阅分布。
+- 三语言通知标题、正文与点击路径编辑和 Windows 外观预览。
+- 最近事件的已送达、失败与待发送数量。
+
+所有敏感配置必须保存在 Cloudflare Pages 的生产 Secrets 中，不能写入 Git、手册、截图或普通环境配置：
+
+| Secret | 用途 |
+| --- | --- |
+| `VAPID_PUBLIC_KEY` | 前端创建 Push Subscription 的应用服务器公钥 |
+| `VAPID_PRIVATE_KEY` | 服务端签名和加密推送 |
+| `PUSH_ADMIN_USERNAME` | 后台登录账号 |
+| `PUSH_ADMIN_PASSWORD` | 后台登录密码 |
+| `PUSH_ADMIN_SESSION_SECRET` | HMAC 签名 4 小时登录会话 |
+| `PUSH_ADMIN_TOKEN` | 可选 CLI 发送接口 Bearer Token |
+
+`VAPID_SUBJECT` 是非敏感变量，当前为站点 HTTPS 地址并保存在 `wrangler.jsonc`。不要随意轮换 VAPID 密钥；公钥改变后，既有浏览器订阅可能必须重新订阅。
+
+后台会话 Cookie 使用 `HttpOnly`、`SameSite=Strict` 和 HTTPS 下的 `Secure`；连续登录失败采用每个客户端哈希 15 分钟最多 5 次的限制。后台路径改名不能替代身份验证。
+
+以后修改后台密码时，在 Cloudflare Pages 项目的“设置 → 变量和机密”中更新 `PUSH_ADMIN_PASSWORD`，不要修改源码。保存后重新部署生产环境，并用旧会话退出后验证新密码；不要把密码发到公开日志或提交记录。
+
+当前 Functions API：
+
+| 路径 | 用途 |
+| --- | --- |
+| `GET /api/push/config` | 返回前端订阅所需的非敏感 VAPID 公钥 |
+| `POST /api/push/subscribe` | 保存或更新浏览器订阅及语言 |
+| `POST /api/push/unsubscribe` | 使用浏览器持有的退订令牌停用订阅 |
+| `POST /api/push/send` | 创建/继续推送事件；只接受后台会话或可选 CLI Token |
+| `POST /api/admin/login` | 校验后台账号密码并建立会话 |
+| `POST /api/admin/logout` | 注销后台会话 |
+| `GET /api/admin/session` | 检查当前后台会话 |
+| `GET /api/admin/overview` | 返回订阅总数、语言分布和近期发送记录 |
+
+### 15.5 D1 数据表
+
+| 表 | 作用 |
+| --- | --- |
+| `subscriptions` | 浏览器订阅、语言、退订凭证哈希和 active 状态 |
+| `push_events` | 事件 ID、完整三语言消息快照和创建时间 |
+| `push_deliveries` | 每个事件 × 每个订阅的 pending/sending/delivered/failed 状态 |
+| `admin_login_attempts` | 后台登录失败窗口与次数 |
+
+新环境初始化时按顺序执行 `migrations/0001_push.sql` 和 `migrations/0002_admin.sql`。生产数据库名为 `crw-push`，代码绑定名为 `PUSH_DB`。
+
+### 15.6 日常手动发送流程
+
+1. 先完成网站内容更新、构建、推送，并确认 Cloudflare 生产部署 Active。
+2. 登录 `/crwmaster/`，刷新订阅数据并查看语言分布。
+3. 使用新的事件 ID，推荐 `YYYY-MM-DD-short-label`，例如 `2026-09-08-global-reset`。
+4. 分别打开 English、简体中文、繁體中文标签，检查标题、正文与跳转路径。
+5. 语言标签只是切换编辑/预览，不代表只向该语言发送。点击一次发送时会提交三个版本，服务端按每条订阅保存的 `locale` 选择对应消息。
+6. 确认有效订阅数量和通知预览后，点击一次“确认并发送”。
+7. 等待已送达、失败、待发送归零等状态稳定，再检查 Windows 通知与点击跳转。
+
+事件 ID 是幂等键：同一 ID 只创建一次 `push_events` 和对应投递任务。重复点击不会增加“最近发送记录”，也不会重新发送已完成或失败的投递。发送新消息必须使用新 ID；如果只是修正文案，也不要复用已经创建的事件，因为数据库保留的是第一次提交的三语言消息快照。
+
+### 15.7 失败处理与安全重试
+
+- `201/202`：推送服务接受，记录为 `delivered`。
+- `404/410`：订阅已失效，投递记为失败并把订阅设为 inactive。
+- `598`：Worker 内部 `TypeError` 诊断码。
+- `599`：其他 Worker 内部异常诊断码。
+
+后台会显示最后一次失败阶段或推送服务 HTTP 状态。不能只看“失败 2”就反复点击；先确认 Windows 是否其实已经收到，避免重复通知。
+
+确实没有收到且需要重试同一事件时，可以把该事件的失败投递精确恢复为 pending：
+
+```sql
+UPDATE push_deliveries
+SET status = 'pending', response_status = NULL, updated_at = '<当前 ISO 时间>'
+WHERE event_id = '<准确事件 ID>' AND status = 'failed';
+```
+
+执行前必须核对准确事件 ID 和实际收件结果，不要写无条件批量 UPDATE。恢复状态不会自动发消息；之后仍需在后台再次确认发送。
+
+### 15.8 已解决的 Workers 兼容问题
+
+最初的 `web-push@3.6.7` 使用 Node.js `crypto.createECDH`，Cloudflare Workers 的 unenv 兼容层会报：`crypto.createECDH is not implemented yet`。当前已改用 `@block65/webcrypto-web-push@2.0.0`，基于标准 Web Crypto API 生成 RFC 8291 `aes128gcm` 报文和 VAPID 认证。
+
+第二次故障是响应处理边界不清：旧代码可能在推送服务已经接受后，因为取消响应正文流失败而覆盖 HTTP 状态并误记为 598。当前发送与响应流清理已分离，`content-length` 交由 Workers 根据 TypedArray 自动处理，并向后台返回具体失败阶段。
+
+2026-09-08 的实际验收结果：
+
+- Cloudflare Pages Worker 编译通过。
+- 离线 Web Crypto 回归测试通过。
+- 生产环境分别向 Chrome 与 Firefox 测试订阅发送，后台返回已送达 2、失败 0、待发送 0；两个浏览器都在 Windows 通知中心显示消息。
+- 本地关闭页面后的测试已确认通知仍能到达，点击正文可打开目标 URL。生产通知的展示已验收，后续每条正式消息仍应抽查点击路径。
+- Brave 在启用“使用 Google 服务进行推送消息”并重启后可以成功订阅；此前网站通知权限本身已经允许，但全局 Push Service 关闭。
+
+## 16. 上线后验收清单
 
 每次内容或功能更新后至少检查：
 
@@ -632,8 +829,13 @@ Windows 的 `curl`/Schannel 偶尔也可能出现 `AcquireCredentialsHandle fail
 - [ ] 页面仍明确标注非官方、人工整理。
 - [ ] 六个 HTML 入口各自只加载一次 AdSense 和一次 Matomo。
 - [ ] `/ads.txt` 可公开访问且内容与项目根目录文件一致。
+- [ ] `/crwmaster/` 可登录且不出现在公开导航、sitemap 或普通页面。
+- [ ] 后台订阅总数与三语言有效订阅之和一致。
+- [ ] 推送相关更新已通过 `pnpm test:push` 和 Wrangler Functions 编译。
+- [ ] 如本次需要广播，三个语言版本与事件 ID 均已人工确认；不因代码部署自动发送。
+- [ ] 推送服务返回 201/202 后，再通过至少一个真实浏览器确认 Windows 通知和点击跳转。
 
-## 16. 推广素材与文案
+## 17. 推广素材与文案
 
 ### X 推荐文案
 
@@ -669,7 +871,7 @@ https://crw.warpnav.com/
 #Codex #OpenAI #AI工具 #程序员日常 #独立开发 #效率工具 #网站分享 #AI编程
 ```
 
-## 17. 当前已确认的事实与暂时信息
+## 18. 当前已确认的事实与暂时信息
 
 ### 已确认
 
@@ -679,10 +881,13 @@ https://crw.warpnav.com/
 - 2026-08-25 相关历史提交包括：`00aaa2d`（AdSense）、`45554d9`（Matomo）、`f43aeb2`（Plus 5 小时限制落地状态）、`e8c4949`（标题与引用排版）、`1f35ab4`（手机端换行修复）。
 - Google AdSense 加载脚本已写入六个 HTML 入口；根目录 `ads.txt` 会在构建后复制到 `dist/ads.txt`。
 - Matomo JavaScript 跟踪已写入六个 HTML 入口，Site ID 为 `13`。
-- 当前页面支持没有统一目标时间的 `rollout_observed` 和 `reset_confirmed` 类型。
-- 2026-08-28 的当前事件为已完成重置确认，范围是所有 ChatGPT Work 与 Codex 用户；首页将 X 发帖时间标为“确认时间”，上一轮 Plus 5 小时限制落地记录已归入历史。
+- 当前页面支持 `reset`、`banked_reset`、没有统一目标时间的 `rollout_observed` 和 `reset_confirmed` 类型。
+- 2026-09-04 的 Astra `banked reset` 已归档；它是可自行选择使用的储备重置机会，不是系统强制重置。
+- 2026-09-08 的当前事件为面向所有付费订阅的全局额度重置，已有单个账号观察到落地；页面采用 GMT+8 10:00 左右，同时在备注保留 PST/PDT 与单账号证据边界。
 - 网站支持英文、简体中文和繁体中文。
 - OG 图片和 Twitter/X 卡片标签已经配置。
+- 浏览器推送 MVP、D1、受保护管理后台和三语言订阅统计已经部署；生产真实投递已在 Chrome 和 Firefox 显示，Brave 在开启其全局 Google Push 服务后可订阅。
+- 管理后台只把用户名、密码和密钥读取为 Cloudflare Secrets；仓库中不保存真实值。
 
 GitHub 推送成功只证明远端分支状态，不等于已经独立验证生产部署；每次上线仍应检查 Cloudflare 当前部署 SHA，并核对线上页面与数据文件。
 
@@ -704,7 +909,7 @@ GitHub 推送成功只证明远端分支状态，不等于已经独立验证生�
 
 这些判断必须写入备注，让读者能够理解换算依据。
 
-## 18. 后续 Codex 接手时的操作要求
+## 19. 后续 Codex 接手时的操作要求
 
 新的维护任务开始时，先阅读本文件，再查看实际代码和最新 Git 状态。不要只依赖旧对话摘要。
 
@@ -722,8 +927,13 @@ GitHub 推送成功只证明远端分支状态，不等于已经独立验证生�
 10. 如果工作区已有用户未提交修改，保留并避开无关内容。使用精确路径 `git add`，不要用 `git add .`。
 11. 对响应式问题优先找具体 CSS 根因。不要为了强制单行而引入截断，也不要为了修一个字号问题全局缩小文字。
 12. 不要把广告 iframe 的浏览器干预警告自动归因于本站代码；先完成加载次数、请求来源和 `ads.txt` 的分层检查。
+13. 通知文案必须同步检查三个语言标签；当前标签是编辑切换器，不是单语言发送选择器。
+14. 新通知必须使用新事件 ID。重复 ID 不会新增发送记录；不要通过反复点击猜测是否重试成功。
+15. 任何真实推送测试都属于外部消息发送，必须得到用户对本次发送的明确授权；状态修复和只读查询不能被当作发送授权。
+16. 不要打印、提交或在普通文档中记录后台密码、VAPID 私钥、会话密钥、Bearer Token、订阅 endpoint、`p256dh` 或 `auth`。
+17. 遇到 `598/599` 时先读取具体失败阶段并确认客户端是否实际收到，再决定是否把精确事件的 failed 状态恢复为 pending。
 
-## 19. 快速维护命令
+## 20. 快速维护命令
 
 ```powershell
 # 进入项目
@@ -738,6 +948,12 @@ pnpm dev
 # 完整校验与生产构建
 pnpm build
 
+# 推送报文离线回归（不会发送通知）
+pnpm test:push
+
+# 验证 Pages Functions 能在 Workers 运行时编译
+pnpm exec wrangler pages functions build
+
 # 查看生产构建
 pnpm preview
 
@@ -745,8 +961,69 @@ pnpm preview
 git add <本次修改的文件>
 git commit -m "Update Codex reset information"
 git push origin main
+
+# 查看最新 Pages 生产部署 SHA 与状态
+pnpm exec wrangler pages deployment list --project-name codex-reset-watch
 ```
 
 提交前先执行 `git diff --check -- <本次修改的文件>`，提交后执行 `git status --short --branch`，确认没有误纳入用户的其他修改。
 
 完成推送通常不等于完成上线。除非用户明确要求暂不检查，最后一步应确认 Cloudflare 最新生产部署成功，并在线检查页面、数据文件、哈希化 CSS/JS、广告统计代码和 SEO 输出。
+
+## 21. 2026-09-08 工作纪要
+
+本节记录当天已落地的产品和维护决策，方便以后在没有聊天上下文时恢复背景。长期规则仍以前文对应章节为准。
+
+### 内容更新
+
+- 核对并整理 Tibo 关于 Astra 每日 `banked reset` 的帖子；明确 `banked reset` 是到账后可由用户选择点击的一次重置机会，不是系统按时强制重置。
+- 修正手机端过长标题和范围文案，避免 H1 被裁切；删除首页范围说明中不必要的“本站为人工整理，非 OpenAI 官方信息”重复句。
+- 核对 2026-09-08 两条新帖子，并结合单个账号的实际观察，把当前事件更新为直接额度重置已落地。
+- 页面最终使用“已确认于 GMT+8 10:00 左右落地”和完整日期 `2026-09-08 10:00 GMT+8`，范围为所有付费订阅，同时保留 PST/PDT 歧义和证据边界。
+- 归档 2026-09-04 的 Astra 储备重置记录；当前历史总数为 13 条。
+- 为该消息编写过简体中文和英文 X 推文建议及标签，但没有由站点自动发帖。
+
+### 通知方案与费用决策
+
+- 确认 Cloudflare Pages 可以继续托管整个网站；动态部分使用 Pages Functions 和 D1，不需要自建服务器。
+- 采用免注册的浏览器 Push Subscription：浏览器产生 endpoint 与密钥，D1 保存投递信息，VAPID 证明消息来自本站。
+- 通知保持站长手动触发，不跟随 GitHub/Cloudflare 部署自动发送，避免误报和无意成本。
+- 方案以免费额度内的小流量娱乐站为目标，并在代码中限制最多 1000 个有效订阅；未来费用与限额必须重新查看 Cloudflare 当时的官方说明。
+- 已形成中文实施计划文档 `浏览器重置提醒功能实施计划.md`，实现状态和实际维护规则以本手册为准。
+
+### 前台与导航
+
+- 首页新增“额度重置浏览器提醒”板块和开启/关闭按钮，使用线性 SVG 铃铛，不使用早期的字符图标。
+- 顶部导航新增“动态通知”；历史页点击会跳到同语言首页的 `#push-reminder`，首页载入后主动滚动定位。
+- 页面滚动时导航保持置顶，采用半透明液态玻璃效果。
+- 已在本地验证：关闭测试标签页后仍可收到 Windows 通知，点击通知正文可重新打开目标页面。
+
+### 管理后台
+
+- 新增私有入口 `/crwmaster/`；`/admin` 不作为正式入口。路径隐藏只用于减少误访问，认证仍由 Secrets 和签名会话负责。
+- 新增账号密码登录、4 小时 HttpOnly 会话、同源校验、15 分钟 5 次失败限制、退出登录和登录状态检查。
+- 后台可查看有效/停用/累计订阅，编辑三语言消息、预览 Windows 通知并查看最近事件投递状态。
+- 语言标签只切换编辑内容；一次发送会根据订阅时保存的语言自动选择 English、简体中文或繁體中文版本。
+- 新增有效订阅语言分布统计，当前值随数据库变化，不在手册中硬编码。
+- 后台凭据与 VAPID 密钥保存在 Cloudflare Secrets，未写入仓库。以后修改密码应更新 Secret 并重新部署。
+
+### Cloudflare 与真实投递排障
+
+- 初版使用 `web-push@3.6.7`，生产 Worker 报 `[unenv] crypto.createECDH is not implemented yet!`。
+- 改用 `@block65/webcrypto-web-push@2.0.0` 和 Web Crypto 后，解决 Node `createECDH` 不兼容。
+- 第二轮测试出现两条 `598`。进一步发现旧响应流清理可能覆盖真实发送状态；发送请求、HTTP 状态与清理异常现已分离，并增加后台阶段诊断。
+- 同一事件 ID 不会新增发送记录；失败投递曾通过精确 SQL 恢复为 pending，再由用户明确授权执行真实重试。
+- 最终生产测试返回已送达 2、失败 0、待发送 0；Chrome 与 Firefox 均显示 Windows 通知。
+- Brave 首次订阅失败时，网站权限已经允许；根因是浏览器全局“使用 Google 服务进行推送消息”未启用。开启并重启 Brave 后订阅成功。
+- Windows 命令行访问 Cloudflare API 曾短暂出现 TLS handshake / `fetch failed`；改用 Chrome 中的 D1 控制台完成精确状态修复。此类本机网络故障不能直接解释为线上站点故障。
+
+### 当天生产提交
+
+| 提交 | 内容 |
+| --- | --- |
+| `6a3cc8e` | 更新 9 月 8 日全局额度重置与 9 月 4 日储备重置归档 |
+| `6158a4d` | 浏览器推送通知 MVP、D1、Service Worker 与三语言消息 |
+| `2dd4b06` | 受保护管理后台、`/crwmaster/`、导航与前台交互完善 |
+| `36e1d6a` | 使用 Web Crypto 修复 Cloudflare Workers 加密兼容性 |
+| `7176819` | 加固推送传输、响应处理与故障诊断 |
+| `e049f2e` | 后台增加有效订阅语言分布 |
