@@ -1,3 +1,5 @@
+import seoMetadata from './seo-metadata.json';
+
 export type Locale = 'en' | 'zh-CN' | 'zh-TW';
 
 export const localeOptions: { code: Locale; label: string; shortLabel: string }[] = [
@@ -15,7 +17,7 @@ export const localeConfig: Record<Locale, { intl: string; timeZone: string; html
 export const ui = {
   en: {
     skip: 'Skip to main content', navCurrent: 'Latest update', navHistory: 'History', navPush: 'Notifications', navMenu: 'Menu', navMenuClose: 'Close menu', language: 'Language',
-    titleCurrent: 'Codex Reset Time & Countdown (UTC) | CRW', titleHistory: 'Codex Reset History | Codex Reset Watch',
+    titleCurrent: seoMetadata.en.home.title, titleHistory: seoMetadata.en.history.title,
     status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' },
     outcome: { unverified: 'Not independently verified', as_announced: 'No later correction found', revised: 'Later revised', cancelled: 'Announcement cancelled' },
     nextLabel: 'Next rate-limit reset', bankedLabel: 'Next banked reset', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
@@ -46,7 +48,7 @@ export const ui = {
   },
   'zh-CN': {
     skip: '跳到主要内容', navCurrent: '最新动态', navHistory: '历史记录', navPush: '动态通知', navMenu: '菜单', navMenuClose: '关闭菜单', language: '语言',
-    titleCurrent: 'Codex 重置时间与倒计时｜Codex Reset Watch', titleHistory: 'Codex 历史重置记录｜Codex Reset Watch',
+    titleCurrent: seoMetadata['zh-CN'].home.title, titleHistory: seoMetadata['zh-CN'].history.title,
     status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' },
     outcome: { unverified: '暂未验证', as_announced: '未发现后续修正', revised: '后续已修正', cancelled: '预告已取消' },
     nextLabel: 'Next rate-limit reset', bankedLabel: 'Next banked reset', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已落地', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
@@ -77,7 +79,7 @@ export const ui = {
   },
   'zh-TW': {
     skip: '跳到主要內容', navCurrent: '最新動態', navHistory: '歷史記錄', navPush: '動態通知', navMenu: '選單', navMenuClose: '關閉選單', language: '語言',
-    titleCurrent: 'Codex 重置時間與倒數計時｜Codex Reset Watch', titleHistory: 'Codex 歷史重置記錄｜Codex Reset Watch',
+    titleCurrent: seoMetadata['zh-TW'].home.title, titleHistory: seoMetadata['zh-TW'].history.title,
     status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' },
     outcome: { unverified: '暫未驗證', as_announced: '未發現後續修正', revised: '後續已修正', cancelled: '預告已取消' },
     nextLabel: 'Next rate-limit reset', bankedLabel: 'Next banked reset', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已落地', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',

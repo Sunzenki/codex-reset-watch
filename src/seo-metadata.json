@@ -1,0 +1,32 @@
+{
+  "en": {
+    "home": {
+      "title": "Codex Reset Time, Countdown & Alerts | Codex Reset Watch",
+      "description": "Track confirmed and upcoming Codex usage resets with a live UTC countdown, original Tibo source posts, time-zone notes, verified history, and browser alerts."
+    },
+    "history": {
+      "title": "Codex Usage Reset History | Codex Reset Watch",
+      "description": "Browse verified Codex reset history with original Tibo source posts, UTC timestamps, announced and confirmed outcomes, time-zone notes, and later corrections."
+    }
+  },
+  "zh-CN": {
+    "home": {
+      "title": "Codex 额度重置时间、倒计时与通知｜Codex Reset Watch",
+      "description": "查看 Codex 额度重置的最新确认、公开预告与预计时间，获取北京时间倒计时、Tibo 原始帖子、时区换算说明和经过核对的历史记录。你还可以免注册开启浏览器通知，在站长确认新一轮重置或规则变化后接收提醒。本站人工整理公开信息，明确区分官方表述、实际观察与尚未验证的推测，不代表 OpenAI 官方承诺。"
+    },
+    "history": {
+      "title": "Codex 历史额度重置记录与原帖｜Codex Reset Watch",
+      "description": "浏览经过核对的 Codex 历史额度重置记录，包括 Tibo 公开原帖、北京时间换算、原始预告、确认状态、储备重置机会和后续修正。每条记录保留公开来源、目标时间、记录时间与结果说明，方便追溯不同轮次的额度变化和证据边界。本站按公开信息人工整理，不根据历史间隔自动预测下一次重置，也不代表 OpenAI 官方承诺。"
+    }
+  },
+  "zh-TW": {
+    "home": {
+      "title": "Codex 額度重置時間、倒數計時與通知｜Codex Reset Watch",
+      "description": "查看 Codex 額度重置的最新確認、公開預告與預計時間，取得台北時間倒數計時、Tibo 原始貼文、時區換算說明和經過核對的歷史記錄。你也可以免註冊開啟瀏覽器通知，在站長確認新一輪重置或規則變化後接收提醒。本站人工整理公開資訊，明確區分官方表述、實際觀察與尚未驗證的推測，不代表 OpenAI 官方承諾。"
+    },
+    "history": {
+      "title": "Codex 歷史額度重置記錄與原帖｜Codex Reset Watch",
+      "description": "瀏覽經過核對的 Codex 歷史額度重置記錄，包括 Tibo 公開原帖、台北時間換算、原始預告、確認狀態、儲備重置機會和後續修正。每筆記錄保留公開來源、目標時間、記錄時間與結果說明，方便追溯不同輪次的額度變化和證據邊界。本站依公開資訊人工整理，不根據歷史間隔自動預測下一次重置，也不代表 OpenAI 官方承諾。"
+    }
+  }
+}

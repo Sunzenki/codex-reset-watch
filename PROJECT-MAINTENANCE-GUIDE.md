@@ -1,6 +1,6 @@
 # Codex Reset Watch 项目说明与维护手册
 
-> 最后整理：2026-09-08
+> 最后整理：2026-09-09
 > 项目简称：CRW
 > 线上地址：<https://crw.warpnav.com/>
 > GitHub：<https://github.com/Sunzenki/codex-reset-watch>
@@ -104,6 +104,7 @@ codex-reset-time/
 ├─ src/
 │  ├─ main.tsx                    # 页面组件、倒计时、数据读取、路由判断
 │  ├─ i18n.ts                     # 三语言 UI 与每条事件的本地化说明
+│  ├─ seo-metadata.json           # 六个公开页面的统一 SEO 标题与描述数据源
 │  ├─ styles.css                  # 正式网站 UI 与响应式样式
 │  ├─ admin.tsx                   # 推送后台、语言统计、通知编辑与发送记录
 │  └─ admin.css                   # 管理后台样式
@@ -406,11 +407,12 @@ git push origin main
 
 多语言入口不是运行时自动翻译。新增或修改文案时需要同步维护：
 
-- 六个 HTML 入口中的 title、description、OG 和 Twitter 文案（仅在通用页面定位改变时修改）。
+- `src/seo-metadata.json` 中六个页面的 SEO 标题与描述；这是运行时标题和构建后结构化数据的统一来源。
+- 六个 HTML 入口中的 title、description、OG 和 Twitter 文案。它们必须与 `seo-metadata.json` 完全一致，构建前校验会阻止遗漏。
 - `src/i18n.ts` 中的通用 UI 文案。
 - `currentCopy` 中的当前事件文案。
 - `historyCopy` 中对应历史 ID 的事件文案。
-- `scripts/postbuild-seo.mjs` 中静态快照使用的文案（如果页面的通用定位改变）。
+- `scripts/postbuild-seo.mjs` 会直接读取统一 SEO 数据源；通常不再手工复制标题或描述到脚本中。
 
 语言与时区约定：
 
@@ -562,10 +564,18 @@ Test-Path dist\ads.txt
 ### SEO 更新注意事项
 
 - 修改当前事件时，JSON-LD、静态快照和 `lastmod` 会在构建后自动更新。
-- 修改通用页面定位、站名或摘要时，还要同步修改六个 HTML 文件和 `postbuild-seo.mjs`。
-- 不要为了 SEO 堆砌 `Codex reset` 关键词。
+- 修改通用页面定位、站名或摘要时，先修改 `src/seo-metadata.json`，再同步六个 HTML 入口；`src/i18n.ts` 和 `postbuild-seo.mjs` 会读取该统一数据源。
+- 本项目为了通过 Bing Webmaster 的描述长度检查，将每个公开页面的 meta description 固定为 **150–160 个 Unicode 解码后字符**。使用 JavaScript 的 `[...text].length` 计数，不按 UTF-8 或 GBK 字节数计算。
+- 150–160 是本项目采用的审核区间，不代表搜索结果一定完整显示。Bing 与 Google 都可能根据查询重写或截断摘要，因此描述仍应优先准确概括页面，而不是机械填字。
+- `<title>` 紧跟 charset 与 viewport 放置，方便源码检查和部分工具尽早读取；只要标签合法地位于 `<head>`，靠后本身并不是已确认的排名问题。
+- 不添加 `<meta name="keywords">`。现代搜索引擎不会依赖它确定排名；关键词应自然体现在独立标题、描述、H1 和正文中。
+- 首页语义主题：Codex 额度重置时间、倒计时、确认状态、浏览器通知；历史页语义主题：历史重置记录、Tibo 原帖、时区换算、确认结果与后续修正。
+- 不要为了 SEO 重复堆砌 `Codex reset` 或中文同义词。
+- 同一路由的 `<title>`、description、Open Graph、Twitter 和 JSON-LD 必须保持同一定位，避免搜索结果与社交分享出现互相矛盾的标题或摘要。
 - 历史数据必须有原始 URL，避免生成没有证据的结构化数据。
 - 不要把“倒计时归零”描述成已确认发生。
+
+`scripts/validate-data.mjs` 会在每次 `npm run build` 前检查：六个页面标题唯一存在、描述为 150–160 个 Unicode 字符、SEO/OG/Twitter 文案与统一数据源一致、标题位于描述之前、页面没有 meta keywords。任一条件不满足时构建会失败，避免不同入口再次漂移。
 
 ### 静态快照与运行时文案的校验边界
 
