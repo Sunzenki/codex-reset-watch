@@ -1,4 +1,4 @@
-import webpush from 'web-push';
+import { buildPushPayload } from '@block65/webcrypto-web-push';
 import { requireAdmin } from '../../_lib/admin.js';
 import { json, validateMessage } from '../../_lib/push.js';
 
@@ -23,23 +23,31 @@ export async function onRequestPost({ request, env }) {
       return json({ done: true, ...summary });
     }
 
-    await env.PUSH_DB.prepare("UPDATE push_deliveries SET status = 'sending', updated_at = ? WHERE event_id = ? AND endpoint_hash = ? AND status = 'pending'")
-      .bind(now, payload.eventId, delivery.endpoint_hash).run();
     const event = await env.PUSH_DB.prepare('SELECT payload_json FROM push_events WHERE event_id = ?').bind(payload.eventId).first();
     const saved = JSON.parse(event.payload_json);
     const localized = saved.messages[delivery.locale] ?? saved.messages.en;
-    const requestDetails = webpush.generateRequestDetails({ endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth } },
-      JSON.stringify({ ...localized, eventId: payload.eventId }), {
-        vapidDetails: { subject: env.VAPID_SUBJECT || 'https://crw.warpnav.com', publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY },
-        TTL: 300, topic: payload.eventId.slice(0, 32), contentEncoding: 'aes128gcm',
-      });
     let status = 0;
     try {
-      const response = await fetch(requestDetails.endpoint, { method: 'POST', headers: requestDetails.headers, body: new Uint8Array(requestDetails.body), redirect: 'error', signal: AbortSignal.timeout(10000) });
+      const requestDetails = await buildPushPayload({
+        data: { ...localized, eventId: payload.eventId },
+        options: { ttl: 300, topic: payload.eventId.slice(0, 32), urgency: 'high' },
+      }, {
+        endpoint: delivery.endpoint,
+        expirationTime: null,
+        keys: { p256dh: delivery.p256dh, auth: delivery.auth },
+      }, {
+        subject: env.VAPID_SUBJECT || 'https://crw.warpnav.com',
+        publicKey: env.VAPID_PUBLIC_KEY,
+        privateKey: env.VAPID_PRIVATE_KEY,
+      });
+      const claimed = await env.PUSH_DB.prepare("UPDATE push_deliveries SET status = 'sending', updated_at = ? WHERE event_id = ? AND endpoint_hash = ? AND status = 'pending'")
+        .bind(now, payload.eventId, delivery.endpoint_hash).run();
+      if (Number(claimed.meta?.changes ?? 0) === 0) return json({ done: false, ...(await deliverySummary(env.PUSH_DB, payload.eventId)) });
+      const response = await fetch(delivery.endpoint, { ...requestDetails, redirect: 'error', signal: AbortSignal.timeout(10000) });
       status = response.status;
       await response.body?.cancel();
-    } catch {
-      status = 599;
+    } catch (error) {
+      status = error instanceof TypeError ? 598 : 599;
     }
     const accepted = status === 201 || status === 202;
     await env.PUSH_DB.prepare('UPDATE push_deliveries SET status = ?, response_status = ?, updated_at = ? WHERE event_id = ? AND endpoint_hash = ?')
