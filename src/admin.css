@@ -101,6 +101,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .stat-grid strong { margin: 17px 0 12px; font: 850 48px/1 ui-monospace, Consolas, monospace; letter-spacing: -.06em; }
 .stat-primary strong { color: #267444; }
 .stat-grid small { color: #7a877e; line-height: 1.5; }
+.locale-stats { margin-top: 18px; padding: 22px 24px; border: 2px solid #c9d8cc; border-radius: 24px; background: #fffefbdc; box-shadow: 5px 6px 0 #e0eae1; }
+.locale-stats-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.locale-stats-heading .admin-kicker { margin: 0 0 7px; }
+.locale-stats-heading h2 { margin: 0; font-size: 20px; letter-spacing: -.025em; }
+.locale-stats-heading > small { color: #7a877e; font-size: 11px; line-height: 1.5; text-align: right; }
+.locale-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.locale-stat-grid article { min-width: 0; padding: 15px 17px; border: 1px solid #d4ddd6; border-radius: 15px; background: #f4f8f2; }
+.locale-stat-grid article:nth-child(2) { background: #f1effc; }
+.locale-stat-grid article:nth-child(3) { background: #fff6da; }
+.locale-stat-grid span, .locale-stat-grid strong, .locale-stat-grid small { display: block; }
+.locale-stat-grid span { color: #58665d; font-size: 12px; font-weight: 800; }
+.locale-stat-grid strong { margin: 8px 0 5px; color: #29332d; font: 850 30px/1 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.locale-stat-grid small { color: #7a877e; font-size: 11px; }
 .composer-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); gap: 18px; margin-top: 26px; }
 .composer-card, .preview-card, .send-card, .event-card { border: 2px solid #c9d8cc; border-radius: 26px; background: #fffefbe8; box-shadow: 6px 7px 0 #e0eae1; }
 .composer-card { display: grid; padding: clamp(24px, 4vw, 36px); }
@@ -147,6 +160,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 430px) {
   .admin-shell { width: min(100% - 20px, 1120px); }
   .admin-header a:not(.admin-brand) { display: none; }
+  .locale-stats { padding: 18px 14px; }
+  .locale-stats-heading { align-items: start; flex-direction: column; gap: 6px; }
+  .locale-stats-heading > small { text-align: left; }
+  .locale-stat-grid { gap: 6px; }
+  .locale-stat-grid article { padding: 12px 8px; }
+  .locale-stat-grid strong { font-size: 26px; }
+  .locale-stat-grid small { font-size: 10px; }
   .locale-tabs { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {

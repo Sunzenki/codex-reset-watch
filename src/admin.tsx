@@ -6,7 +6,7 @@ type Locale = 'en' | 'zh-CN' | 'zh-TW';
 type Message = { title: string; body: string; path: string };
 type PushPayload = { eventId: string; messages: Record<Locale, Message> };
 type Overview = {
-  subscriptions: { active: number; inactive: number; total: number };
+  subscriptions: { active: number; inactive: number; total: number; byLocale: Record<Locale, number> };
   events: Array<{ event_id: string; created_at: string; delivered: number; failed: number; pending: number }>;
 };
 
@@ -148,6 +148,20 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
       <article className="stat-primary"><span>有效订阅</span><strong>{overview?.subscriptions.active ?? '—'}</strong><small>可接收下一次通知的浏览器</small></article>
       <article><span>已停用</span><strong>{overview?.subscriptions.inactive ?? '—'}</strong><small>取消订阅或失效的浏览器</small></article>
       <article><span>累计记录</span><strong>{overview?.subscriptions.total ?? '—'}</strong><small>数据库保存过的浏览器订阅</small></article>
+    </section>
+
+    <section className="locale-stats" aria-labelledby="locale-stats-title">
+      <div className="locale-stats-heading">
+        <div><p className="admin-kicker">ACTIVE LANGUAGES</p><h2 id="locale-stats-title">有效订阅语言分布</h2></div>
+        <small>按用户订阅时所在的网站语言记录</small>
+      </div>
+      <div className="locale-stat-grid">
+        {(Object.keys(localeNames) as Locale[]).map((locale) => <article key={locale}>
+          <span lang={locale}>{localeNames[locale]}</span>
+          <strong>{overview?.subscriptions.byLocale?.[locale] ?? '—'}</strong>
+          <small>个有效订阅</small>
+        </article>)}
+      </div>
     </section>
 
     <section className="composer-grid">
