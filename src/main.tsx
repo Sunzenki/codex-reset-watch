@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useMemo, useState } from 'react';
+import { StrictMode, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   currentCopy, historyCopy, localeConfig, localeOptions, localizedSourceTimezone, ui,
@@ -112,20 +112,50 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
   const copy = ui[locale];
   const selected = localeOptions.find((item) => item.code === locale)!;
   const isHistory = active === 'history';
-  return <header className="site-header">
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const languageRef = useRef<HTMLDetailsElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    function closeMenus(event: PointerEvent) {
+      if (headerRef.current?.contains(event.target as Node)) return;
+      setMobileNavOpen(false);
+      languageRef.current?.removeAttribute('open');
+    }
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      const wasOpen = mobileNavOpen;
+      setMobileNavOpen(false);
+      languageRef.current?.removeAttribute('open');
+      if (wasOpen) menuButtonRef.current?.focus();
+    }
+    document.addEventListener('pointerdown', closeMenus);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeMenus);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [mobileNavOpen]);
+
+  function toggleMobileNav() {
+    languageRef.current?.removeAttribute('open');
+    setMobileNavOpen((open) => !open);
+  }
+
+  return <header className="site-header" ref={headerRef}>
     <a className="wordmark" href={pagePath(locale, false)} aria-label="Codex Reset Watch">
-      <picture>
-        <source media="(max-width: 520px)" srcSet="/brand-mark.svg" />
-        <img src="/logo.svg" alt="Codex Reset Watch" width="202" height="50" />
-      </picture>
+      <img src="/logo.svg" alt="Codex Reset Watch" width="202" height="50" />
     </a>
     <div className="header-actions">
-      <nav aria-label="Primary navigation">
-        <a className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}>{copy.navCurrent}</a>
-        <a className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}>{copy.navHistory}</a>
-        <a href={`${pagePath(locale, false)}#push-reminder`}>{copy.navPush}</a>
+      <nav id="primary-navigation" className={mobileNavOpen ? 'mobile-nav-open' : ''} aria-label="Primary navigation">
+        <a onClick={() => setMobileNavOpen(false)} className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}>{copy.navCurrent}</a>
+        <a onClick={() => setMobileNavOpen(false)} className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}>{copy.navHistory}</a>
+        <a onClick={() => setMobileNavOpen(false)} href={`${pagePath(locale, false)}#push-reminder`}>{copy.navPush}</a>
       </nav>
-      <details className="language-menu">
+      <details className="language-menu" ref={languageRef} onToggle={(event) => {
+        if (event.currentTarget.open) setMobileNavOpen(false);
+      }}>
         <summary aria-label={`${copy.language}: ${selected.label}`}><span aria-hidden="true">◎</span><b className="language-full">{selected.label}</b><b className="language-short">{selected.shortLabel}</b><i aria-hidden="true">⌄</i></summary>
         <ul>
           {localeOptions.map((option) => <li key={option.code}>
@@ -135,6 +165,20 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
           </li>)}
         </ul>
       </details>
+      <button
+        className="mobile-menu-toggle"
+        type="button"
+        ref={menuButtonRef}
+        aria-expanded={mobileNavOpen}
+        aria-controls="primary-navigation"
+        aria-label={mobileNavOpen ? copy.navMenuClose : copy.navMenu}
+        onClick={toggleMobileNav}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d={mobileNavOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16'} />
+        </svg>
+        <span>{copy.navMenu}</span>
+      </button>
     </div>
   </header>;
 }

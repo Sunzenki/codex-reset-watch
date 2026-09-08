@@ -59,7 +59,6 @@ a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-r
   backdrop-filter: blur(22px) saturate(155%);
 }
 .wordmark { display: inline-flex; align-items: center; min-height: 52px; text-decoration: none; }
-.wordmark picture { display: block; height: 50px; }
 .wordmark img { display: block; width: 202px; height: 50px; object-fit: contain; object-position: left center; transition: transform 180ms ease; }
 .wordmark:hover img { transform: rotate(-1deg) translateY(-1px); }
 .header-actions { display: flex; align-items: center; gap: 9px; }
@@ -81,6 +80,7 @@ a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-r
 .language-menu li a:hover { color: var(--ink); background: var(--lavender); }
 .language-menu li a[aria-current="page"] { color: var(--lavender-strong); background: #f2efff; }
 .language-menu li i { font-style: normal; }
+.mobile-menu-toggle { display: none; }
 main { padding-block: 38px 24px; }
 .loading { min-height: 65vh; display: grid; place-items: center; color: var(--muted); }
 .hero-panel {
@@ -203,15 +203,63 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
   .year-group { grid-template-columns: 1fr; gap: 24px; }.year-group > h2 { position: static; }.history-item { grid-template-columns: 58px 18px 1fr; gap: 10px; }.date-block strong { font-size: 15px; }.record-card { padding: 20px; }.record-top { flex-direction: column; gap: 6px; }
 }
 @media (max-width: 520px) {
-  .wordmark, .wordmark picture, .wordmark img { width: 48px; height: 48px; }
+  .site-header { overflow: visible; }
+  .wordmark { flex: 0 1 clamp(128px, 38vw, 154px); width: clamp(128px, 38vw, 154px); min-height: 44px; }
+  .wordmark img { width: 100%; height: 44px; }
   .header-actions { gap: 5px; }
-  .language-menu summary { min-height: 54px; padding-inline: 10px; }
+  .language-menu { z-index: 22; }
+  .language-menu summary { min-height: 52px; padding-inline: 9px; }
+  .language-menu summary > span { display: none; }
   .language-full { display: none; }
   .language-short { display: inline; }
-  .site-header nav a { padding-inline: 8px; font-size: 11px; }
+  .site-header nav {
+    position: absolute;
+    z-index: 21;
+    top: calc(100% + 8px);
+    right: 0;
+    width: min(260px, calc(100vw - 28px));
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-color: #ffffffd9;
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 90% 4%, #eee9ffcf 0, transparent 42%),
+      linear-gradient(145deg, #fffefbf2, #f5faf4e8);
+    box-shadow: inset 0 1px 0 #fff, 0 16px 38px #34483a2b;
+    -webkit-backdrop-filter: blur(22px) saturate(155%);
+    backdrop-filter: blur(22px) saturate(155%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-7px) scale(.98);
+    transform-origin: top right;
+    transition: opacity 190ms ease, transform 190ms ease, visibility 190ms;
+  }
+  .site-header nav.mobile-nav-open { visibility: visible; opacity: 1; pointer-events: auto; transform: none; }
+  .site-header nav a { width: 100%; min-height: 48px; display: flex; justify-content: flex-start; padding-inline: 15px; font-size: 13px; }
+  .mobile-menu-toggle {
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 10px;
+    border: 1px solid #c8d7cb;
+    border-radius: 15px;
+    color: var(--ink);
+    background: #ffffffcf;
+    box-shadow: 0 5px 18px #4f655214;
+    cursor: pointer;
+    font: 750 11px ui-rounded, system-ui, sans-serif;
+    touch-action: manipulation;
+  }
+  .mobile-menu-toggle:hover, .mobile-menu-toggle[aria-expanded="true"] { color: var(--lavender-strong); background: #f2efff; }
+  .mobile-menu-toggle:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .mobile-menu-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 }
 @media (max-width: 420px) {
-  .site-header nav { gap: 0; }.site-header nav a { padding-inline: 9px; font-size: 12px; }
   .countdown { gap: 3px; }.countdown span { min-width: 41px; }.countdown strong { font-size: 34px; }.countdown > i { font-size: 20px; }
   .history-item { grid-template-columns: 1fr; }.date-block { padding-top: 0; display: flex; gap: 8px; align-items: baseline; }.date-block span { margin: 0; }.timeline-mark { display: none; }
 }

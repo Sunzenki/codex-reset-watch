@@ -14,7 +14,7 @@ export const localeConfig: Record<Locale, { intl: string; timeZone: string; html
 
 export const ui = {
   en: {
-    skip: 'Skip to main content', navCurrent: 'Latest update', navHistory: 'History', navPush: 'Notifications', language: 'Language',
+    skip: 'Skip to main content', navCurrent: 'Latest update', navHistory: 'History', navPush: 'Notifications', navMenu: 'Menu', navMenuClose: 'Close menu', language: 'Language',
     titleCurrent: 'Codex Reset Time & Countdown (UTC) | CRW', titleHistory: 'Codex Reset History | Codex Reset Watch',
     status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' },
     outcome: { unverified: 'Not independently verified', as_announced: 'No later correction found', revised: 'Later revised', cancelled: 'Announcement cancelled' },
@@ -45,7 +45,7 @@ export const ui = {
     headline: { monitoring: 'Watching for the next Codex reset', estimated: 'Reset expected around', confirmed: 'Reset expected at', reached: 'Expected reset time reached', superseded: 'The previous estimate was revised' },
   },
   'zh-CN': {
-    skip: '跳到主要内容', navCurrent: '最新动态', navHistory: '历史记录', navPush: '动态通知', language: '语言',
+    skip: '跳到主要内容', navCurrent: '最新动态', navHistory: '历史记录', navPush: '动态通知', navMenu: '菜单', navMenuClose: '关闭菜单', language: '语言',
     titleCurrent: 'Codex 重置时间与倒计时｜Codex Reset Watch', titleHistory: 'Codex 历史重置记录｜Codex Reset Watch',
     status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' },
     outcome: { unverified: '暂未验证', as_announced: '未发现后续修正', revised: '后续已修正', cancelled: '预告已取消' },
@@ -76,7 +76,7 @@ export const ui = {
     headline: { monitoring: '正在等待下一次 Codex 重置消息', estimated: '预计重置时间约为', confirmed: '预计重置时间为', reached: '预告重置时间已到', superseded: '此前的重置预告已被修正' },
   },
   'zh-TW': {
-    skip: '跳到主要內容', navCurrent: '最新動態', navHistory: '歷史記錄', navPush: '動態通知', language: '語言',
+    skip: '跳到主要內容', navCurrent: '最新動態', navHistory: '歷史記錄', navPush: '動態通知', navMenu: '選單', navMenuClose: '關閉選單', language: '語言',
     titleCurrent: 'Codex 重置時間與倒數計時｜Codex Reset Watch', titleHistory: 'Codex 歷史重置記錄｜Codex Reset Watch',
     status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' },
     outcome: { unverified: '暫未驗證', as_announced: '未發現後續修正', revised: '後續已修正', cancelled: '預告已取消' },
