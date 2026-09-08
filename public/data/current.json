@@ -1,18 +1,19 @@
 {
-  "kind": "banked_reset",
-  "status": "estimated",
-  "headline": "Banked reset expected in about three hours",
-  "resetAt": "2026-09-04T02:12:09.000Z",
-  "sourceTimezone": "相对原帖发布时间",
-  "originalTimeText": "First one will land in ~ 3 hours",
-  "scope": "Paid ChatGPT users who do not yet have Astra access",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "confirmationBasis": "owner_observed",
+  "headline": "A fresh usage reset has landed",
+  "resetAt": null,
+  "sourceTimezone": "PST",
+  "originalTimeText": "Lands around 6pm PST today.",
+  "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付费订阅，已实测确认。",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X",
-    "text": "We will give one banked reset for every day you don't have access to Astra on your paid ChatGPT plan, starting today. Team is moving mountains to give access as fast as we can.\n\nFirst one will land in ~ 3 hours. There is still time to create your account if you don't have one.",
-    "translation": "从今天开始，在你的付费 ChatGPT 方案尚未获得 Astra 使用权限的每一天，我们都会提供一次可自行选择使用的储备重置机会。团队正在全力以赴，尽快开放访问权限。\n\n第一次将在大约 3 小时后到账。如果你还没有账号，现在仍有时间创建。",
-    "url": "https://x.com/thsottiaux/status/2095651088502591861",
-    "postedAt": "2026-09-03T23:12:09.000Z"
+    "source": "Tibo (@thsottiaux) / X（重置公告节选）",
+    "text": "We will do a global reset of the usage for all paid subscriptions so that you can keep enjoying Astra after burning through all of it doing fun 3D modeling in blender. The work week is about to start.\n\nLands around 6pm PST today.",
+    "translation": "我们将为所有付费订阅进行一次全局额度重置，让大家在 Blender 中做有趣的 3D 建模、用完额度后，还能继续享用 Astra。工作周即将开始。\n\n预计今天 PST 下午 6 点左右落地。",
+    "url": "https://x.com/thsottiaux/status/2097043464538264003",
+    "postedAt": "2026-09-07T19:24:57.000Z"
   },
-  "updatedAt": "2026-09-04T01:41:08.787Z",
-  "note": "原帖使用约 3 小时这一近似相对时间。本站以原帖发布时间加 3 小时，将 2026-09-04 02:12:09 UTC（北京时间/台北时间 10:12:09）作为档案与倒计时锚点，不代表精确到账时刻。banked reset 是到账后由用户自行选择使用的储备重置机会，并非系统在该时刻强制重置额度。原帖没有说明每日计算截止点、储备规则或到期方式。"
+  "updatedAt": "2026-09-08T02:39:50.000Z",
+  "note": "站长已实测确认自己的账号额度重置；这不是所有账号同步完成的证明。原帖预告 today around 6pm PST，按 PST 字面换算为北京时间 9 月 8 日 10:00 左右；若泛指当地夏令时间 PDT，则为 09:00 左右。精确执行时间未知。后续帖子仅表示“we are so back”，未明确确认重置完成。"
 }

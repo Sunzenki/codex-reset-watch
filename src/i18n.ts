@@ -24,7 +24,7 @@ export const ui = {
     railStart: 'Post published', railEnd: 'Expected reset', bankedRailEnd: 'Expected availability', waitingTitle: 'Waiting for the next verified public update',
     waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', untimedHintTitle: 'Waiting for further details', untimedHintBody: 'The wording points toward a possible milestone reset tomorrow. A countdown will appear only if a usable time is published.',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
-    resetConfirmedTitle: 'Tibo has confirmed that the reset landed', resetConfirmedBody: 'The confirmation post says usage was reset for all paid ChatGPT Work and Codex subscriptions. The earlier 10:00 GMT+8 target was a forecast, not a measured backend execution time; this page uses the post timestamp as the public confirmation time.',
+    resetConfirmedTitle: 'Reset confirmed around 02:00 UTC on September 8', resetConfirmedBody: 'This was a direct usage reset, not a banked reset. The time is approximate.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View original post', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
@@ -53,7 +53,7 @@ export const ui = {
     railStart: '原帖发布', railEnd: '预计重置', bankedRailEnd: '预计到账', waitingTitle: '等待下一条经过核对的公开预告',
     waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', untimedHintTitle: '等待进一步消息', untimedHintBody: '原帖措辞指向明天可能进行一次里程碑重置；只有出现可用的公开时间后，本站才会显示倒计时。',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
-    resetConfirmedTitle: 'Tibo 已确认本轮重置落地', resetConfirmedBody: '确认帖表示，ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。此前 GMT+8 10:00 是预告目标时间，不是后台实测执行时刻；本页将原帖发布时间作为公开确认时间。',
+    resetConfirmedTitle: '已确认重置于 10:00 GMT+8 左右落地', resetConfirmedBody: '本次为直接额度重置，不是发放储备重置机会。时间为 9 月 8 日上午，非精确执行时刻。',
     factOriginal: '原帖措辞', factZone: '原始时区', factTiming: '时间依据', factConfirmation: '确认依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看原帖', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
@@ -82,7 +82,7 @@ export const ui = {
     railStart: '原帖發佈', railEnd: '預計重置', bankedRailEnd: '預計到帳', waitingTitle: '等待下一則經過核對的公開預告',
     waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', untimedHintTitle: '等待進一步消息', untimedHintBody: '原帖措辭指向明天可能進行一次里程碑重置；只有出現可用的公開時間後，本站才會顯示倒數計時。',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
-    resetConfirmedTitle: 'Tibo 已確認本輪重置落地', resetConfirmedBody: '確認帖表示，ChatGPT Work 與 Codex 的所有付費訂閱都已重置使用額度。先前 GMT+8 10:00 是預告目標時間，不是後台實測執行時刻；本頁將原帖發佈時間作為公開確認時間。',
+    resetConfirmedTitle: '已確認重置於 10:00 GMT+8 左右落地', resetConfirmedBody: '本次為直接額度重置，不是發放儲備重置機會。時間為 9 月 8 日上午，非精確執行時刻。',
     factOriginal: '原帖措辭', factZone: '原始時區', factTiming: '時間依據', factConfirmation: '確認依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看原帖', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
@@ -103,29 +103,30 @@ export const ui = {
 } as const;
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
-  en: {
-    headline: 'Banked reset expected in about three hours',
-    scope: 'Paid ChatGPT users who do not yet have Astra access',
-    context: 'Starting on the post date, Tibo said paid ChatGPT plans would receive one banked reset for each day they remain without Astra access. A banked reset is an optional reset opportunity the user may choose to activate, not a forced system reset.',
-    note: 'The first was expected in about three hours. CRW uses the post timestamp plus three hours—02:12:09 UTC on September 4—as an approximate countdown anchor, not an exact availability time. The post does not specify the daily cutoff, banking mechanics, or expiration rules.',
+  "en": {
+    "headline": "A fresh usage reset has landed",
+    "scope": "Around 2026-09-08 02:00 UTC · For all paid subscriptions. Verified firsthand.",
+    "context": "Tibo announced a global usage reset for all paid subscriptions. This is a direct reset, not an optional banked reset. The site owner has confirmed the reset on their own account.",
+    "note": "The post estimated around 6 PM PST on September 7: 02:00 UTC on September 8 literally, or 01:00 UTC if PST meant local daylight time. The exact execution time is unknown. The later “we are so back” post does not explicitly confirm completion for all accounts."
   },
-  'zh-CN': {
-    headline: '储备重置约三小时后到账',
-    scope: '面向尚未获得 Astra 的 ChatGPT 付费用户',
-    context: 'Tibo 表示，从发帖当天起，付费 ChatGPT 方案每有一天尚未获得 Astra 使用权限，就会得到一次储备重置机会。banked reset 由用户自行选择点击使用，不是系统强制重置额度。',
-    note: '第一次预计约三小时后到账。本站以原帖发布时间加三小时，将 9 月 4 日 10:12:09（UTC 02:12:09）作为近似倒计时锚点，不代表精确到账时刻。原帖没有说明每日计算截止点、储备规则或到期方式。',
+  "zh-CN": {
+    "headline": "新一轮额度重置已落地",
+    "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付费订阅，已实测确认。",
+    "context": "Tibo 宣布为所有付费订阅进行全局额度重置。本次是直接重置，不是发放可手动使用的储备重置机会。站长已确认自己的账号额度恢复。",
+    "note": "站长已实测确认自己的账号额度重置；这不是所有账号同步完成的证明。原帖预告 today around 6pm PST，按 PST 字面换算为北京时间 9 月 8 日 10:00 左右；若泛指当地夏令时间 PDT，则为 09:00 左右。精确执行时间未知。后续帖子仅表示“we are so back”，未明确确认重置完成。"
   },
-  'zh-TW': {
-    headline: '儲備重置約三小時後到帳',
-    scope: '面向尚未取得 Astra 的 ChatGPT 付費使用者',
-    context: 'Tibo 表示，從發帖當天起，付費 ChatGPT 方案每有一天尚未取得 Astra 使用權限，就會得到一次儲備重置機會。banked reset 由使用者自行選擇點擊使用，不是系統強制重置額度。',
-    note: '第一次預計約三小時後到帳。本站以原帖發佈時間加三小時，將 9 月 4 日 10:12:09（UTC 02:12:09）作為近似倒數錨點，不代表精確到帳時間。原帖沒有說明每日計算截止點、儲備規則或到期方式。',
-  },
+  "zh-TW": {
+    "headline": "新一輪額度重置已落地",
+    "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付費訂閱，已實測確認。",
+    "context": "Tibo 宣布為所有付費訂閱進行全局額度重置。本次是直接重置，不是發放可手動使用的儲備重置機會。站長已確認自己的帳號額度恢復。",
+    "note": "站長實測僅確認自己的帳號，不代表所有帳號同步完成。原帖預告 PST 下午 6 點左右，按字面換算為台北時間 9 月 8 日 10:00 左右；若泛指 PDT，則為 09:00 左右。精確執行時間未知。後續「we are so back」帖子未明確確認重置完成。"
+  }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-09-04-astra-banked': {"context":"Paid ChatGPT users awaiting Astra were promised one optional banked reset per day.","note":"The first delivery was estimated at the post timestamp plus three hours. This is not a forced reset; actual first availability was not independently verified."},
     'reset-2026-08-31-all-paid-confirmed': { context: 'Usage had been reset for every paid ChatGPT Work and Codex subscription.', note: 'Tibo used completed wording. The record uses the confirmation post timestamp, which is a public confirmation time rather than a measured backend execution time.' },
     'reset-2026-08-29-230pm-pacific': { context: 'Usage was being reset for every paid Codex and ChatGPT Work user, with a follow-up landing time of 2:30 PM PST.', note: 'CRW interpreted the time as Pacific local time in August (PDT, UTC−7) and recorded 21:30 UTC. A literal PST conversion would be one hour later. No later delay or correction was found.' },
     'reset-2026-08-25-plus-five-hour-rollout': { context: 'The 5-hour limit began rolling out for Plus accounts across ChatGPT Work and Codex.', note: 'Tibo announced the return for “tomorrow”; fresh resets followed by a 5-hour window were then observed on some Plus accounts. No unified rollout time was published, so the archived time is only the site’s observation timestamp.' },
@@ -140,6 +141,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-09-04-astra-banked': {"context":"尚未获得 Astra 的 ChatGPT 付费用户，每天可获一次储备重置机会。","note":"首次到账锚点为原帖发布时间加三小时，不是精确到账时刻。这是可自行使用的储备机会，不是强制重置；首次到账结果未独立核实。"},
     'reset-2026-08-31-all-paid-confirmed': { context: 'ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。', note: 'Tibo 使用完成式措辞。记录采用确认帖发布时间，这是公开确认时间，不是后台实测执行时刻。' },
     'reset-2026-08-29-230pm-pacific': { context: 'Tibo 表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在后续回复中给出 PST 下午 2:30 的落地时间。', note: '本站按 8 月当地实际采用的 PDT（UTC−7）记录为 UTC 21:30；若严格按 PST 字面换算则晚一小时。目前未发现后续延期或修正。' },
     'reset-2026-08-25-plus-five-hour-rollout': { context: 'ChatGPT Work 与 Codex 的 Plus 账户开始恢复 5 小时限制。', note: 'Tibo 预告将于“明天”恢复该限制，随后部分用户的 Plus 账号观察到新重置和 5 小时窗口。由于没有公开统一落地时刻，档案时间仅为本站观察记录时间。' },
@@ -154,6 +156,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-09-04-astra-banked': {"context":"尚未取得 Astra 的 ChatGPT 付費使用者，每天可獲一次儲備重置機會。","note":"首次到帳錨點為原帖發佈時間加三小時，不是精確到帳時間。這是可自行使用的儲備機會，不是強制重置；首次到帳結果未獨立核實。"},
     'reset-2026-08-31-all-paid-confirmed': { context: 'ChatGPT Work 與 Codex 的所有付費訂閱都已重置使用額度。', note: 'Tibo 使用完成式措辭。記錄採用確認帖發佈時間，這是公開確認時間，不是後台實測執行時刻。' },
     'reset-2026-08-29-230pm-pacific': { context: 'Tibo 表示正在為所有 Codex 與 ChatGPT Work 付費使用者重置額度，並在後續回覆中提供 PST 下午 2:30 的落地時間。', note: '本站按 8 月當地實際採用的 PDT（UTC−7）記錄為 UTC 21:30；若嚴格按 PST 字面換算則晚一小時。目前未發現後續延期或修正。' },
     'reset-2026-08-25-plus-five-hour-rollout': { context: 'ChatGPT Work 與 Codex 的 Plus 帳號開始恢復 5 小時限制。', note: 'Tibo 預告將於「明天」恢復該限制，隨後部分使用者的 Plus 帳號觀察到新重置與 5 小時視窗。由於沒有公開統一落地時間，檔案時間僅為本站觀察記錄時間。' },

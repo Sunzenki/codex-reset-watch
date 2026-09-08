@@ -10,7 +10,7 @@ type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
 type Announcement = { source: string; text: string; translation?: string; url: string; postedAt: string };
 type CurrentReset = {
-  kind?: 'reset' | 'banked_reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
+  confirmationBasis?: 'owner_observed'; kind?: 'reset' | 'banked_reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
   updatedAt: string; note?: string;
 };
@@ -175,7 +175,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
       <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
-        <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>
+        {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
         <span>{content.headline}</span>
       </> : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}</p>
@@ -194,7 +194,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={isResetConfirmed ? copy.factConfirmation : isRolloutObserved ? copy.factTiming : copy.factZone} value={localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={isResetConfirmed ? copy.factConfirmation : isRolloutObserved ? copy.factTiming : copy.factZone} value={data.confirmationBasis === 'owner_observed' ? copy.resetConfirmedTitle : localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>
