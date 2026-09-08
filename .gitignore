@@ -38,3 +38,7 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local-only project documentation
+/PROJECT-MAINTENANCE-GUIDE.md
+/浏览器重置提醒功能实施计划.md
