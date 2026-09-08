@@ -220,8 +220,90 @@ function CurrentPage({ locale }: { locale: Locale }) {
       <p className="data-links"><strong>{copy.machineData}</strong><a href="/data/current.json">{copy.currentData}</a><a href="/data/history.json">{copy.historyData}</a></p>
     </section>
 
+    <PushReminder locale={locale} />
+
     <a className="history-cta" href={pagePath(locale, true)}><span><small>{copy.archive}</small><strong>{copy.viewHistory}</strong></span><i aria-hidden="true">→</i></a>
   </main>;
+}
+
+type StoredPush = { endpoint: string; token: string };
+type PushState = 'loading' | 'unsupported' | 'off' | 'on' | 'denied' | 'busy' | 'error';
+const pushStorageKey = 'crw-push-subscription-v1';
+
+function applicationServerKey(value: string) {
+  const padded = `${value}${'='.repeat((4 - value.length % 4) % 4)}`.replace(/-/g, '+').replace(/_/g, '/');
+  return Uint8Array.from(atob(padded), (character) => character.charCodeAt(0));
+}
+
+function PushReminder({ locale }: { locale: Locale }) {
+  const copy = ui[locale];
+  const [state, setState] = useState<PushState>('loading');
+  const [publicKey, setPublicKey] = useState('');
+
+  useEffect(() => {
+    if (!('serviceWorker' in navigator) || !('PushManager' in window) || !('Notification' in window)) {
+      setState('unsupported');
+      return;
+    }
+    fetch('/api/push/config').then((response) => {
+      if (!response.ok) throw new Error('config unavailable');
+      return response.json() as Promise<{ publicKey: string }>;
+    }).then(async ({ publicKey: key }) => {
+      setPublicKey(key);
+      const registration = await navigator.serviceWorker.register('/push-sw.js');
+      const subscription = await registration.pushManager.getSubscription();
+      setState(subscription ? 'on' : Notification.permission === 'denied' ? 'denied' : 'off');
+    }).catch(() => setState('unsupported'));
+  }, []);
+
+  async function enable() {
+    setState('busy');
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission !== 'granted') {
+        setState('denied');
+        return;
+      }
+      const registration = await navigator.serviceWorker.register('/push-sw.js');
+      const subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: applicationServerKey(publicKey) });
+      const response = await fetch('/api/push/subscribe', {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ subscription: subscription.toJSON(), locale }),
+      });
+      if (!response.ok) throw new Error('subscribe failed');
+      const result = await response.json() as { token: string };
+      localStorage.setItem(pushStorageKey, JSON.stringify({ endpoint: subscription.endpoint, token: result.token } satisfies StoredPush));
+      setState('on');
+    } catch {
+      setState('error');
+    }
+  }
+
+  async function disable() {
+    setState('busy');
+    try {
+      const registration = await navigator.serviceWorker.getRegistration('/push-sw.js');
+      const subscription = await registration?.pushManager.getSubscription();
+      const stored = JSON.parse(localStorage.getItem(pushStorageKey) ?? 'null') as StoredPush | null;
+      if (stored) await fetch('/api/push/unsubscribe', {
+        method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(stored),
+      });
+      await subscription?.unsubscribe();
+      localStorage.removeItem(pushStorageKey);
+      setState('off');
+    } catch {
+      setState('error');
+    }
+  }
+
+  const message = state === 'on' ? copy.pushEnabled : state === 'denied' ? copy.pushDenied : state === 'unsupported' ? copy.pushUnsupported : state === 'error' ? copy.pushError : copy.pushBody;
+  return <section className="push-reminder" aria-labelledby="push-reminder-title">
+    <div className="push-icon" aria-hidden="true">◉</div>
+    <div><p className="section-label">{copy.pushLabel}</p><h2 id="push-reminder-title">{copy.pushTitle}</h2><p role="status">{message}</p></div>
+    <button type="button" onClick={state === 'on' ? disable : enable} disabled={state === 'loading' || state === 'busy' || state === 'unsupported' || state === 'denied'}>
+      {state === 'busy' || state === 'loading' ? copy.pushWorking : state === 'on' ? copy.pushDisable : copy.pushEnable}
+    </button>
+  </section>;
 }
 
 function HistoryPage({ locale }: { locale: Locale }) {

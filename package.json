@@ -8,18 +8,21 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/validate-data.mjs && tsc -b && vite build && node scripts/postbuild-seo.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push:send": "node scripts/send-push.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "web-push": "3.6.7"
   },
   "devDependencies": {
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "typescript": "5.9.3",
-    "vite": "8.0.13"
+    "vite": "8.0.13",
+    "wrangler": "^4.129.0"
   },
   "type": "module"
 }

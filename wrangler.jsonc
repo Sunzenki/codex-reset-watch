@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "codex-reset-watch",
+  "compatibility_date": "2026-09-03",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": "dist",
+  "d1_databases": [
+    {
+      "binding": "PUSH_DB",
+      "database_name": "crw-push",
+      "database_id": "f02bcec8-2b43-4b9f-ae3a-2a5e772092f9"
+    }
+  ],
+  "vars": {
+    "VAPID_SUBJECT": "https://crw.warpnav.com"
+  }
+}

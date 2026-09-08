@@ -1,0 +1,20 @@
+{
+  "eventId": "2026-09-08-global-reset",
+  "messages": {
+    "en": {
+      "title": "A fresh Codex usage reset has landed",
+      "body": "For all paid subscriptions. Confirmed around 02:00 UTC on September 8.",
+      "path": "/en/"
+    },
+    "zh-CN": {
+      "title": "新一轮 Codex 额度重置已落地",
+      "body": "面向所有付费订阅，已确认于 2026-09-08 10:00 GMT+8 左右落地。",
+      "path": "/zh-CN/"
+    },
+    "zh-TW": {
+      "title": "新一輪 Codex 額度重置已落地",
+      "body": "面向所有付費訂閱，已確認於 2026-09-08 10:00 GMT+8 左右落地。",
+      "path": "/zh-TW/"
+    }
+  }
+}
