@@ -1,18 +1,27 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "An Astra usage reset is expected by midnight",
-  "resetAt": "2026-09-12T07:00:00.000Z",
-  "sourceTimezone": "Unspecified; interpreted as Pacific daylight time (PDT, UTC−7)",
-  "originalTimeText": "a reset is also landing by midnight today",
-  "scope": "Astra 用户；原帖未说明具体订阅方案。",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "A fresh usage reset has landed",
+  "resetAt": null,
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "Reset all propagated.",
+  "scope": "Astra 用户；Tibo 已确认本轮重置完成，未另列订阅方案。",
   "announcement": {
+    "source": "Tibo (@thsottiaux) / X",
+    "text": "Reset all propagated. Sweet dreams.",
+    "translation": "重置已全部生效。祝好梦。",
+    "url": "https://x.com/thsottiaux/status/2098685367058612394",
+    "postedAt": "2026-09-12T08:09:17.000Z"
+  },
+  "updatedAt": "2026-09-12T08:54:22.611Z",
+  "note": "北京时间 9 月 12 日 16:09:17 是公开确认帖时间，不是后台精确完成时刻。此前 15:00 是本站将未注明时区的 midnight 暂按 PDT 推算的截止点；确认帖较晚发布不能证明重置延期。",
+  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X (excerpt)",
     "text": "And of course, a reset is also landing by midnight today.",
     "translation": "当然，一次额度重置也将在今天午夜前落地。",
     "url": "https://x.com/thsottiaux/status/2098612714704891959",
-    "postedAt": "2026-09-12T03:20:36.000Z"
-  },
-  "updatedAt": "2026-09-12T03:59:02.398Z",
-  "note": "原帖没有注明“today”与“midnight”所采用的时区。结合发帖时刻及作者此前以太平洋时间发布重置预告的惯例，本站暂按当地夏令时间 PDT 推算，将 2026-09-12 07:00 UTC（北京时间/台北时间 15:00）作为最迟落地的倒计时锚点。“by midnight”表示午夜之前，不代表重置会在午夜整点执行；若作者采用其他时区，换算结果会不同。原帖面向 Astra 用户，但未明确具体订阅方案。"
+    "postedAt": "2026-09-12T03:20:36.000Z",
+    "estimatedDeadline": "2026-09-12T07:00:00.000Z",
+    "timezoneWasInferred": true
+  }
 }

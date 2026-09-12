@@ -112,22 +112,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "An Astra usage reset is expected by midnight",
-    "scope": "By 2026-09-12 07:00 UTC · For Astra users; no subscription tier was specified.",
-    "context": "Tibo said an Astra usage reset would land by midnight today, alongside fixes for several reported quality issues. CRW uses midnight in Pacific daylight time as the provisional countdown deadline.",
-    "note": "The post did not name a timezone. Based on its timestamp and Tibo’s prior use of Pacific time for reset notices, CRW provisionally interprets “midnight today” as 07:00 UTC on September 12. “By midnight” is a deadline, not a claim that the reset will execute exactly at midnight. A different intended timezone would change the conversion."
+    "headline": "A fresh usage reset has landed",
+    "scope": "For Astra users. Tibo confirmed completion; no subscription tiers were listed.",
+    "context": "Tibo confirmed that the reset had fully propagated, quoting the earlier Astra reset announcement.",
+    "note": "September 12 at 08:09:17 UTC is the public confirmation time, not the exact backend completion time. The earlier 07:00 UTC deadline was a provisional PDT interpretation of an unspecified timezone. The later confirmation post does not establish a delay."
   },
   "zh-CN": {
-    "headline": "Astra 额度预计于今天午夜前重置",
-    "scope": "预计不晚于 2026-09-12 15:00 GMT+8 · 面向 Astra 用户，原帖未注明具体订阅方案。",
-    "context": "Tibo 表示 Astra 额度将在今天午夜前重置，同时说明团队已修复多项近期反馈的质量问题。本站暂按太平洋夏令时间的午夜设置倒计时截止点。",
-    "note": "原帖没有注明时区。结合发帖时刻及 Tibo 此前使用太平洋时间发布重置预告的惯例，本站暂将“今天午夜”解释为北京时间 9 月 12 日 15:00。“午夜前”是最迟期限，不代表会在午夜整点执行；如果作者采用其他时区，换算结果会不同。"
+    "headline": "新一轮额度重置已落地",
+    "scope": "Astra 用户；Tibo 已确认本轮重置完成，未另列订阅方案。",
+    "context": "Tibo 引用此前的 Astra 重置预告，明确表示本轮重置已全部生效。",
+    "note": "北京时间 9 月 12 日 16:09:17 是公开确认帖时间，不是后台精确完成时刻。此前 15:00 是本站将未注明时区的 midnight 暂按 PDT 推算的截止点；确认帖较晚发布不能证明重置延期。"
   },
   "zh-TW": {
-    "headline": "Astra 額度預計於今天午夜前重置",
-    "scope": "預計不晚於 2026-09-12 15:00 GMT+8 · 面向 Astra 使用者，原帖未註明具體訂閱方案。",
-    "context": "Tibo 表示 Astra 額度將在今天午夜前重置，同時說明團隊已修復多項近期回報的品質問題。本站暫按太平洋夏令時間的午夜設定倒數截止點。",
-    "note": "原帖沒有註明時區。結合發帖時間及 Tibo 此前使用太平洋時間發佈重置預告的慣例，本站暫將「今天午夜」解釋為台北時間 9 月 12 日 15:00。「午夜前」是最遲期限，不代表會在午夜整點執行；如果作者採用其他時區，換算結果會不同。"
+    "headline": "新一輪額度重置已落地",
+    "scope": "Astra 使用者；Tibo 已確認本輪重置完成，未另列訂閱方案。",
+    "context": "Tibo 引用此前的 Astra 重置預告，明確表示本輪重置已全部生效。",
+    "note": "台北時間 9 月 12 日 16:09:17 是公開確認帖時間，不是後台精確完成時間。此前 15:00 是本站將未註明時區的 midnight 暫按 PDT 推算的截止點；確認帖較晚發佈不能證明重置延期。"
   }
 };
 

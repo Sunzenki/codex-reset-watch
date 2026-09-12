@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-12-astra-reset",
+  "eventId": "2026-09-12-astra-reset-confirmed",
   "messages": {
     "en": {
-      "title": "Astra usage reset expected by midnight",
-      "body": "Provisional deadline: September 12 at 07:00 UTC. Tibo did not specify a timezone.",
+      "title": "Astra usage reset has landed",
+      "body": "Tibo confirmed completion on September 12 at 08:09 UTC. Check your account.",
       "path": "/en/"
     },
     "zh-CN": {
-      "title": "Astra 额度预计于今天午夜前重置",
-      "body": "暂按太平洋时间推算：预计不晚于 9 月 12 日 15:00 GMT+8；原帖未注明时区。",
+      "title": "Astra 额度重置已落地",
+      "body": "Tibo 于 9 月 12 日 16:09 GMT+8 发帖确认重置已全部生效，可查看账号额度。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "Astra 額度預計於今天午夜前重置",
-      "body": "暫按太平洋時間推算：預計不晚於 9 月 12 日 15:00 GMT+8；原帖未註明時區。",
+      "title": "Astra 額度重置已落地",
+      "body": "Tibo 於 9 月 12 日 16:09 GMT+8 發帖確認重置已全部生效，可查看帳號額度。",
       "path": "/zh-TW/"
     }
   }
