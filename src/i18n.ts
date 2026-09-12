@@ -184,6 +184,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
 };
 
 export function localizedSourceTimezone(value: string | null, locale: Locale) {
+  if (value === "Unspecified; interpreted as Pacific daylight time (PDT, UTC−7)") return locale === "en" ? value : locale === "zh-TW" ? "原帖未註明；暫按太平洋夏令時間（PDT，UTC−7）推算" : "原帖未注明；暂按太平洋夏令时间（PDT，UTC−7）推算";
   if (!value) return locale === 'en' ? 'Not provided' : locale === 'zh-TW' ? '未提供' : '未提供';
   if (value.startsWith('PST')) return locale === 'en' ? 'PST (UTC−8, as written)' : locale === 'zh-TW' ? 'PST（UTC−8，按原文）' : 'PST（UTC−8，按原文）';
   if (value.includes('机器时间戳') || value.includes('X timestamp')) return locale === 'en' ? 'UTC (X timestamp)' : locale === 'zh-TW' ? 'UTC（X 時間戳）' : 'UTC（X 机器时间戳）';
