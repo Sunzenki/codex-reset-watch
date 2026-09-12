@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-08-global-reset",
+  "eventId": "2026-09-12-astra-reset",
   "messages": {
     "en": {
-      "title": "A fresh Codex usage reset has landed",
-      "body": "For all paid subscriptions. Confirmed around 02:00 UTC on September 8.",
+      "title": "Astra usage reset expected by midnight",
+      "body": "Provisional deadline: September 12 at 07:00 UTC. Tibo did not specify a timezone.",
       "path": "/en/"
     },
     "zh-CN": {
-      "title": "新一轮 Codex 额度重置已落地",
-      "body": "面向所有付费订阅，已确认于 2026-09-08 10:00 GMT+8 左右落地。",
+      "title": "Astra 额度预计于今天午夜前重置",
+      "body": "暂按太平洋时间推算：预计不晚于 9 月 12 日 15:00 GMT+8；原帖未注明时区。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪 Codex 額度重置已落地",
-      "body": "面向所有付費訂閱，已確認於 2026-09-08 10:00 GMT+8 左右落地。",
+      "title": "Astra 額度預計於今天午夜前重置",
+      "body": "暫按太平洋時間推算：預計不晚於 9 月 12 日 15:00 GMT+8；原帖未註明時區。",
       "path": "/zh-TW/"
     }
   }

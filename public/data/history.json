@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-09-08-global-paid",
+    "targetAt": "2026-09-08T02:00:00.000Z",
+    "precision": "estimated",
+    "originalTimezone": "PST（按原文字面）；也可能泛指太平洋当地夏令时间 PDT",
+    "originalTimeText": "Lands around 6pm PST today.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X（重置公告节选）",
+      "text": "We will do a global reset of the usage for all paid subscriptions so that you can keep enjoying Astra after burning through all of it doing fun 3D modeling in blender. The work week is about to start.\n\nLands around 6pm PST today.",
+      "translation": "我们将为所有付费订阅进行一次全局额度重置，让大家在 Blender 中做有趣的 3D 建模、用完额度后，还能继续享用 Astra。工作周即将开始。\n\n预计今天 PST 下午 6 点左右落地。",
+      "url": "https://x.com/thsottiaux/status/2097043464538264003",
+      "postedAt": "2026-09-07T19:24:57.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "站长实际观察到自己的账号额度重置，因此记录为按预告落地，但这不能证明所有账号同步完成。目标时间按原帖 PST 字面换算为 2026-09-08 02:00 UTC；若 PST 泛指当地 PDT，则约为 01:00 UTC。原帖使用 around，精确执行时间未知。",
+    "recordedAt": "2026-09-12T03:42:11.310Z"
+  },
+  {
     "id": "reset-2026-09-04-astra-banked",
     "targetAt": "2026-09-04T02:12:09.000Z",
     "precision": "estimated",

@@ -112,28 +112,29 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A fresh usage reset has landed",
-    "scope": "Around 2026-09-08 02:00 UTC · For all paid subscriptions. Verified firsthand.",
-    "context": "Tibo announced a global usage reset for all paid subscriptions. This is a direct reset, not an optional banked reset. The site owner has confirmed the reset on their own account.",
-    "note": "The post estimated around 6 PM PST on September 7: 02:00 UTC on September 8 literally, or 01:00 UTC if PST meant local daylight time. The exact execution time is unknown. The later “we are so back” post does not explicitly confirm completion for all accounts."
+    "headline": "An Astra usage reset is expected by midnight",
+    "scope": "By 2026-09-12 07:00 UTC · For Astra users; no subscription tier was specified.",
+    "context": "Tibo said an Astra usage reset would land by midnight today, alongside fixes for several reported quality issues. CRW uses midnight in Pacific daylight time as the provisional countdown deadline.",
+    "note": "The post did not name a timezone. Based on its timestamp and Tibo’s prior use of Pacific time for reset notices, CRW provisionally interprets “midnight today” as 07:00 UTC on September 12. “By midnight” is a deadline, not a claim that the reset will execute exactly at midnight. A different intended timezone would change the conversion."
   },
   "zh-CN": {
-    "headline": "新一轮额度重置已落地",
-    "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付费订阅，已实测确认。",
-    "context": "Tibo 宣布为所有付费订阅进行全局额度重置。本次是直接重置，不是发放可手动使用的储备重置机会。站长已确认自己的账号额度恢复。",
-    "note": "站长已实测确认自己的账号额度重置；这不是所有账号同步完成的证明。原帖预告 today around 6pm PST，按 PST 字面换算为北京时间 9 月 8 日 10:00 左右；若泛指当地夏令时间 PDT，则为 09:00 左右。精确执行时间未知。后续帖子仅表示“we are so back”，未明确确认重置完成。"
+    "headline": "Astra 额度预计于今天午夜前重置",
+    "scope": "预计不晚于 2026-09-12 15:00 GMT+8 · 面向 Astra 用户，原帖未注明具体订阅方案。",
+    "context": "Tibo 表示 Astra 额度将在今天午夜前重置，同时说明团队已修复多项近期反馈的质量问题。本站暂按太平洋夏令时间的午夜设置倒计时截止点。",
+    "note": "原帖没有注明时区。结合发帖时刻及 Tibo 此前使用太平洋时间发布重置预告的惯例，本站暂将“今天午夜”解释为北京时间 9 月 12 日 15:00。“午夜前”是最迟期限，不代表会在午夜整点执行；如果作者采用其他时区，换算结果会不同。"
   },
   "zh-TW": {
-    "headline": "新一輪額度重置已落地",
-    "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付費訂閱，已實測確認。",
-    "context": "Tibo 宣布為所有付費訂閱進行全局額度重置。本次是直接重置，不是發放可手動使用的儲備重置機會。站長已確認自己的帳號額度恢復。",
-    "note": "站長實測僅確認自己的帳號，不代表所有帳號同步完成。原帖預告 PST 下午 6 點左右，按字面換算為台北時間 9 月 8 日 10:00 左右；若泛指 PDT，則為 09:00 左右。精確執行時間未知。後續「we are so back」帖子未明確確認重置完成。"
+    "headline": "Astra 額度預計於今天午夜前重置",
+    "scope": "預計不晚於 2026-09-12 15:00 GMT+8 · 面向 Astra 使用者，原帖未註明具體訂閱方案。",
+    "context": "Tibo 表示 Astra 額度將在今天午夜前重置，同時說明團隊已修復多項近期回報的品質問題。本站暫按太平洋夏令時間的午夜設定倒數截止點。",
+    "note": "原帖沒有註明時區。結合發帖時間及 Tibo 此前使用太平洋時間發佈重置預告的慣例，本站暫將「今天午夜」解釋為台北時間 9 月 12 日 15:00。「午夜前」是最遲期限，不代表會在午夜整點執行；如果作者採用其他時區，換算結果會不同。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-09-08-global-paid': { context: 'Tibo announced a global usage reset for all paid subscriptions, and the site owner later observed it on one account.', note: 'The single-account observation supports recording the event as delivered, but does not prove that every account reset simultaneously. The target preserves the post’s approximate 6 PM PST wording; if PST meant local PDT, it may have been one hour earlier.' },
     'reset-2026-09-04-astra-banked': {"context":"Paid ChatGPT users awaiting Astra were promised one optional banked reset per day.","note":"The first delivery was estimated at the post timestamp plus three hours. This is not a forced reset; actual first availability was not independently verified."},
     'reset-2026-08-31-all-paid-confirmed': { context: 'Usage had been reset for every paid ChatGPT Work and Codex subscription.', note: 'Tibo used completed wording. The record uses the confirmation post timestamp, which is a public confirmation time rather than a measured backend execution time.' },
     'reset-2026-08-29-230pm-pacific': { context: 'Usage was being reset for every paid Codex and ChatGPT Work user, with a follow-up landing time of 2:30 PM PST.', note: 'CRW interpreted the time as Pacific local time in August (PDT, UTC−7) and recorded 21:30 UTC. A literal PST conversion would be one hour later. No later delay or correction was found.' },
@@ -149,6 +150,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-09-08-global-paid': { context: 'Tibo 宣布为所有付费订阅进行全局额度重置，站长随后在自己的一个账号上观察到额度恢复。', note: '单账号观察支持将本次事件记录为按预告落地，但不能证明所有账号同步完成。目标时间保留原帖 PST 下午 6 点左右的近似措辞；若 PST 泛指当地 PDT，则可能早一小时。' },
     'reset-2026-09-04-astra-banked': {"context":"尚未获得 Astra 的 ChatGPT 付费用户，每天可获一次储备重置机会。","note":"首次到账锚点为原帖发布时间加三小时，不是精确到账时刻。这是可自行使用的储备机会，不是强制重置；首次到账结果未独立核实。"},
     'reset-2026-08-31-all-paid-confirmed': { context: 'ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。', note: 'Tibo 使用完成式措辞。记录采用确认帖发布时间，这是公开确认时间，不是后台实测执行时刻。' },
     'reset-2026-08-29-230pm-pacific': { context: 'Tibo 表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在后续回复中给出 PST 下午 2:30 的落地时间。', note: '本站按 8 月当地实际采用的 PDT（UTC−7）记录为 UTC 21:30；若严格按 PST 字面换算则晚一小时。目前未发现后续延期或修正。' },
@@ -164,6 +166,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-09-08-global-paid': { context: 'Tibo 宣布為所有付費訂閱進行全局額度重置，站長隨後在自己的一個帳號上觀察到額度恢復。', note: '單一帳號觀察支持將本次事件記錄為按預告落地，但不能證明所有帳號同步完成。目標時間保留原帖 PST 下午 6 點左右的近似措辭；若 PST 泛指當地 PDT，則可能早一小時。' },
     'reset-2026-09-04-astra-banked': {"context":"尚未取得 Astra 的 ChatGPT 付費使用者，每天可獲一次儲備重置機會。","note":"首次到帳錨點為原帖發佈時間加三小時，不是精確到帳時間。這是可自行使用的儲備機會，不是強制重置；首次到帳結果未獨立核實。"},
     'reset-2026-08-31-all-paid-confirmed': { context: 'ChatGPT Work 與 Codex 的所有付費訂閱都已重置使用額度。', note: 'Tibo 使用完成式措辭。記錄採用確認帖發佈時間，這是公開確認時間，不是後台實測執行時刻。' },
     'reset-2026-08-29-230pm-pacific': { context: 'Tibo 表示正在為所有 Codex 與 ChatGPT Work 付費使用者重置額度，並在後續回覆中提供 PST 下午 2:30 的落地時間。', note: '本站按 8 月當地實際採用的 PDT（UTC−7）記錄為 UTC 21:30；若嚴格按 PST 字面換算則晚一小時。目前未發現後續延期或修正。' },

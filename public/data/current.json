@@ -1,19 +1,18 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "confirmationBasis": "owner_observed",
-  "headline": "A fresh usage reset has landed",
-  "resetAt": null,
-  "sourceTimezone": "PST",
-  "originalTimeText": "Lands around 6pm PST today.",
-  "scope": "2026-09-08 10:00 GMT+8 左右 · 面向所有付费订阅，已实测确认。",
+  "kind": "reset",
+  "status": "estimated",
+  "headline": "An Astra usage reset is expected by midnight",
+  "resetAt": "2026-09-12T07:00:00.000Z",
+  "sourceTimezone": "Unspecified; interpreted as Pacific daylight time (PDT, UTC−7)",
+  "originalTimeText": "a reset is also landing by midnight today",
+  "scope": "Astra 用户；原帖未说明具体订阅方案。",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X（重置公告节选）",
-    "text": "We will do a global reset of the usage for all paid subscriptions so that you can keep enjoying Astra after burning through all of it doing fun 3D modeling in blender. The work week is about to start.\n\nLands around 6pm PST today.",
-    "translation": "我们将为所有付费订阅进行一次全局额度重置，让大家在 Blender 中做有趣的 3D 建模、用完额度后，还能继续享用 Astra。工作周即将开始。\n\n预计今天 PST 下午 6 点左右落地。",
-    "url": "https://x.com/thsottiaux/status/2097043464538264003",
-    "postedAt": "2026-09-07T19:24:57.000Z"
+    "source": "Tibo (@thsottiaux) / X",
+    "text": "Hi Astra users. A reset and a quick update on quality issues that have been posted around.\n\nWorking with some of you, we have found and fixed the following issues:\n\n- Some skills written for previous models were triggering too often or preventing the model from checking its work.\n\n- An opt-in context management experiment that could cause early stops or replies to older messages. We've disabled it. Our rough estimate is that 4-5k users were affected by this experiment.\n\n- We've also removed some badly configured engines that resulted in a measured quality degradation for a long tail of traffic flowing through them.\n\nWe’ve also made some more minor improvements and things should feel significantly better across the board. More consistent follow-through, better tracking of your latest message, and better checks on the work as it’s going through the motions.\n\nThe examples posted and all the users who worked directly with us were incredibly useful in helping fix things quickly. Always grateful for this incredible community.\n\nAnd of course, a reset is also landing by midnight today.",
+    "translation": "Astra 用户们好。这里带来一次额度重置，以及对近期公开讨论的质量问题的简要更新。\n\n我们与部分用户一起排查并修复了这些问题：\n\n- 一些为旧模型编写的技能触发得过于频繁，或妨碍模型检查自己的工作。\n\n- 一项可选择加入的上下文管理实验可能导致过早停止，或回复较早的消息。该实验现已停用；初步估计约有 4,000–5,000 名用户受到影响。\n\n- 我们还移除了一些配置不当的引擎；这些引擎导致流经它们的长尾流量出现可测量的质量下降。\n\n此外还有一些较小的改进，整体体验应该会明显改善，包括更稳定地把任务完成到底、更好地跟踪用户的最新消息，以及在执行过程中更好地检查工作。\n\n公开分享的案例以及直接与我们合作的用户，对快速修复问题非常有帮助。一直感谢这个很棒的社区。\n\n当然，一次额度重置也将在今天午夜前落地。",
+    "url": "https://x.com/thsottiaux/status/2098612714704891959",
+    "postedAt": "2026-09-12T03:20:36.000Z"
   },
-  "updatedAt": "2026-09-08T02:39:50.000Z",
-  "note": "站长已实测确认自己的账号额度重置；这不是所有账号同步完成的证明。原帖预告 today around 6pm PST，按 PST 字面换算为北京时间 9 月 8 日 10:00 左右；若泛指当地夏令时间 PDT，则为 09:00 左右。精确执行时间未知。后续帖子仅表示“we are so back”，未明确确认重置完成。"
+  "updatedAt": "2026-09-12T03:42:11.310Z",
+  "note": "原帖没有注明“today”与“midnight”所采用的时区。结合发帖时刻及作者此前以太平洋时间发布重置预告的惯例，本站暂按当地夏令时间 PDT 推算，将 2026-09-12 07:00 UTC（北京时间/台北时间 15:00）作为最迟落地的倒计时锚点。“by midnight”表示午夜之前，不代表重置会在午夜整点执行；若作者采用其他时区，换算结果会不同。原帖面向 Astra 用户，但未明确具体订阅方案。"
 }
