@@ -1,3 +1,5 @@
+import { ResetCalendar } from './ResetCalendar';
+import { ArrowClockwise, ArrowUp } from '@phosphor-icons/react';
 import { StrictMode, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
@@ -5,6 +7,7 @@ import {
   type Locale,
 } from './i18n';
 import './styles.css';
+import './calendar.css';
 
 type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded';
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
@@ -104,6 +107,7 @@ function App() {
     <a className="skip-link" href="#content">{copy.skip}</a>
     <Header locale={locale} active={isHistory ? 'history' : 'current'} />
     {isHistory ? <HistoryPage locale={locale} /> : <CurrentPage locale={locale} />}
+    <PageTools locale={locale} />
     <Footer locale={locale} />
   </>;
 }
@@ -395,6 +399,7 @@ function HistoryPage({ locale }: { locale: Locale }) {
       <div className="archive-stat"><strong>{String(records.length).padStart(2, '0')}</strong><span>{copy.recorded}</span></div>
     </section>
 
+    <ResetCalendar records={records} locale={locale} />
     {records.length === 0 ? <section className="history-empty">
       <span aria-hidden="true">{copy.emptyNumber}</span><div><h2>{copy.emptyTitle}</h2><p>{copy.emptyBody}</p><a href={pagePath(locale, false)}>{copy.back} →</a></div>
     </section> : <div className="timeline">
@@ -430,6 +435,62 @@ function HistoryItem({ record, locale }: { record: HistoryRecord; locale: Locale
       <a href={record.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} ↗</a>
     </div>
   </article>;
+}
+
+function PageTools({ locale }: { locale: Locale }) {
+  const [visible, setVisible] = useState(false);
+  const [overContent, setOverContent] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
+  const labels: Record<Locale, { group: string; refresh: string; top: string; topShort: string }> = {
+    en: { group: 'Page tools', refresh: 'Refresh', top: 'Back to top', topShort: 'Top' },
+    'zh-CN': { group: '页面工具', refresh: '刷新', top: '返回顶部', topShort: '顶部' },
+    'zh-TW': { group: '頁面工具', refresh: '重新整理', top: '返回頂部', topShort: '頂部' },
+  };
+
+  useEffect(() => {
+    const update = () => setVisible(window.scrollY > 600);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
+  useEffect(() => {
+    const tools = toolsRef.current;
+    const content = document.querySelector('main');
+    if (!tools || !content) return;
+
+    const updateOverlap = () => {
+      const toolsRect = tools.getBoundingClientRect();
+      const contentRect = content.getBoundingClientRect();
+      setOverContent(toolsRect.left < contentRect.right + 12);
+    };
+
+    updateOverlap();
+    window.addEventListener('resize', updateOverlap);
+    const observer = new ResizeObserver(updateOverlap);
+    observer.observe(content);
+    observer.observe(tools);
+    return () => {
+      window.removeEventListener('resize', updateOverlap);
+      observer.disconnect();
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
+
+  return <div ref={toolsRef} className={`page-tools ${visible ? 'visible' : ''} ${overContent ? 'over-content' : ''}`} role="group" aria-label={labels[locale].group} aria-hidden={!visible}>
+    <button type="button" onClick={() => window.location.reload()} aria-label={labels[locale].refresh} title={labels[locale].refresh} tabIndex={visible ? 0 : -1}>
+      <ArrowClockwise size={21} weight="bold" aria-hidden="true" />
+      <span>{labels[locale].refresh}</span>
+    </button>
+    <button type="button" onClick={scrollToTop} aria-label={labels[locale].top} title={labels[locale].top} tabIndex={visible ? 0 : -1}>
+      <ArrowUp size={21} weight="bold" aria-hidden="true" />
+      <span>{labels[locale].topShort}</span>
+    </button>
+  </div>;
 }
 
 function Footer({ locale }: { locale: Locale }) {
