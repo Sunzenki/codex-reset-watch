@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-09-12-astra-confirmed",
+    "targetAt": "2026-09-12T08:09:17.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Reset all propagated.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X",
+      "text": "Reset all propagated. Sweet dreams.",
+      "translation": "重置已全部生效。祝好梦。",
+      "url": "https://x.com/thsottiaux/status/2098685367058612394",
+      "postedAt": "2026-09-12T08:09:17.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo used completed wording and quoted the earlier Astra reset announcement. The record uses the public confirmation post timestamp, not an exact backend completion time. The earlier 07:00 UTC deadline was a provisional PDT interpretation of an unspecified timezone; the later confirmation post does not establish a delay.",
+    "recordedAt": "2026-09-19T22:44:07.715Z"
+  },
+  {
     "id": "reset-2026-09-08-global-paid",
     "targetAt": "2026-09-08T02:00:00.000Z",
     "precision": "estimated",

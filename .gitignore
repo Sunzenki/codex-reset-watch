@@ -42,3 +42,8 @@ next-env.d.ts
 # local-only project documentation
 /PROJECT-MAINTENANCE-GUIDE.md
 /浏览器重置提醒功能实施计划.md
+/docs/content-and-data.md
+/docs/push-operations.md
+/docs/deployment-troubleshooting.md
+/docs/history/2026-09-08-to-09-project-log.md
+/docs/maintenance-guide-refactor-plan.md

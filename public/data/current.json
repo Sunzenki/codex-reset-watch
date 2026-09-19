@@ -1,27 +1,18 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "A fresh usage reset has landed",
+  "kind": "banked_reset",
+  "status": "monitoring",
+  "headline": "Tibo agreed in a reply to provide one banked reset",
   "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Reset all propagated.",
-  "scope": "Astra 用户；Tibo 已确认本轮重置完成，未另列订阅方案。",
+  "sourceTimezone": "Not provided; X timestamp recorded in UTC",
+  "originalTimeText": "OK fine.",
+  "scope": "Tibo agreed in a reply to provide one banked reset; eligibility, coverage, and delivery time were not announced.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X",
-    "text": "Reset all propagated. Sweet dreams.",
-    "translation": "重置已全部生效。祝好梦。",
-    "url": "https://x.com/thsottiaux/status/2098685367058612394",
-    "postedAt": "2026-09-12T08:09:17.000Z"
+    "source": "Tibo (@thsottiaux) / X reply",
+    "text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
+    "translation": "@udiWertheimer 好吧，可以。不过它也仍会在周二到来。",
+    "url": "https://x.com/thsottiaux/status/2101352781219258527",
+    "postedAt": "2026-09-19T16:48:38.000Z"
   },
-  "updatedAt": "2026-09-12T08:54:22.611Z",
-  "note": "北京时间 9 月 12 日 16:09:17 是公开确认帖时间，不是后台精确完成时刻。此前 15:00 是本站将未注明时区的 midnight 暂按 PDT 推算的截止点；确认帖较晚发布不能证明重置延期。",
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X (excerpt)",
-    "text": "And of course, a reset is also landing by midnight today.",
-    "translation": "当然，一次额度重置也将在今天午夜前落地。",
-    "url": "https://x.com/thsottiaux/status/2098612714704891959",
-    "postedAt": "2026-09-12T03:20:36.000Z",
-    "estimatedDeadline": "2026-09-12T07:00:00.000Z",
-    "timezoneWasInferred": true
-  }
+  "updatedAt": "2026-09-19T22:57:20.575Z",
+  "note": "This casual reply supports recording an informal promise of one banked reset, but it gives no delivery time or eligible plans. In context, “Tuesday” most likely refers to the delayed product release discussed in the quoted thread, not to the reset. The reply does not confirm two resets or one reset per day."
 }

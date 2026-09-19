@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-12-astra-reset-confirmed",
+  "eventId": "2026-09-20-banked-reset-promised",
   "messages": {
     "en": {
-      "title": "Astra usage reset has landed",
-      "body": "Tibo confirmed completion on September 12 at 08:09 UTC. Check your account.",
+      "title": "Tibo agrees to provide one banked reset",
+      "body": "No delivery time or eligibility was given. “Tuesday” most likely refers to the delayed release.",
       "path": "/en/"
     },
     "zh-CN": {
-      "title": "Astra 额度重置已落地",
-      "body": "Tibo 于 9 月 12 日 16:09 GMT+8 发帖确认重置已全部生效，可查看账号额度。",
+      "title": "Tibo 在回复中答应一次储备重置",
+      "body": "原帖未说明到账时间或适用范围；“周二”更可能指延期发布的内容。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "Astra 額度重置已落地",
-      "body": "Tibo 於 9 月 12 日 16:09 GMT+8 發帖確認重置已全部生效，可查看帳號額度。",
+      "title": "Tibo 在回覆中答應一次儲備重置",
+      "body": "原帖未說明到帳時間或適用範圍；「週二」更可能指延期發佈的內容。",
       "path": "/zh-TW/"
     }
   }
