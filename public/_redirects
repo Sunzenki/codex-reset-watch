@@ -1,3 +1,5 @@
-/ /en/ 301
-/history /en/history/ 301
-/history/ /en/history/ 301
+/en / 301
+/en/ / 301
+/en/history /history/ 301
+/en/history/ /history/ 301
+/history /history/ 301

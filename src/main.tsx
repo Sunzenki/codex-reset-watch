@@ -34,10 +34,12 @@ function routeInfo() {
   const parts = window.location.pathname.split('/').filter(Boolean);
   const candidate = parts[0] as Locale | undefined;
   const locale = candidate && supportedLocales.has(candidate) ? candidate : 'en';
-  return { locale, isHistory: parts[1] === 'history' };
+  const isHistory = locale === 'en' ? parts[0] === 'history' : parts[1] === 'history';
+  return { locale, isHistory };
 }
 
 function pagePath(locale: Locale, isHistory: boolean) {
+  if (locale === 'en') return isHistory ? '/history/' : '/';
   return `/${locale}/${isHistory ? 'history/' : ''}`;
 }
 

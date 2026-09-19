@@ -3,7 +3,7 @@
   "short_name": "CRW",
   "description": "A human-curated Codex reset countdown, source tracker, and history archive.",
   "lang": "en",
-  "start_url": "/en/",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#FBFAF4",

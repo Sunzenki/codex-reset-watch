@@ -4,7 +4,10 @@
 /data/*
   Cache-Control: public, max-age=0, must-revalidate
 
-/en/*
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/history/*
   Cache-Control: public, max-age=0, must-revalidate
 
 /zh-CN/*

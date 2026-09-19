@@ -33,9 +33,14 @@ const locales = {
   },
 };
 
+function routePath(locale, kind) {
+  if (locale === 'en') return kind === 'history' ? '/history/' : '/';
+  return `/${locale}/${kind === 'history' ? 'history/' : ''}`;
+}
+
 const routes = Object.keys(locales).flatMap((locale) => [
-  { locale, kind: 'home', path: `/${locale}/`, file: join(DIST, locale, 'index.html') },
-  { locale, kind: 'history', path: `/${locale}/history/`, file: join(DIST, locale, 'history/index.html') },
+  { locale, kind: 'home', path: routePath(locale, 'home'), file: locale === 'en' ? join(DIST, 'index.html') : join(DIST, locale, 'index.html') },
+  { locale, kind: 'history', path: routePath(locale, 'history'), file: locale === 'en' ? join(DIST, 'history/index.html') : join(DIST, locale, 'history/index.html') },
 ]);
 
 function escapeHtml(value) {
@@ -83,7 +88,7 @@ function currentHeadline(locale) {
 
 function snapshot(route) {
   const copy = locales[route.locale];
-  const languageLinks = Object.entries(locales).map(([code, value]) => `<a href="/${code}/${route.kind === 'history' ? 'history/' : ''}" lang="${value.lang}">${code}</a>`).join(' · ');
+  const languageLinks = Object.entries(locales).map(([code, value]) => `<a href="${routePath(code, route.kind)}" lang="${value.lang}">${code}</a>`).join(' · ');
   if (route.kind === 'home') {
     const source = current.announcement;
     return `<main id="content" class="seo-snapshot"><header><p>Codex Reset Watch</p><h1>${escapeHtml(currentHeadline(route.locale))}</h1><p>${escapeHtml(copy.homeDescription)}</p></header>${current.resetAt ? `<p><time datetime="${escapeHtml(current.resetAt)}">${escapeHtml(displayDate(current.resetAt, route.locale))}</time></p>` : ''}${source ? `<section><h2>${escapeHtml(copy.source)}</h2><blockquote cite="${escapeHtml(source.url)}" lang="en">${escapeHtml(source.text)}</blockquote><p><a href="${escapeHtml(source.url)}">Tibo (@thsottiaux) on X</a></p></section>` : ''}<p>${escapeHtml(copy.updated)}: <time datetime="${escapeHtml(current.updatedAt)}">${escapeHtml(displayDate(current.updatedAt, route.locale))}</time></p><nav aria-label="Languages">${languageLinks}</nav></main>`;
@@ -148,13 +153,13 @@ for (const route of routes) {
 const latestHistoryUpdate = history.reduce((latest, item) => item.recordedAt > latest ? item.recordedAt : latest, current.updatedAt).slice(0, 10);
 const currentUpdate = current.updatedAt.slice(0, 10);
 const sitemapEntries = routes.map((route) => {
-  const alternates = Object.keys(locales).map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${ORIGIN}/${locale}/${route.kind === 'history' ? 'history/' : ''}" />`).join('\n');
-  const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}/en/${route.kind === 'history' ? 'history/' : ''}" />`;
+  const alternates = Object.keys(locales).map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${ORIGIN}${routePath(locale, route.kind)}" />`).join('\n');
+  const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}${routePath('en', route.kind)}" />`;
   return `  <url>\n    <loc>${ORIGIN}${route.path}</loc>\n    <lastmod>${route.kind === 'history' ? latestHistoryUpdate : currentUpdate}</lastmod>\n${alternates}\n${xDefault}\n  </url>`;
 }).join('\n');
 writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries}\n</urlset>\n`);
 writeFileSync(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
-writeFileSync(join(DIST, 'llms.txt'), `# Codex Reset Watch\n\n> A multilingual, human-curated tracker for confirmed and upcoming Codex usage resets, with countdowns, source posts, verified history, and optional browser alerts. It is not affiliated with OpenAI.\n\n## Canonical pages\n- [English current reset](${ORIGIN}/en/)\n- [English reset history](${ORIGIN}/en/history/)\n- [简体中文当前重置](${ORIGIN}/zh-CN/)\n- [简体中文历史记录](${ORIGIN}/zh-CN/history/)\n- [繁體中文目前重置](${ORIGIN}/zh-TW/)\n- [繁體中文歷史記錄](${ORIGIN}/zh-TW/history/)\n\n## Machine-readable data\n- [Current status JSON](${ORIGIN}/data/current.json)\n- [History JSON](${ORIGIN}/data/history.json)\n\n## Editorial method\n- Every event links to the public post it was derived from.\n- Original quotations are preserved in English.\n- Times are stored as ISO 8601 UTC; localized pages format them for their stated time zone.\n- A countdown reaching zero does not prove that a reset occurred. Confirmed outcomes are recorded separately.\n\n## Source and ownership\n- Primary public source monitored manually: Tibo (@thsottiaux) on X.\n- Project owner: [WarpNav](https://warpnav.com/)\n- Source code: [GitHub](https://github.com/Sunzenki/codex-reset-watch)\n`);
+writeFileSync(join(DIST, 'llms.txt'), `# Codex Reset Watch\n\n> A multilingual, human-curated tracker for confirmed and upcoming Codex usage resets, with countdowns, source posts, verified history, and optional browser alerts. It is not affiliated with OpenAI.\n\n## Canonical pages\n- [English current reset](${ORIGIN}/)\n- [English reset history](${ORIGIN}/history/)\n- [简体中文当前重置](${ORIGIN}/zh-CN/)\n- [简体中文历史记录](${ORIGIN}/zh-CN/history/)\n- [繁體中文目前重置](${ORIGIN}/zh-TW/)\n- [繁體中文歷史記錄](${ORIGIN}/zh-TW/history/)\n\n## Machine-readable data\n- [Current status JSON](${ORIGIN}/data/current.json)\n- [History JSON](${ORIGIN}/data/history.json)\n\n## Editorial method\n- Every event links to the public post it was derived from.\n- Original quotations are preserved in English.\n- Times are stored as ISO 8601 UTC; localized pages format them for their stated time zone.\n- A countdown reaching zero does not prove that a reset occurred. Confirmed outcomes are recorded separately.\n\n## Source and ownership\n- Primary public source monitored manually: Tibo (@thsottiaux) on X.\n- Project owner: [WarpNav](https://warpnav.com/)\n- Source code: [GitHub](https://github.com/Sunzenki/codex-reset-watch)\n`);
 copyFileSync(join(ROOT, 'ads.txt'), join(DIST, 'ads.txt'));
 
 console.log('SEO postbuild complete: static snapshots, JSON-LD, sitemap, robots, llms.txt, and ads.txt');

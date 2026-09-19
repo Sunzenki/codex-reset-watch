@@ -14,7 +14,7 @@ const localeNames: Record<Locale, string> = { en: 'English', 'zh-CN': '简体中
 const emptyMessage = (): PushPayload => ({
   eventId: '',
   messages: {
-    en: { title: '', body: '', path: '/en/' },
+    en: { title: '', body: '', path: '/' },
     'zh-CN': { title: '', body: '', path: '/zh-CN/' },
     'zh-TW': { title: '', body: '', path: '/zh-TW/' },
   },

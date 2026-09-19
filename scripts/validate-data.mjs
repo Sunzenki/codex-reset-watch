@@ -37,8 +37,8 @@ for (const [index, record] of history.entries()) {
 }
 
 const seoRoutes = [
-  ['en', 'home', '../en/index.html'],
-  ['en', 'history', '../en/history/index.html'],
+  ['en', 'home', '../index.html'],
+  ['en', 'history', '../history/index.html'],
   ['zh-CN', 'home', '../zh-CN/index.html'],
   ['zh-CN', 'history', '../zh-CN/history/index.html'],
   ['zh-TW', 'home', '../zh-TW/index.html'],

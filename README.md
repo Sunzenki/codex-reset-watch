@@ -1,8 +1,10 @@
 # Codex Reset Watch
 
+项目的完整产品说明、数据维护、时区换算、多语言、SEO/GEO、UI、GitHub 与 Cloudflare Pages 操作手册见 [`PROJECT-MAINTENANCE-GUIDE.md`](./PROJECT-MAINTENANCE-GUIDE.md)。后续更新应先阅读该文件。
+
 `crw.warpnav.com` 的静态信息站：展示下一次经过人工核对的 Codex rate-limit reset 预告，并保存历史记录。项目不监控 X、不调用 X API，也不会自动修改公开数据。
 
-网站提供 English、简体中文和繁體中文三套静态页面。访问 `/` 默认进入 `/en/`；语言页面分别位于 `/en/`、`/zh-CN/` 和 `/zh-TW/`，每种语言都有对应的 `/history/` 页面。
+网站提供 English、简体中文和繁體中文三套静态页面。根目录 `/` 就是英文首页，英文历史页位于 `/history/`；中文页面分别位于 `/zh-CN/` 和 `/zh-TW/`，并各有对应的 `/history/` 页面。旧 `/en/` 地址只保留永久重定向兼容。
 
 ## 内容更新
 
@@ -34,7 +36,7 @@ pnpm dev
 pnpm build
 ```
 
-`pnpm build` 会先校验两个 JSON 文件。Cloudflare Pages 构建命令为 `pnpm build`，输出目录为 `dist`。项目包含 `public/_redirects`，根地址默认进入英文版，旧 `/history` 地址会跳转到 `/en/history/`。
+`pnpm build` 会先校验两个 JSON 文件。Cloudflare Pages 当前实际构建命令为 `npm run build`，输出目录为 `dist`；本地仍推荐使用 `pnpm build`。项目包含 `public/_redirects`，旧 `/en/` 与 `/en/history/` 会分别永久重定向到 `/` 与 `/history/`。
 
 ## SEO 与机器可读输出
 
