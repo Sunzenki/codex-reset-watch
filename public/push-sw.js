@@ -1,7 +1,7 @@
 self.addEventListener('push', (event) => {
   let message = {};
   try { message = event.data?.json() ?? {}; } catch { message = {}; }
-  const path = /^\/(en|zh-CN|zh-TW)\/(history\/)?$/.test(message.path ?? '') ? message.path : '/';
+  const path = /^\/(?:history\/)?$|^\/(?:zh-CN|zh-TW)\/(?:history\/)?$|^\/en\/(?:history\/)?$/.test(message.path ?? '') ? message.path : '/';
   event.waitUntil(self.registration.showNotification(message.title || 'Codex Reset Watch', {
     body: message.body || '', icon: '/icon-192.png', badge: '/favicon-32.png',
     tag: message.eventId || 'crw-update', data: { path }, renotify: true,

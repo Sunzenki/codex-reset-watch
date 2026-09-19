@@ -1,5 +1,19 @@
 import assert from 'node:assert/strict';
 import { buildPushPayload } from '@block65/webcrypto-web-push';
+import { validateMessage } from '../functions/_lib/push.js';
+
+const message = (paths) => ({
+  eventId: 'route-test',
+  messages: {
+    en: { title: 'English', body: 'English body', path: paths.en },
+    'zh-CN': { title: '简体中文', body: '简体中文正文', path: paths['zh-CN'] },
+    'zh-TW': { title: '繁體中文', body: '繁體中文正文', path: paths['zh-TW'] },
+  },
+});
+
+assert.doesNotThrow(() => validateMessage(message({ en: '/', 'zh-CN': '/zh-CN/', 'zh-TW': '/zh-TW/' })));
+assert.doesNotThrow(() => validateMessage(message({ en: '/history/', 'zh-CN': '/zh-CN/history/', 'zh-TW': '/zh-TW/history/' })));
+assert.throws(() => validateMessage(message({ en: '/en/', 'zh-CN': '/zh-CN/', 'zh-TW': '/zh-TW/' })), /invalid message path/);
 
 const base64url = (value) => Buffer.from(value).toString('base64url');
 const vapidKeyPair = await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify']);

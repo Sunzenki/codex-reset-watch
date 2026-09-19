@@ -44,7 +44,10 @@ export function validateMessage(value) {
     const item = value?.messages?.[locale];
     if (!item || typeof item.title !== 'string' || typeof item.body !== 'string' || typeof item.path !== 'string') throw new Error('missing locale message');
     if (!item.title.trim() || item.title.length > 80 || !item.body.trim() || item.body.length > 180) throw new Error('invalid message length');
-    if (!new RegExp(`^/${locale}/(?:history/)?$`).test(item.path)) throw new Error('invalid message path');
+    const validPath = locale === 'en'
+      ? /^\/(?:history\/)?$/.test(item.path)
+      : new RegExp(`^/${locale}/(?:history/)?$`).test(item.path);
+    if (!validPath) throw new Error('invalid message path');
     messages[locale] = { title: item.title.trim(), body: item.body.trim(), path: item.path };
   }
   return { eventId: value.eventId, messages };
