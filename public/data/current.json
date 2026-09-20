@@ -1,11 +1,11 @@
 {
   "kind": "banked_reset",
   "status": "monitoring",
-  "headline": "Tibo agreed in a reply to provide one banked reset",
+  "headline": "Tibo agreed to one banked reset",
   "resetAt": null,
   "sourceTimezone": "Not provided; X timestamp recorded in UTC",
-  "originalTimeText": "OK fine.",
-  "scope": "Tibo agreed in a reply to provide one banked reset; eligibility, coverage, and delivery time were not announced.",
+  "originalTimeText": "OK fine. But it’s also still coming in Tuesday",
+  "scope": "Tibo agreed to one banked reset and mentioned Tuesday, September 22, in the same reply. The wording does not clearly say that Tuesday is the banked-reset delivery date.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X reply",
     "text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
@@ -13,6 +13,6 @@
     "url": "https://x.com/thsottiaux/status/2101352781219258527",
     "postedAt": "2026-09-19T16:48:38.000Z"
   },
-  "updatedAt": "2026-09-19T22:57:20.575Z",
-  "note": "This casual reply supports recording an informal promise of one banked reset, but it gives no delivery time or eligible plans. In context, “Tuesday” most likely refers to the delayed product release discussed in the quoted thread, not to the reset. The reply does not confirm two resets or one reset per day."
+  "updatedAt": "2026-09-20T14:21:03.093Z",
+  "note": "Tuesday, September 22 is the only date clue in the reply, but no exact time or timezone was given. In context, “Tuesday” most likely refers to the delayed product release discussed in the quoted thread, not to the banked reset. The reply does not confirm two resets or one reset per day."
 }

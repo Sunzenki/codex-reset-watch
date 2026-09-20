@@ -24,7 +24,7 @@ export const ui = {
     targetZone: 'UTC', localTime: 'Your local time', countdown: 'Time until the expected reset', bankedCountdown: 'Time until the banked reset is expected to become available',
     units: { days: 'days', hours: 'hours', minutes: 'min', seconds: 'sec' },
     railStart: 'Post published', railEnd: 'Expected reset', bankedRailEnd: 'Expected availability', waitingTitle: 'Waiting for the next verified public update',
-    waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Waiting for delivery details', bankedPendingBody: 'No eligible plans or delivery time were announced, so CRW is not showing a countdown.', untimedHintTitle: 'Waiting for further details', untimedHintBody: 'The wording points toward a possible milestone reset tomorrow. A countdown will appear only if a usable time is published.',
+    waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Date clue: Tuesday, September 22', bankedPendingBody: 'This is the only date mentioned in the reply. The quoted thread suggests it more likely refers to the delayed release, not a confirmed banked-reset delivery date, so CRW is not showing a countdown.', untimedHintTitle: 'Waiting for further details', untimedHintBody: 'The wording points toward a possible milestone reset tomorrow. A countdown will appear only if a usable time is published.',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factUpdated: 'Site updated',
@@ -55,7 +55,7 @@ export const ui = {
     targetZone: '北京时间（UTC+8）', localTime: '你的本地时间', countdown: '距离预告重置时间', bankedCountdown: '距离储备重置机会预计到账',
     units: { days: '天', hours: '时', minutes: '分', seconds: '秒' },
     railStart: '原帖发布', railEnd: '预计重置', bankedRailEnd: '预计到账', waitingTitle: '等待下一条经过核对的公开预告',
-    waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '等待到账细节', bankedPendingBody: '原帖没有说明适用方案或到账时间，因此本站暂不显示倒计时。', untimedHintTitle: '等待进一步消息', untimedHintBody: '原帖措辞指向明天可能进行一次里程碑重置；只有出现可用的公开时间后，本站才会显示倒计时。',
+    waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '日期线索：周二（9 月 22 日）', bankedPendingBody: '这是回复中唯一提到的日期。结合引用线程，它更可能指延期发布的内容，并非已确认的储备重置到账日，因此本站不显示倒计时。', untimedHintTitle: '等待进一步消息', untimedHintBody: '原帖措辞指向明天可能进行一次里程碑重置；只有出现可用的公开时间后，本站才会显示倒计时。',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
     factOriginal: '原帖措辞', factZone: '原始时区', factTiming: '时间依据', factConfirmation: '确认依据', factUpdated: '本站更新',
@@ -86,7 +86,7 @@ export const ui = {
     targetZone: '台北時間（UTC+8）', localTime: '你的本地時間', countdown: '距離預告重置時間', bankedCountdown: '距離儲備重置機會預計到帳',
     units: { days: '天', hours: '時', minutes: '分', seconds: '秒' },
     railStart: '原帖發佈', railEnd: '預計重置', bankedRailEnd: '預計到帳', waitingTitle: '等待下一則經過核對的公開預告',
-    waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '等待到帳細節', bankedPendingBody: '原帖沒有說明適用方案或到帳時間，因此本站暫不顯示倒數計時。', untimedHintTitle: '等待進一步消息', untimedHintBody: '原帖措辭指向明天可能進行一次里程碑重置；只有出現可用的公開時間後，本站才會顯示倒數計時。',
+    waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '日期線索：週二（9 月 22 日）', bankedPendingBody: '這是回覆中唯一提到的日期。結合引用討論串，它更可能指延期發佈的內容，並非已確認的儲備重置到帳日，因此本站不顯示倒數計時。', untimedHintTitle: '等待進一步消息', untimedHintBody: '原帖措辭指向明天可能進行一次里程碑重置；只有出現可用的公開時間後，本站才會顯示倒數計時。',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
     factOriginal: '原帖措辭', factZone: '原始時區', factTiming: '時間依據', factConfirmation: '確認依據', factUpdated: '本站更新',
@@ -112,22 +112,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "Tibo agreed in a reply to provide one banked reset",
-    "scope": "Eligibility, coverage, and delivery time have not been announced.",
-    "context": "After Udi said the team owed users a banked reset, Tibo replied, “OK fine.” In the same reply, he said a delayed release is still coming Tuesday.",
-    "note": "The reply supports an informal promise of one banked reset, but gives no delivery time or eligible plans. “Tuesday” most likely refers to the delayed release, not the reset. It does not confirm two resets or one reset per day."
+    "headline": "Tibo agreed to one banked reset",
+    "scope": "The same reply mentions Tuesday, September 22, but does not clearly identify it as the delivery date.",
+    "context": "After Udi said the team owed users a banked reset, Tibo replied, “OK fine. But it’s also still coming in Tuesday.” The next Tuesday after the post is September 22; no exact time or timezone was given.",
+    "note": "Tuesday, September 22 is the only date clue in the reply. In context, it most likely refers to the delayed release in the quoted thread, not to the banked reset. It does not confirm two resets or one reset per day."
   },
   "zh-CN": {
-    "headline": "Tibo 在回复中答应一次储备重置",
-    "scope": "尚未说明适用方案、覆盖范围或到账时间。",
-    "context": "Udi 表示团队欠用户一次 banked reset 后，Tibo 回复“OK fine”。他在同一回复中还表示，一项延期发布的内容仍会在周二到来。",
-    "note": "这条回复可以支持“一次储备重置的非正式承诺”，但没有说明何时到账或覆盖哪些用户。“周二”更可能指延期发布的内容，不能用作重置倒计时，也不能推导出两次或每天一次重置。"
+    "headline": "Tibo 答应一次储备重置",
+    "scope": "同一回复提到周二（9 月 22 日），但未明确这是储备重置到账日。",
+    "context": "Udi 表示团队欠用户一次 banked reset 后，Tibo 回复：“OK fine. But it’s also still coming in Tuesday。”按发帖后的下一个周二计算，该日期为 9 月 22 日；原帖没有给出具体时刻或时区。",
+    "note": "周二（9 月 22 日）是回复中唯一的日期线索。结合引用线程，它更可能指延期发布的内容，而不是储备重置，不能据此启动倒计时，也不能推导出两次或每天一次重置。"
   },
   "zh-TW": {
-    "headline": "Tibo 在回覆中答應一次儲備重置",
-    "scope": "尚未說明適用方案、涵蓋範圍或到帳時間。",
-    "context": "Udi 表示團隊欠使用者一次 banked reset 後，Tibo 回覆「OK fine」。他在同一則回覆中還表示，一項延期發佈的內容仍會在週二到來。",
-    "note": "這則回覆可以支持「一次儲備重置的非正式承諾」，但沒有說明何時到帳或涵蓋哪些使用者。「週二」更可能指延期發佈的內容，不能用作重置倒數，也不能推導出兩次或每天一次重置。"
+    "headline": "Tibo 答應一次儲備重置",
+    "scope": "同一則回覆提到週二（9 月 22 日），但未明確這是儲備重置到帳日。",
+    "context": "Udi 表示團隊欠使用者一次 banked reset 後，Tibo 回覆：「OK fine. But it’s also still coming in Tuesday。」按發帖後的下一個週二計算，該日期為 9 月 22 日；原帖沒有提供具體時間或時區。",
+    "note": "週二（9 月 22 日）是回覆中唯一的日期線索。結合引用討論串，它更可能指延期發佈的內容，而不是儲備重置，不能據此啟動倒數，也不能推導出兩次或每天一次重置。"
   }
 };
 

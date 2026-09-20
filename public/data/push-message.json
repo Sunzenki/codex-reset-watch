@@ -3,17 +3,17 @@
   "messages": {
     "en": {
       "title": "Tibo agrees to provide one banked reset",
-      "body": "No delivery time or eligibility was given. “Tuesday” most likely refers to the delayed release.",
+      "body": "Tuesday, September 22 is mentioned, but most likely refers to the delayed release; no reset delivery time was confirmed.",
       "path": "/"
     },
     "zh-CN": {
       "title": "Tibo 在回复中答应一次储备重置",
-      "body": "原帖未说明到账时间或适用范围；“周二”更可能指延期发布的内容。",
+      "body": "原帖提到周二（9 月 22 日），但更可能指延期发布的内容；储备重置到账时间仍未确认。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
       "title": "Tibo 在回覆中答應一次儲備重置",
-      "body": "原帖未說明到帳時間或適用範圍；「週二」更可能指延期發佈的內容。",
+      "body": "原帖提到週二（9 月 22 日），但更可能指延期發佈的內容；儲備重置到帳時間仍未確認。",
       "path": "/zh-TW/"
     }
   }
