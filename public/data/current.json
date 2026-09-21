@@ -1,18 +1,18 @@
 {
   "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "Tibo agreed to one banked reset",
-  "resetAt": null,
-  "sourceTimezone": "Not provided; X timestamp recorded in UTC",
-  "originalTimeText": "OK fine. But it’s also still coming in Tuesday",
-  "scope": "Tibo agreed to one banked reset and mentioned Tuesday, September 22, in the same reply. The wording does not clearly say that Tuesday is the banked-reset delivery date.",
+  "status": "estimated",
+  "headline": "Banked reset tentatively expected Tuesday",
+  "resetAt": "2026-09-22T10:00:00.000Z",
+  "sourceTimezone": "Unspecified; interpreted as Pacific daylight time (PDT, UTC−7)",
+  "originalTimeText": "3am on a tuesday",
+  "scope": "Tibo previously agreed to one banked reset, then later wrote “3am on a tuesday.” The countdown assumes the upcoming Tuesday in his local San Francisco time, but the reply does not explicitly identify the event.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X reply",
-    "text": "@udiWertheimer OK fine. But it’s also still coming in Tuesday",
-    "translation": "@udiWertheimer 好吧，可以。不过它也仍会在周二到来。",
-    "url": "https://x.com/thsottiaux/status/2101352781219258527",
-    "postedAt": "2026-09-19T16:48:38.000Z"
+    "text": "@My_Ai_Bi 3am on a tuesday",
+    "translation": "@My_Ai_Bi 周二凌晨 3 点。",
+    "url": "https://x.com/thsottiaux/status/2101920928070562029",
+    "postedAt": "2026-09-21T06:26:15.000Z"
   },
-  "updatedAt": "2026-09-20T14:21:03.093Z",
-  "note": "Tuesday, September 22 is the only date clue in the reply, but no exact time or timezone was given. In context, “Tuesday” most likely refers to the delayed product release discussed in the quoted thread, not to the banked reset. The reply does not confirm two resets or one reset per day."
+  "updatedAt": "2026-09-21T09:51:10.310Z",
+  "note": "The target is an editorial estimate, not a confirmed banked-reset schedule. Tibo’s public profile and recent interview place him in San Francisco, so CRW interprets 3 AM as PDT (UTC−7) and the upcoming Tuesday as September 22. The reply itself names neither the banked reset nor the timezone; travel or a different intended reference would invalidate the estimate."
 }

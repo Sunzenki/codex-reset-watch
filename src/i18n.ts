@@ -112,22 +112,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "Tibo agreed to one banked reset",
-    "scope": "The same reply mentions Tuesday, September 22, but does not clearly identify it as the delivery date.",
-    "context": "After Udi said the team owed users a banked reset, Tibo replied, “OK fine. But it’s also still coming in Tuesday.” The next Tuesday after the post is September 22; no exact time or timezone was given.",
-    "note": "Tuesday, September 22 is the only date clue in the reply. In context, it most likely refers to the delayed release in the quoted thread, not to the banked reset. It does not confirm two resets or one reset per day."
+    "headline": "Banked reset tentatively expected Tuesday",
+    "scope": "Using Tibo’s public San Francisco location, 3 AM Tuesday is estimated as September 22 at 10:00 UTC. His reply does not explicitly identify the event.",
+    "context": "Tibo previously agreed to one banked reset. In a separate reply beneath a GPT-6 Community Night post, he later wrote, “3am on a tuesday.” If he meant the upcoming Tuesday in his local San Francisco time, that is September 22 at 3:00 AM PDT (10:00 UTC).",
+    "note": "This countdown is an editorial estimate, not a confirmed banked-reset schedule. The reply names neither the reset nor the timezone; travel or a different intended reference would invalidate the estimate."
   },
   "zh-CN": {
-    "headline": "Tibo 答应一次储备重置",
-    "scope": "同一回复提到周二（9 月 22 日），但未明确这是储备重置到账日。",
-    "context": "Udi 表示团队欠用户一次 banked reset 后，Tibo 回复：“OK fine. But it’s also still coming in Tuesday。”按发帖后的下一个周二计算，该日期为 9 月 22 日；原帖没有给出具体时刻或时区。",
-    "note": "周二（9 月 22 日）是回复中唯一的日期线索。结合引用线程，它更可能指延期发布的内容，而不是储备重置，不能据此启动倒计时，也不能推导出两次或每天一次重置。"
+    "headline": "储备重置暂定周二到账",
+    "scope": "按 Tibo 公开的旧金山常驻地点推算，周二凌晨 3 点对应北京时间 9 月 22 日 18:00；原回复未明确说明所指事件。",
+    "context": "Tibo 此前已答应一次 banked reset。之后他在另一条 GPT-6 Community Night 帖子下回复：“3am on a tuesday。”若“周二”指即将到来的周二，并以其旧金山当地时间计算，则为 9 月 22 日 03:00 PDT，即北京时间 18:00。",
+    "note": "此倒计时是本站推算，并非已经确认的储备重置时间。原回复没有点明重置或时区；如果 Tibo 正在旅行，或这句话另有所指，当前推算便不成立。"
   },
   "zh-TW": {
-    "headline": "Tibo 答應一次儲備重置",
-    "scope": "同一則回覆提到週二（9 月 22 日），但未明確這是儲備重置到帳日。",
-    "context": "Udi 表示團隊欠使用者一次 banked reset 後，Tibo 回覆：「OK fine. But it’s also still coming in Tuesday。」按發帖後的下一個週二計算，該日期為 9 月 22 日；原帖沒有提供具體時間或時區。",
-    "note": "週二（9 月 22 日）是回覆中唯一的日期線索。結合引用討論串，它更可能指延期發佈的內容，而不是儲備重置，不能據此啟動倒數，也不能推導出兩次或每天一次重置。"
+    "headline": "儲備重置暫定週二到帳",
+    "scope": "按 Tibo 公開的舊金山常駐地點推算，週二凌晨 3 點對應台北時間 9 月 22 日 18:00；原回覆未明確說明所指事件。",
+    "context": "Tibo 先前已答應一次 banked reset。之後他在另一則 GPT-6 Community Night 貼文下回覆：「3am on a tuesday。」若「週二」指即將到來的週二，並以其舊金山當地時間計算，則為 9 月 22 日 03:00 PDT，即台北時間 18:00。",
+    "note": "此倒數計時是本站推算，並非已確認的儲備重置時間。原回覆沒有點明重置或時區；若 Tibo 正在旅行，或這句話另有所指，目前推算便不成立。"
   }
 };
 
