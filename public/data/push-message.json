@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-20-banked-reset-promised",
+  "eventId": "2026-09-23-banked-reset-loading",
   "messages": {
     "en": {
-      "title": "Tibo agrees to provide one banked reset",
-      "body": "Tuesday, September 22 is mentioned, but most likely refers to the delayed release; no reset delivery time was confirmed.",
+      "title": "Tibo says a banked reset is being loaded",
+      "body": "One banked reset is being loaded into Plus, Pro, and Business accounts. No availability time or full delivery confirmation yet.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "Tibo 在回复中答应一次储备重置",
-      "body": "原帖提到周二（9 月 22 日），但更可能指延期发布的内容；储备重置到账时间仍未确认。",
+      "title": "Tibo 宣布正在发放储备重置",
+      "body": "正向 Plus、Pro 和 Business 用户账户装载一次储备重置；具体到账时间及是否全部到账尚未确认。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "Tibo 在回覆中答應一次儲備重置",
-      "body": "原帖提到週二（9 月 22 日），但更可能指延期發佈的內容；儲備重置到帳時間仍未確認。",
+      "title": "Tibo 宣布正在發放儲備重置",
+      "body": "正向 Plus、Pro 和 Business 使用者帳戶裝載一次儲備重置；具體到帳時間及是否全部到帳尚未確認。",
       "path": "/zh-TW/"
     }
   }
