@@ -1,18 +1,26 @@
 {
-  "kind": "banked_reset",
+  "kind": "reset",
   "status": "estimated",
-  "headline": "Banked reset tentatively expected Tuesday",
+  "dateConfirmed": true,
+  "headline": "Tibo confirms a Tuesday reset",
   "resetAt": "2026-09-22T10:00:00.000Z",
   "sourceTimezone": "Unspecified; interpreted as Pacific daylight time (PDT, UTC−7)",
-  "originalTimeText": "3am on a tuesday",
-  "scope": "Tibo previously agreed to one banked reset, then later wrote “3am on a tuesday.” The countdown assumes the upcoming Tuesday in his local San Francisco time, but the reply does not explicitly identify the event.",
+  "originalTimeText": "a reset for Tuesday; earlier: 3am on a tuesday",
+  "scope": "Tibo has explicitly confirmed a reset for Tuesday, September 22. The 10:00 UTC countdown remains an editorial estimate based on his earlier “3am on a tuesday” reply interpreted as PDT.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X reply",
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Ladies and gentlemen... start... your... ENGINES. We are almost Tuesday and I promised a reset for Tuesday. Among some other things. See you soon.",
+    "translation": "女士们、先生们……启动你们的引擎。马上就是周二了，我答应过周二会进行一次重置。还有其他一些事情。很快见。",
+    "url": "https://x.com/thsottiaux/status/2102254445082116335",
+    "postedAt": "2026-09-22T04:31:32.000Z"
+  },
+  "timingSource": {
+    "source": "Tibo (@thsottiaux) / earlier X reply",
     "text": "@My_Ai_Bi 3am on a tuesday",
     "translation": "@My_Ai_Bi 周二凌晨 3 点。",
     "url": "https://x.com/thsottiaux/status/2101920928070562029",
     "postedAt": "2026-09-21T06:26:15.000Z"
   },
-  "updatedAt": "2026-09-21T09:51:10.310Z",
-  "note": "The target is an editorial estimate, not a confirmed banked-reset schedule. Tibo’s public profile and recent interview place him in San Francisco, so CRW interprets 3 AM as PDT (UTC−7) and the upcoming Tuesday as September 22. The reply itself names neither the banked reset nor the timezone; travel or a different intended reference would invalidate the estimate."
+  "updatedAt": "2026-09-22T08:43:32.423Z",
+  "note": "The Tuesday date is now explicit, but the exact time and reset format are not. The countdown keeps the earlier 3 AM clue and interprets it as San Francisco local time (PDT, UTC−7), producing 10:00 UTC. The latest post says only “a reset,” so CRW does not label it as a confirmed banked reset."
 }

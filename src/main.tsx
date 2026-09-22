@@ -15,7 +15,7 @@ type Announcement = { source: string; text: string; translation?: string; url: s
 type CurrentReset = {
   confirmationBasis?: 'owner_observed'; kind?: 'reset' | 'banked_reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
-  updatedAt: string; note?: string;
+  dateConfirmed?: boolean; timingSource?: Announcement; updatedAt: string; note?: string;
 };
 type HistoryRecord = {
   id: string; targetAt: string; precision: 'estimated' | 'confirmed'; originalTimezone: string;
@@ -230,12 +230,12 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : copy.status[effectiveStatus]}</div>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
         {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
         <span>{content.headline}</span>
-      </> : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      </> : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}</p>
 
       {!isResetConfirmed && !isReached && remaining && data.resetAt ? <>
@@ -264,7 +264,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
         <blockquote lang="en">“{data.announcement.text}”</blockquote>
         <p className="translation">{content.context}</p>
         <p className="editor-note">{content.note}</p>
-        <div className="source-row"><span>{copy.postedAt} {dateTime(data.announcement.postedAt, locale, true)}</span><a href={data.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} <span>↗</span></a></div>
+        <div className="source-row"><span>{copy.postedAt} {dateTime(data.announcement.postedAt, locale, true)}</span><span className="source-links"><a href={data.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} <span>↗</span></a>{data.timingSource && <a href={data.timingSource.url} target="_blank" rel="noreferrer">{copy.viewTimingPost} <span>↗</span></a>}</span></div>
       </article> : <article className="empty-evidence"><strong>{copy.noEvidence}</strong><p>{content.note}</p></article>}
     </section>
 

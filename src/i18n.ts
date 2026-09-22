@@ -18,7 +18,7 @@ export const ui = {
   en: {
     skip: 'Skip to main content', navCurrent: 'Latest update', navHistory: 'History', navPush: 'Notifications', navMenu: 'Menu', navMenuClose: 'Close menu', language: 'Language',
     titleCurrent: seoMetadata.en.home.title, titleHistory: seoMetadata.en.history.title,
-    status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' },
+    status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' }, dateConfirmedStatus: 'Tuesday confirmed · time estimated',
     outcome: { unverified: 'Not independently verified', as_announced: 'No later correction found', revised: 'Later revised', cancelled: 'Announcement cancelled' },
     nextLabel: 'Next rate-limit reset', bankedLabel: 'Next banked reset', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
     targetZone: 'UTC', localTime: 'Your local time', countdown: 'Time until the expected reset', bankedCountdown: 'Time until the banked reset is expected to become available',
@@ -28,7 +28,7 @@ export const ui = {
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factUpdated: 'Site updated',
-    sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View original post', postedAt: 'Posted',
+    sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View confirmation post', viewTimingPost: 'View timing reply', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
     methodSourceTitle: 'Source-first records', methodSourceBody: 'Every event links to the public post it was derived from. Quotes stay in their original language and later corrections are recorded separately.',
     methodTimeTitle: 'Consistent time conversion', methodTimeBody: 'Times are stored as ISO 8601 UTC. English pages display UTC; Simplified and Traditional Chinese pages display UTC+8.',
@@ -49,7 +49,7 @@ export const ui = {
   'zh-CN': {
     skip: '跳到主要内容', navCurrent: '最新动态', navHistory: '历史记录', navPush: '动态通知', navMenu: '菜单', navMenuClose: '关闭菜单', language: '语言',
     titleCurrent: seoMetadata['zh-CN'].home.title, titleHistory: seoMetadata['zh-CN'].history.title,
-    status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' },
+    status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' }, dateConfirmedStatus: '周二已确认 · 时间为推算',
     outcome: { unverified: '暂未验证', as_announced: '未发现后续修正', revised: '后续已修正', cancelled: '预告已取消' },
     nextLabel: '下一次额度重置', bankedLabel: '储备重置最新消息', latestLabel: '额度规则最新动态', confirmedLabel: '最新确认的额度重置', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已落地', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
     targetZone: '北京时间（UTC+8）', localTime: '你的本地时间', countdown: '距离预告重置时间', bankedCountdown: '距离储备重置机会预计到账',
@@ -59,7 +59,7 @@ export const ui = {
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
     factOriginal: '原帖措辞', factZone: '原始时区', factTiming: '时间依据', factConfirmation: '确认依据', factUpdated: '本站更新',
-    sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看原帖', postedAt: '发布于',
+    sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看确认帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
     methodSourceTitle: '保留公开来源', methodSourceBody: '每条记录都链接到对应的公开原帖。引文保留原始语言，后续修正则单独记录。',
     methodTimeTitle: '统一换算时间', methodTimeBody: '所有时间以 ISO 8601 UTC 格式保存。英文页面显示 UTC，简体与繁体中文页面显示 UTC+8。',
@@ -80,7 +80,7 @@ export const ui = {
   'zh-TW': {
     skip: '跳到主要內容', navCurrent: '最新動態', navHistory: '歷史記錄', navPush: '動態通知', navMenu: '選單', navMenuClose: '關閉選單', language: '語言',
     titleCurrent: seoMetadata['zh-TW'].home.title, titleHistory: seoMetadata['zh-TW'].history.title,
-    status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' },
+    status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' }, dateConfirmedStatus: '週二已確認 · 時間為推算',
     outcome: { unverified: '暫未驗證', as_announced: '未發現後續修正', revised: '後續已修正', cancelled: '預告已取消' },
     nextLabel: '下一次額度重置', bankedLabel: '儲備重置最新消息', latestLabel: '額度規則最新動態', confirmedLabel: '最新確認的額度重置', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已落地', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',
     targetZone: '台北時間（UTC+8）', localTime: '你的本地時間', countdown: '距離預告重置時間', bankedCountdown: '距離儲備重置機會預計到帳',
@@ -90,7 +90,7 @@ export const ui = {
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
     factOriginal: '原帖措辭', factZone: '原始時區', factTiming: '時間依據', factConfirmation: '確認依據', factUpdated: '本站更新',
-    sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看原帖', postedAt: '發佈於',
+    sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看確認帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
     methodSourceTitle: '保留公開來源', methodSourceBody: '每筆記錄都連結至對應的公開原帖。引文保留原始語言，後續修正則另外記錄。',
     methodTimeTitle: '統一換算時間', methodTimeBody: '所有時間以 ISO 8601 UTC 格式保存。英文頁面顯示 UTC，簡體與繁體中文頁面顯示 UTC+8。',
@@ -112,22 +112,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "Banked reset tentatively expected Tuesday",
-    "scope": "Using Tibo’s public San Francisco location, 3 AM Tuesday is estimated as September 22 at 10:00 UTC. His reply does not explicitly identify the event.",
-    "context": "Tibo previously agreed to one banked reset. In a separate reply beneath a GPT-6 Community Night post, he later wrote, “3am on a tuesday.” If he meant the upcoming Tuesday in his local San Francisco time, that is September 22 at 3:00 AM PDT (10:00 UTC).",
-    "note": "This countdown is an editorial estimate, not a confirmed banked-reset schedule. The reply names neither the reset nor the timezone; travel or a different intended reference would invalidate the estimate."
+    "headline": "Tibo confirms a Tuesday reset",
+    "scope": "Tuesday, September 22 is now confirmed. The 10:00 UTC time remains an estimate based on the earlier “3am on a tuesday” reply interpreted as PDT.",
+    "context": "Tibo now explicitly says he promised a reset for Tuesday. His post confirms the day, while the countdown still uses his earlier “3am on a tuesday” reply and San Francisco local time: 3:00 AM PDT equals 10:00 UTC.",
+    "note": "The exact time and reset format remain unconfirmed. Because the latest post says only “a reset,” CRW does not present it as a confirmed banked reset."
   },
   "zh-CN": {
-    "headline": "储备重置暂定周二到账",
-    "scope": "按 Tibo 公开的旧金山常驻地点推算，周二凌晨 3 点对应北京时间 9 月 22 日 18:00；原回复未明确说明所指事件。",
-    "context": "Tibo 此前已答应一次 banked reset。之后他在另一条 GPT-6 Community Night 帖子下回复：“3am on a tuesday。”若“周二”指即将到来的周二，并以其旧金山当地时间计算，则为 9 月 22 日 03:00 PDT，即北京时间 18:00。",
-    "note": "此倒计时是本站推算，并非已经确认的储备重置时间。原回复没有点明重置或时区；如果 Tibo 正在旅行，或这句话另有所指，当前推算便不成立。"
+    "headline": "Tibo 确认周二进行重置",
+    "scope": "9 月 22 日周二已经确认；北京时间 18:00 仍根据此前“3am on a tuesday”及 PDT 推算。",
+    "context": "Tibo 现已明确表示，他答应过周二进行一次重置。这确认了日期；倒计时仍采用他此前的“3am on a tuesday”回复，并按旧金山当地时间换算：PDT 周二 03:00 对应北京时间 18:00。",
+    "note": "准确时刻和重置形式仍未确认。最新帖子只写了“一次重置”，因此本站不将其标为已经确认的储备重置。"
   },
   "zh-TW": {
-    "headline": "儲備重置暫定週二到帳",
-    "scope": "按 Tibo 公開的舊金山常駐地點推算，週二凌晨 3 點對應台北時間 9 月 22 日 18:00；原回覆未明確說明所指事件。",
-    "context": "Tibo 先前已答應一次 banked reset。之後他在另一則 GPT-6 Community Night 貼文下回覆：「3am on a tuesday。」若「週二」指即將到來的週二，並以其舊金山當地時間計算，則為 9 月 22 日 03:00 PDT，即台北時間 18:00。",
-    "note": "此倒數計時是本站推算，並非已確認的儲備重置時間。原回覆沒有點明重置或時區；若 Tibo 正在旅行，或這句話另有所指，目前推算便不成立。"
+    "headline": "Tibo 確認週二進行重置",
+    "scope": "9 月 22 日週二已經確認；台北時間 18:00 仍根據先前的「3am on a tuesday」及 PDT 推算。",
+    "context": "Tibo 現已明確表示，他答應過週二進行一次重置。這確認了日期；倒數計時仍採用他先前的「3am on a tuesday」回覆，並按舊金山當地時間換算：PDT 週二 03:00 對應台北時間 18:00。",
+    "note": "準確時間與重置形式仍未確認。最新貼文只寫了「一次重置」，因此本站不將其標示為已確認的儲備重置。"
   }
 };
 
