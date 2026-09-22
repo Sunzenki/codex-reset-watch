@@ -22,7 +22,7 @@ if (current.kind && !allowedCurrentKind.has(current.kind)) throw new Error('curr
 validDate(current.resetAt, 'current.resetAt', true);
 validDate(current.updatedAt, 'current.updatedAt');
 validAnnouncement(current.announcement, 'current.announcement', true);
-validAnnouncement(current.timingSource, 'current.timingSource', true);
+if (current.timingSource) validAnnouncement(current.timingSource, 'current.timingSource');
 
 if (!Array.isArray(history)) throw new Error('history.json 必须是数组');
 const ids = new Set();

@@ -223,14 +223,15 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const isRolloutObserved = data.kind === 'rollout_observed';
   const isResetConfirmed = data.kind === 'reset_confirmed';
   const isBankedReset = data.kind === 'banked_reset';
+  const isBankedLoading = isBankedReset && data.status === 'monitoring' && Boolean(data.announcement);
   const isUntimedHint = data.kind === 'reset' && data.status === 'monitoring' && !data.resetAt && Boolean(data.announcement);
   const isLatestUpdate = isRolloutObserved || isResetConfirmed;
   const isReached = effectiveStatus === 'reached' && !isLatestUpdate;
-  const tone = isLatestUpdate ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
+  const tone = isLatestUpdate || isBankedLoading ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedLoading ? copy.bankedLoadingStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
         {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
