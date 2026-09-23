@@ -13,7 +13,7 @@ const locales = {
     lang: 'en', intl: 'en-US', timeZone: 'UTC',
     homeTitle: seoMetadata.en.home.title, historyTitle: seoMetadata.en.history.title,
     homeDescription: seoMetadata.en.home.description, historyDescription: seoMetadata.en.history.description,
-    expected: 'Reset expected around', bankedExpected: 'Banked reset expected around', bankedReached: 'Expected banked-reset availability time reached', bankedPending: 'Tibo says a banked reset is being loaded', reached: 'The announced reset time has passed',
+    expected: 'Reset expected around', bankedExpected: 'Banked reset expected around', bankedReached: 'Expected banked-reset availability time reached', bankedPending: 'Tibo says a banked reset is being loaded', bankedObserved: 'Banked reset verified as available', reached: 'The announced reset time has passed',
     rolloutHeadline: 'Plus 5-hour limit rollout has begun', confirmedResetHeadline: 'A fresh usage reset has landed', confirmedDateHeadline: 'Tibo confirms a Tuesday reset', untimedHintHeadline: 'Tibo hints at a possible Codex reset tomorrow',
     source: 'Original public source', updated: 'Last human update', historyIntro: 'Past public reset posts and their converted times.',
   },
@@ -21,14 +21,14 @@ const locales = {
     lang: 'zh-CN', intl: 'zh-CN', timeZone: 'Asia/Shanghai',
     homeTitle: seoMetadata['zh-CN'].home.title, historyTitle: seoMetadata['zh-CN'].history.title,
     homeDescription: seoMetadata['zh-CN'].home.description, historyDescription: seoMetadata['zh-CN'].history.description,
-    expected: '预计', bankedExpected: '储备重置机会预计于', bankedReached: '储备重置机会的预计到账时间已到', bankedPending: 'Tibo 宣布正在发放储备重置', reached: '预告重置时间已到', source: '公开原始来源', updated: '本站人工更新', historyIntro: '过往公开重置消息及其时间换算记录。',
+    expected: '预计', bankedExpected: '储备重置机会预计于', bankedReached: '储备重置机会的预计到账时间已到', bankedPending: 'Tibo 宣布正在发放储备重置', bankedObserved: '储备重置已实测到账', reached: '预告重置时间已到', source: '公开原始来源', updated: '本站人工更新', historyIntro: '过往公开重置消息及其时间换算记录。',
     rolloutHeadline: 'Plus 5 小时限制已开始落地', confirmedResetHeadline: '新一轮额度重置已落地', confirmedDateHeadline: 'Tibo 确认周二进行重置', untimedHintHeadline: 'Tibo 暗示明天可能再次重置 Codex',
   },
   'zh-TW': {
     lang: 'zh-TW', intl: 'zh-TW', timeZone: 'Asia/Taipei',
     homeTitle: seoMetadata['zh-TW'].home.title, historyTitle: seoMetadata['zh-TW'].history.title,
     homeDescription: seoMetadata['zh-TW'].home.description, historyDescription: seoMetadata['zh-TW'].history.description,
-    expected: '預計', bankedExpected: '儲備重置機會預計於', bankedReached: '儲備重置機會的預計到帳時間已到', bankedPending: 'Tibo 宣布正在發放儲備重置', reached: '預告重置時間已到', source: '公開原始來源', updated: '本站人工更新', historyIntro: '過往公開重置消息及其時間換算記錄。',
+    expected: '預計', bankedExpected: '儲備重置機會預計於', bankedReached: '儲備重置機會的預計到帳時間已到', bankedPending: 'Tibo 宣布正在發放儲備重置', bankedObserved: '儲備重置已實測到帳', reached: '預告重置時間已到', source: '公開原始來源', updated: '本站人工更新', historyIntro: '過往公開重置消息及其時間換算記錄。',
     rolloutHeadline: 'Plus 5 小時限制已開始落地', confirmedResetHeadline: '新一輪額度重置已落地', confirmedDateHeadline: 'Tibo 確認週二進行重置', untimedHintHeadline: 'Tibo 暗示明天可能再次重置 Codex',
   },
 };
@@ -74,6 +74,7 @@ function currentHeadline(locale) {
   if (current.kind === 'rollout_observed') return copy.rolloutHeadline;
   if (current.dateConfirmed && current.resetAt && Date.now() < Date.parse(current.resetAt)) return copy.confirmedDateHeadline;
   if (current.kind === 'banked_reset') {
+    if (current.observationBasis === 'owner_account') return copy.bankedObserved;
     if (!current.resetAt) return copy.bankedPending;
     if (Date.now() >= Date.parse(current.resetAt)) return copy.bankedReached;
     const time = displayDate(current.resetAt, locale);
@@ -118,7 +119,7 @@ function structuredData(route) {
   if (route.kind === 'home' && current.announcement) {
     webpage.citation = current.announcement.url;
     webpage.mainEntity = {
-      '@type': 'CreativeWork', name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset' : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update' : current.kind === 'banked_reset' ? 'Current optional banked-reset availability estimate' : current.status === 'monitoring' && !current.resetAt ? 'Latest possible Codex reset hint' : 'Current Codex reset estimate',
+      '@type': 'CreativeWork', name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset' : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update' : current.kind === 'banked_reset' ? current.observationBasis === 'owner_account' ? 'Banked reset availability observation' : 'Current banked-reset announcement' : current.status === 'monitoring' && !current.resetAt ? 'Latest possible Codex reset hint' : 'Current Codex reset estimate',
       datePublished: current.announcement.postedAt, dateModified: current.updatedAt,
       temporalCoverage: current.resetAt ?? undefined, citation: current.announcement.url,
     };

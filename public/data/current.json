@@ -1,11 +1,12 @@
 {
   "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "Tibo says a banked reset is being loaded",
+  "status": "confirmed",
+  "observationBasis": "owner_account",
+  "headline": "Banked reset verified as available",
   "resetAt": null,
   "sourceTimezone": "Not provided; X timestamp recorded in UTC",
   "originalTimeText": "We are loading a banked reset",
-  "scope": "Tibo says a banked reset is being loaded into all Plus, Pro, and Business user accounts. He did not provide an availability time or confirm that delivery to every account is complete.",
+  "scope": "A usable banked reset has been verified in the account's reset interface. Tibo announced loading for Plus, Pro, and Business users; availability across all accounts has not been verified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "And one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let's go!",
@@ -13,6 +14,6 @@
     "url": "https://x.com/thsottiaux/status/2102463847714247142",
     "postedAt": "2026-09-22T18:23:37.000Z"
   },
-  "updatedAt": "2026-09-22T18:33:55.297Z",
-  "note": "The earlier 3 AM PDT (10:00 UTC) target was an editorial estimate and has passed. This later post identifies the event as a banked reset and says loading is in progress, but gives no delivery time. Its publication time is not the banked reset's availability time; completion across all accounts has not been independently verified."
+  "updatedAt": "2026-09-23T01:37:59.867Z",
+  "note": "The account's reset interface now shows an available banked reset, verified by the site owner. This observation is separate from Tibo's earlier public loading announcement. No exact arrival time was observed; the post timestamp is not the arrival time, and completion across all accounts has not been independently verified."
 }
