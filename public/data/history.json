@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-09-22-sol-luna-banked",
+    "targetAt": "2026-09-22T18:23:37.000Z",
+    "precision": "estimated",
+    "originalTimezone": "Not provided; X timestamp recorded in UTC",
+    "originalTimeText": "We are loading a banked reset",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "And one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let's go!",
+      "translation": "还有一件事。我们正在向所有 Plus、Pro 和 Business 用户的账户装载一次储备重置。开始吧！",
+      "url": "https://x.com/thsottiaux/status/2102463847714247142",
+      "postedAt": "2026-09-22T18:23:37.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "The date uses the announcement timestamp for archival purposes, not the arrival time. Availability was observed in one account by September 23; the exact arrival time and availability across all accounts remain unknown. The account's reset interface now shows an available banked reset, verified by the site owner. This observation is separate from Tibo's earlier public loading announcement. No exact arrival time was observed; the post timestamp is not the arrival time, and completion across all accounts has not been independently verified.",
+    "recordedAt": "2026-09-26T00:27:40.676Z"
+  },
+  {
     "id": "reset-2026-09-12-astra-confirmed",
     "targetAt": "2026-09-12T08:09:17.000Z",
     "precision": "confirmed",

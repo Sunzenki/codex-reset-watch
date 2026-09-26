@@ -53,6 +53,13 @@ function dateTime(value: string | null, locale: Locale, withSeconds = false) {
   }).format(new Date(value));
 }
 
+function pacificPostTime(value: string) {
+  return new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+    hour12: false, timeZone: 'America/Los_Angeles', timeZoneName: 'short',
+  }).format(new Date(value));
+}
+
 function localDateTime(value: string) {
   return new Intl.DateTimeFormat(undefined, {
     year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
@@ -232,7 +239,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? copy.bankedObservedStatus : isBankedLoading ? copy.bankedLoadingStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? copy.bankedObservedStatus : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
         {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
@@ -254,7 +261,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={isResetConfirmed ? copy.factConfirmation : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={isBankedObserved ? copy.bankedObservationBasis : data.confirmationBasis === 'owner_observed' ? copy.resetConfirmedTitle : localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? copy.factConfirmation : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? copy.bankedObservationBasis : data.confirmationBasis === 'owner_observed' ? copy.resetConfirmedTitle : localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>

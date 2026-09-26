@@ -1,19 +1,18 @@
 {
-  "kind": "banked_reset",
-  "status": "confirmed",
-  "observationBasis": "owner_account",
-  "headline": "Banked reset verified as available",
+  "kind": "reset",
+  "status": "monitoring",
+  "headline": "A new usage reset announced",
   "resetAt": null,
   "sourceTimezone": "Not provided; X timestamp recorded in UTC",
-  "originalTimeText": "We are loading a banked reset",
-  "scope": "A usable banked reset has been verified in the account's reset interface. Tibo announced loading for Plus, Pro, and Business users; availability across all accounts has not been verified.",
+  "originalTimeText": "we’ll reset usage limits",
+  "scope": "All paid Codex and ChatGPT Work users will receive a usage reset as compensation for the outage.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "And one more thing. We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let's go!",
-    "translation": "还有一件事。我们正在向所有 Plus、Pro 和 Business 用户的账户装载一次储备重置。开始吧！",
-    "url": "https://x.com/thsottiaux/status/2102463847714247142",
-    "postedAt": "2026-09-22T18:23:37.000Z"
+    "text": "o yes… we’re back in action and we’ll reset usage limits for all paid users across codex and ChatGPT work\n\nsorry about the brief disruption!\n\n(and yes we have a special spare codex when things are down to help us out)",
+    "translation": "好耶……服务恢复了，我们将为 Codex 和 ChatGPT Work 的所有付费用户重置使用额度。\n\n抱歉造成这次短暂中断！\n\n（没错，出故障时我们有一个特别的备用 Codex 来帮忙。）",
+    "url": "https://x.com/thsottiaux/status/2103637477760311522",
+    "postedAt": "2026-09-26T00:07:13.000Z"
   },
-  "updatedAt": "2026-09-23T01:37:59.867Z",
-  "note": "The account's reset interface now shows an available banked reset, verified by the site owner. This observation is separate from Tibo's earlier public loading announcement. No exact arrival time was observed; the post timestamp is not the arrival time, and completion across all accounts has not been independently verified."
+  "updatedAt": "2026-09-26T00:37:20.406Z",
+  "note": "“Compensation” is CRW’s summary of the outage, apology, and reset announcement. The post does not confirm completion or specify whether the reset is automatic or banked. The post timestamp is not an execution time."
 }
