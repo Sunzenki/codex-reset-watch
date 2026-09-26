@@ -1,11 +1,11 @@
 {
-  "kind": "reset",
-  "status": "monitoring",
-  "headline": "A new usage reset announced",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "A fresh usage reset has landed",
   "resetAt": null,
   "sourceTimezone": "Not provided; X timestamp recorded in UTC",
   "originalTimeText": "we’ll reset usage limits",
-  "scope": "All paid Codex and ChatGPT Work users will receive a usage reset as compensation for the outage.",
+  "scope": "The outage-compensation reset has been verified in practice. Codex usage has been restored.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "o yes… we’re back in action and we’ll reset usage limits for all paid users across codex and ChatGPT work\n\nsorry about the brief disruption!\n\n(and yes we have a special spare codex when things are down to help us out)",
@@ -13,6 +13,7 @@
     "url": "https://x.com/thsottiaux/status/2103637477760311522",
     "postedAt": "2026-09-26T00:07:13.000Z"
   },
-  "updatedAt": "2026-09-26T00:37:20.406Z",
-  "note": "“Compensation” is CRW’s summary of the outage, apology, and reset announcement. The post does not confirm completion or specify whether the reset is automatic or banked. The post timestamp is not an execution time."
+  "updatedAt": "2026-09-26T17:19:12.997Z",
+  "note": "Confirmation is based on the site owner’s account observation, not a public completion statement from Tibo. The exact reset time and completion across all accounts have not been verified.",
+  "confirmationBasis": "owner_observed"
 }

@@ -27,7 +27,7 @@ export const ui = {
     waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Waiting for availability confirmation', bankedPendingBody: 'Tibo says the banked reset is being loaded into Plus, Pro, and Business accounts. No delivery time was given, so there is no countdown. The option may appear at different times for different accounts.', untimedStatus: 'Announced · awaiting confirmation', untimedHintTitle: 'Waiting for reset confirmation', untimedHintBody: 'Tibo has announced the reset. Timing and method are still pending; completion has not been confirmed.',
     bankedObservedTitle: 'A banked reset is now available', bankedObservedBody: 'The reset interface shows a usable banked reset. Its exact arrival time is unknown, so there is no countdown.', bankedObservationBasis: 'Verified in the reset interface',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
-    resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
+    ownerResetTitle: 'Verified in practice', ownerResetBody: 'The exact reset time is unknown. This observation does not confirm completion across every account.', resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factAnnouncementPacific: 'Announcement time · Pacific', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factObservation: 'Verification basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View announcement', viewTimingPost: 'View timing reply', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
@@ -59,7 +59,7 @@ export const ui = {
     waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '等待到账确认', bankedPendingBody: 'Tibo 表示正在向 Plus、Pro 和 Business 用户账户装载储备重置。原帖未给出到账时间，因此暂不显示倒计时；各账户出现时间可能不同。', untimedStatus: '已宣布 · 待确认落实', untimedHintTitle: '等待重置落地确认', untimedHintBody: 'Tibo 已宣布重置，具体时间与方式待公布，目前尚未确认落实。',
     bankedObservedTitle: '储备重置已可使用', bankedObservedBody: '额度重置页面已显示可使用的储备重置。具体到账时刻未知，因此不显示倒计时。', bankedObservationBasis: '额度重置页面实测',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
-    resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
+    ownerResetTitle: '已实测验证', ownerResetBody: '具体重置时刻未知；此观察不代表所有账号均已完成。', resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
     factOriginal: '原帖措辞', factZone: '原始时区', factAnnouncementPacific: '公告发布时间 · 太平洋时间', factTiming: '时间依据', factConfirmation: '确认依据', factObservation: '到账依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看公告原帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
@@ -91,7 +91,7 @@ export const ui = {
     waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '等待到帳確認', bankedPendingBody: 'Tibo 表示正在向 Plus、Pro 和 Business 使用者帳戶裝載儲備重置。原帖未提供到帳時間，因此暫不顯示倒數計時；各帳戶出現時間可能不同。', untimedStatus: '已宣布 · 待確認落實', untimedHintTitle: '等待重置落地確認', untimedHintBody: 'Tibo 已宣布重置，具體時間與方式待公布，目前尚未確認落實。',
     bankedObservedTitle: '儲備重置已可使用', bankedObservedBody: '額度重置頁面已顯示可使用的儲備重置。具體到帳時間未知，因此不顯示倒數計時。', bankedObservationBasis: '額度重置頁面實測',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
-    resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
+    ownerResetTitle: '已實測驗證', ownerResetBody: '具體重置時間未知；此觀察不代表所有帳戶均已完成。', resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
     factOriginal: '原帖措辭', factZone: '原始時區', factAnnouncementPacific: '公告發佈時間 · 太平洋時間', factTiming: '時間依據', factConfirmation: '確認依據', factObservation: '到帳依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看公告原帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
@@ -115,22 +115,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A new usage reset announced",
-    "scope": "All paid Codex and ChatGPT Work users will receive a usage reset as compensation for the outage.",
-    "context": "Tibo says service is back and promises a usage-limit reset for all paid users across Codex and ChatGPT Work, alongside an apology for the brief disruption.",
-    "note": "“Compensation” is CRW’s summary of the outage, apology, and reset announcement. The post does not confirm completion or specify whether the reset is automatic or banked. The post timestamp is not an execution time."
+    "headline": "A fresh usage reset has landed",
+    "scope": "The outage-compensation reset has been verified in practice. Codex usage has been restored.",
+    "context": "Tibo announced a usage reset for all paid Codex and ChatGPT Work users and apologized for the outage. The Codex usage reset has since been verified in practice.",
+    "note": "The reset has been verified in practice, not through a public completion statement from Tibo. The exact reset time and completion across all accounts have not been verified."
   },
   "zh-CN": {
-    "headline": "新一轮额度重置已宣布",
-    "scope": "作为服务中断补偿，Codex 与 ChatGPT Work 的所有付费用户将获额度重置。",
-    "context": "Tibo 表示服务已恢复，将为 Codex 和 ChatGPT Work 的所有付费用户重置使用额度，并为此次短暂中断致歉。",
-    "note": "“补偿”是本站结合服务中断、致歉和重置承诺作出的概括。原帖未确认重置已完成，也未说明是自动重置还是储备重置；发帖时间不代表执行时间。"
+    "headline": "新一轮额度重置已落地",
+    "scope": "本次服务中断补偿重置已实测验证，Codex 额度已恢复。",
+    "context": "Tibo 此前为服务中断致歉，并宣布将为 Codex 与 ChatGPT Work 的所有付费用户重置额度。现已实测验证 Codex 额度重置生效。",
+    "note": "已实测验证，但并非 Tibo 发布的全量完成确认。具体执行时刻，以及是否所有账号均已完成，尚未核实。"
   },
   "zh-TW": {
-    "headline": "新一輪額度重置已宣布",
-    "scope": "作為服務中斷補償，Codex 與 ChatGPT Work 的所有付費使用者將獲額度重置。",
-    "context": "Tibo 表示服務已恢復，將為 Codex 和 ChatGPT Work 的所有付費使用者重置使用額度，並為此次短暫中斷致歉。",
-    "note": "「補償」是本站結合服務中斷、致歉和重置承諾作出的概括。原帖未確認重置已完成，也未說明是自動重置還是儲備重置；發帖時間不代表執行時間。"
+    "headline": "新一輪額度重置已落地",
+    "scope": "本次服務中斷補償重置已實測驗證，Codex 額度已恢復。",
+    "context": "Tibo 先前為服務中斷致歉，並宣布將為 Codex 與 ChatGPT Work 的所有付費使用者重置額度。現已實測驗證 Codex 額度重置生效。",
+    "note": "已實測驗證，但並非 Tibo 發佈的全量完成確認。具體執行時間，以及是否所有帳戶均已完成，尚未核實。"
   }
 };
 

@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-26-outage-reset-announced",
+  "eventId": "2026-09-27-outage-reset-observed",
   "messages": {
     "en": {
-      "title": "A new usage reset announced",
-      "body": "Outage compensation: all paid Codex and ChatGPT Work users will receive a usage reset. Timing and method are pending; completion is not confirmed.",
+      "title": "A fresh usage reset has landed",
+      "body": "The outage-compensation reset has been verified in practice for Codex. Exact timing and completion across all accounts remain unverified.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮额度重置已宣布",
-      "body": "作为服务中断补偿，Codex 与 ChatGPT Work 的所有付费用户将获额度重置。具体时间与方式待公布，尚未确认落实。",
+      "title": "新一轮额度重置已落地",
+      "body": "本次服务中断补偿重置已实测验证，Codex 额度已恢复。具体执行时刻及是否所有账号均已完成，尚未核实。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪額度重置已宣布",
-      "body": "作為服務中斷補償，Codex 與 ChatGPT Work 的所有付費使用者將獲額度重置。具體時間與方式待公布，尚未確認落實。",
+      "title": "新一輪額度重置已落地",
+      "body": "本次服務中斷補償重置已實測驗證，Codex 額度已恢復。具體執行時間及是否所有帳戶均已完成，尚未核實。",
       "path": "/zh-TW/"
     }
   }
