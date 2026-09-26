@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-23-banked-reset-verified",
+  "eventId": "2026-09-26-outage-reset-announced",
   "messages": {
     "en": {
-      "title": "Banked reset verified as available",
-      "body": "A banked reset is now visible and usable in the account's reset interface. Tibo announced it for Plus, Pro, and Business; delivery to every account is not yet verified.",
+      "title": "A new usage reset announced",
+      "body": "Outage compensation: all paid Codex and ChatGPT Work users will receive a usage reset. Timing and method are pending; completion is not confirmed.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "储备重置已实测到账",
-      "body": "额度重置页面已显示可使用的储备重置。Tibo 此前宣布面向 Plus、Pro 和 Business 发放；是否全部到账仍待确认。",
+      "title": "新一轮额度重置已宣布",
+      "body": "作为服务中断补偿，Codex 与 ChatGPT Work 的所有付费用户将获额度重置。具体时间与方式待公布，尚未确认落实。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "儲備重置已實測到帳",
-      "body": "額度重置頁面已顯示可使用的儲備重置。Tibo 此前宣布面向 Plus、Pro 和 Business 發放；是否全部到帳仍待確認。",
+      "title": "新一輪額度重置已宣布",
+      "body": "作為服務中斷補償，Codex 與 ChatGPT Work 的所有付費使用者將獲額度重置。具體時間與方式待公布，尚未確認落實。",
       "path": "/zh-TW/"
     }
   }
