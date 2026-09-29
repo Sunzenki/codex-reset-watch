@@ -25,6 +25,7 @@ export const ui = {
     units: { days: 'days', hours: 'hours', minutes: 'min', seconds: 'sec' },
     railStart: 'Post published', railEnd: 'Expected reset', bankedRailEnd: 'Expected availability', waitingTitle: 'Waiting for the next verified public update',
     waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Waiting for availability confirmation', bankedPendingBody: 'Tibo says the banked reset is being loaded into Plus, Pro, and Business accounts. No delivery time was given, so there is no countdown. The option may appear at different times for different accounts.', untimedStatus: 'Announced · awaiting confirmation', untimedHintTitle: 'Waiting for reset confirmation', untimedHintBody: 'Tibo has announced the reset. Timing and method are still pending; completion has not been confirmed.',
+    bankedReportedStatus: 'Users have received it', bankedReportedTitle: 'Users have received it', bankedReportedBody: 'Check your usage page for an available reset.', bankedReportedBasis: 'User account screenshot',
     bankedObservedTitle: 'A banked reset is now available', bankedObservedBody: 'The reset interface shows a usable banked reset. Its exact arrival time is unknown, so there is no countdown.', bankedObservationBasis: 'Verified in the reset interface',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     ownerResetTitle: 'Verified in practice', ownerResetBody: 'The exact reset time is unknown. This observation does not confirm completion across every account.', resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
@@ -57,6 +58,7 @@ export const ui = {
     units: { days: '天', hours: '时', minutes: '分', seconds: '秒' },
     railStart: '原帖发布', railEnd: '预计重置', bankedRailEnd: '预计到账', waitingTitle: '等待下一条经过核对的公开预告',
     waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '等待到账确认', bankedPendingBody: 'Tibo 表示正在向 Plus、Pro 和 Business 用户账户装载储备重置。原帖未给出到账时间，因此暂不显示倒计时；各账户出现时间可能不同。', untimedStatus: '已宣布 · 待确认落实', untimedHintTitle: '等待重置落地确认', untimedHintBody: 'Tibo 已宣布重置，具体时间与方式待公布，目前尚未确认落实。',
+    bankedReportedStatus: '已有用户收到', bankedReportedTitle: '已有用户收到', bankedReportedBody: '可在额度页面查看是否有可用的重置机会。', bankedReportedBasis: '用户到账截图',
     bankedObservedTitle: '储备重置已可使用', bankedObservedBody: '额度重置页面已显示可使用的储备重置。具体到账时刻未知，因此不显示倒计时。', bankedObservationBasis: '额度重置页面实测',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     ownerResetTitle: '已实测验证', ownerResetBody: '具体重置时刻未知；此观察不代表所有账号均已完成。', resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
@@ -89,6 +91,7 @@ export const ui = {
     units: { days: '天', hours: '時', minutes: '分', seconds: '秒' },
     railStart: '原帖發佈', railEnd: '預計重置', bankedRailEnd: '預計到帳', waitingTitle: '等待下一則經過核對的公開預告',
     waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '等待到帳確認', bankedPendingBody: 'Tibo 表示正在向 Plus、Pro 和 Business 使用者帳戶裝載儲備重置。原帖未提供到帳時間，因此暫不顯示倒數計時；各帳戶出現時間可能不同。', untimedStatus: '已宣布 · 待確認落實', untimedHintTitle: '等待重置落地確認', untimedHintBody: 'Tibo 已宣布重置，具體時間與方式待公布，目前尚未確認落實。',
+    bankedReportedStatus: '已有使用者收到', bankedReportedTitle: '已有使用者收到', bankedReportedBody: '可在額度頁面查看是否有可用的重置機會。', bankedReportedBasis: '使用者到帳截圖',
     bankedObservedTitle: '儲備重置已可使用', bankedObservedBody: '額度重置頁面已顯示可使用的儲備重置。具體到帳時間未知，因此不顯示倒數計時。', bankedObservationBasis: '額度重置頁面實測',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     ownerResetTitle: '已實測驗證', ownerResetBody: '具體重置時間未知；此觀察不代表所有帳戶均已完成。', resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
@@ -115,28 +118,29 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A fresh usage reset has landed",
-    "scope": "The outage-compensation reset has been verified in practice. Codex usage has been restored.",
-    "context": "Tibo announced a usage reset for all paid Codex and ChatGPT Work users and apologized for the outage. The Codex usage reset has since been verified in practice.",
-    "note": "The reset has been verified in practice, not through a public completion statement from Tibo. The exact reset time and completion across all accounts have not been verified."
+    "headline": "DevDay banked reset is here",
+    "scope": "A fresh banked reset has been spotted. Go check your account!",
+    "context": "DevDay attendees reported Tibo pressing the reset button live. Miggi shared a screenshot showing an available banked reset in a reply to Tibo.",
+    "note": "This update is based on user reports. Check your account for availability and expiry."
   },
   "zh-CN": {
-    "headline": "新一轮额度重置已落地",
-    "scope": "本次服务中断补偿重置已实测验证，Codex 额度已恢复。",
-    "context": "Tibo 此前为服务中断致歉，并宣布将为 Codex 与 ChatGPT Work 的所有付费用户重置额度。现已实测验证 Codex 额度重置生效。",
-    "note": "已实测验证，但并非 Tibo 发布的全量完成确认。具体执行时刻，以及是否所有账号均已完成，尚未核实。"
+    "headline": "DevDay 储备重置来了",
+    "scope": "新一轮储备重置已有到账反馈，快去看看你的账户吧。",
+    "context": "DevDay 现场传来 Tibo 按下重置按钮的消息，用户 Miggi 也在 Tibo 帖子下晒出了储备重置到账截图。",
+    "note": "本次更新根据用户反馈整理，可用状态与有效期以账户页面为准。"
   },
   "zh-TW": {
-    "headline": "新一輪額度重置已落地",
-    "scope": "本次服務中斷補償重置已實測驗證，Codex 額度已恢復。",
-    "context": "Tibo 先前為服務中斷致歉，並宣布將為 Codex 與 ChatGPT Work 的所有付費使用者重置額度。現已實測驗證 Codex 額度重置生效。",
-    "note": "已實測驗證，但並非 Tibo 發佈的全量完成確認。具體執行時間，以及是否所有帳戶均已完成，尚未核實。"
+    "headline": "DevDay 儲備重置來了",
+    "scope": "新一輪儲備重置已有到帳回報，快去看看你的帳戶吧。",
+    "context": "DevDay 現場傳來 Tibo 按下重置按鈕的消息，使用者 Miggi 也在 Tibo 貼文下分享了儲備重置到帳截圖。",
+    "note": "本次更新根據使用者回報整理，可用狀態與有效期限以帳戶頁面為準。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-09-26-outage-observed': {"context":"The outage-compensation Codex reset was verified in practice.","note":"The date is the announcement timestamp, not the execution time. Verification was based on one account observation."},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo announced a banked reset for Plus, Pro, and Business users. The site owner subsequently verified an available reset in their account.","note":"The date uses the announcement timestamp for archival purposes, not the arrival time. Availability was observed in one account by September 23; the exact arrival time and availability across all accounts remain unknown."},
     'reset-2026-09-12-astra-confirmed': { context: 'Tibo confirmed that the Astra reset had fully propagated.', note: 'The record uses the public confirmation post timestamp, not an exact backend completion time. The earlier deadline was based on a provisional PDT interpretation of an unspecified timezone; the later confirmation does not establish a delay.' },
     'reset-2026-09-08-global-paid': { context: 'Tibo announced a global usage reset for all paid subscriptions, and the site owner later observed it on one account.', note: 'The single-account observation supports recording the event as delivered, but does not prove that every account reset simultaneously. The target preserves the post’s approximate 6 PM PST wording; if PST meant local PDT, it may have been one hour earlier.' },
@@ -155,6 +159,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-09-26-outage-observed': {"context":"服务中断补偿重置已实测验证，Codex 额度已恢复。","note":"记录采用公告发布时间，不代表实际执行时刻；验证依据为单个账号观察。"},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo 宣布向 Plus、Pro 和 Business 用户发放储备重置；站长随后在自己的账号中实测可用。","note":"记录日期采用公告发布时间作为档案锚点，不代表到账时间。站长截至 9 月 23 日已观察到自己的账号可用；具体到账时刻及是否所有账号均已收到，尚未确认。"},
     'reset-2026-09-12-astra-confirmed': { context: 'Tibo 已确认本轮 Astra 重置全部生效。', note: '记录采用公开确认帖的发布时间，不是后台精确完成时刻。此前的截止点来自对未注明时区的 midnight 暂按 PDT 推算；确认帖较晚发布不能证明重置延期。' },
     'reset-2026-09-08-global-paid': { context: 'Tibo 宣布为所有付费订阅进行全局额度重置，站长随后在自己的一个账号上观察到额度恢复。', note: '单账号观察支持将本次事件记录为按预告落地，但不能证明所有账号同步完成。目标时间保留原帖 PST 下午 6 点左右的近似措辞；若 PST 泛指当地 PDT，则可能早一小时。' },
@@ -173,6 +178,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-09-26-outage-observed': {"context":"服務中斷補償重置已實測驗證，Codex 額度已恢復。","note":"記錄採用公告發佈時間，不代表實際執行時間；驗證依據為單一帳戶觀察。"},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo 宣布向 Plus、Pro 和 Business 使用者發放儲備重置；站長隨後在自己的帳戶中實測可用。","note":"記錄日期採用公告發佈時間作為檔案錨點，不代表到帳時間。站長截至 9 月 23 日已觀察到自己的帳戶可用；具體到帳時間及是否所有帳戶均已收到，尚未確認。"},
     'reset-2026-09-12-astra-confirmed': { context: 'Tibo 已確認本輪 Astra 重置全部生效。', note: '記錄採用公開確認帖的發佈時間，不是後台精確完成時間。此前的截止點來自對未註明時區的 midnight 暫按 PDT 推算；確認帖較晚發佈不能證明重置延期。' },
     'reset-2026-09-08-global-paid': { context: 'Tibo 宣布為所有付費訂閱進行全局額度重置，站長隨後在自己的一個帳號上觀察到額度恢復。', note: '單一帳號觀察支持將本次事件記錄為按預告落地，但不能證明所有帳號同步完成。目標時間保留原帖 PST 下午 6 點左右的近似措辭；若 PST 泛指當地 PDT，則可能早一小時。' },

@@ -1,19 +1,19 @@
 {
-  "kind": "reset_confirmed",
+  "kind": "banked_reset",
   "status": "confirmed",
-  "headline": "A fresh usage reset has landed",
+  "observationBasis": "user_report",
+  "headline": "DevDay banked reset is here",
   "resetAt": null,
   "sourceTimezone": "Not provided; X timestamp recorded in UTC",
-  "originalTimeText": "we’ll reset usage limits",
-  "scope": "The outage-compensation reset has been verified in practice. Codex usage has been restored.",
+  "originalTimeText": "Full reset (Weekly + 5 hr)",
+  "scope": "A fresh banked reset has been spotted. Go check your account!",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "o yes… we’re back in action and we’ll reset usage limits for all paid users across codex and ChatGPT work\n\nsorry about the brief disruption!\n\n(and yes we have a special spare codex when things are down to help us out)",
-    "translation": "好耶……服务恢复了，我们将为 Codex 和 ChatGPT Work 的所有付费用户重置使用额度。\n\n抱歉造成这次短暂中断！\n\n（没错，出故障时我们有一个特别的备用 Codex 来帮忙。）",
-    "url": "https://x.com/thsottiaux/status/2103637477760311522",
-    "postedAt": "2026-09-26T00:07:13.000Z"
+    "source": "Miggi (@cymiggi) / X reply with account screenshot",
+    "text": "Thank youuuuu",
+    "translation": "谢谢！",
+    "url": "https://x.com/cymiggi/status/2104995517663215727",
+    "postedAt": "2026-09-29T18:03:34.000Z"
   },
-  "updatedAt": "2026-09-26T17:19:12.997Z",
-  "note": "Confirmation is based on the site owner’s account observation, not a public completion statement from Tibo. The exact reset time and completion across all accounts have not been verified.",
-  "confirmationBasis": "owner_observed"
+  "updatedAt": "2026-09-29T19:34:59.221Z",
+  "note": "A public user screenshot shows 1 available Full reset (Weekly + 5 hr) with a Use reset button. DevDay attribution is based on attendee reports. Exact grant time and availability across all accounts are unverified; Tibo’s recap does not explicitly announce a reset."
 }

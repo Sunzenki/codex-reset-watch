@@ -74,6 +74,7 @@ function currentHeadline(locale) {
   if (current.kind === 'rollout_observed') return copy.rolloutHeadline;
   if (current.dateConfirmed && current.resetAt && Date.now() < Date.parse(current.resetAt)) return copy.confirmedDateHeadline;
   if (current.kind === 'banked_reset') {
+    if (current.observationBasis === 'user_report') return {"en":"DevDay banked reset is here","zh-CN":"DevDay 储备重置来了","zh-TW":"DevDay 儲備重置來了"}[locale];
     if (current.observationBasis === 'owner_account') return copy.bankedObserved;
     if (!current.resetAt) return copy.bankedPending;
     if (Date.now() >= Date.parse(current.resetAt)) return copy.bankedReached;
@@ -119,7 +120,7 @@ function structuredData(route) {
   if (route.kind === 'home' && current.announcement) {
     webpage.citation = current.announcement.url;
     webpage.mainEntity = {
-      '@type': 'CreativeWork', name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset' : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update' : current.kind === 'banked_reset' ? current.observationBasis === 'owner_account' ? 'Banked reset availability observation' : 'Current banked-reset announcement' : current.status === 'monitoring' && !current.resetAt ? 'Latest announced Codex usage reset' : 'Current Codex reset estimate',
+      '@type': 'CreativeWork', name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset' : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update' : current.kind === 'banked_reset' ? ['owner_account', 'user_report'].includes(current.observationBasis) ? 'Banked reset availability observation' : 'Current banked-reset announcement' : current.status === 'monitoring' && !current.resetAt ? 'Latest announced Codex usage reset' : 'Current Codex reset estimate',
       datePublished: current.announcement.postedAt, dateModified: current.updatedAt,
       temporalCoverage: current.resetAt ?? undefined, citation: current.announcement.url,
     };

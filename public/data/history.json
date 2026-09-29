@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-09-26-outage-observed",
+    "targetAt": "2026-09-26T00:07:13.000Z",
+    "precision": "estimated",
+    "originalTimezone": "Not provided; X timestamp recorded in UTC",
+    "originalTimeText": "we’ll reset usage limits",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "o yes… we’re back in action and we’ll reset usage limits for all paid users across codex and ChatGPT work\n\nsorry about the brief disruption!\n\n(and yes we have a special spare codex when things are down to help us out)",
+      "translation": "好耶……服务恢复了，我们将为 Codex 和 ChatGPT Work 的所有付费用户重置使用额度。\n\n抱歉造成这次短暂中断！\n\n（没错，出故障时我们有一个特别的备用 Codex 来帮忙。）",
+      "url": "https://x.com/thsottiaux/status/2103637477760311522",
+      "postedAt": "2026-09-26T00:07:13.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "The outage-compensation reset was verified in practice on one account. The archive uses the announcement timestamp, not the execution time; completion across all accounts was not verified.",
+    "recordedAt": "2026-09-29T19:34:59.221Z"
+  },
+  {
     "id": "reset-2026-09-22-sol-luna-banked",
     "targetAt": "2026-09-22T18:23:37.000Z",
     "precision": "estimated",

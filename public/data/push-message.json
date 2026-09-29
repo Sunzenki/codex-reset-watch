@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-27-outage-reset-observed",
+  "eventId": "2026-09-30-devday-banked-reset-reported",
   "messages": {
     "en": {
-      "title": "A fresh usage reset has landed",
-      "body": "The outage-compensation reset has been verified in practice for Codex. Exact timing and completion across all accounts remain unverified.",
+      "title": "DevDay banked reset is here",
+      "body": "A fresh banked reset has been spotted. Go check your account!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮额度重置已落地",
-      "body": "本次服务中断补偿重置已实测验证，Codex 额度已恢复。具体执行时刻及是否所有账号均已完成，尚未核实。",
+      "title": "DevDay 储备重置来了",
+      "body": "新一轮储备重置已有到账反馈，快去看看你的账户吧。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪額度重置已落地",
-      "body": "本次服務中斷補償重置已實測驗證，Codex 額度已恢復。具體執行時間及是否所有帳戶均已完成，尚未核實。",
+      "title": "DevDay 儲備重置來了",
+      "body": "新一輪儲備重置已有到帳回報，快去看看你的帳戶吧。",
       "path": "/zh-TW/"
     }
   }
