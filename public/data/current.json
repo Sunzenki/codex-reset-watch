@@ -1,19 +1,18 @@
 {
-  "kind": "banked_reset",
-  "status": "confirmed",
-  "observationBasis": "user_report",
-  "headline": "DevDay banked reset is here",
-  "resetAt": null,
-  "sourceTimezone": "Not provided; X timestamp recorded in UTC",
-  "originalTimeText": "Full reset (Weekly + 5 hr)",
-  "scope": "A fresh banked reset has been spotted. Go check your account!",
+  "kind": "reset",
+  "status": "estimated",
+  "headline": "Global reset announced for all paid ChatGPT accounts",
+  "resetAt": "2026-10-02T18:00:00.000Z",
+  "sourceTimezone": "PST (UTC−8, as written); may mean local PDT (UTC−7)",
+  "originalTimeText": "tomorrow 10am PST",
+  "scope": "All paid ChatGPT accounts, as stated by Tibo.",
   "announcement": {
-    "source": "Miggi (@cymiggi) / X reply with account screenshot",
-    "text": "Thank youuuuu",
-    "translation": "谢谢！",
-    "url": "https://x.com/cymiggi/status/2104995517663215727",
-    "postedAt": "2026-09-29T18:03:34.000Z"
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Global reset landing tomorrow 10am PST for all paid ChatGPT accounts. Apologies for the slow start with GPT-6.1 Sol, it's now back to running at expected speeds after the massive load spike in the first two days.",
+    "translation": "所有付费 ChatGPT 账号将于明天 PST 上午 10 点迎来全局重置。抱歉 GPT-6.1 Sol 起初运行较慢；在前两天的负载激增后，现在已恢复到预期速度。",
+    "url": "https://x.com/thsottiaux/status/2105843926221660585",
+    "postedAt": "2026-10-02T02:14:51.000Z"
   },
-  "updatedAt": "2026-09-29T19:34:59.221Z",
-  "note": "A public user screenshot shows 1 available Full reset (Weekly + 5 hr) with a Use reset button. DevDay attribution is based on attendee reports. Exact grant time and availability across all accounts are unverified; Tibo’s recap does not explicitly announce a reset."
+  "updatedAt": "2026-10-02T03:15:54.374Z",
+  "note": "The post was published on October 1 at 19:14:51 PDT, so tomorrow means October 2 in the Pacific context. The target follows literal PST: October 2 at 18:00 UTC (October 3 at 02:00 in UTC+8). If PST means local PDT, the target is one hour earlier: 17:00 UTC (01:00 in UTC+8). This is an announcement, not evidence that the reset has happened. The post does not specify banked-reset behavior or which usage windows will reset. The speed-recovery statement is attributed to Tibo."
 }

@@ -9,7 +9,7 @@ en:{name:'Reset calendar',prev:'Previous month',next:'Next month',now:'This mont
 'zh-TW':{name:'重置日曆',prev:'上個月',next:'下個月',now:'回到本月',today:'今天',zone:'台北時間 UTC+8',empty:'當天暫無記錄',caveat:'未被記錄不代表當天沒有重置。',detail:'查看詳細記錄',latest:'查看最新動態',confirmed:'已公開確認',observed:'帳號觀察',unverified:'未驗證預告',banked:'儲備重置',rollout:'規則落地觀察',reset:'額度重置',astra:'Astra 額度重置',note:'Tibo 於 {time} 發帖確認，實際完成時刻未公佈。',week:['週一','週二','週三','週四','週五','週六','週日'],error:'最新動態暫未載入，目前顯示已歸檔記錄。'}
 };
 // Classify evidence explicitly; precise announcement times do not prove completion.
-const evidence:Record<string,Kind>={'reset-2026-09-08-global-paid':'observed','reset-2026-08-31-all-paid-confirmed':'confirmed','reset-2026-08-25-plus-five-hour-rollout':'rollout','reset-2026-08-24-around-2pm-pst':'observed','reset-2026-08-22-banked':'banked','reset-2026-07-29-sol':'confirmed','reset-2026-07-28-paid-users':'confirmed','reset-2026-07-26-outage':'confirmed','reset-2026-07-18-weekend':'confirmed','reset-2026-07-14-banked':'banked'};
+const evidence:Record<string,Kind>={'reset-2026-09-29-devday-banked-reported':'observed','reset-2026-09-08-global-paid':'observed','reset-2026-08-31-all-paid-confirmed':'confirmed','reset-2026-08-25-plus-five-hour-rollout':'rollout','reset-2026-08-24-around-2pm-pst':'observed','reset-2026-08-22-banked':'banked','reset-2026-07-29-sol':'confirmed','reset-2026-07-28-paid-users':'confirmed','reset-2026-07-26-outage':'confirmed','reset-2026-07-18-weekend':'confirmed','reset-2026-07-14-banked':'banked'};
 export function calendarDay(value:string|Date,zone:string){
 const p=new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(value));
 return ['year','month','day'].map(k=>p.find(v=>v.type===k)!.value).join('-');

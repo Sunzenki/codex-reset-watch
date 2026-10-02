@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-09-30-devday-banked-reset-reported",
+  "eventId": "2026-10-02-global-paid-reset-announced",
   "messages": {
     "en": {
-      "title": "DevDay banked reset is here",
-      "body": "A fresh banked reset has been spotted. Go check your account!",
+      "title": "Global reset announced",
+      "body": "Tibo: all paid ChatGPT accounts reset Oct 2, 10am PST (18:00 UTC). If he means PDT: 17:00 UTC. This is a planned reset; completion is not yet confirmed.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "DevDay 储备重置来了",
-      "body": "新一轮储备重置已有到账反馈，快去看看你的账户吧。",
+      "title": "新一轮全局重置预告",
+      "body": "Tibo 预告所有付费 ChatGPT 账号将全局重置。按原文 PST 换算：北京时间 10 月 3 日 02:00；若指 PDT，则为 01:00。实际完成尚未确认。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "DevDay 儲備重置來了",
-      "body": "新一輪儲備重置已有到帳回報，快去看看你的帳戶吧。",
+      "title": "新一輪全局重置預告",
+      "body": "Tibo 預告所有付費 ChatGPT 帳戶將全局重置。按原文 PST 換算：台北時間 10 月 3 日 02:00；若指 PDT，則為 01:00。實際完成尚未確認。",
       "path": "/zh-TW/"
     }
   }

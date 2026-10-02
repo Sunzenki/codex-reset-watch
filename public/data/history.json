@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-09-29-devday-banked-reported",
+    "targetAt": "2026-09-29T18:03:34.000Z",
+    "precision": "estimated",
+    "originalTimezone": "Not provided; X timestamp recorded in UTC",
+    "originalTimeText": "Full reset (Weekly + 5 hr)",
+    "announcement": {
+      "source": "Miggi (@cymiggi) / X reply with account screenshot",
+      "text": "Thank youuuuu",
+      "translation": "谢谢！",
+      "url": "https://x.com/cymiggi/status/2104995517663215727",
+      "postedAt": "2026-09-29T18:03:34.000Z"
+    },
+    "outcome": "unverified",
+    "note": "The archive uses the screenshot post timestamp, not the grant time. This is a user report, not a reset announcement from Tibo. Exact arrival time, availability across accounts and the DevDay attribution were not independently verified.",
+    "recordedAt": "2026-10-02T03:15:54.374Z"
+  },
+  {
     "id": "reset-2026-09-26-outage-observed",
     "targetAt": "2026-09-26T00:07:13.000Z",
     "precision": "estimated",
