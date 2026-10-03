@@ -118,28 +118,29 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "Global reset announced for all paid ChatGPT accounts",
-    "scope": "Tibo announced a global reset for all paid ChatGPT accounts.",
-    "context": "Tibo says the global reset will land tomorrow at 10am PST for all paid ChatGPT accounts. He also says GPT-6.1 Sol has returned to expected speeds after the first two days of heavy load.",
-    "note": "The post was published on October 1 in Pacific time, so tomorrow means October 2. Literal PST gives October 2 at 18:00 UTC; if he means local PDT, it is 17:00 UTC. The countdown uses 18:00 UTC. The reset has not been confirmed as completed; banked-reset behavior and the affected usage windows are not specified."
+    "headline": "A fresh usage reset has landed",
+    "scope": "Tibo confirmed the global reset for all paid ChatGPT accounts.",
+    "context": "Tibo confirmed that the reset had fully propagated and quoted the previous global-reset announcement.",
+    "note": "The time above is when Tibo posted the confirmation. The exact completion time was not published."
   },
   "zh-CN": {
-    "headline": "所有付费 ChatGPT 账号的全局重置预告",
-    "scope": "Tibo 预告将为所有付费 ChatGPT 账号进行全局重置。",
-    "context": "译文：所有付费 ChatGPT 账号将于明天 PST 上午 10 点迎来全局重置。抱歉 GPT-6.1 Sol 起初运行较慢；在前两天的负载激增后，现在已恢复到预期速度。",
-    "note": "发帖时太平洋当地仍是 10 月 1 日，因此“明天”指当地 10 月 2 日。按原文 PST（UTC−8）换算为北京时间 10 月 3 日 02:00，本站倒计时采用此时间；若 PST 泛指当地夏令时 PDT（UTC−7），则为 01:00。实际完成尚未确认，原帖也未说明是否涉及储备重置或哪些额度窗口。"
+    "headline": "新一轮额度重置已落地",
+    "scope": "Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置已生效。",
+    "context": "译文：重置已全部生效，尽情使用吧。Tibo 在这条确认帖中引用了此前的全局重置预告。",
+    "note": "上方时间是 Tibo 发布确认帖的时间，实际完成时刻未单独公布。"
   },
   "zh-TW": {
-    "headline": "所有付費 ChatGPT 帳戶的全局重置預告",
-    "scope": "Tibo 預告將為所有付費 ChatGPT 帳戶進行全局重置。",
-    "context": "譯文：所有付費 ChatGPT 帳戶將於明天 PST 上午 10 點迎來全局重置。抱歉 GPT-6.1 Sol 起初執行較慢；在前兩天的負載激增後，現在已恢復到預期速度。",
-    "note": "發帖時太平洋當地仍是 10 月 1 日，因此「明天」指當地 10 月 2 日。按原文 PST（UTC−8）換算為台北時間 10 月 3 日 02:00，本站倒數計時採用此時間；若 PST 泛指當地夏令時間 PDT（UTC−7），則為 01:00。實際完成尚未確認，原帖也未說明是否涉及儲備重置或哪些額度視窗。"
+    "headline": "新一輪額度重置已落地",
+    "scope": "Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置已生效。",
+    "context": "譯文：重置已全部生效，盡情使用吧。Tibo 在這條確認帖中引用了先前的全局重置預告。",
+    "note": "上方時間是 Tibo 發佈確認帖的時間，實際完成時間未單獨公佈。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo confirmed that the global reset for all paid ChatGPT accounts had fully propagated.","note":"The archive uses the confirmation post timestamp, not the backend completion time. The quoted announcement gave 10am PST; the countdown used 18:00 UTC (17:00 UTC if PDT was intended). A later confirmation post does not prove a delay."},
     'reset-2026-09-29-devday-banked-reported': {"context":"A public user screenshot showed an available Full reset (Weekly + 5 hr); attendee reports linked it to DevDay.","note":"The archive uses the screenshot post timestamp, not the grant time. This is a user report, not a reset announcement from Tibo. Exact arrival time, availability across accounts and the DevDay attribution were not independently verified."},
     'reset-2026-09-26-outage-observed': {"context":"The outage-compensation Codex reset was verified in practice.","note":"The date is the announcement timestamp, not the execution time. Verification was based on one account observation."},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo announced a banked reset for Plus, Pro, and Business users. The site owner subsequently verified an available reset in their account.","note":"The date uses the announcement timestamp for archival purposes, not the arrival time. Availability was observed in one account by September 23; the exact arrival time and availability across all accounts remain unknown."},
@@ -160,6 +161,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置全部生效。","note":"记录采用确认帖发布时间，不代表后台实际完成时刻。被引用的原预告为 PST 上午 10 点；此前倒计时按 PST 换算为北京时间 10 月 3 日 02:00，若指 PDT 则为 01:00。确认帖较晚发布不能证明重置延期。"},
     'reset-2026-09-29-devday-banked-reported': {"context":"用户公开截图显示一次可用的 Full reset（每周 + 5 小时）；现场参与者的反馈将其与 DevDay 联系起来。","note":"档案采用截图帖发布时间，不代表到账时刻。这是用户反馈，并非 Tibo 的重置公告；具体到账时间、其他账号的可用情况及 DevDay 归因均未独立核实。"},
     'reset-2026-09-26-outage-observed': {"context":"服务中断补偿重置已实测验证，Codex 额度已恢复。","note":"记录采用公告发布时间，不代表实际执行时刻；验证依据为单个账号观察。"},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo 宣布向 Plus、Pro 和 Business 用户发放储备重置；站长随后在自己的账号中实测可用。","note":"记录日期采用公告发布时间作为档案锚点，不代表到账时间。站长截至 9 月 23 日已观察到自己的账号可用；具体到账时刻及是否所有账号均已收到，尚未确认。"},
@@ -180,6 +182,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置全部生效。","note":"記錄採用確認帖發佈時間，不代表後台實際完成時間。被引用的原預告為 PST 上午 10 點；先前倒數計時按 PST 換算為台北時間 10 月 3 日 02:00，若指 PDT 則為 01:00。確認帖較晚發佈不能證明重置延期。"},
     'reset-2026-09-29-devday-banked-reported': {"context":"使用者公開截圖顯示一次可用的 Full reset（每週 + 5 小時）；現場參與者的回報將其與 DevDay 聯繫起來。","note":"檔案採用截圖帖發佈時間，不代表到帳時間。這是使用者回報，並非 Tibo 的重置公告；具體到帳時間、其他帳戶的可用情況及 DevDay 歸因均未獨立核實。"},
     'reset-2026-09-26-outage-observed': {"context":"服務中斷補償重置已實測驗證，Codex 額度已恢復。","note":"記錄採用公告發佈時間，不代表實際執行時間；驗證依據為單一帳戶觀察。"},
     'reset-2026-09-22-sol-luna-banked': {"context":"Tibo 宣布向 Plus、Pro 和 Business 使用者發放儲備重置；站長隨後在自己的帳戶中實測可用。","note":"記錄日期採用公告發佈時間作為檔案錨點，不代表到帳時間。站長截至 9 月 23 日已觀察到自己的帳戶可用；具體到帳時間及是否所有帳戶均已收到，尚未確認。"},

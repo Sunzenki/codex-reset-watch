@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-02-global-paid-reset-announced",
+  "eventId": "2026-10-03-global-paid-reset-confirmed",
   "messages": {
     "en": {
-      "title": "Global reset announced",
-      "body": "Tibo: all paid ChatGPT accounts reset Oct 2, 10am PST (18:00 UTC). If he means PDT: 17:00 UTC. This is a planned reset; completion is not yet confirmed.",
+      "title": "Global reset has landed",
+      "body": "Tibo confirmed: the global reset for all paid ChatGPT accounts has fully propagated. Go check your usage!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮全局重置预告",
-      "body": "Tibo 预告所有付费 ChatGPT 账号将全局重置。按原文 PST 换算：北京时间 10 月 3 日 02:00；若指 PDT，则为 01:00。实际完成尚未确认。",
+      "title": "新一轮全局重置已落地",
+      "body": "Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置全部生效，快去看看你的额度吧！",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪全局重置預告",
-      "body": "Tibo 預告所有付費 ChatGPT 帳戶將全局重置。按原文 PST 換算：台北時間 10 月 3 日 02:00；若指 PDT，則為 01:00。實際完成尚未確認。",
+      "title": "新一輪全局重置已落地",
+      "body": "Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置全部生效，快去看看你的額度吧！",
       "path": "/zh-TW/"
     }
   }
