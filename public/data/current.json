@@ -1,18 +1,25 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "A fresh usage reset is complete",
+  "kind": "banked_reset",
+  "status": "monitoring",
+  "headline": "A banked reset is being distributed",
   "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "the reset has been processed",
-  "scope": "The post does not specify eligible plans or usage windows.",
+  "sourceTimezone": "PST (as written; EOD is not an exact time)",
+  "originalTimeText": "Will be there by EOD PST.",
+  "scope": "All paid accounts, as stated by Tibo.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post (excerpt)",
-    "text": "Therefore ... the reset has been processed. Enjoy!",
-    "translation": "因此……重置已经处理完成。尽情使用吧！",
-    "url": "https://x.com/thsottiaux/status/2107676072871600470",
-    "postedAt": "2026-10-07T03:35:00.000Z"
+    "text": "Loading a banked reset in everyone's paid accounts.",
+    "translation": "正在向所有付费账号发放一次储备重置。",
+    "url": "https://x.com/thsottiaux/status/2107913674593644711",
+    "postedAt": "2026-10-07T19:19:00.000Z"
   },
-  "updatedAt": "2026-10-07T03:59:18.827Z",
-  "note": "Tibo publicly confirmed that the reset had been processed following the Day 2 community vote. The archive uses the public confirmation time shown by X, recorded to the minute, not the exact backend execution time. The post does not specify eligible plans or whether weekly usage, the 5-hour window, or both were reset."
+  "timingSource": {
+    "source": "Tibo (@thsottiaux) / X reply",
+    "text": "Will be there by EOD PST.",
+    "translation": "将在 PST 当天结束前到账。",
+    "url": "https://x.com/thsottiaux/status/2107913738791596286",
+    "postedAt": "2026-10-07T19:19:00.000Z"
+  },
+  "updatedAt": "2026-10-07T19:51:23.926Z",
+  "note": "Announced on Day 3 to celebrate 40M active users across Codex and ChatGPT Work. The reply refers to October 7 in Pacific time. EOD is not an exact hour; PST may be literal UTC-8 or a loose reference to local PDT (UTC-7). No precise arrival time or completed delivery has been verified. Post timestamps are recorded to the minute. The archive uses the announcement time, not arrival time."
 }

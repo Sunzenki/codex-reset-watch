@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-07-day2-reset-confirmed",
+  "eventId": "2026-10-08-day3-banked-announced",
   "messages": {
     "en": {
-      "title": "A fresh usage reset is complete",
-      "body": "Tibo confirmed a usage reset after the Day 2 community vote. Check your usage; eligible plans and usage windows were not specified.",
+      "title": "A banked reset is being distributed",
+      "body": "Tibo announced one banked reset for all paid accounts, expected by EOD PST on October 7. Delivery remains unverified.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮额度重置已完成",
-      "body": "Tibo 在 Day 2 社区投票后确认已执行额度重置，去看看你的额度吧！原帖未说明适用套餐及额度窗口。",
+      "title": "储备重置正在发放",
+      "body": "Tibo 宣布向所有付费账号发放一次储备重置，预计太平洋时间 10 月 7 日结束前到账，目前到账待确认。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪額度重置已完成",
-      "body": "Tibo 在 Day 2 社群投票後確認已執行額度重置，去看看你的額度吧！原帖未說明適用方案及額度視窗。",
+      "title": "儲備重置正在發放",
+      "body": "Tibo 宣布向所有付費帳戶發放一次儲備重置，預計太平洋時間 10 月 7 日結束前到帳，目前到帳待確認。",
       "path": "/zh-TW/"
     }
   }

@@ -1,5 +1,29 @@
 [
   {
+    "id": "reset-2026-10-07-day3-banked",
+    "targetAt": "2026-10-07T19:19:00.000Z",
+    "precision": "estimated",
+    "originalTimezone": "PST (as written; EOD is not an exact time)",
+    "originalTimeText": "Will be there by EOD PST.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post (excerpt)",
+      "text": "Loading a banked reset in everyone's paid accounts.",
+      "translation": "正在向所有付费账号发放一次储备重置。",
+      "url": "https://x.com/thsottiaux/status/2107913674593644711",
+      "postedAt": "2026-10-07T19:19:00.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Will be there by EOD PST.",
+      "translation": "将在 PST 当天结束前到账。",
+      "url": "https://x.com/thsottiaux/status/2107913738791596286",
+      "postedAt": "2026-10-07T19:19:00.000Z"
+    },
+    "outcome": "unverified",
+    "note": "Announced on Day 3 to celebrate 40M active users across Codex and ChatGPT Work. The reply refers to October 7 in Pacific time. EOD is not an exact hour; PST may be literal UTC-8 or a loose reference to local PDT (UTC-7). No precise arrival time or completed delivery has been verified. Post timestamps are recorded to the minute. The archive uses the announcement time, not arrival time.",
+    "recordedAt": "2026-10-07T19:51:23.926Z"
+  },
+  {
     "id": "reset-2026-10-07-day2-confirmed",
     "targetAt": "2026-10-07T03:35:00.000Z",
     "precision": "confirmed",
