@@ -53,6 +53,15 @@ function dateTime(value: string | null, locale: Locale, withSeconds = false) {
   }).format(new Date(value));
 }
 
+function postPublishedTime(value: string, locale: Locale) {
+  const config = localeConfig[locale];
+  const formatted = new Intl.DateTimeFormat(config.intl, {
+    year: 'numeric', month: locale === 'en' ? 'short' : 'long', day: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
+  }).format(new Date(value));
+  return locale === 'en' ? formatted + ' (UTC)' : formatted + ' GMT+8';
+}
+
 function pacificPostTime(value: string) {
   return new Intl.DateTimeFormat('en-CA', {
     year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
@@ -263,7 +272,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? copy.factConfirmation : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? (isBankedReported ? copy.bankedReportedBasis : copy.bankedObservationBasis) : isOwnerObserved ? copy.ownerResetTitle : localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? isOwnerObserved ? copy.factConfirmation : copy.confirmationPostTime : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? (isBankedReported ? copy.bankedReportedBasis : copy.bankedObservationBasis) : isOwnerObserved ? copy.ownerResetTitle : isResetConfirmed && data.announcement ? postPublishedTime(data.announcement.postedAt, locale) : localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>

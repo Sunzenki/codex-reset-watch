@@ -1,5 +1,22 @@
 [
   {
+    "id": "reset-2026-10-07-day2-confirmed",
+    "targetAt": "2026-10-07T03:35:00.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "the reset has been processed",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post (excerpt)",
+      "text": "Therefore ... the reset has been processed. Enjoy!",
+      "translation": "因此……重置已经处理完成。尽情使用吧！",
+      "url": "https://x.com/thsottiaux/status/2107676072871600470",
+      "postedAt": "2026-10-07T03:35:00.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo publicly confirmed that the reset had been processed following the Day 2 community vote. The archive uses the public confirmation time shown by X, recorded to the minute, not the exact backend execution time. The post does not specify eligible plans or whether weekly usage, the 5-hour window, or both were reset.",
+    "recordedAt": "2026-10-07T03:59:18.827Z"
+  },
+  {
     "id": "reset-2026-10-02-global-paid-confirmed",
     "targetAt": "2026-10-02T21:18:48.000Z",
     "precision": "confirmed",

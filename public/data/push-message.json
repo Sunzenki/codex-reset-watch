@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-03-global-paid-reset-confirmed",
+  "eventId": "2026-10-07-day2-reset-confirmed",
   "messages": {
     "en": {
-      "title": "Global reset has landed",
-      "body": "Tibo confirmed: the global reset for all paid ChatGPT accounts has fully propagated. Go check your usage!",
+      "title": "A fresh usage reset is complete",
+      "body": "Tibo confirmed a usage reset after the Day 2 community vote. Check your usage; eligible plans and usage windows were not specified.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮全局重置已落地",
-      "body": "Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置全部生效，快去看看你的额度吧！",
+      "title": "新一轮额度重置已完成",
+      "body": "Tibo 在 Day 2 社区投票后确认已执行额度重置，去看看你的额度吧！原帖未说明适用套餐及额度窗口。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪全局重置已落地",
-      "body": "Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置全部生效，快去看看你的額度吧！",
+      "title": "新一輪額度重置已完成",
+      "body": "Tibo 在 Day 2 社群投票後確認已執行額度重置，去看看你的額度吧！原帖未說明適用方案及額度視窗。",
       "path": "/zh-TW/"
     }
   }

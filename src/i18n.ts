@@ -29,7 +29,7 @@ export const ui = {
     bankedObservedTitle: 'A banked reset is now available', bankedObservedBody: 'The reset interface shows a usable banked reset. Its exact arrival time is unknown, so there is no countdown.', bankedObservationBasis: 'Verified in the reset interface',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     ownerResetTitle: 'Verified in practice', ownerResetBody: 'The exact reset time is unknown. This observation does not confirm completion across every account.', resetConfirmedTitle: 'Tibo has confirmed the reset is complete', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
-    factOriginal: 'Original wording', factZone: 'Source time zone', factAnnouncementPacific: 'Announcement time · Pacific', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', factObservation: 'Verification basis', factUpdated: 'Site updated',
+    factOriginal: 'Original wording', factZone: 'Source time zone', factAnnouncementPacific: 'Announcement time · Pacific', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', confirmationPostTime: 'Post published', factObservation: 'Verification basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View announcement', viewTimingPost: 'View timing reply', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
     methodSourceTitle: 'Source-first records', methodSourceBody: 'Every event links to the public post it was derived from. Quotes stay in their original language and later corrections are recorded separately.',
@@ -62,7 +62,7 @@ export const ui = {
     bankedObservedTitle: '储备重置已可使用', bankedObservedBody: '额度重置页面已显示可使用的储备重置。具体到账时刻未知，因此不显示倒计时。', bankedObservationBasis: '额度重置页面实测',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     ownerResetTitle: '已实测验证', ownerResetBody: '具体重置时刻未知；此观察不代表所有账号均已完成。', resetConfirmedTitle: 'Tibo 已确认本轮重置完成', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
-    factOriginal: '原帖措辞', factZone: '原始时区', factAnnouncementPacific: '公告发布时间 · 太平洋时间', factTiming: '时间依据', factConfirmation: '确认依据', factObservation: '到账依据', factUpdated: '本站更新',
+    factOriginal: '原帖措辞', factZone: '原始时区', factAnnouncementPacific: '公告发布时间 · 太平洋时间', factTiming: '时间依据', factConfirmation: '确认依据', confirmationPostTime: '原帖发布', factObservation: '到账依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看公告原帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
     methodSourceTitle: '保留公开来源', methodSourceBody: '每条记录都链接到对应的公开原帖。引文保留原始语言，后续修正则单独记录。',
@@ -95,7 +95,7 @@ export const ui = {
     bankedObservedTitle: '儲備重置已可使用', bankedObservedBody: '額度重置頁面已顯示可使用的儲備重置。具體到帳時間未知，因此不顯示倒數計時。', bankedObservationBasis: '額度重置頁面實測',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     ownerResetTitle: '已實測驗證', ownerResetBody: '具體重置時間未知；此觀察不代表所有帳戶均已完成。', resetConfirmedTitle: 'Tibo 已確認本輪重置完成', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
-    factOriginal: '原帖措辭', factZone: '原始時區', factAnnouncementPacific: '公告發佈時間 · 太平洋時間', factTiming: '時間依據', factConfirmation: '確認依據', factObservation: '到帳依據', factUpdated: '本站更新',
+    factOriginal: '原帖措辭', factZone: '原始時區', factAnnouncementPacific: '公告發佈時間 · 太平洋時間', factTiming: '時間依據', factConfirmation: '確認依據', confirmationPostTime: '原帖發佈', factObservation: '到帳依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看公告原帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
     methodSourceTitle: '保留公開來源', methodSourceBody: '每筆記錄都連結至對應的公開原帖。引文保留原始語言，後續修正則另外記錄。',
@@ -118,28 +118,29 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A fresh usage reset has landed",
-    "scope": "Tibo confirmed the global reset for all paid ChatGPT accounts.",
-    "context": "Tibo confirmed that the reset had fully propagated and quoted the previous global-reset announcement.",
-    "note": "The time above is when Tibo posted the confirmation. The exact completion time was not published."
+    "headline": "A fresh usage reset is complete",
+    "scope": "The post does not specify eligible plans or usage windows.",
+    "context": "Tibo confirmed that the reset had been processed following the community vote after the Day 2 updates.",
+    "note": "The time above is the public confirmation time, recorded to the minute. The exact execution time and whether weekly usage, the 5-hour window, or both were reset were not specified."
   },
   "zh-CN": {
-    "headline": "新一轮额度重置已落地",
-    "scope": "Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置已生效。",
-    "context": "译文：重置已全部生效，尽情使用吧。Tibo 在这条确认帖中引用了此前的全局重置预告。",
-    "note": "上方时间是 Tibo 发布确认帖的时间，实际完成时刻未单独公布。"
+    "headline": "新一轮额度重置已完成",
+    "scope": "本帖未明确说明适用套餐及额度窗口。",
+    "context": "译文：因此……重置已经处理完成。尽情使用吧！Tibo 在 Day 2 更新后的社区投票结束后，确认已执行额度重置。",
+    "note": "上方为公开确认时间，记录精度为分钟，不代表后台精确执行时刻。原帖未说明重置的是每周额度、5 小时额度还是两者。"
   },
   "zh-TW": {
-    "headline": "新一輪額度重置已落地",
-    "scope": "Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置已生效。",
-    "context": "譯文：重置已全部生效，盡情使用吧。Tibo 在這條確認帖中引用了先前的全局重置預告。",
-    "note": "上方時間是 Tibo 發佈確認帖的時間，實際完成時間未單獨公佈。"
+    "headline": "新一輪額度重置已完成",
+    "scope": "本帖未明確說明適用方案及額度視窗。",
+    "context": "譯文：因此……重置已經處理完成。盡情使用吧！Tibo 在 Day 2 更新後的社群投票結束後，確認已執行額度重置。",
+    "note": "上方為公開確認時間，記錄精度為分鐘，不代表後台精確執行時間。原帖未說明重置的是每週額度、5 小時額度還是兩者。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-10-07-day2-confirmed': {"context":"Tibo confirmed that the reset had been processed following the community vote after the Day 2 updates.","note":"The post does not specify eligible plans or usage windows. The time above is the public confirmation time, recorded to the minute. The exact execution time and whether weekly usage, the 5-hour window, or both were reset were not specified."},
     'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo confirmed that the global reset for all paid ChatGPT accounts had fully propagated.","note":"The archive uses the confirmation post timestamp, not the backend completion time. The quoted announcement gave 10am PST; the countdown used 18:00 UTC (17:00 UTC if PDT was intended). A later confirmation post does not prove a delay."},
     'reset-2026-09-29-devday-banked-reported': {"context":"A public user screenshot showed an available Full reset (Weekly + 5 hr); attendee reports linked it to DevDay.","note":"The archive uses the screenshot post timestamp, not the grant time. This is a user report, not a reset announcement from Tibo. Exact arrival time, availability across accounts and the DevDay attribution were not independently verified."},
     'reset-2026-09-26-outage-observed': {"context":"The outage-compensation Codex reset was verified in practice.","note":"The date is the announcement timestamp, not the execution time. Verification was based on one account observation."},
@@ -161,6 +162,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-10-07-day2-confirmed': {"context":"译文：因此……重置已经处理完成。尽情使用吧！Tibo 在 Day 2 更新后的社区投票结束后，确认已执行额度重置。","note":"本帖未明确说明适用套餐及额度窗口。 上方为公开确认时间，记录精度为分钟，不代表后台精确执行时刻。原帖未说明重置的是每周额度、5 小时额度还是两者。"},
     'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo 已确认所有付费 ChatGPT 账号的本轮全局重置全部生效。","note":"记录采用确认帖发布时间，不代表后台实际完成时刻。被引用的原预告为 PST 上午 10 点；此前倒计时按 PST 换算为北京时间 10 月 3 日 02:00，若指 PDT 则为 01:00。确认帖较晚发布不能证明重置延期。"},
     'reset-2026-09-29-devday-banked-reported': {"context":"用户公开截图显示一次可用的 Full reset（每周 + 5 小时）；现场参与者的反馈将其与 DevDay 联系起来。","note":"档案采用截图帖发布时间，不代表到账时刻。这是用户反馈，并非 Tibo 的重置公告；具体到账时间、其他账号的可用情况及 DevDay 归因均未独立核实。"},
     'reset-2026-09-26-outage-observed': {"context":"服务中断补偿重置已实测验证，Codex 额度已恢复。","note":"记录采用公告发布时间，不代表实际执行时刻；验证依据为单个账号观察。"},
@@ -182,6 +184,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-10-07-day2-confirmed': {"context":"譯文：因此……重置已經處理完成。盡情使用吧！Tibo 在 Day 2 更新後的社群投票結束後，確認已執行額度重置。","note":"本帖未明確說明適用方案及額度視窗。 上方為公開確認時間，記錄精度為分鐘，不代表後台精確執行時間。原帖未說明重置的是每週額度、5 小時額度還是兩者。"},
     'reset-2026-10-02-global-paid-confirmed': {"context":"Tibo 已確認所有付費 ChatGPT 帳戶的本輪全局重置全部生效。","note":"記錄採用確認帖發佈時間，不代表後台實際完成時間。被引用的原預告為 PST 上午 10 點；先前倒數計時按 PST 換算為台北時間 10 月 3 日 02:00，若指 PDT 則為 01:00。確認帖較晚發佈不能證明重置延期。"},
     'reset-2026-09-29-devday-banked-reported': {"context":"使用者公開截圖顯示一次可用的 Full reset（每週 + 5 小時）；現場參與者的回報將其與 DevDay 聯繫起來。","note":"檔案採用截圖帖發佈時間，不代表到帳時間。這是使用者回報，並非 Tibo 的重置公告；具體到帳時間、其他帳戶的可用情況及 DevDay 歸因均未獨立核實。"},
     'reset-2026-09-26-outage-observed': {"context":"服務中斷補償重置已實測驗證，Codex 額度已恢復。","note":"記錄採用公告發佈時間，不代表實際執行時間；驗證依據為單一帳戶觀察。"},

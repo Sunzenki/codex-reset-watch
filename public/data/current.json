@@ -1,26 +1,18 @@
 {
   "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "A fresh usage reset has landed",
+  "headline": "A fresh usage reset is complete",
   "resetAt": null,
   "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Reset all propagated. Enjoy.",
-  "scope": "All paid ChatGPT accounts, as specified in the quoted announcement.",
+  "originalTimeText": "the reset has been processed",
+  "scope": "The post does not specify eligible plans or usage windows.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Reset all propagated. Enjoy.",
-    "translation": "重置已全部生效，尽情使用吧。",
-    "url": "https://x.com/thsottiaux/status/2106131810921136451",
-    "postedAt": "2026-10-02T21:18:48.000Z"
+    "source": "Tibo (@thsottiaux) / X post (excerpt)",
+    "text": "Therefore ... the reset has been processed. Enjoy!",
+    "translation": "因此……重置已经处理完成。尽情使用吧！",
+    "url": "https://x.com/thsottiaux/status/2107676072871600470",
+    "postedAt": "2026-10-07T03:35:00.000Z"
   },
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Global reset landing tomorrow 10am PST for all paid ChatGPT accounts. Apologies for the slow start with GPT-6.1 Sol, it's now back to running at expected speeds after the massive load spike in the first two days.",
-    "translation": "所有付费 ChatGPT 账号将于明天 PST 上午 10 点迎来全局重置。抱歉 GPT-6.1 Sol 起初运行较慢；在前两天的负载激增后，现在已恢复到预期速度。",
-    "url": "https://x.com/thsottiaux/status/2105843926221660585",
-    "postedAt": "2026-10-02T02:14:51.000Z"
-  },
-  "previousResetAt": "2026-10-02T18:00:00.000Z",
-  "updatedAt": "2026-10-03T04:51:00.369Z",
-  "note": "Tibo confirmed that the reset had fully propagated and quoted the earlier global-reset announcement for all paid ChatGPT accounts. The recorded time is the public confirmation post timestamp, not the exact backend completion time. The previous countdown used October 2 at 18:00 UTC under literal PST (17:00 UTC if local PDT was intended); the later confirmation post does not establish a delay."
+  "updatedAt": "2026-10-07T03:59:18.827Z",
+  "note": "Tibo publicly confirmed that the reset had been processed following the Day 2 community vote. The archive uses the public confirmation time shown by X, recorded to the minute, not the exact backend execution time. The post does not specify eligible plans or whether weekly usage, the 5-hour window, or both were reset."
 }
