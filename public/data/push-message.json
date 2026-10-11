@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-08-day3-banked-announced",
+  "eventId": "2026-10-11-global-reset-confirmed",
   "messages": {
     "en": {
-      "title": "A banked reset is being distributed",
-      "body": "Tibo announced one banked reset for all paid accounts, expected by EOD PST on October 7. Delivery remains unverified.",
+      "title": "A fresh global usage reset is complete 🔋",
+      "body": "Tibo confirmed that the global reset has fully propagated. Go check your usage!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "储备重置正在发放",
-      "body": "Tibo 宣布向所有付费账号发放一次储备重置，预计太平洋时间 10 月 7 日结束前到账，目前到账待确认。",
+      "title": "新一轮全局额度重置已完成 🔋",
+      "body": "Tibo 已确认本轮全局重置全部生效，去看看你的额度吧！",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "儲備重置正在發放",
-      "body": "Tibo 宣布向所有付費帳戶發放一次儲備重置，預計太平洋時間 10 月 7 日結束前到帳，目前到帳待確認。",
+      "title": "新一輪全局額度重置已完成 🔋",
+      "body": "Tibo 已確認本輪全局重置全部生效，去看看你的額度吧！",
       "path": "/zh-TW/"
     }
   }

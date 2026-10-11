@@ -1,25 +1,25 @@
 {
-  "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "A banked reset is being distributed",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "A fresh global usage reset is complete",
   "resetAt": null,
-  "sourceTimezone": "PST (as written; EOD is not an exact time)",
-  "originalTimeText": "Will be there by EOD PST.",
-  "scope": "All paid accounts, as stated by Tibo.",
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "All propagated.",
+  "scope": "Global reset; eligible plans and usage windows were not separately specified.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X post (excerpt)",
-    "text": "Loading a banked reset in everyone's paid accounts.",
-    "translation": "正在向所有付费账号发放一次储备重置。",
-    "url": "https://x.com/thsottiaux/status/2107913674593644711",
-    "postedAt": "2026-10-07T19:19:00.000Z"
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Put the reset in the bag. All propagated.",
+    "translation": "重置搞定，已全部生效。",
+    "url": "https://x.com/thsottiaux/status/2109132167112782291",
+    "postedAt": "2026-10-11T04:01:00.000Z"
   },
-  "timingSource": {
-    "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Will be there by EOD PST.",
-    "translation": "将在 PST 当天结束前到账。",
-    "url": "https://x.com/thsottiaux/status/2107913738791596286",
-    "postedAt": "2026-10-07T19:19:00.000Z"
+  "previousAnnouncement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Global reset by EOD. May the tokens do good things for you.",
+    "translation": "将在当天结束前进行全局重置。愿这些 token 帮你做出好东西。",
+    "url": "https://x.com/thsottiaux/status/2109045392684032299",
+    "postedAt": "2026-10-10T22:16:00.000Z"
   },
-  "updatedAt": "2026-10-07T19:51:23.926Z",
-  "note": "Announced on Day 3 to celebrate 40M active users across Codex and ChatGPT Work. The reply refers to October 7 in Pacific time. EOD is not an exact hour; PST may be literal UTC-8 or a loose reference to local PDT (UTC-7). No precise arrival time or completed delivery has been verified. Post timestamps are recorded to the minute. The archive uses the announcement time, not arrival time."
+  "updatedAt": "2026-10-11T04:46:58.457Z",
+  "note": "Tibo quoted the global-reset announcement and confirmed full propagation. The recorded time is the public confirmation time, to minute precision, not the backend execution time. The earlier EOD announcement did not specify a timezone. Neither post separately specifies eligible plans or usage windows. This does not confirm delivery of the earlier Day 3 banked reset."
 }

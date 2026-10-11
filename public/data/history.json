@@ -1,5 +1,29 @@
 [
   {
+    "id": "reset-2026-10-11-global-confirmed",
+    "targetAt": "2026-10-11T04:01:00.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "All propagated.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Put the reset in the bag. All propagated.",
+      "translation": "重置搞定，已全部生效。",
+      "url": "https://x.com/thsottiaux/status/2109132167112782291",
+      "postedAt": "2026-10-11T04:01:00.000Z"
+    },
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Global reset by EOD. May the tokens do good things for you.",
+      "translation": "将在当天结束前进行全局重置。愿这些 token 帮你做出好东西。",
+      "url": "https://x.com/thsottiaux/status/2109045392684032299",
+      "postedAt": "2026-10-10T22:16:00.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Tibo quoted the global-reset announcement and confirmed full propagation. The recorded time is the public confirmation time, to minute precision, not the backend execution time. The earlier EOD announcement did not specify a timezone. Neither post separately specifies eligible plans or usage windows. This does not confirm delivery of the earlier Day 3 banked reset.",
+    "recordedAt": "2026-10-11T04:46:58.457Z"
+  },
+  {
     "id": "reset-2026-10-07-day3-banked",
     "targetAt": "2026-10-07T19:19:00.000Z",
     "precision": "estimated",
