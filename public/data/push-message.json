@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-13-day8-global-announced",
+  "eventId": "2026-10-13-global-reset-confirmed",
   "messages": {
     "en": {
-      "title": "Day 8: Another global reset is coming 🔋",
-      "body": "Tibo says by EOD PST. Estimated deadline: Oct 13, 08:00 UTC. Completion remains unverified.",
+      "title": "Global reset complete 🔋",
+      "body": "Tibo quoted the latest global-reset announcement and confirmed: “It’s done.” Go check your usage!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "Day 8，全局重置又来了 🔋",
-      "body": "Tibo 预告 EOD PST 前落地，按字面换算预计截止至 10 月 13 日 16:00 GMT+8，实际完成待确认。",
+      "title": "新一轮全局额度重置已完成 🔋",
+      "body": "Tibo 已引用本轮预告确认：“已经完成了。”去看看你的额度吧！",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "Day 8，全局重置又來了 🔋",
-      "body": "Tibo 預告 EOD PST 前落地，按字面換算預計截止至 10 月 13 日 16:00 GMT+8，實際完成待確認。",
+      "title": "新一輪全局額度重置已完成 🔋",
+      "body": "Tibo 已引用本輪預告確認：「已經完成了。」去看看你的額度吧！",
       "path": "/zh-TW/"
     }
   }

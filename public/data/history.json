@@ -1,16 +1,16 @@
 [
   {
     "id": "reset-2026-10-13-day8-global",
-    "targetAt": "2026-10-13T08:00:00.000Z",
-    "precision": "estimated",
-    "originalTimezone": "PST (UTC-8)",
-    "originalTimeText": "by EOD PST time",
+    "targetAt": "2026-10-13T05:06:06.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "It's done.",
     "announcement": {
       "source": "Tibo (@thsottiaux) / X post",
-      "text": "Day 8/ Reset",
-      "translation": "第 8 天：重置。",
-      "url": "https://x.com/thsottiaux/status/2109812216212099456",
-      "postedAt": "2026-10-13T01:03:00.000Z"
+      "text": "What would you like with your side of reset? It's done.",
+      "translation": "重置这份配菜，你还想搭点什么？已经完成了。",
+      "url": "https://x.com/thsottiaux/status/2109873287853707513",
+      "postedAt": "2026-10-13T05:06:06.000Z"
     },
     "timingSource": {
       "source": "Tibo (@thsottiaux) / X reply",
@@ -19,9 +19,17 @@
       "url": "https://x.com/thsottiaux/status/2109812360596865224",
       "postedAt": "2026-10-13T01:03:00.000Z"
     },
-    "outcome": "unverified",
-    "note": "At publication, it was October 12 in Pacific time. Interpreting EOD as midnight and PST literally (UTC−8) gives October 13 at 08:00 UTC (16:00 GMT+8). If local PDT was intended, the boundary is one hour earlier. This is an editorial deadline estimate, not an exact execution time. Eligible plans and usage windows were not specified. Post times are recorded to the minute.",
-    "recordedAt": "2026-10-13T01:24:29.980Z"
+    "outcome": "as_announced",
+    "note": "The displayed time is the public confirmation post time, not the exact backend execution time. The earlier countdown used an estimated deadline of October 13 at 08:00 UTC under literal PST. Eligible plans and usage windows were not separately specified.",
+    "recordedAt": "2026-10-13T07:43:54.392Z",
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 8/ Reset",
+      "translation": "第 8 天：重置。",
+      "url": "https://x.com/thsottiaux/status/2109812216212099456",
+      "postedAt": "2026-10-13T01:03:00.000Z"
+    },
+    "announcedTargetAt": "2026-10-13T08:00:00.000Z"
   },
   {
     "id": "reset-2026-10-11-global-confirmed",

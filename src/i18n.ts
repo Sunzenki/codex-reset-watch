@@ -121,29 +121,29 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A new global reset is coming",
-    "scope": "Tibo announced a global reset by EOD PST. The countdown tracks an estimated deadline; completion remains unverified.",
-    "context": "Tibo posted “Day 8/ Reset” and added: “Global reset landing by EOD PST time. Enjoy”.",
-    "note": "At publication, it was October 12 in Pacific time. Interpreting EOD as midnight and PST literally (UTC−8) gives October 13 at 08:00 UTC (16:00 GMT+8). If local PDT was intended, the boundary is one hour earlier. This is an editorial deadline estimate, not an exact execution time. Eligible plans and usage windows were not specified. Post times are recorded to the minute."
+    "headline": "A fresh global usage reset is complete",
+    "scope": "Tibo has publicly confirmed completion of the previously announced global reset.",
+    "context": "Tibo quoted the EOD PST global-reset announcement and confirmed: “It’s done.”",
+    "note": "The displayed time is the public confirmation post time, not the exact backend execution time. The earlier countdown used an estimated deadline of October 13 at 08:00 UTC under literal PST. Eligible plans and usage windows were not separately specified."
   },
   "zh-CN": {
-    "headline": "新一轮全局额度重置即将到来",
-    "scope": "Tibo 预告将在太平洋时间当天结束前进行全局重置。倒计时为预计截止时间，实际完成待确认。",
-    "context": "Tibo 发布“Day 8/ Reset”，并补充：全局重置将在 PST 当天结束前落地，尽情使用吧。",
-    "note": "发帖时太平洋地区仍为 10 月 12 日。将 EOD 理解为午夜、按字面 PST（UTC−8）换算，预计截止时间为 10 月 13 日 16:00 GMT+8；若泛指当地夏令时 PDT，则提前一小时。这是本站换算的预计截止时间，不是精确执行时刻。适用套餐及额度窗口未单独说明，实际完成仍待确认。发帖时间记录至分钟。"
+    "headline": "新一轮全局额度重置已完成",
+    "scope": "Tibo 已公开确认，此前预告的本轮全局重置已经完成。",
+    "context": "Tibo 引用了本轮“EOD PST 前落地”的全局重置预告，并明确表示：“已经完成了。”",
+    "note": "所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前倒计时按字面 PST 换算至 10 月 13 日 16:00 GMT+8，仅为预计截止时间。原帖未单独列明适用套餐及具体额度窗口。"
   },
   "zh-TW": {
-    "headline": "新一輪全局額度重置即將到來",
-    "scope": "Tibo 預告將在太平洋時間當天結束前進行全局重置。倒數為預計截止時間，實際完成待確認。",
-    "context": "Tibo 發佈「Day 8/ Reset」，並補充：全局重置將在 PST 當天結束前落地，盡情使用吧。",
-    "note": "發帖時太平洋地區仍為 10 月 12 日。將 EOD 理解為午夜、按字面 PST（UTC−8）換算，預計截止時間為 10 月 13 日 16:00 GMT+8；若泛指當地夏令時間 PDT，則提前一小時。這是本站換算的預計截止時間，不是精確執行時間。適用方案及額度視窗未單獨說明，實際完成仍待確認。發帖時間記錄至分鐘。"
+    "headline": "新一輪全局額度重置已完成",
+    "scope": "Tibo 已公開確認，此前預告的本輪全局重置已經完成。",
+    "context": "Tibo 引用了本輪「EOD PST 前落地」的全局重置預告，並明確表示：「已經完成了。」",
+    "note": "所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前倒數按字面 PST 換算至 10 月 13 日 16:00 GMT+8，僅為預計截止時間。原帖未單獨列明適用方案及具體額度視窗。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
-    'reset-2026-10-13-day8-global': {"context":"Tibo posted “Day 8/ Reset” and added: “Global reset landing by EOD PST time. Enjoy”.","note":"At publication, it was October 12 in Pacific time. Interpreting EOD as midnight and PST literally (UTC−8) gives October 13 at 08:00 UTC (16:00 GMT+8). If local PDT was intended, the boundary is one hour earlier. This is an editorial deadline estimate, not an exact execution time. Eligible plans and usage windows were not specified. Post times are recorded to the minute."},
+    'reset-2026-10-13-day8-global': {"context":"Tibo quoted the EOD PST global-reset announcement and confirmed: “It’s done.”","note":"The displayed time is the public confirmation post time, not the exact backend execution time. The earlier countdown used an estimated deadline of October 13 at 08:00 UTC under literal PST. Eligible plans and usage windows were not separately specified."},
     'reset-2026-10-11-global-confirmed': {"context":"Tibo previously announced a global reset by EOD, then quoted that announcement to confirm completion.","note":"The record uses the confirmation post time, to minute precision, not the execution time. Neither post separately lists eligible plans or usage windows. The earlier EOD estimate had no stated timezone. This is separate from the Day 3 banked reset."},
     'reset-2026-10-07-day3-banked': {"context":"Tibo announced a banked reset on Day 3 to celebrate 40M active users across Codex and ChatGPT Work. His follow-up says: “Will be there by EOD PST.”","note":"The reply refers to October 7 in Pacific time. EOD does not specify an exact hour, and PST may refer literally to UTC−8 or loosely to local PDT (UTC−7), so no precise countdown is shown. Availability has not been verified. Post times are recorded to the minute. The archive date is the announcement time, not the arrival time."},
     'reset-2026-10-07-day2-confirmed': {"context":"Tibo confirmed that the reset had been processed following the community vote after the Day 2 updates.","note":"The post does not specify eligible plans or usage windows. The time above is the public confirmation time, recorded to the minute. The exact execution time and whether weekly usage, the 5-hour window, or both were reset were not specified."},
@@ -168,7 +168,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
-    'reset-2026-10-13-day8-global': {"context":"Tibo 发布“Day 8/ Reset”，并补充：全局重置将在 PST 当天结束前落地，尽情使用吧。","note":"发帖时太平洋地区仍为 10 月 12 日。将 EOD 理解为午夜、按字面 PST（UTC−8）换算，预计截止时间为 10 月 13 日 16:00 GMT+8；若泛指当地夏令时 PDT，则提前一小时。这是本站换算的预计截止时间，不是精确执行时刻。适用套餐及额度窗口未单独说明，实际完成仍待确认。发帖时间记录至分钟。"},
+    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本轮“EOD PST 前落地”的全局重置预告，并明确表示：“已经完成了。”","note":"所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前倒计时按字面 PST 换算至 10 月 13 日 16:00 GMT+8，仅为预计截止时间。原帖未单独列明适用套餐及具体额度窗口。"},
     'reset-2026-10-11-global-confirmed': {"context":"译文：重置搞定，已全部生效。Tibo 此前预告将在当天结束前进行全局重置，随后引用该预告确认完成。","note":"本次记录采用确认帖发布时间，精度为分钟，不代表实际执行时刻。这两条帖子未单独列明适用套餐及具体额度窗口；此前 EOD 预告未注明时区。本次确认与 Day 3 储备重置是不同事件。"},
     'reset-2026-10-07-day3-banked': {"context":"译文：正在向所有付费账号发放一次储备重置。Tibo 在 Day 3 宣布这次发放，庆祝 Codex 与 ChatGPT Work 活跃用户达到 4,000 万；随后补充：“将在 PST 当天结束前到账。”","note":"回复中的“当天”指太平洋时间 10 月 7 日。EOD 未给出具体小时，PST 也可能泛指当地夏令时间 PDT，因此不显示精确倒计时。目前尚未核实到账；帖子时间记录到分钟。 档案日期采用公告发布时间，不代表到账时间。"},
     'reset-2026-10-07-day2-confirmed': {"context":"译文：因此……重置已经处理完成。尽情使用吧！Tibo 在 Day 2 更新后的社区投票结束后，确认已执行额度重置。","note":"本帖未明确说明适用套餐及额度窗口。 上方为公开确认时间，记录精度为分钟，不代表后台精确执行时刻。原帖未说明重置的是每周额度、5 小时额度还是两者。"},
@@ -193,7 +193,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
-    'reset-2026-10-13-day8-global': {"context":"Tibo 發佈「Day 8/ Reset」，並補充：全局重置將在 PST 當天結束前落地，盡情使用吧。","note":"發帖時太平洋地區仍為 10 月 12 日。將 EOD 理解為午夜、按字面 PST（UTC−8）換算，預計截止時間為 10 月 13 日 16:00 GMT+8；若泛指當地夏令時間 PDT，則提前一小時。這是本站換算的預計截止時間，不是精確執行時間。適用方案及額度視窗未單獨說明，實際完成仍待確認。發帖時間記錄至分鐘。"},
+    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本輪「EOD PST 前落地」的全局重置預告，並明確表示：「已經完成了。」","note":"所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前倒數按字面 PST 換算至 10 月 13 日 16:00 GMT+8，僅為預計截止時間。原帖未單獨列明適用方案及具體額度視窗。"},
     'reset-2026-10-11-global-confirmed': {"context":"譯文：重置搞定，已全部生效。Tibo 此前預告將在當天結束前進行全局重置，隨後引用該預告確認完成。","note":"本次記錄採用確認帖發佈時間，精度為分鐘，不代表實際執行時間。這兩條帖子未單獨列明適用方案及具體額度視窗；此前 EOD 預告未註明時區。本次確認與 Day 3 儲備重置是不同事件。"},
     'reset-2026-10-07-day3-banked': {"context":"譯文：正在向所有付費帳戶發放一次儲備重置。Tibo 在 Day 3 宣布這次發放，慶祝 Codex 與 ChatGPT Work 活躍使用者達到 4,000 萬；隨後補充：「將在 PST 當天結束前到帳。」","note":"回覆中的「當天」指太平洋時間 10 月 7 日。EOD 未提供具體小時，PST 也可能泛指當地夏令時間 PDT，因此不顯示精確倒數計時。目前尚未核實到帳；帖子時間記錄到分鐘。 檔案日期採用公告發佈時間，不代表到帳時間。"},
     'reset-2026-10-07-day2-confirmed': {"context":"譯文：因此……重置已經處理完成。盡情使用吧！Tibo 在 Day 2 更新後的社群投票結束後，確認已執行額度重置。","note":"本帖未明確說明適用方案及額度視窗。 上方為公開確認時間，記錄精度為分鐘，不代表後台精確執行時間。原帖未說明重置的是每週額度、5 小時額度還是兩者。"},
