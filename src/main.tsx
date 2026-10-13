@@ -15,7 +15,7 @@ type Announcement = { source: string; text: string; translation?: string; url: s
 type CurrentReset = {
   confirmationBasis?: 'owner_observed'; observationBasis?: 'owner_account' | 'user_report'; kind?: 'reset' | 'banked_reset' | 'rollout_observed' | 'reset_confirmed'; status: Status; headline?: string; resetAt: string | null; sourceTimezone: string | null;
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
-  dateConfirmed?: boolean; timingSource?: Announcement; updatedAt: string; note?: string;
+  deadlineEstimated?: boolean; dateConfirmed?: boolean; timingSource?: Announcement; updatedAt: string; note?: string;
 };
 type HistoryRecord = {
   id: string; targetAt: string; precision: 'estimated' | 'confirmed'; originalTimezone: string;
@@ -60,6 +60,11 @@ function postPublishedTime(value: string, locale: Locale) {
     hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
   }).format(new Date(value));
   return locale === 'en' ? formatted + ' (UTC)' : formatted + ' GMT+8';
+}
+
+function pstPostTime(value: string) {
+  const shifted = new Date(new Date(value).getTime() - 8 * 60 * 60 * 1000);
+  return shifted.toISOString().slice(0, 16).replace('T', ' ') + ' PST（UTC−8）';
 }
 
 function pacificPostTime(value: string) {
@@ -250,29 +255,29 @@ function CurrentPage({ locale }: { locale: Locale }) {
 
   return <main id="content">
     <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
+      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
       <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
       <h1>{isResetConfirmed && data.announcement ? <>
         {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
         <span>{content.headline}</span>
-      </> : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
+      </> : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
       <p className="scope">{content.scope}</p>
 
       {!isResetConfirmed && !isReached && remaining && data.resetAt ? <>
-        <p className="target-time">{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></p>
+        <p className="target-time">{data.deadlineEstimated && <>{copy.deadlineLabel} · </>}{data.deadlineEstimated ? postPublishedTime(data.resetAt, locale) : <>{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></>}</p>
         {locale === 'en' && <p className="viewer-time">{copy.localTime}: <strong>{localDateTime(data.resetAt)}</strong></p>}
-        <div className="countdown" role="timer" aria-label={isBankedReset ? copy.bankedCountdown : copy.countdown}>
+        <div className="countdown" role="timer" aria-label={isBankedReset ? copy.bankedCountdown : data.deadlineEstimated ? copy.deadlineLabel : copy.countdown}>
           <Time value={remaining.days} label={copy.units.days} /><i>:</i><Time value={remaining.hours} label={copy.units.hours} /><i>:</i><Time value={remaining.minutes} label={copy.units.minutes} /><i>:</i><Time value={remaining.seconds} label={copy.units.seconds} />
         </div>
         {progress !== null && <div className="time-rail">
-          <div className="rail-labels"><span>{copy.railStart}</span><span>{isBankedReset ? copy.bankedRailEnd : copy.railEnd}</span></div>
+          <div className="rail-labels"><span>{copy.railStart}</span><span>{isBankedReset ? copy.bankedRailEnd : data.deadlineEstimated ? copy.deadlineLabel : copy.railEnd}</span></div>
           <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
         </div>}
-      </> : <div className="quiet-state">{isResetConfirmed || isBankedObserved ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isBankedObserved ? (isBankedReported ? copy.bankedReportedTitle : copy.bankedObservedTitle) : isBankedReset ? isReached ? copy.bankedReachedTitle : copy.bankedPendingTitle : isReached ? copy.reachedTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? (isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody) : isBankedReset ? isReached ? copy.bankedReachedBody : copy.bankedPendingBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
+      </> : <div className="quiet-state">{isResetConfirmed || isBankedObserved ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isBankedObserved ? (isBankedReported ? copy.bankedReportedTitle : copy.bankedObservedTitle) : isBankedReset ? isReached ? copy.bankedReachedTitle : copy.bankedPendingTitle : isReached ? data.deadlineEstimated ? copy.deadlineReached : copy.reachedTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? (isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody) : isBankedReset ? isReached ? copy.bankedReachedBody : copy.bankedPendingBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
 
       <div className="facts">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? isOwnerObserved ? copy.factConfirmation : copy.confirmationPostTime : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? (isBankedReported ? copy.bankedReportedBasis : copy.bankedObservationBasis) : isOwnerObserved ? copy.ownerResetTitle : isResetConfirmed && data.announcement ? postPublishedTime(data.announcement.postedAt, locale) : localizedSourceTimezone(data.sourceTimezone, locale)} />
+        <Fact label={data.deadlineEstimated ? copy.confirmationPostTime : isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? isOwnerObserved ? copy.factConfirmation : copy.confirmationPostTime : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={data.deadlineEstimated && data.announcement ? pstPostTime(data.announcement.postedAt) : isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? (isBankedReported ? copy.bankedReportedBasis : copy.bankedObservationBasis) : isOwnerObserved ? copy.ownerResetTitle : isResetConfirmed && data.announcement ? postPublishedTime(data.announcement.postedAt, locale) : localizedSourceTimezone(data.sourceTimezone, locale)} />
         <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
       </div>
     </section>
