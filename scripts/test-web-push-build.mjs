@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
-import { buildPushPayload } from '@block65/webcrypto-web-push';
+import { buildPushPayload } from '../functions/_lib/push-payload.js';
+import { readFileSync } from 'node:fs';
+import { hkdfSync } from 'node:crypto';
 import { validateMessage } from '../functions/_lib/push.js';
 
 const message = (paths) => ({
@@ -52,3 +54,33 @@ assert.equal(outbound.method, 'POST');
 assert.equal(outbound.headers.get('content-length'), null);
 assert.equal((await outbound.arrayBuffer()).byteLength, request.body.byteLength);
 console.log('Worker-native Web Push payload generated successfully.');
+
+// Exercise real multilingual drafts and maximum permitted multibyte input.
+// Independently decrypt with the synthetic receiver to check framing and keys.
+const draft = validateMessage(JSON.parse(readFileSync(new URL('../public/data/push-message.json', import.meta.url), 'utf8')));
+const cases = [...Object.values(draft.messages).map((item) => ({ ...item, eventId: draft.eventId })),
+  { title: '界'.repeat(80), body: '界'.repeat(180), path: '/zh-TW/history/', eventId: 'x'.repeat(64) }];
+for (const data of cases) {
+  for (const host of ['fcm.googleapis.com', 'updates.push.services.mozilla.com']) {
+    const result = await buildPushPayload({ data, options: { ttl: 300, urgency: 'high', topic: 'crw-test' } }, {
+      endpoint: `https://${host}/synthetic-offline-test`,
+      keys: { p256dh: base64url(receiverPublicKey), auth: base64url(auth) },
+    }, { subject: 'https://crw.warpnav.com', publicKey: base64url(vapidPublicKey), privateKey: vapidPrivateKey.d });
+    const bytes = result.body;
+    assert.equal(bytes.byteLength, new TextEncoder().encode(JSON.stringify(data)).byteLength + 103);
+    assert.ok(bytes.byteLength <= 2744);
+    assert.equal(bytes[20], 65);
+    const serverPublic = bytes.slice(21, 86);
+    const serverKey = await crypto.subtle.importKey('raw', serverPublic, { name: 'ECDH', namedCurve: 'P-256' }, false, []);
+    const shared = await crypto.subtle.deriveBits({ name: 'ECDH', public: serverKey }, receiverKeyPair.privateKey, 256);
+    const info = Buffer.concat([Buffer.from('WebPush: info\0'), Buffer.from(receiverPublicKey), serverPublic]);
+    const ikm = hkdfSync('sha256', Buffer.from(shared), auth, info, 32);
+    const key = hkdfSync('sha256', Buffer.from(ikm), bytes.slice(0, 16), Buffer.from('Content-Encoding: aes128gcm\0'), 16);
+    const nonce = hkdfSync('sha256', Buffer.from(ikm), bytes.slice(0, 16), Buffer.from('Content-Encoding: nonce\0'), 12);
+    const aes = await crypto.subtle.importKey('raw', key, 'AES-GCM', false, ['decrypt']);
+    const decoded = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: nonce }, aes, bytes.slice(86)));
+    assert.equal(decoded.at(-1), 2);
+    assert.deepEqual(JSON.parse(new TextDecoder().decode(decoded.slice(0, -1))), data);
+    console.log(`Offline round trip OK: ${host}, ${bytes.byteLength} bytes`);
+  }
+}

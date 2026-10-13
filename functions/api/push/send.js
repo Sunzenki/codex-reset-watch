@@ -1,4 +1,4 @@
-import { buildPushPayload } from '@block65/webcrypto-web-push';
+import { buildPushPayload } from '../../_lib/push-payload.js';
 import { requireAdmin } from '../../_lib/admin.js';
 import { json, validateMessage } from '../../_lib/push.js';
 
