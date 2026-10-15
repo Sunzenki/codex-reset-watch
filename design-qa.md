@@ -1,46 +1,64 @@
-# Calendar design QA
-
-Source: C:/Users/sunze/.codex/generated_images/01a093b1-6c44-78f0-ab6f-2b9545442f7a/exec-850f67d2-3df8-4603-ab32-c4b6c048b3e1.png
-Implementation: C:/Users/sunze/AppData/Local/Temp/crw-calendar-desktop.png
-Mobile: C:/Users/sunze/AppData/Local/Temp/crw-calendar-mobile.png
-Page tools reference: C:/Users/sunze/AppData/Local/Temp/codex-clipboard-367f02f9-c14d-43fa-9a97-1904a887d741.png
-Page tools implementation: C:/Users/sunze/AppData/Local/Temp/crw-page-tools-bilibili-style.png
-Page tools mobile: C:/Users/sunze/AppData/Local/Temp/crw-page-tools-mobile.png
-Route: http://127.0.0.1:4173/zh-CN/history/
-
-## Evidence and comparison
-Source and desktop capture: 1488 x 1058 pixels, desktop CSS viewport 1488 x 1058. Compared together in one image input. Browser capture shows existing site content width of 1160px; source mock uses a wider canvas. Existing header, background, logo and archive timeline retained intentionally. Initial compositor capture after resizing was incomplete and discarded; next complete capture used. Mobile CSS viewport 375 x 812; no horizontal overflow (document width 360 with scrollbar).
-State: September 2026, September 12 selected, September 13 today. Full comparison covers calendar split, heading, detail and legend. Text and controls readable in this full capture, so no additional focused crop required.
-
-## Findings
-No actionable P0/P1/P2 findings in final comparison.
-- Typography: existing rounded system font stack retained; calendar detail headings and controls follow site scale. More compact than standalone mock, intentional integration with current site width.
-- Layout: left month / right summary, thin divider, open background and timeline below match chosen direction. Mobile stacks detail below calendar.
-- Colors: existing cream, mint and lavender tokens retained. Dashed observation circle is an intentional evidence distinction from public confirmation.
-- Assets: existing original brand logo retained, no new illustration assets needed. Native calendar UI uses CSS.
-- Content: actual data replaces mock copy. Current update links to home; archive events link to existing timeline anchors. Latest current event is deduplicated by source URL and does not inflate archive count. Account observation, rollout and unverified announcements are explicitly separated.
-
-## Verification
-- Production build including TypeScript, data validation and all six SEO entries passed.
-- Date selection: September 4 shows unverified banked-reset details.
-- Previous month and return-to-current-month controls passed.
-- English confirmation 08:09 UTC; simplified/traditional confirmation 16:09 UTC+8.
-- English August 29 marker verified (Chinese archive displays August 30).
-- 375px simplified and English layouts visually inspected without horizontal overflow; traditional content checked.
-- Browser console error log empty in tested English route.
-- The right-side tool group appears after 600px and follows the Bilibili reference structure: separate icon-over-label buttons with a small viewport-edge inset. CRW intentionally keeps its cream and lavender tokens and only includes Refresh and Top.
-- Bilibili live comparison confirmed the source behavior rather than inferring it from the screenshot: at a 1215px viewport the source group opacity is `1`; at 900px its `translucent` wrapper opacity is `0.5` while the buttons remain interactive.
-- CRW now measures the actual horizontal relationship between the fixed tool group and the `main` content box. When the tool group enters the content area (with a 12px comfort margin), it adds `over-content` and fades to `0.5`; a hover or keyboard focus inside the group restores opacity to `1`.
-- Refresh completed a real page navigation and retained the browsing position; Top returned to scroll position 0. Both controls have localized accessible labels.
-- At the tested constrained desktop state, the group overlapped the content edge by 58px and correctly rendered at `0.5`; at 1700px it had a 184px clear gap and rendered at `1`.
-- The tool group was checked at 375px without horizontal overflow; its idle opacity was `0.5`, keyboard focus restored `1`, and the compact buttons remained inside the viewport.
-- The same tool group is mounted at the app shell level, so it is available on both the current-update homepage and the history page. The homepage was scrolled past the 600px threshold: both localized controls appeared, overlap fading was active, and Back to top returned the page to scroll position 0.
-- Temporary viewport override reset. Local preview left running, Chinese tab retained.
-
-## Maintenance
-Evidence map in src/ResetCalendar.tsx is explicit; new unclassified archives default to unverified. Classify newly archived confirmed/observed/banked/rollout records when adding them. Raw data and existing timeline content are unchanged.
-
-## Comparison history
-The first back-to-top version was rejected because its container-relative placement made it appear attached to a content card, and its lone text arrow looked unfinished. A second edge-tab pass fixed the placement but still did not match the requested Bilibili-style tool group. The next pass used two discrete 56 x 58 controls with Phosphor ArrowClockwise and ArrowUp icons, visible labels, a 22px desktop edge inset, and a compact 50 x 52 mobile variant. The final responsive pass reproduced Bilibili's measured `1` / `0.5` opacity behavior using geometry-based overlap detection, with hover and focus recovery. The supplied Bilibili screenshot and CRW capture were viewed together; component proportions and hierarchy match while colors intentionally follow CRW. Residual gap: no separate screen-reader session or browser-engine matrix tested.
+# CRW Forest Journal QA — 2026-10-16
 
 final result: passed
+
+Scope: local homepage/history implementation and the user's softer reminder-button correction. No production deployment or real subscription/notification testing.
+
+## Evidence and comparison
+
+Approved visual targets: [homepage](docs/design-references/home-approved.png), [history](docs/design-references/history-approved.png). Compared the homepage target and rendered screenshot together; inspected history and phone captures separately. Source art is 1479×1064; measured desktop CSS viewport 1535×1104, phone 374×844. The in-app capture includes extra backing canvas and scaling, so comparison uses the visible page content rather than claiming pixel-identical full-canvas alignment.
+
+Local screenshots in experiments/: forest-home-final.png, forest-history-final.png, forest-home-mobile.png, forest-mobile-*.png, forest-countdown.png, forest-countdown-mobile.png. They are local evidence, not production assets. Countdown screenshots use a local-only fixture and are not real announcements.
+
+## Checks and fixes
+
+- Six routes at desktop and phone widths: no horizontal page overflow, no broken image elements; homepage shows exactly three earlier records. DOM width checks use actual innerWidth, not the requested viewport setting (the browser applies a scale factor).
+- Mobile menu opens and Escape closes it; desktop history navigation works. Calendar previous month changes October to September; return-to-current restores October. No reminder action was invoked.
+- Current completed event has no timer. Local fixture verifies future timer appears between title and actions, fits phone width, expired time becomes pending confirmation with no timer, and no-date state waits without prediction.
+- Fixture only replaces JSON/initial bootstrap: existing editorial translations still refer to the current event. This is a layout/state test, not evidence that future event copy updates automatically. Editors must continue synchronizing JSON and i18n as documented.
+- Removed duplicate history journal heading and obsolete marginal slogans. Corrected banked legend to apricot and removed legacy purple from countdown tiles.
+- Reminder fill changed from strong coral to pale apricot at user request; berry text retained. Real local preview correctly reports unavailable backend and offers the production management link.
+
+## Required fidelity surfaces
+
+- Typography: user subsequently requested system sans-serif (黑体) headings and italic sans-serif original-post quotes; applied without font downloads. Dates retain serif numerals. Author, translation and timestamps remain upright. Verified computed styles and all six routes at 374px and 1535px without horizontal overflow; latest capture experiments/forest-sans-home.png. Build, docs check and diff check passed.
+- Layout: date/story/source columns and full-width recent rows match the selected organization; phone stacks naturally. Header protects navigation from decoration.
+- Color: cream/berry/coral/orange identity; reminder uses the newly approved softer direction. Global/banked distinction remains green/apricot.
+- Images: independent transparent logo, forest frame and blank note, not a rasterized webpage. Generated frame differs in branch placement from concept, while preserving open reading space.
+- Copy: real event, source and time provenance retained; original-post metadata now follows the route timezone. No invented future event, dead news link or timeline module.
+
+## Intentional differences and follow-up
+
+News/guides navigation deferred until the section exists, as agreed. Existing full archive remains below the calendar. Preview reminder shows service state rather than the mock's subscription CTA. Recent rows retain existing concise title/status schema. Fine paper edges and calligraphy remain illustrative approximations; functional controls and text are HTML. No P0/P1/P2 issue remains in the checked scope; broader browser/device compatibility is not claimed.
+
+No commit, push, production verification or notification send performed. User visual review remains the next step.
+
+## 2026-10-16 — Always-visible methodology notes
+
+- Source: C:/Users/sunze/.codex/generated_images/01a14069-8f02-78d1-bfbc-bf8ac199d71f/exec-92eedf6e-d63c-42d9-9c2c-30087cfb9215.png (1672x941).
+- Implementation: experiments/notice-desktop.png and experiments/notice-mobile.png. Desktop CSS viewport 1135x1231; mobile 374x844. In-app captures include backing-canvas scaling; compare the content region, not blank canvas. Source and implementation were opened together; desktop note region and mobile stack inspected separately.
+- Typography: existing system sans-serif preserved, no font downloads; HTML headings and localized body copy remain selectable, warning bold.
+- Layout: three aligned desktop notes, single-column phone stack. Exactly three recent records in all three locales; event context moved above records, all source links preserved. Notes and JSON links are always visible without accordion interaction.
+- Colors/images: generated transparent sage, yellow and apricot paper assets with tape/pin, roughly 289 KB combined. Sage paper is darker and grainier than the mock (P3 polish); no text clipping observed. Existing forest border and footer retained intentionally.
+- Copy: localized principles simplified without changing evidence rules. Countdown zero explicitly does not confirm completion.
+- Checks: production build, 24 records and six-page SEO validation passed. All three homepage locales at desktop and 374px had three records, three notes, no horizontal overflow. Keyboard focus reaches JSON links. Browser error log empty. No notification or subscription action taken.
+- Findings: no actionable P0/P1/P2 in this scoped section. Paper tone/edge details differ slightly from generated concept; no exact pixel-match claim. The mock's one sample recent row is intentionally replaced by the user-required three.
+- final result: passed
+- Local preview only; no commit, push or deployment.
+
+## Evidence panel and heading refinement
+
+2026-10-16: methodology, recent-record and evidence headings now share 26px/700 desktop and 24px/700 phone styles. Event evidence uses source attribution, context, a pale yellow time-caveat callout and publication/source links in a cream panel, following the user-provided layout hierarchy. No duplicate large quote was added because the hero already contains it. Screenshot: experiments/evidence-update.png. All three homepage languages checked at desktop and 374px: no horizontal overflow; computed heading sizes match. Production build and data/SEO validation passed. Local preview only. Final result: passed.
+
+## Final plain-paper refinement (2026-10-16)
+
+User selected removal of the paperclip. Removed the decorative image and its responsive CSS. The paper texture/shadow now renders at 65% opacity on a separate background layer; text remains fully opaque. Local browser verified zero clip elements, three recent records, no horizontal overflow. Screenshot: experiments/evidence-plain-final.png. Build, data/SEO, docs check and diff check passed. No deployment. Final result: passed.
+
+## Hero summary and UTC notation (2026-10-16)
+
+Implemented approved three-column hero refinement: shorter date strip, original-post link inside quotation, no duplicate confirmed-time line, one paper summary with three facts. Values are 15px desktop / 14px mobile, deliberately smaller than concept per user request. Fixed PST conversion verified as 2026-10-14 22:28 PST（UTC−8）; underlying source remains UTC. Display labels normalize GMT to UTC, preserving offsets. Six routes checked without GMT text or horizontal overflow; three home locales also checked at 374px. Screenshot: experiments/hero-summary-final.png. Build/data/SEO and docs checks passed. Countdown logic unchanged; no notifications, commit or deployment. Final result: passed.
+
+
+## 2026-10-16 发布前审计复核
+
+本轮复核范围：三语言首页与历史页，桌面 1270px / 手机 374px；无横向溢出、图片元素破图或重复 h1。最近记录保持三条。日历切月、回到本月、储备事件选择及手机菜单/Escape 通过。本地不可用按钮已明确禁用，正式站逻辑不由该预览结果推断。当前完成状态截图：本地忽略目录 `experiments/audit-mobile-home.png`。倒计时及后台样例沿用前轮记录，未在本轮全量重验。详细缺口与发布限制见 [审计报告](docs/history/2026年10月16日-改版发布前审计报告.md)。

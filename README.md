@@ -1,51 +1,52 @@
 # Codex Reset Watch
 
-项目的完整产品说明、数据维护、时区换算、多语言、SEO/GEO、UI、GitHub 与 Cloudflare Pages 操作手册见 [`PROJECT-MAINTENANCE-GUIDE.md`](./PROJECT-MAINTENANCE-GUIDE.md)。后续更新应先阅读该文件。
+CRW 是 WarpNav 制作的非官方、人工整理的 Codex 额度重置信息站：展示公开预告、完成确认、时间换算和历史记录，并提供浏览器提醒。正式站：[crw.warpnav.com](https://crw.warpnav.com/)。不自动抓取 X，不根据历史间隔预测下一次重置。
 
-`crw.warpnav.com` 的静态信息站：展示下一次经过人工核对的 Codex rate-limit reset 预告，并保存历史记录。项目不监控 X、不调用 X API，也不会自动修改公开数据。
+协作从 [AGENTS.md](AGENTS.md) 开始，当前工作和发布阶段见 [CHANGELOG.md](CHANGELOG.md) 的“未发布”。文档描述仓库维护方式；是否已上线需看部署证据。
 
-网站提供 English、简体中文和繁體中文三套静态页面。根目录 `/` 就是英文首页，英文历史页位于 `/history/`；中文页面分别位于 `/zh-CN/` 和 `/zh-TW/`，并各有对应的 `/history/` 页面。旧 `/en/` 地址只保留永久重定向兼容。
+## 文档入口
 
-## 内容更新
+| 文档 | 职责 |
+| --- | --- |
+| [AGENTS.md](AGENTS.md) | 执行规则、任务路由、按范围验证与交付要求 |
+| [PROJECT-MAINTENANCE-GUIDE.md](PROJECT-MAINTENANCE-GUIDE.md) | 架构、产品边界、维护流程与索引 |
+| [DESIGN.md](DESIGN.md) | 当前手账视觉规范 |
+| [内容与数据](docs/content-and-data.md) | 来源、时区、JSON、三语言、日历和 SEO |
+| [推送操作](docs/push-operations.md) | 订阅状态、后台、失败原因和人工发送 |
+| [部署与排障](docs/deployment-troubleshooting.md) | 预览、构建、Git、Cloudflare、缓存和统计 |
+| [CHANGELOG.md](CHANGELOG.md) | 完整改动及提交、部署、验证、通知状态 |
+| [design-qa.md](design-qa.md) | 最近一次本地视觉验收及局限，非上线证明 |
 
-### 当前预告
+最新阶段交接：[2026-10-15 至 16 改版成果与下一阶段计划](docs/history/2026年10月15日至16日-改版成果与下一阶段推进报告.md)。视觉改版暂告一段落，当前仅本地实现，尚未提交或部署。
 
-编辑 `public/data/current.json`：
+历史方案和事故纪要由主手册链接，只供追溯。
 
-- `status`：`monitoring`、`estimated`、`confirmed`、`reached` 或 `superseded`。
-- `resetAt`：ISO 8601 时间，推荐保存为 UTC，例如 `2026-08-24T22:00:00Z`；没有有效预告时填 `null`。
-- `sourceTimezone` / `originalTimeText`：保留原帖时区及时间原文。
-- `announcement`：原文、原帖链接和发帖时间。
-- `updatedAt`：本站人工更新时间。
+## 本地开发
 
-页面标题不读取 JSON 中的固定中文标题，而是根据 `resetAt` 和状态自动生成：英文使用 UTC，简体中文使用 `Asia/Shanghai`，繁體中文使用 `Asia/Taipei`。事件相关的三语言说明维护在 `src/i18n.ts` 的 `currentCopy` 中。
+Node 版本要求和脚本以 [package.json](package.json) 为准，使用 pnpm：
 
-倒计时归零后，前端只显示“预告时间已到”，不会自动声称重置已经发生。
-
-### 历史记录
-
-完成一次记录后，将事实信息追加到 `public/data/history.json`。每条记录包含唯一 `id`、目标时间 `targetAt`、精度、原始时区、原帖、结果和备注。然后在 `src/i18n.ts` 的 `historyCopy` 中使用同一个 `id` 添加三语言说明。
-
-`outcome` 支持 `unverified`、`as_announced`、`revised`、`cancelled`。不要为填满历史页而补写无法验证的数据。
-
-## 本地运行与构建
-
-```bash
+```sh
 pnpm install
 pnpm dev
 pnpm build
+pnpm preview
 ```
 
-`pnpm build` 会先校验两个 JSON 文件。Cloudflare Pages 当前实际构建命令为 `npm run build`，输出目录为 `dist`；本地仍推荐使用 `pnpm build`。项目包含 `public/_redirects`，旧 `/en/` 与 `/en/history/` 会分别永久重定向到 `/` 与 `/history/`。
+英文首页 `/`、历史页 `/history/`；简繁中文分别为 `/zh-CN/`、`/zh-TW/`，各有 `/history/`。旧 `/en/` 和 `/en/history/` 仅保留永久重定向。
 
-## SEO 与机器可读输出
+Vite 开发/静态预览不运行 `/api/push/*`。本地与正式站订阅分别属于不同 origin；完整 Functions 环境按推送和部署手册准备。
 
-生产构建最后会执行 `scripts/postbuild-seo.mjs`，根据当前 JSON 数据自动生成：
+## 按范围检查
 
-- 六个语言页面的无 JavaScript 静态正文快照；
-- `WebSite`、`WebPage`、`CollectionPage` 与 `Dataset` JSON-LD；
-- 包含多语言 alternate 关系的 `sitemap.xml`；
-- `robots.txt` 与实验性的 `llms.txt`；
-- 首屏预载数据，避免页面先清空为加载状态。
+```sh
+pnpm docs:check       # 文档文件、相对链接和忽略规则
+pnpm test:docs        # 文档检查器的离线回归测试
+pnpm test:push-state  # 提醒状态与订阅登记回滚，无真实推送
+pnpm test:push        # Web Push 报文离线检查，无真实推送
+```
 
-`public/data/current.json` 或 `public/data/history.json` 更新后重新构建即可同步刷新日期、来源、结构化数据与 sitemap。`llms.txt` 只是机器可读说明，不代表任何生成式搜索平台保证收录或引用。
+纯文档修改运行文档检查；改动检查器时增加它的回归测试。应用和数据修改运行 `pnpm build`，其他专项验证由对应手册说明。
+
+`pnpm build` 验证数据与六页 SEO，完成 TypeScript/Vite 构建，并生成静态快照、JSON-LD、sitemap、robots、llms.txt 和 ads.txt。`dist` 不提交 Git。
+
+内容更新同步 JSON 与受影响三语言文案；每次完整改动同步对应文档和变更日志。UI 先提供本地预览，发布按用户授权执行，部署与真实通知发送分别记录。

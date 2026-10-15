@@ -9,7 +9,10 @@
     "dev": "vite",
     "build": "node scripts/validate-data.mjs && tsc -b && vite build && node scripts/postbuild-seo.mjs",
     "preview": "vite preview",
+    "docs:check": "node scripts/check-docs.mjs",
+    "test:docs": "node --test --test-isolation=none scripts/test-docs-check.mjs",
     "test:push": "node scripts/test-web-push-build.mjs",
+    "test:push-state": "node --experimental-strip-types --test --test-isolation=none scripts/test-push-state.mjs",
     "push:send": "node scripts/send-push.mjs"
   },
   "dependencies": {

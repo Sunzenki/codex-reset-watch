@@ -179,3 +179,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .delivery-reasons li.failed { background: #ffe9e5; color: #873c32; }
 .delivery-reasons strong, .delivery-reasons span { display: block; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
 .delivery-reasons span { margin-top: 3px; }
+
+/* Shared Phosphor icons keep the existing controls and text labels aligned. */
+.admin-shell .crw-icon { display: inline-block; flex: none; vertical-align: -.18em; }
+.admin-loading > p,
+.login-card button,
+.send-button,
+.back-link,
+.admin-header a:not(.admin-brand),
+.quiet-button,
+.refresh-button,
+.stat-grid article > span,
+.section-heading > span,
+.event-row > span { display: inline-flex; align-items: center; gap: 8px; }
+.login-card button, .send-button { justify-content: center; padding: 12px 16px; }
+.setup-notice, .form-error, .send-notice { display: flex; align-items: flex-start; gap: 8px; }
+.setup-notice > .crw-icon, .form-error > .crw-icon, .send-notice > .crw-icon { margin-top: 2px; }
+.delivery-reasons li > strong { display: flex; align-items: flex-start; gap: 7px; font-family: inherit; font-size: 12px; line-height: 1.6; }
+.delivery-reasons strong > .crw-icon { margin-top: 2px; }
+.delivery-reasons strong > span { margin-top: 0; }

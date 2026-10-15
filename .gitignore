@@ -28,6 +28,7 @@ yarn-error.log*
 
 # local environment
 .env*
+.dev.vars*
 dist/
 
 # deployment and generated files
@@ -39,11 +40,9 @@ next-env.d.ts
 /outputs/
 /work/
 
-# local-only project documentation
-/PROJECT-MAINTENANCE-GUIDE.md
-/浏览器重置提醒功能实施计划.md
-/docs/content-and-data.md
-/docs/push-operations.md
-/docs/deployment-troubleshooting.md
-/docs/history/2026-09-08-to-09-project-log.md
-/docs/maintenance-guide-refactor-plan.md
+# Project instructions, maintenance guides and history belong in Git.
+# Keep credentials, local environments and generated files excluded above.
+
+# Local audit captures and Wrangler bundle; keep source and curated design refs.
+/experiments/
+/_worker.bundle

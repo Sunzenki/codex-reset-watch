@@ -1,3 +1,4 @@
+import base64
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -14,21 +15,9 @@ def rounded_line(draw, points, fill, width):
 
 
 def brand_icon(size: int) -> Image.Image:
-    canvas = 1024
-    image = Image.new("RGBA", (canvas, canvas), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(image)
+    source = Image.open(PUBLIC / "images" / "forest-icon.png").convert("RGBA")
+    return source.resize((size, size), Image.Resampling.LANCZOS)
 
-    draw.rounded_rectangle((48, 48, 976, 976), radius=232, fill="#BCEEFF")
-    purple = "#896CF6"
-    pink = "#F75A80"
-    draw.arc((205, 190, 815, 800), start=42, end=320, fill=purple, width=126)
-    draw.polygon(((690, 142), (855, 293), (627, 330)), fill=purple)
-    rounded_line(draw, ((394, 392), (515, 500), (394, 608)), pink, 78)
-    rounded_line(draw, ((565, 608), (690, 608)), pink, 78)
-
-    if size != canvas:
-        image = image.resize((size, size), Image.Resampling.LANCZOS)
-    return image
 
 
 def font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
@@ -81,7 +70,11 @@ def main():
     }
     for filename, size in outputs.items():
         brand_icon(size * 4).resize((size, size), Image.Resampling.LANCZOS).save(PUBLIC / filename)
-    social_card().save(PUBLIC / "og.png", optimize=True)
+    encoded = base64.b64encode((PUBLIC / "icon-192.png").read_bytes()).decode("ascii")
+    (PUBLIC / "favicon.svg").write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><image width="192" height="192" href="data:image/png;base64,' + encoded + '"/></svg>', encoding="utf-8")
+    # Keep separately maintained social artwork unchanged.
+    brand_icon(256).save(PUBLIC / "favicon.ico", sizes=[(16,16),(32,32),(48,48),(64,64),(256,256)])
 
 
 if __name__ == "__main__":

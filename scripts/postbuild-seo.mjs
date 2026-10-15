@@ -52,7 +52,7 @@ function displayDate(value, locale) {
   return new Intl.DateTimeFormat(config.intl, {
     year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
     hour12: false, timeZone: config.timeZone, timeZoneName: 'short',
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
 }
 
 function confirmedHeadline(locale) {

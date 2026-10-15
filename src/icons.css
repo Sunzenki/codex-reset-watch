@@ -1,0 +1,5 @@
+/* Phosphor uses filled paths for every weight, including regular outlines. */
+svg.crw-icon { flex-shrink:0;vertical-align:-.125em;fill:currentColor;stroke:none; }
+.icon-label { display:inline-flex;align-items:center;gap:8px; }
+.record-card>a,.history-empty a,.footer-links a { display:inline-flex;align-items:center;gap:7px; }
+.push-reminder button { display:inline-flex;align-items:center;justify-content:center;gap:8px; }

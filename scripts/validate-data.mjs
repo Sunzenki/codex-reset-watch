@@ -30,6 +30,9 @@ for (const [index, record] of history.entries()) {
   const base = `history[${index}]`;
   if (!record.id || ids.has(record.id)) throw new Error(`${base}.id 缺失或重复`);
   ids.add(record.id);
+  if (!['reset', 'banked', 'announcement', 'rule_change'].includes(record.eventType)) throw new Error(`${base}.eventType 无效`);
+  if (!['reset', 'banked'].includes(record.resetType)) throw new Error(`${base}.resetType 无效`);
+  if (!['confirmation', 'announcement', 'estimated', 'scheduled', 'observation'].includes(record.timeBasis)) throw new Error(`${base}.timeBasis 无效`);
   if (!['estimated', 'confirmed'].includes(record.precision)) throw new Error(`${base}.precision 值无效`);
   if (!allowedOutcome.has(record.outcome)) throw new Error(`${base}.outcome 值无效`);
   validDate(record.targetAt, `${base}.targetAt`);

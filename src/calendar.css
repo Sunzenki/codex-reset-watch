@@ -6,3 +6,25 @@
 @media(max-width:760px){.history-intro{padding:42px 0 28px;min-height:0}.history-intro::after{display:none}.reset-calendar{grid-template-columns:1fr;gap:28px}.calendar-detail{border-left:0;border-top:1px solid #ddd7ed;padding:22px 0 0}.calendar-zone{margin-bottom:16px}.calendar-detail h2{font-size:25px}.calendar-foot{margin-top:0}.calendar-toolbar{gap:10px;justify-content:space-between}.calendar-toolbar h2{font-size:22px}.calendar-toolbar .calendar-now{padding:0 9px;font-size:12px}.calendar-day{width:40px;height:44px}}
 @media(max-width:760px){.page-tools{right:10px;bottom:max(72px,calc(14px + env(safe-area-inset-bottom)));gap:6px}.page-tools button{width:50px;height:52px;border-radius:11px;font-size:10px}}
 @media(prefers-reduced-motion:reduce){.page-tools,.page-tools button{transition:none}}
+
+/* Event type is the primary calendar signal; evidence stays in the record. */
+.calendar-day.has-events { font-weight:800; }
+.calendar-day.reset,.calendar-legend i.reset { background:#a9e9b5;color:#195630; }
+.calendar-day.banked,.calendar-legend i.banked { background:#d1bdf6;color:#493478; }
+.calendar-day.announcement,.calendar-legend i.announcement { background:#ffd58a;color:#704611; }
+.calendar-day.mixed::before { content:'';position:absolute;inset:6px;border-radius:50%;background:#fffefa; }
+.calendar-day>span,.calendar-day>small { position:relative;z-index:1; }
+.calendar-day.today small { color:inherit; }
+.calendar-day.selected { outline-color:#7052bd; }
+.calendar-day sup { min-width:16px;padding:2px;border-radius:10px;background:#fffefa;border:1px solid #c9bfdc;color:#493478;z-index:2; }
+@media(max-width:760px){.calendar-day{height:40px}}
+.calendar-badge.reset { background:#dcf2df;color:#215c34; }
+.calendar-badge.announcement { background:#fff0cf;color:#805815; }
+.calendar-badge.rule_change { background:var(--blue);color:#345b77; }
+
+/* Library icons share one alignment and keep month controls easy to tap. */
+.calendar-toolbar button { display:inline-flex;align-items:center;justify-content:center;gap:6px; }
+.calendar-toolbar button svg,.calendar-detail a svg { flex:none;display:block; }
+.history-page .reset-calendar .calendar-toolbar > button { min-width:44px;min-height:44px; }
+.history-page .reset-calendar .calendar-toolbar > .calendar-now { min-height:44px; }
+@media(max-width:520px){.history-page .reset-calendar .calendar-toolbar{grid-template-columns:44px minmax(0,1fr) 44px;}}

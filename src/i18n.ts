@@ -16,7 +16,7 @@ export const localeConfig: Record<Locale, { intl: string; timeZone: string; html
 
 export const ui = {
   en: {
-    skip: 'Skip to main content', navCurrent: 'Latest update', navHistory: 'History', navPush: 'Notifications', navMenu: 'Menu', navMenuClose: 'Close menu', language: 'Language',
+    skip: 'Skip to main content', navCurrent: 'Reset updates', navHistory: 'History', navPush: 'Notifications', navMenu: 'Menu', navMenuClose: 'Close menu', language: 'Language',
     titleCurrent: seoMetadata.en.home.title, titleHistory: seoMetadata.en.history.title,
     deadlineStatus: 'Announced · deadline estimated', deadlineLabel: 'Estimated deadline', deadlineReached: 'Estimated deadline reached · awaiting confirmation',
     status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' }, dateConfirmedStatus: 'Tuesday confirmed · time estimated',
@@ -33,9 +33,9 @@ export const ui = {
     factOriginal: 'Original wording', factZone: 'Source time zone', factAnnouncementPacific: 'Announcement time · Pacific', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', confirmationPostTime: 'Post published', factObservation: 'Verification basis', factUpdated: 'Site updated',
     sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View announcement', viewTimingPost: 'View timing reply', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
-    methodSourceTitle: 'Source-first records', methodSourceBody: 'Every event links to the public post it was derived from. Quotes stay in their original language and later corrections are recorded separately.',
-    methodTimeTitle: 'Consistent time conversion', methodTimeBody: 'Times are stored as ISO 8601 UTC. English pages display UTC; Simplified and Traditional Chinese pages display UTC+8.',
-    methodCountdownTitle: 'Countdown, not confirmation', methodCountdownBody: 'The timer counts down to the announced estimate. Reaching zero does not by itself prove that a reset happened.',
+    methodSourceTitle: 'Source-first records', methodSourceBody: 'Each record links to its public source. Quotes keep their original language; later corrections are recorded separately.',
+    methodTimeTitle: 'Consistent time conversion', methodTimeBody: 'Chinese pages show UTC+8, while English pages show UTC, making timestamps easier to compare.',
+    methodCountdownTitle: 'Countdown, not confirmation', methodCountdownBody: 'The timer counts down only to a publicly announced estimate.', methodCountdownWarning: 'Reaching zero does not confirm a reset.',
     machineData: 'View machine-readable data', currentData: 'Current status JSON', historyData: 'History JSON',
     noEvidence: 'There is no active reset announcement', archive: 'Archive', viewHistory: 'View reset history',
     historyLabel: 'Reset archive', historyTitle: 'Reset history', historyIntro: 'A record of public posts, time conversions, and later corrections. Past intervals are not used to predict future resets.',
@@ -46,11 +46,12 @@ export const ui = {
     loadHistoryError: 'Could not load the history file', checkJson: 'Check the JSON data and redeploy.',
     pushLabel: 'Browser reminders', pushTitle: 'Get notified about new resets', pushBody: 'No account required. Your browser stores a private subscription, and you can turn it off at any time.',
     pushEnable: 'Enable reminders', pushDisable: 'Turn off reminders', pushEnabled: 'Reminders are on for this browser.', pushDenied: 'Notifications are blocked in your browser settings.', pushUnsupported: 'This browser does not support CRW reminders yet.', pushWorking: 'Please wait…', pushError: 'Could not update the reminder. Please try again.',
+    pushUnavailable: 'The reminder service is temporarily unavailable. Your existing subscriptions are unchanged.', pushLocalPreview: 'The reminder service is unavailable in this local preview. Manage your subscription on the live site.', pushPreviewUnavailable: 'Unavailable in this preview', pushRetry: 'Retry connection', pushManageLive: 'Manage on the live site',
     footer: '© 2026 Codex Reset Watch · An unofficial just-for-fun site by WarpNav', warpnav: 'WarpNav main site',
     headline: { monitoring: 'Watching for the next Codex reset', estimated: 'Reset expected around', confirmed: 'Reset expected at', reached: 'Expected reset time reached', superseded: 'The previous estimate was revised' },
   },
   'zh-CN': {
-    skip: '跳到主要内容', navCurrent: '最新动态', navHistory: '历史记录', navPush: '动态通知', navMenu: '菜单', navMenuClose: '关闭菜单', language: '语言',
+    skip: '跳到主要内容', navCurrent: '重置动态', navHistory: '历史记录', navPush: '动态通知', navMenu: '菜单', navMenuClose: '关闭菜单', language: '语言',
     titleCurrent: seoMetadata['zh-CN'].home.title, titleHistory: seoMetadata['zh-CN'].history.title,
     deadlineStatus: '已预告 · 截止时间为推算', deadlineLabel: '预计截止时间', deadlineReached: '预计截止时间已到，待确认',
     status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' }, dateConfirmedStatus: '周二已确认 · 时间为推算',
@@ -67,9 +68,9 @@ export const ui = {
     factOriginal: '原帖措辞', factZone: '原始时区', factAnnouncementPacific: '公告发布时间 · 太平洋时间', factTiming: '时间依据', factConfirmation: '确认依据', confirmationPostTime: '原帖发布', factObservation: '到账依据', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看公告原帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
-    methodSourceTitle: '保留公开来源', methodSourceBody: '每条记录都链接到对应的公开原帖。引文保留原始语言，后续修正则单独记录。',
-    methodTimeTitle: '统一换算时间', methodTimeBody: '所有时间以 ISO 8601 UTC 格式保存。英文页面显示 UTC，简体与繁体中文页面显示 UTC+8。',
-    methodCountdownTitle: '倒计时不是确认', methodCountdownBody: '计时器只倒数到公开预告的预计时间。倒计时归零本身并不能证明重置已经发生。',
+    methodSourceTitle: '保留公开来源', methodSourceBody: '每条记录附公开原帖，引文保留原语言；后续更正另行记录。',
+    methodTimeTitle: '统一换算时间', methodTimeBody: '中文页面统一显示 UTC+8，英文页面显示 UTC，方便核对时间。',
+    methodCountdownTitle: '倒计时不是确认', methodCountdownBody: '倒计时仅对应公开预告的预计时间。', methodCountdownWarning: '归零不代表重置已完成。',
     machineData: '查看机器可读数据', currentData: '当前状态 JSON', historyData: '历史记录 JSON',
     noEvidence: '当前没有有效的重置预告', archive: 'Archive', viewHistory: '查看历史重置记录',
     historyLabel: 'Reset archive', historyTitle: '历史重置记录', historyIntro: '保存当时公开发言、时间换算与后续修正。记录只描述已有证据，不用历史间隔预测未来。',
@@ -80,11 +81,12 @@ export const ui = {
     loadHistoryError: '历史记录读取失败', checkJson: '请检查 JSON 数据格式后重新部署。',
     pushLabel: 'Browser reminders', pushTitle: '额度重置浏览器提醒', pushBody: '无需注册。订阅只绑定当前浏览器，可随时关闭；仅在出现新的额度重置消息时推送。',
     pushEnable: '开启提醒', pushDisable: '关闭提醒', pushEnabled: '此浏览器已开启提醒。', pushDenied: '浏览器已阻止通知，请在网站权限中重新开启。', pushUnsupported: '当前浏览器暂不支持 CRW 提醒。', pushWorking: '处理中…', pushError: '提醒设置失败，请稍后重试。',
+    pushUnavailable: '提醒服务暂时无法连接，已有订阅不受影响。', pushLocalPreview: '本地预览提醒服务暂不可用，请在正式站管理订阅。', pushPreviewUnavailable: '本地预览暂不可用', pushRetry: '重试连接', pushManageLive: '在正式站管理提醒',
     footer: '© 2026 Codex Reset Watch · 由 WarpNav 制作的非官方趣味小站', warpnav: 'WarpNav 主站',
     headline: { monitoring: '正在等待下一次 Codex 重置消息', estimated: '预计重置时间约为', confirmed: '预计重置时间为', reached: '预告重置时间已到', superseded: '此前的重置预告已被修正' },
   },
   'zh-TW': {
-    skip: '跳到主要內容', navCurrent: '最新動態', navHistory: '歷史記錄', navPush: '動態通知', navMenu: '選單', navMenuClose: '關閉選單', language: '語言',
+    skip: '跳到主要內容', navCurrent: '重置動態', navHistory: '歷史記錄', navPush: '動態通知', navMenu: '選單', navMenuClose: '關閉選單', language: '語言',
     titleCurrent: seoMetadata['zh-TW'].home.title, titleHistory: seoMetadata['zh-TW'].history.title,
     deadlineStatus: '已預告 · 截止時間為推算', deadlineLabel: '預計截止時間', deadlineReached: '預計截止時間已到，待確認',
     status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' }, dateConfirmedStatus: '週二已確認 · 時間為推算',
@@ -101,9 +103,9 @@ export const ui = {
     factOriginal: '原帖措辭', factZone: '原始時區', factAnnouncementPacific: '公告發佈時間 · 太平洋時間', factTiming: '時間依據', factConfirmation: '確認依據', confirmationPostTime: '原帖發佈', factObservation: '到帳依據', factUpdated: '本站更新',
     sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看公告原帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
-    methodSourceTitle: '保留公開來源', methodSourceBody: '每筆記錄都連結至對應的公開原帖。引文保留原始語言，後續修正則另外記錄。',
-    methodTimeTitle: '統一換算時間', methodTimeBody: '所有時間以 ISO 8601 UTC 格式保存。英文頁面顯示 UTC，簡體與繁體中文頁面顯示 UTC+8。',
-    methodCountdownTitle: '倒數不是確認', methodCountdownBody: '計時器只倒數至公開預告的預計時間。倒數歸零本身並不能證明重置已經發生。',
+    methodSourceTitle: '保留公開來源', methodSourceBody: '每筆記錄附公開原帖，引文保留原語言；後續更正另行記錄。',
+    methodTimeTitle: '統一換算時間', methodTimeBody: '中文頁面統一顯示 UTC+8，英文頁面顯示 UTC，方便核對時間。',
+    methodCountdownTitle: '倒數不是確認', methodCountdownBody: '倒數僅對應公開預告的預計時間。', methodCountdownWarning: '歸零不代表重置已完成。',
     machineData: '查看機器可讀資料', currentData: '目前狀態 JSON', historyData: '歷史記錄 JSON',
     noEvidence: '目前沒有有效的重置預告', archive: 'Archive', viewHistory: '查看歷史重置記錄',
     historyLabel: 'Reset archive', historyTitle: '歷史重置記錄', historyIntro: '保存當時的公開發言、時間換算與後續修正。記錄只描述已有證據，不以歷史間隔預測未來。',
@@ -114,12 +116,13 @@ export const ui = {
     loadHistoryError: '歷史記錄讀取失敗', checkJson: '請檢查 JSON 資料格式後重新部署。',
     pushLabel: 'Browser reminders', pushTitle: '額度重置瀏覽器提醒', pushBody: '無需註冊。訂閱只綁定目前瀏覽器，可隨時關閉；僅在出現新的額度重置消息時推送。',
     pushEnable: '開啟提醒', pushDisable: '關閉提醒', pushEnabled: '此瀏覽器已開啟提醒。', pushDenied: '瀏覽器已封鎖通知，請在網站權限中重新開啟。', pushUnsupported: '目前瀏覽器暫不支援 CRW 提醒。', pushWorking: '處理中…', pushError: '提醒設定失敗，請稍後再試。',
+    pushUnavailable: '提醒服務暫時無法連線，已有訂閱不受影響。', pushLocalPreview: '本機預覽提醒服務暫不可用，請在正式站管理訂閱。', pushPreviewUnavailable: '本機預覽暫不可用', pushRetry: '重試連線', pushManageLive: '在正式站管理提醒',
     footer: '© 2026 Codex Reset Watch · 由 WarpNav 製作的非官方趣味小站', warpnav: 'WarpNav 主站',
     headline: { monitoring: '正在等待下一次 Codex 重置消息', estimated: '預計重置時間約為', confirmed: '預計重置時間為', reached: '預告重置時間已到', superseded: '先前的重置預告已被修正' },
   },
 } as const;
 
-export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
+export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceTranslation?: string }> = {
   "en": {
     "headline": "Day 10 usage reset is complete",
     "scope": "Tibo has publicly confirmed completion of the Day 10 reset.",
@@ -128,12 +131,14 @@ export const currentCopy: Record<Locale, { headline: string; scope: string; cont
   },
   "zh-CN": {
     "headline": "第 10 天额度重置已完成",
+    "sourceTranslation": "已经搞定。",
     "scope": "Tibo 已公开确认，第 10 天预告的本轮重置已经完成。",
     "context": "Tibo 引用了“未来两小时内落地”的回复，并表示：“Done and dusted”（已经搞定）。",
     "note": "所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前预计截止时间为北京时间 10 月 15 日 14:56。原帖未明确适用套餐及具体额度窗口。"
   },
   "zh-TW": {
     "headline": "第 10 天額度重置已完成",
+    "sourceTranslation": "已經搞定。",
     "scope": "Tibo 已公開確認，第 10 天預告的本輪重置已經完成。",
     "context": "Tibo 引用了「未來兩小時內落地」的回覆，並表示：「Done and dusted」（已經搞定）。",
     "note": "所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前預計截止時間為台北時間 10 月 15 日 14:56。原帖未明確適用方案及具體額度視窗。"
@@ -170,7 +175,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   },
   'zh-CN': {
     'reset-2026-10-15-day10-confirmed': {"context": "Tibo 引用了“未来两小时内落地”的回复，并表示：“Done and dusted”（已经搞定）。", "note": "所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前预计截止时间为北京时间 10 月 15 日 14:56。原帖未明确适用套餐及具体额度窗口。"},
-    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本轮“EOD PST 前落地”的全局重置预告，并明确表示：“已经完成了。”","note":"所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前倒计时按字面 PST 换算至 10 月 13 日 16:00 GMT+8，仅为预计截止时间。原帖未单独列明适用套餐及具体额度窗口。"},
+    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本轮“EOD PST 前落地”的全局重置预告，并明确表示：“已经完成了。”","note":"所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前倒计时按字面 PST 换算至 10 月 13 日 16:00 UTC+8，仅为预计截止时间。原帖未单独列明适用套餐及具体额度窗口。"},
     'reset-2026-10-11-global-confirmed': {"context":"译文：重置搞定，已全部生效。Tibo 此前预告将在当天结束前进行全局重置，随后引用该预告确认完成。","note":"本次记录采用确认帖发布时间，精度为分钟，不代表实际执行时刻。这两条帖子未单独列明适用套餐及具体额度窗口；此前 EOD 预告未注明时区。本次确认与 Day 3 储备重置是不同事件。"},
     'reset-2026-10-07-day3-banked': {"context":"译文：正在向所有付费账号发放一次储备重置。Tibo 在 Day 3 宣布这次发放，庆祝 Codex 与 ChatGPT Work 活跃用户达到 4,000 万；随后补充：“将在 PST 当天结束前到账。”","note":"回复中的“当天”指太平洋时间 10 月 7 日。EOD 未给出具体小时，PST 也可能泛指当地夏令时间 PDT，因此不显示精确倒计时。目前尚未核实到账；帖子时间记录到分钟。 档案日期采用公告发布时间，不代表到账时间。"},
     'reset-2026-10-07-day2-confirmed': {"context":"译文：因此……重置已经处理完成。尽情使用吧！Tibo 在 Day 2 更新后的社区投票结束后，确认已执行额度重置。","note":"本帖未明确说明适用套餐及额度窗口。 上方为公开确认时间，记录精度为分钟，不代表后台精确执行时刻。原帖未说明重置的是每周额度、5 小时额度还是两者。"},
@@ -196,7 +201,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   },
   'zh-TW': {
     'reset-2026-10-15-day10-confirmed': {"context": "Tibo 引用了「未來兩小時內落地」的回覆，並表示：「Done and dusted」（已經搞定）。", "note": "所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前預計截止時間為台北時間 10 月 15 日 14:56。原帖未明確適用方案及具體額度視窗。"},
-    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本輪「EOD PST 前落地」的全局重置預告，並明確表示：「已經完成了。」","note":"所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前倒數按字面 PST 換算至 10 月 13 日 16:00 GMT+8，僅為預計截止時間。原帖未單獨列明適用方案及具體額度視窗。"},
+    'reset-2026-10-13-day8-global': {"context":"Tibo 引用了本輪「EOD PST 前落地」的全局重置預告，並明確表示：「已經完成了。」","note":"所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前倒數按字面 PST 換算至 10 月 13 日 16:00 UTC+8，僅為預計截止時間。原帖未單獨列明適用方案及具體額度視窗。"},
     'reset-2026-10-11-global-confirmed': {"context":"譯文：重置搞定，已全部生效。Tibo 此前預告將在當天結束前進行全局重置，隨後引用該預告確認完成。","note":"本次記錄採用確認帖發佈時間，精度為分鐘，不代表實際執行時間。這兩條帖子未單獨列明適用方案及具體額度視窗；此前 EOD 預告未註明時區。本次確認與 Day 3 儲備重置是不同事件。"},
     'reset-2026-10-07-day3-banked': {"context":"譯文：正在向所有付費帳戶發放一次儲備重置。Tibo 在 Day 3 宣布這次發放，慶祝 Codex 與 ChatGPT Work 活躍使用者達到 4,000 萬；隨後補充：「將在 PST 當天結束前到帳。」","note":"回覆中的「當天」指太平洋時間 10 月 7 日。EOD 未提供具體小時，PST 也可能泛指當地夏令時間 PDT，因此不顯示精確倒數計時。目前尚未核實到帳；帖子時間記錄到分鐘。 檔案日期採用公告發佈時間，不代表到帳時間。"},
     'reset-2026-10-07-day2-confirmed': {"context":"譯文：因此……重置已經處理完成。盡情使用吧！Tibo 在 Day 2 更新後的社群投票結束後，確認已執行額度重置。","note":"本帖未明確說明適用方案及額度視窗。 上方為公開確認時間，記錄精度為分鐘，不代表後台精確執行時間。原帖未說明重置的是每週額度、5 小時額度還是兩者。"},

@@ -1,5 +1,6 @@
 import { StrictMode, useEffect, useState, type FormEvent } from 'react';
 import { createRoot } from 'react-dom/client';
+import { IconContext, iconDefaults, ArrowLeft, ArrowRight, ArrowClockwise, SignIn, SignOut, PaperPlaneTilt, CheckCircle, LinkBreak, WarningCircle, Clock, Browser, BellSlash, Archive, Translate } from './icons';
 import './admin.css';
 
 type Locale = 'en' | 'zh-CN' | 'zh-TW';
@@ -32,7 +33,7 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
 function DeliveryReasons({ reasons }: { reasons: DeliveryReason[] }) {
   if (!reasons.length) return null;
   return <ul className="delivery-reasons">{reasons.map((reason) => <li key={`${reason.category}-${reason.code}`} className={reason.category}>
-    <strong>{reason.category === 'expired' ? '订阅失效' : '发送失败'} {reason.count} 条 · {reason.code === null || reason.code === 0 ? '无响应码' : reason.code === 598 || reason.code === 599 ? `内部诊断码 ${reason.code}` : `HTTP ${reason.code}`}</strong>
+    <strong>{reason.category === 'expired' ? <LinkBreak /> : <WarningCircle />}<span>{reason.category === 'expired' ? '订阅失效' : '发送失败'} {reason.count} 条 · {reason.code === null || reason.code === 0 ? '无响应码' : reason.code === 598 || reason.code === 599 ? `内部诊断码 ${reason.code}` : `HTTP ${reason.code}`}</span></strong>
     <span>{reason.message}</span>
   </li>)}</ul>;
 }
@@ -47,10 +48,11 @@ function AdminApp() {
       .catch(() => setStage('login'));
   }, []);
 
-  if (stage === 'loading') return <main className="admin-shell admin-loading"><p>正在检查管理会话…</p></main>;
-  return stage === 'login'
-    ? <Login configured={configured} onSuccess={() => setStage('dashboard')} />
-    : <Dashboard onLogout={() => setStage('login')} />;
+  return <IconContext.Provider value={iconDefaults}>{stage === 'loading'
+    ? <main className="admin-shell admin-loading"><p><Clock />正在检查管理会话…</p></main>
+    : stage === 'login'
+      ? <Login configured={configured} onSuccess={() => setStage('dashboard')} />
+      : <Dashboard onLogout={() => setStage('login')} />}</IconContext.Provider>;
 }
 
 function Login({ configured, onSuccess }: { configured: boolean; onSuccess: () => void }) {
@@ -76,16 +78,16 @@ function Login({ configured, onSuccess }: { configured: boolean; onSuccess: () =
       <p className="admin-kicker">PRIVATE CONSOLE</p>
       <h1 id="login-title">推送管理后台</h1>
       <p className="login-copy">仅供站点管理员查看订阅统计和发送重置通知。</p>
-      {!configured && <p className="setup-notice" role="alert">本地管理账号尚未配置。需要先设置三个管理环境变量。</p>}
+      {!configured && <p className="setup-notice" role="alert"><WarningCircle /><span>本地管理账号尚未配置。需要先设置三个管理环境变量。</span></p>}
       <form onSubmit={submit}>
         <label htmlFor="username">管理员账号</label>
         <input id="username" name="username" autoComplete="username" value={username} onChange={(event) => setUsername(event.target.value)} disabled={!configured || busy} required />
         <label htmlFor="password">密码</label>
         <input id="password" name="password" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} disabled={!configured || busy} required />
-        {error && <p className="form-error" role="alert">{error}</p>}
-        <button type="submit" disabled={!configured || busy}>{busy ? '正在登录…' : '进入后台'}</button>
+        {error && <p className="form-error" role="alert"><WarningCircle /><span>{error}</span></p>}
+        <button type="submit" disabled={!configured || busy}><SignIn />{busy ? '正在登录…' : '进入后台'}</button>
       </form>
-      <a className="back-link" href="/zh-CN/">← 返回网站</a>
+      <a className="back-link" href="/zh-CN/"><ArrowLeft />返回网站</a>
     </section>
   </main>;
 }
@@ -143,18 +145,18 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   return <main className="admin-shell dashboard">
     <header className="admin-header">
       <a className="admin-brand" href="/zh-CN/"><img src="/logo.svg" width="202" height="50" alt="Codex Reset Watch" /></a>
-      <div><a href="/zh-CN/">查看网站</a><button className="quiet-button" type="button" onClick={logout}>退出登录</button></div>
+      <div><a href="/zh-CN/">查看网站<ArrowRight /></a><button className="quiet-button" type="button" onClick={logout}><SignOut />退出登录</button></div>
     </header>
 
     <section className="dashboard-intro">
       <div><p className="admin-kicker">PUSH CONTROL</p><h1>动态通知管理</h1><p>查看浏览器订阅，预览并手动发送一次重置消息。</p></div>
-      <button className="refresh-button" type="button" onClick={() => refresh().catch(() => setError('统计刷新失败。'))}>刷新数据</button>
+      <button className="refresh-button" type="button" onClick={() => refresh().catch(() => setError('统计刷新失败。'))}><ArrowClockwise />刷新数据</button>
     </section>
 
     <section className="stat-grid" aria-label="订阅统计">
-      <article className="stat-primary"><span>有效订阅</span><strong>{overview?.subscriptions.active ?? '—'}</strong><small>可接收下一次通知的浏览器</small></article>
-      <article><span>已停用</span><strong>{overview?.subscriptions.inactive ?? '—'}</strong><small>取消订阅或失效的浏览器</small></article>
-      <article><span>累计记录</span><strong>{overview?.subscriptions.total ?? '—'}</strong><small>数据库保存过的浏览器订阅</small></article>
+      <article className="stat-primary"><span><Browser />有效订阅</span><strong>{overview?.subscriptions.active ?? '—'}</strong><small>可接收下一次通知的浏览器</small></article>
+      <article><span><BellSlash />已停用</span><strong>{overview?.subscriptions.inactive ?? '—'}</strong><small>取消订阅或失效的浏览器</small></article>
+      <article><span><Archive />累计记录</span><strong>{overview?.subscriptions.total ?? '—'}</strong><small>数据库保存过的浏览器订阅</small></article>
     </section>
 
     <section className="locale-stats" aria-labelledby="locale-stats-title">
@@ -173,7 +175,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
     <section className="composer-grid">
       <div className="composer-card">
-        <div className="section-heading"><div><p className="admin-kicker">MESSAGE</p><h2>编辑通知</h2></div><span>3 种语言</span></div>
+        <div className="section-heading"><div><p className="admin-kicker">MESSAGE</p><h2>编辑通知</h2></div><span><Translate />3 种语言</span></div>
         <label htmlFor="event-id">事件 ID</label>
         <input id="event-id" value={payload.eventId} onChange={(event) => setPayload((current) => ({ ...current, eventId: event.target.value }))} pattern="[A-Za-z0-9_-]{4,64}" required />
         <p className="field-help">每次正式消息必须使用新的 ID，重复 ID 不会重复创建发送任务。</p>
@@ -196,10 +198,10 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         <div className="send-card">
           <strong>准备发送</strong>
           <p>将按各订阅浏览器的语言发送对应版本。推送服务接受不等于用户必然看到通知。</p>
-          {notice && <p className="send-notice" role="status">{notice}</p>}
+          {notice && <p className="send-notice" role="status"><PaperPlaneTilt /><span>{notice}</span></p>}
           <DeliveryReasons reasons={reasons} />
-          {error && <p className="form-error" role="alert">{error}</p>}
-          <button className="send-button" type="button" disabled={busy || !payload.eventId || !overview} onClick={send}>{busy ? '正在发送…' : `确认并发送给 ${overview?.subscriptions.active ?? 0} 个订阅`}</button>
+          {error && <p className="form-error" role="alert"><WarningCircle /><span>{error}</span></p>}
+          <button className="send-button" type="button" disabled={busy || !payload.eventId || !overview} onClick={send}><PaperPlaneTilt />{busy ? '正在发送…' : `确认并发送给 ${overview?.subscriptions.active ?? 0} 个订阅`}</button>
         </div>
       </aside>
     </section>
@@ -209,7 +211,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
       {!overview?.events.length ? <p className="empty-events">暂无发送记录。</p> : <div className="event-table" role="table" aria-label="最近发送记录">
         {overview.events.map((event) => <div className="event-row" role="row" key={event.event_id}>
           <div role="cell"><strong>{event.event_id}</strong><small>{new Date(event.created_at).toLocaleString('zh-CN')}</small></div>
-          <span role="cell">服务已接受 {event.delivered}</span><span role="cell">订阅失效 {event.expired}</span><span role="cell">发送失败 {event.failed}</span><span role="cell">待发送 {event.pending}</span>
+          <span role="cell"><CheckCircle />服务已接受 {event.delivered}</span><span role="cell"><LinkBreak />订阅失效 {event.expired}</span><span role="cell"><WarningCircle />发送失败 {event.failed}</span><span role="cell"><Clock />待发送 {event.pending}</span>
           <div className="event-reasons" role="cell"><DeliveryReasons reasons={event.reasons} /></div>
         </div>)}
       </div>}

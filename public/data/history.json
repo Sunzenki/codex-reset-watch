@@ -29,7 +29,10 @@
     "announcedTargetAt": "2026-10-15T06:56:07.000Z",
     "outcome": "as_announced",
     "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier estimated deadline was October 15 at 06:56 UTC. Eligible plans and usage windows were not specified.",
-    "recordedAt": "2026-10-15T06:44:24.703Z"
+    "recordedAt": "2026-10-15T06:44:24.703Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-10-13-day8-global",
@@ -61,7 +64,10 @@
       "url": "https://x.com/thsottiaux/status/2109812216212099456",
       "postedAt": "2026-10-13T01:03:00.000Z"
     },
-    "announcedTargetAt": "2026-10-13T08:00:00.000Z"
+    "announcedTargetAt": "2026-10-13T08:00:00.000Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-10-11-global-confirmed",
@@ -85,7 +91,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo quoted the global-reset announcement and confirmed full propagation. The recorded time is the public confirmation time, to minute precision, not the backend execution time. The earlier EOD announcement did not specify a timezone. Neither post separately specifies eligible plans or usage windows. This does not confirm delivery of the earlier Day 3 banked reset.",
-    "recordedAt": "2026-10-11T04:46:58.457Z"
+    "recordedAt": "2026-10-11T04:46:58.457Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-10-07-day3-banked",
@@ -109,7 +118,10 @@
     },
     "outcome": "unverified",
     "note": "Announced on Day 3 to celebrate 40M active users across Codex and ChatGPT Work. The reply refers to October 7 in Pacific time. EOD is not an exact hour; PST may be literal UTC-8 or a loose reference to local PDT (UTC-7). No precise arrival time or completed delivery has been verified. Post timestamps are recorded to the minute. The archive uses the announcement time, not arrival time.",
-    "recordedAt": "2026-10-07T19:51:23.926Z"
+    "recordedAt": "2026-10-07T19:51:23.926Z",
+    "eventType": "announcement",
+    "resetType": "banked",
+    "timeBasis": "announcement"
   },
   {
     "id": "reset-2026-10-07-day2-confirmed",
@@ -126,7 +138,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo publicly confirmed that the reset had been processed following the Day 2 community vote. The archive uses the public confirmation time shown by X, recorded to the minute, not the exact backend execution time. The post does not specify eligible plans or whether weekly usage, the 5-hour window, or both were reset.",
-    "recordedAt": "2026-10-07T03:59:18.827Z"
+    "recordedAt": "2026-10-07T03:59:18.827Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-10-02-global-paid-confirmed",
@@ -151,7 +166,10 @@
     "announcedTargetAt": "2026-10-02T18:00:00.000Z",
     "outcome": "as_announced",
     "note": "Tibo confirmed that the reset had fully propagated and quoted the earlier global-reset announcement for all paid ChatGPT accounts. The recorded time is the public confirmation post timestamp, not the exact backend completion time. The previous countdown used October 2 at 18:00 UTC under literal PST (17:00 UTC if local PDT was intended); the later confirmation post does not establish a delay.",
-    "recordedAt": "2026-10-03T04:51:00.369Z"
+    "recordedAt": "2026-10-03T04:51:00.369Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-09-29-devday-banked-reported",
@@ -168,7 +186,10 @@
     },
     "outcome": "unverified",
     "note": "The archive uses the screenshot post timestamp, not the grant time. This is a user report, not a reset announcement from Tibo. Exact arrival time, availability across accounts and the DevDay attribution were not independently verified.",
-    "recordedAt": "2026-10-02T03:15:54.374Z"
+    "recordedAt": "2026-10-02T03:15:54.374Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "announcement"
   },
   {
     "id": "reset-2026-09-26-outage-observed",
@@ -185,7 +206,10 @@
     },
     "outcome": "as_announced",
     "note": "The outage-compensation reset was verified in practice on one account. The archive uses the announcement timestamp, not the execution time; completion across all accounts was not verified.",
-    "recordedAt": "2026-09-29T19:34:59.221Z"
+    "recordedAt": "2026-09-29T19:34:59.221Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "announcement"
   },
   {
     "id": "reset-2026-09-22-sol-luna-banked",
@@ -202,7 +226,10 @@
     },
     "outcome": "as_announced",
     "note": "The date uses the announcement timestamp for archival purposes, not the arrival time. Availability was observed in one account by September 23; the exact arrival time and availability across all accounts remain unknown. The account's reset interface now shows an available banked reset, verified by the site owner. This observation is separate from Tibo's earlier public loading announcement. No exact arrival time was observed; the post timestamp is not the arrival time, and completion across all accounts has not been independently verified.",
-    "recordedAt": "2026-09-26T00:27:40.676Z"
+    "recordedAt": "2026-09-26T00:27:40.676Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "announcement"
   },
   {
     "id": "reset-2026-09-12-astra-confirmed",
@@ -219,7 +246,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo used completed wording and quoted the earlier Astra reset announcement. The record uses the public confirmation post timestamp, not an exact backend completion time. The earlier 07:00 UTC deadline was a provisional PDT interpretation of an unspecified timezone; the later confirmation post does not establish a delay.",
-    "recordedAt": "2026-09-19T22:44:07.715Z"
+    "recordedAt": "2026-09-19T22:44:07.715Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-09-08-global-paid",
@@ -236,7 +266,10 @@
     },
     "outcome": "as_announced",
     "note": "站长实际观察到自己的账号额度重置，因此记录为按预告落地，但这不能证明所有账号同步完成。目标时间按原帖 PST 字面换算为 2026-09-08 02:00 UTC；若 PST 泛指当地 PDT，则约为 01:00 UTC。原帖使用 around，精确执行时间未知。",
-    "recordedAt": "2026-09-12T03:42:11.310Z"
+    "recordedAt": "2026-09-12T03:42:11.310Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "estimated"
   },
   {
     "id": "reset-2026-09-04-astra-banked",
@@ -253,7 +286,10 @@
     },
     "outcome": "unverified",
     "note": "原帖使用约 3 小时这一近似相对时间。本站以原帖发布时间加 3 小时，将 2026-09-04 02:12:09 UTC（北京时间/台北时间 10:12:09）作为档案与倒计时锚点，不代表精确到账时刻。banked reset 是到账后由用户自行选择使用的储备重置机会，并非系统在该时刻强制重置额度。原帖没有说明每日计算截止点、储备规则或到期方式。 本记录未独立确认首次到账结果。",
-    "recordedAt": "2026-09-08T02:39:50.000Z"
+    "recordedAt": "2026-09-08T02:39:50.000Z",
+    "eventType": "announcement",
+    "resetType": "banked",
+    "timeBasis": "estimated"
   },
   {
     "id": "reset-2026-08-31-all-paid-confirmed",
@@ -270,7 +306,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo 使用完成式措辞，明确确认 ChatGPT Work 与 Codex 的所有付费订阅都已重置使用额度。记录时间采用确认帖发布时间；这是公开确认时间，不等同于后台实际执行时刻。",
-    "recordedAt": "2026-09-04T01:24:56.148Z"
+    "recordedAt": "2026-09-04T01:24:56.148Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-08-29-230pm-pacific",
@@ -287,7 +326,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo 在主帖中表示正在为所有 Codex 与 ChatGPT Work 付费用户重置额度，并在作者回复中给出 2:30pm PST 的落地时间。本站按 8 月当地实际采用的 PDT（UTC−7）记录为 21:30 UTC；若严格按 PST 字面换算则晚一小时。未发现后续延期或修正。",
-    "recordedAt": "2026-08-31T00:25:34.468Z"
+    "recordedAt": "2026-08-31T00:25:34.468Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "scheduled"
   },
   {
     "id": "reset-2026-08-25-plus-five-hour-rollout",
@@ -304,7 +346,10 @@
     },
     "outcome": "as_announced",
     "note": "随后部分用户的 Plus 账号观察到新重置和 5 小时窗口，但没有公开的统一落地时刻。targetAt 采用本站观察记录时间，仅作为档案排序锚点，不代表全量生效时间。",
-    "recordedAt": "2026-08-27T16:53:58.779Z"
+    "recordedAt": "2026-08-27T16:53:58.779Z",
+    "eventType": "rule_change",
+    "resetType": "reset",
+    "timeBasis": "observation"
   },
   {
     "id": "reset-2026-08-24-around-2pm-pst",
@@ -321,7 +366,10 @@
     },
     "outcome": "as_announced",
     "note": "站长实际观察到这次重置已经落地，但 Tibo 没有另发公开确认帖。目标时间按原文 PST 字面换算；若 PST 是对太平洋夏令时间的泛称，则可能早一小时。原帖的 14pm 随后被作者纠正为 2pm。",
-    "recordedAt": "2026-08-25T14:36:59.198Z"
+    "recordedAt": "2026-08-25T14:36:59.198Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "estimated"
   },
   {
     "id": "reset-2026-08-22-banked",
@@ -338,7 +386,10 @@
     },
     "outcome": "as_announced",
     "note": "面向 ChatGPT Work 与 Codex 的付费用户。这是 banked reset，需要用户在支持的客户端中自行使用；该帖是到账确认，记录时间采用确认帖发布时间。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-08-13-next-hour",
@@ -355,7 +406,10 @@
     },
     "outcome": "unverified",
     "note": "原帖只给出“接下来一小时左右”的相对时间。目标时间按原帖发布时间加一小时记录，不代表精确落地时刻；未找到独立的落地确认帖。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "announcement",
+    "resetType": "reset",
+    "timeBasis": "estimated"
   },
   {
     "id": "reset-2026-07-29-sol",
@@ -372,7 +426,10 @@
     },
     "outcome": "as_announced",
     "note": "原帖明确使用完成时态，适用范围为所有 ChatGPT Work 与 Codex 用户。因没有另行给出落地时间，记录时间采用该确认帖发布时间。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-07-28-paid-users",
@@ -389,7 +446,10 @@
     },
     "outcome": "as_announced",
     "note": "这是此前“几小时后回来处理”的后续确认帖。记录时间采用确认帖发布时间，适用范围为付费用户。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-07-26-outage",
@@ -406,7 +466,10 @@
     },
     "outcome": "as_announced",
     "note": "Tibo 将这次重置与此前发生的近乎全球性服务中断联系起来。原帖明确表示重置已经完成，记录时间采用发帖时间。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-07-22-next-hour",
@@ -423,7 +486,10 @@
     },
     "outcome": "unverified",
     "note": "目标时间按原帖发布时间加一小时记录。原帖没有提供精确分钟，且本次整理未找到独立的落地确认帖。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "announcement",
+    "resetType": "reset",
+    "timeBasis": "estimated"
   },
   {
     "id": "reset-2026-07-18-weekend",
@@ -440,7 +506,10 @@
     },
     "outcome": "as_announced",
     "note": "原帖将重置描述为已经可用，适用范围为付费用户。没有单独给出落地时刻，因此记录时间采用原帖发布时间。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
   },
   {
     "id": "reset-2026-07-14-banked",
@@ -457,6 +526,9 @@
     },
     "outcome": "as_announced",
     "note": "这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。",
-    "recordedAt": "2026-08-23T14:02:24.322Z"
+    "recordedAt": "2026-08-23T14:02:24.322Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "confirmation"
   }
 ]

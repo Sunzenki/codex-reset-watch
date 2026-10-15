@@ -1,5 +1,8 @@
+import { type HistoryMeta } from './history-meta';
+import { journalCopy } from './journal-copy';
+import { inspectPushState, withPushRegistration } from './push-state';
 import { ResetCalendar } from './ResetCalendar';
-import { ArrowClockwise, ArrowUp } from '@phosphor-icons/react';
+import { IconContext, iconDefaults, ArrowClockwise, ArrowUp, ArrowUpRight, ArrowRight, Bell, BellSlash, CheckCircle, CaretDown, Clock, ClockCounterClockwise, Globe, Info, Link, Timer, List, Newspaper, Quotes, X } from './icons';
 import { StrictMode, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
@@ -8,6 +11,9 @@ import {
 } from './i18n';
 import './styles.css';
 import './calendar.css';
+import './journal.css';
+import './journal-history.css';
+import './forest.css';
 
 type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded';
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
@@ -17,7 +23,7 @@ type CurrentReset = {
   originalTimeText: string | null; scope?: string; announcement: Announcement | null;
   deadlineEstimated?: boolean; dateConfirmed?: boolean; timingSource?: Announcement; updatedAt: string; note?: string;
 };
-type HistoryRecord = {
+type HistoryRecord = HistoryMeta & {
   id: string; targetAt: string; precision: 'estimated' | 'confirmed'; originalTimezone: string;
   originalTimeText: string; announcement: Announcement; outcome: Outcome; note: string; recordedAt: string;
 };
@@ -50,7 +56,7 @@ function dateTime(value: string | null, locale: Locale, withSeconds = false) {
     year: 'numeric', month: locale === 'en' ? 'short' : 'long', day: 'numeric',
     hour: '2-digit', minute: '2-digit', second: withSeconds ? '2-digit' : undefined,
     hour12: false, timeZone: config.timeZone, timeZoneName: 'short',
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
 }
 
 function postPublishedTime(value: string, locale: Locale) {
@@ -58,8 +64,8 @@ function postPublishedTime(value: string, locale: Locale) {
   const formatted = new Intl.DateTimeFormat(config.intl, {
     year: 'numeric', month: locale === 'en' ? 'short' : 'long', day: 'numeric',
     hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
-  }).format(new Date(value));
-  return locale === 'en' ? formatted + ' (UTC)' : formatted + ' GMT+8';
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
+  return locale === 'en' ? formatted + ' (UTC)' : formatted + ' UTC+8';
 }
 
 function pstPostTime(value: string) {
@@ -71,14 +77,14 @@ function pacificPostTime(value: string) {
   return new Intl.DateTimeFormat('en-CA', {
     year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
     hour12: false, timeZone: 'America/Los_Angeles', timeZoneName: 'short',
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
 }
 
 function localDateTime(value: string) {
   return new Intl.DateTimeFormat(undefined, {
     year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
     timeZoneName: 'short',
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
 }
 
 function headlineTime(value: string, locale: Locale) {
@@ -86,7 +92,7 @@ function headlineTime(value: string, locale: Locale) {
   return new Intl.DateTimeFormat(config.intl, {
     month: locale === 'en' ? 'short' : 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit',
     hour12: false, timeZone: config.timeZone, timeZoneName: locale === 'en' ? 'short' : undefined,
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
 }
 
 function confirmationHeadlineTime(value: string, locale: Locale, isLandingTime = false) {
@@ -94,7 +100,7 @@ function confirmationHeadlineTime(value: string, locale: Locale, isLandingTime =
   const formatted = new Intl.DateTimeFormat(config.intl, {
     year: 'numeric', month: locale === 'en' ? 'short' : 'numeric', day: 'numeric',
     hour: '2-digit', minute: '2-digit', hour12: false, timeZone: config.timeZone,
-  }).format(new Date(value));
+  }).format(new Date(value)).replace(/GMT/g, 'UTC');
   if (locale === 'en') return `${formatted} UTC · ${isLandingTime ? 'landed' : 'confirmed'}`;
   if (locale === 'zh-TW') return `${formatted} · ${isLandingTime ? '落地' : '確認'}`;
   return `${formatted} · ${isLandingTime ? '落地' : '确认'}`;
@@ -172,22 +178,21 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
 
   return <header className="site-header" ref={headerRef}>
     <a className="wordmark" href={pagePath(locale, false)} aria-label="Codex Reset Watch">
-      <img src="/logo.svg" alt="Codex Reset Watch" width="202" height="50" />
+      <img src="/images/forest-logo.png" alt="Codex Reset Watch" width="202" height="50" />
     </a>
     <div className="header-actions">
       <nav id="primary-navigation" className={mobileNavOpen ? 'mobile-nav-open' : ''} aria-label="Primary navigation">
-        <a onClick={() => setMobileNavOpen(false)} className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}>{copy.navCurrent}</a>
-        <a onClick={() => setMobileNavOpen(false)} className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}>{copy.navHistory}</a>
-        <a onClick={() => setMobileNavOpen(false)} href={`${pagePath(locale, false)}#push-reminder`}>{copy.navPush}</a>
+        <a onClick={() => setMobileNavOpen(false)} className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}><Newspaper size={16} />{copy.navCurrent}</a>
+        <a onClick={() => setMobileNavOpen(false)} className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}><ClockCounterClockwise size={16} />{copy.navHistory}</a>
       </nav>
       <details className="language-menu" ref={languageRef} onToggle={(event) => {
         if (event.currentTarget.open) setMobileNavOpen(false);
       }}>
-        <summary aria-label={`${copy.language}: ${selected.label}`}><span aria-hidden="true">◎</span><b className="language-full">{selected.label}</b><b className="language-short">{selected.shortLabel}</b><i aria-hidden="true">⌄</i></summary>
+        <summary aria-label={`${copy.language}: ${selected.label}`}><Globe size={19} aria-hidden="true" /><b className="language-full">{selected.label}</b><b className="language-short">{selected.shortLabel}</b><CaretDown size={13} aria-hidden="true" /></summary>
         <ul>
           {localeOptions.map((option) => <li key={option.code}>
             <a href={pagePath(option.code, isHistory)} lang={localeConfig[option.code].htmlLang} aria-current={option.code === locale ? 'page' : undefined}>
-              <span>{option.label}</span>{option.code === locale && <i aria-hidden="true">✓</i>}
+              <span>{option.label}</span>{option.code === locale && <CheckCircle size={16} aria-hidden="true" />}
             </a>
           </li>)}
         </ul>
@@ -201,9 +206,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
         aria-label={mobileNavOpen ? copy.navMenuClose : copy.navMenu}
         onClick={toggleMobileNav}
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d={mobileNavOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16'} />
-        </svg>
+        {mobileNavOpen ? <X size={20} aria-hidden="true" /> : <List size={20} aria-hidden="true" />}
         <span>{copy.navMenu}</span>
       </button>
     </div>
@@ -253,64 +256,94 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const isReached = effectiveStatus === 'reached' && !isLatestUpdate;
   const tone = isLatestUpdate || isBankedLoading ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
-  return <main id="content">
-    <section className="hero-panel">
-      <div className={`status-chip ${tone}`}><i aria-hidden="true" />{data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus]}</div>
-      <p className="section-label">{isResetConfirmed ? copy.confirmedLabel : isRolloutObserved ? copy.latestLabel : isBankedReset ? copy.bankedLabel : copy.nextLabel}</p>
-      <h1>{isResetConfirmed && data.announcement ? <>
-        {data.confirmationBasis !== 'owner_observed' && <time className="headline-confirmed-at" dateTime={data.resetAt ?? data.announcement.postedAt}>{confirmationHeadlineTime(data.resetAt ?? data.announcement.postedAt, locale, Boolean(data.resetAt))}</time>}
-        <span>{content.headline}</span>
-      </> : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale)}</h1>
-      <p className="scope">{content.scope}</p>
+  const journal = journalCopy[locale];
+  const displayAt = isResetConfirmed ? data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
+  const headline = isResetConfirmed ? content.headline : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale);
+  const prefix = headline.match(/^(第\s*\d+\s*天|Day\s+\d+)\s*/)?.[0];
+  const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];
+  const body = isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : journal.confirmation : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : isBankedLoading ? copy.bankedPendingBody : copy.waitingBody;
 
-      {!isResetConfirmed && !isReached && remaining && data.resetAt ? <>
-        <p className="target-time">{data.deadlineEstimated && <>{copy.deadlineLabel} · </>}{data.deadlineEstimated ? postPublishedTime(data.resetAt, locale) : <>{dateTime(data.resetAt, locale, true)} <span>{copy.targetZone}</span></>}</p>
-        {locale === 'en' && <p className="viewer-time">{copy.localTime}: <strong>{localDateTime(data.resetAt)}</strong></p>}
-        <div className="countdown" role="timer" aria-label={isBankedReset ? copy.bankedCountdown : data.deadlineEstimated ? copy.deadlineLabel : copy.countdown}>
-          <Time value={remaining.days} label={copy.units.days} /><i>:</i><Time value={remaining.hours} label={copy.units.hours} /><i>:</i><Time value={remaining.minutes} label={copy.units.minutes} /><i>:</i><Time value={remaining.seconds} label={copy.units.seconds} />
-        </div>
-        {progress !== null && <div className="time-rail">
-          <div className="rail-labels"><span>{copy.railStart}</span><span>{isBankedReset ? copy.bankedRailEnd : data.deadlineEstimated ? copy.deadlineLabel : copy.railEnd}</span></div>
-          <div className="rail-track"><i style={{ left: `${progress}%` }} /><span style={{ width: `${progress}%` }} /></div>
-        </div>}
-      </> : <div className="quiet-state">{isResetConfirmed || isBankedObserved ? <span className="confirmed-mark" aria-hidden="true">✓</span> : <span className="radar" aria-hidden="true" />}<div><strong>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedTitle : isRolloutObserved ? copy.rolloutTimingTitle : isBankedObserved ? (isBankedReported ? copy.bankedReportedTitle : copy.bankedObservedTitle) : isBankedReset ? isReached ? copy.bankedReachedTitle : copy.bankedPendingTitle : isReached ? data.deadlineEstimated ? copy.deadlineReached : copy.reachedTitle : isUntimedHint ? copy.untimedHintTitle : copy.waitingTitle}</strong><p>{isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : copy.resetConfirmedBody : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? (isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody) : isBankedReset ? isReached ? copy.bankedReachedBody : copy.bankedPendingBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : copy.waitingBody}</p></div></div>}
+  return <main id="content" className="journal-page">
+    <section className="journal-entry" aria-labelledby="latest-title">
+      <JournalDate value={displayAt} locale={locale} />
+      <div className="journal-story">
+        <div className={`status-chip ${tone}`}>{isLatestUpdate || isBankedObserved ? <CheckCircle size={17} weight="fill" aria-hidden="true" /> : <Clock size={17} aria-hidden="true" />}{statusLabel}</div>
+        <h1 id="latest-title">{prefix ? <><span className="journal-title-prefix">{prefix.trim()}</span><span>{headline.slice(prefix.length)}</span></> : headline}</h1>
+        <p className="journal-scope">{content.scope}</p>
+        {!isResetConfirmed && !isReached && remaining && data.resetAt ? <div className="journal-countdown">
+          <p className="target-time">{data.deadlineEstimated ? copy.deadlineLabel : copy.countdown} · {postPublishedTime(data.resetAt, locale)}</p>
+          {locale === 'en' && <p className="viewer-time">{copy.localTime}: <strong>{localDateTime(data.resetAt)}</strong></p>}
+          <div className="countdown" role="timer" aria-label={data.deadlineEstimated ? copy.deadlineLabel : copy.countdown}><Time value={remaining.days} label={copy.units.days} /><i>:</i><Time value={remaining.hours} label={copy.units.hours} /><i>:</i><Time value={remaining.minutes} label={copy.units.minutes} /><i>:</i><Time value={remaining.seconds} label={copy.units.seconds} /></div>
+          {progress !== null && <div className="journal-progress" aria-hidden="true"><span style={{width: `${progress}%`}} /></div>}
+        </div> : !isResetConfirmed ? <p className="journal-state-note"><Info size={17} aria-hidden="true" />{body}</p> : null}
+        <div className="journal-actions"><PushReminder locale={locale} compact /></div>
+      </div>
+      <aside className="journal-source" aria-label={copy.evidenceTitle}>
+        {data.announcement ? <>
+          <div className="journal-source-note">
+            <Quotes size={29} weight="fill" aria-hidden="true" />
+            <p className="journal-author">{data.announcement.source.replace(' / X post', '').replace(' / X reply', '')}</p>
+            <blockquote lang="en">{data.announcement.text}</blockquote>
+            {locale !== 'en' && (content.sourceTranslation || data.announcement.translation) && <p className="journal-translation" lang={content.sourceTranslation ? localeConfig[locale].htmlLang : 'zh-CN'}>{content.sourceTranslation || data.announcement.translation}</p>}
+            <a className="journal-text-link journal-quote-link" href={data.announcement.url} target="_blank" rel="noreferrer">{journal.source}<ArrowUpRight size={17} aria-hidden="true" /></a>
+          </div>
 
-      <div className="facts">
+        </> : <div className="journal-empty-source"><Quotes size={28} aria-hidden="true" /><p>{copy.noEvidence}</p></div>}
+      </aside>
+
+      <div className="journal-metadata">
         <Fact label={copy.factOriginal} value={data.originalTimeText ?? '—'} />
-        <Fact label={data.deadlineEstimated ? copy.confirmationPostTime : isUntimedHint ? copy.factAnnouncementPacific : isResetConfirmed ? isOwnerObserved ? copy.factConfirmation : copy.confirmationPostTime : isBankedObserved ? copy.factObservation : isRolloutObserved ? copy.factTiming : copy.factZone} value={data.deadlineEstimated && data.announcement ? pstPostTime(data.announcement.postedAt) : isUntimedHint && data.announcement ? pacificPostTime(data.announcement.postedAt) : isBankedObserved ? (isBankedReported ? copy.bankedReportedBasis : copy.bankedObservationBasis) : isOwnerObserved ? copy.ownerResetTitle : isResetConfirmed && data.announcement ? pstPostTime(data.announcement.postedAt) : localizedSourceTimezone(data.sourceTimezone, locale)} />
-        <Fact label={copy.factUpdated} value={dateTime(data.updatedAt, locale, true)} />
+        <Fact label={copy.confirmationPostTime} value={data.announcement ? pstPostTime(data.announcement.postedAt) : '—'} />
+        <Fact label={copy.factUpdated} value={postPublishedTime(data.updatedAt, locale)} />
       </div>
     </section>
-
-    <section className="evidence" aria-labelledby="evidence-title">
-      <div><p className="section-label">{copy.sourceLabel}</p><h2 id="evidence-title">{copy.evidenceTitle}</h2></div>
-      {data.announcement ? <article>
-        <p className="source-byline"><span>{copy.source}</span><strong>{data.announcement.source}</strong></p>
-        <blockquote lang="en">“{data.announcement.text}”</blockquote>
-        <p className="translation">{content.context}</p>
-        <p className="editor-note">{content.note}</p>
-        <div className="source-row"><span>{copy.postedAt} {dateTime(data.announcement.postedAt, locale, true)}</span><span className="source-links"><a href={data.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} <span>↗</span></a>{data.timingSource && <a href={data.timingSource.url} target="_blank" rel="noreferrer">{copy.viewTimingPost} <span>↗</span></a>}</span></div>
-      </article> : <article className="empty-evidence"><strong>{copy.noEvidence}</strong><p>{content.note}</p></article>}
-    </section>
-
-    <section className="methodology" aria-labelledby="methodology-title">
-      <div className="methodology-heading"><p className="section-label">{copy.methodLabel}</p><h2 id="methodology-title">{copy.methodTitle}</h2><p>{copy.methodIntro}</p></div>
-      <div className="method-grid">
-        <article><span aria-hidden="true">01</span><h3>{copy.methodSourceTitle}</h3><p>{copy.methodSourceBody}</p></article>
-        <article><span aria-hidden="true">02</span><h3>{copy.methodTimeTitle}</h3><p>{copy.methodTimeBody}</p></article>
-        <article><span aria-hidden="true">03</span><h3>{copy.methodCountdownTitle}</h3><p>{copy.methodCountdownBody}</p></article>
+    <section className="journal-event-context" id="event-context" aria-labelledby="event-context-title">
+      <h2 id="event-context-title">{copy.evidenceTitle}</h2>
+      <div className="evidence-sheet">
+        {data.announcement && <p className="evidence-byline"><strong>{data.announcement.source.replace(" / X post", " · X").replace(" / X reply", " · X")}</strong></p>}
+        <p className="evidence-context">{content.context}</p>
+        <div className="evidence-note">{(content.note.split(/(?<=[。！？])|(?<=[.!?])\s+/).filter(Boolean)).map((sentence, index) => <p key={index}>{index === 0 ? <mark>{sentence.trim()}</mark> : sentence.trim()}</p>)}</div>
+        <p className="evidence-original"><strong>{copy.factOriginal}: </strong>{data.originalTimeText ?? '—'} · {localizedSourceTimezone(data.sourceTimezone, locale)}</p>
+        <div className="evidence-footer">
+          {data.announcement && <time dateTime={data.announcement.postedAt}>{copy.postedAt} {postPublishedTime(data.announcement.postedAt, locale)}</time>}
+          {data.announcement && <div className="journal-source-links"><a href={data.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost}<ArrowUpRight size={15} aria-hidden="true" /></a>{data.timingSource && <a href={data.timingSource.url} target="_blank" rel="noreferrer">{copy.viewTimingPost}<ArrowUpRight size={15} aria-hidden="true" /></a>}</div>}
+        </div>
       </div>
-      <p className="data-links"><strong>{copy.machineData}</strong><a href="/data/current.json">{copy.currentData}</a><a href="/data/history.json">{copy.historyData}</a></p>
     </section>
-
-    <PushReminder locale={locale} />
-
-    <a className="history-cta" href={pagePath(locale, true)}><span><small>{copy.archive}</small><strong>{copy.viewHistory}</strong></span><i aria-hidden="true">→</i></a>
+    <RecentResets locale={locale} currentUrl={data.announcement?.url} />
+    <section className="journal-notices" id="source-notes" aria-labelledby="method-title">
+      <h2 id="method-title">{copy.methodTitle}</h2>
+      <div className="notice-grid">
+        <article className="notice-paper notice-source"><Link size={40} aria-hidden="true" /><h3>{copy.methodSourceTitle}</h3><p>{copy.methodSourceBody}</p></article>
+        <article className="notice-paper notice-time"><Clock size={40} aria-hidden="true" /><h3>{copy.methodTimeTitle}</h3><p>{copy.methodTimeBody}</p></article>
+        <article className="notice-paper notice-countdown"><Timer size={40} aria-hidden="true" /><h3>{copy.methodCountdownTitle}</h3><p>{copy.methodCountdownBody}<strong>{copy.methodCountdownWarning}</strong></p></article>
+      </div>
+      <p className="data-links"><span>{copy.machineData}</span><a href="/data/current.json">{copy.currentData}</a><a href="/data/history.json">{copy.historyData}</a></p>
+    </section>
   </main>;
 }
 
+
+
+function JournalDate({value,locale}: {value:string;locale:Locale}) {
+  const zone = localeConfig[locale].timeZone;
+  const part=(options:Intl.DateTimeFormatOptions, lang='en-US')=>new Intl.DateTimeFormat(lang,{...options,timeZone:zone}).format(new Date(value)).replace(/GMT/g, 'UTC');
+  return <div className="journal-date"><small>{part({year:'numeric'})}</small><strong>{part({day:'2-digit'})}</strong><span>{part({month:'short'}).toUpperCase()}</span><span className="journal-weekday">{part({weekday:'long'},localeConfig[locale].intl)}</span></div>;
+}
+
+function RecentResets({locale,currentUrl}: {locale:Locale;currentUrl?:string}) {
+  const j=journalCopy[locale],copy=ui[locale];
+  const [records,setRecords]=useState<HistoryRecord[]>(()=>window.__CRW_BOOTSTRAP__?.history??[]);
+  useEffect(()=>{let live=true;fetch('/data/history.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>{if(live)setRecords(d);}).catch(()=>{});return()=>{live=false;};},[]);
+  const recent=[...records].filter(r=>r.announcement.url!==currentUrl&&r.eventType!=='rule_change').sort((a,b)=>Date.parse(b.targetAt)-Date.parse(a.targetAt)).slice(0,3);
+  return <section className="journal-recent" aria-labelledby="recent-title"><div className="journal-recent-heading"><h2 id="recent-title">{j.recent}</h2></div><div className="journal-recent-list">{recent.length?recent.map(r=>{
+    const day=r.id.match(/day(\d+)/)?.[1];
+    return <a key={r.id} className={`journal-recent-row ${r.resetType}`} href={pagePath(locale,true)+'#'+r.id}><time dateTime={r.targetAt}>{new Intl.DateTimeFormat(localeConfig[locale].intl,{month:'2-digit',day:'2-digit',timeZone:localeConfig[locale].timeZone}).format(new Date(r.targetAt))}</time><span className="journal-row-marker" aria-hidden="true" /><strong>{day?j.day(day)+' ':''}{r.resetType==='banked'?j.banked:j.global}</strong><span className="journal-result">{r.timeBasis==='confirmation'?j.completed:r.eventType==='announcement'?j.announced:copy.outcome[r.outcome]}</span><ArrowRight size={16} aria-hidden="true" /></a>;
+  }):<p>{j.noRecent}</p>}<a className="journal-text-link journal-all-history" href={pagePath(locale,true)}>{j.all}<ArrowRight size={18} aria-hidden="true" /></a></div></section>;
+}
+
 type StoredPush = { endpoint: string; token: string };
-type PushState = 'loading' | 'unsupported' | 'off' | 'on' | 'denied' | 'busy' | 'error';
+type PushState = 'loading' | 'unsupported' | 'off' | 'on' | 'denied' | 'busy' | 'unavailable' | 'error';
 const pushStorageKey = 'crw-push-subscription-v1';
 
 function applicationServerKey(value: string) {
@@ -318,44 +351,68 @@ function applicationServerKey(value: string) {
   return Uint8Array.from(atob(padded), (character) => character.charCodeAt(0));
 }
 
-function PushReminder({ locale }: { locale: Locale }) {
+function PushReminder({ locale, compact = false }: { locale: Locale; compact?: boolean }) {
   const copy = ui[locale];
   const [state, setState] = useState<PushState>('loading');
   const [publicKey, setPublicKey] = useState('');
 
+  async function readState() {
+    return inspectPushState({
+      supported: 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window,
+      permission: 'Notification' in window ? Notification.permission : 'default',
+      getSubscription: async () => {
+        const registration = await navigator.serviceWorker.getRegistration('/push-sw.js');
+        return await registration?.pushManager.getSubscription() ?? null;
+      },
+      loadPublicKey: async () => {
+        const response = await fetch('/api/push/config');
+        if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) throw new Error('config unavailable');
+        const config = await response.json() as { publicKey?: unknown };
+        return config.publicKey;
+      },
+    });
+  }
+
   useEffect(() => {
-    if (!('serviceWorker' in navigator) || !('PushManager' in window) || !('Notification' in window)) {
-      setState('unsupported');
-      return;
-    }
-    fetch('/api/push/config').then((response) => {
-      if (!response.ok) throw new Error('config unavailable');
-      return response.json() as Promise<{ publicKey: string }>;
-    }).then(async ({ publicKey: key }) => {
-      setPublicKey(key);
-      const registration = await navigator.serviceWorker.register('/push-sw.js');
-      const subscription = await registration.pushManager.getSubscription();
-      setState(subscription ? 'on' : Notification.permission === 'denied' ? 'denied' : 'off');
-    }).catch(() => setState('unsupported'));
+    let active = true;
+    void readState().then((result) => {
+      if (!active) return;
+      setPublicKey(result.publicKey ?? '');
+      setState(result.state);
+    });
+    return () => { active = false; };
   }, []);
+
+  async function retry() {
+    setState('loading');
+    const result = await readState();
+    setPublicKey(result.publicKey ?? '');
+    setState(result.state);
+  }
 
   async function enable() {
     setState('busy');
     try {
       const permission = await Notification.requestPermission();
       if (permission !== 'granted') {
-        setState('denied');
+        setState(permission === 'denied' ? 'denied' : 'off');
         return;
       }
       const registration = await navigator.serviceWorker.register('/push-sw.js');
-      const subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: applicationServerKey(publicKey) });
-      const response = await fetch('/api/push/subscribe', {
-        method: 'POST', headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ subscription: subscription.toJSON(), locale }),
+      await withPushRegistration({
+        getSubscription: () => registration.pushManager.getSubscription(),
+        createSubscription: () => registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: applicationServerKey(publicKey) }),
+        registerSubscription: async (subscription) => {
+          const response = await fetch('/api/push/subscribe', {
+            method: 'POST', headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ subscription: subscription.toJSON(), locale }),
+          });
+          if (!response.ok) throw new Error('subscribe failed');
+          const result = await response.json() as { token: string };
+          if (typeof result.token !== 'string' || !result.token) throw new Error('subscribe response invalid');
+          localStorage.setItem(pushStorageKey, JSON.stringify({ endpoint: subscription.endpoint, token: result.token } satisfies StoredPush));
+        },
       });
-      if (!response.ok) throw new Error('subscribe failed');
-      const result = await response.json() as { token: string };
-      localStorage.setItem(pushStorageKey, JSON.stringify({ endpoint: subscription.endpoint, token: result.token } satisfies StoredPush));
       setState('on');
     } catch {
       setState('error');
@@ -368,29 +425,36 @@ function PushReminder({ locale }: { locale: Locale }) {
       const registration = await navigator.serviceWorker.getRegistration('/push-sw.js');
       const subscription = await registration?.pushManager.getSubscription();
       const stored = JSON.parse(localStorage.getItem(pushStorageKey) ?? 'null') as StoredPush | null;
-      if (stored) await fetch('/api/push/unsubscribe', {
-        method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(stored),
-      });
+      if (stored) {
+        const response = await fetch('/api/push/unsubscribe', {
+          method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(stored),
+        });
+        if (!response.ok) throw new Error('unsubscribe failed');
+      }
       await subscription?.unsubscribe();
       localStorage.removeItem(pushStorageKey);
-      setState('off');
+      await retry();
     } catch {
       setState('error');
     }
   }
 
-  const message = state === 'on' ? copy.pushEnabled : state === 'denied' ? copy.pushDenied : state === 'unsupported' ? copy.pushUnsupported : state === 'error' ? copy.pushError : copy.pushBody;
+  const isLocalPreview = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
+  const localUnavailable = isLocalPreview && state === 'unavailable';
+  const canRetry = !localUnavailable && (state === 'unavailable' || state === 'error');
+  const message = state === 'on' ? copy.pushEnabled : state === 'denied' ? copy.pushDenied : state === 'unsupported' ? copy.pushUnsupported : state === 'unavailable' ? isLocalPreview ? copy.pushLocalPreview : copy.pushUnavailable : state === 'error' ? copy.pushError : copy.pushBody;
+  const buttonLabel = localUnavailable ? copy.pushPreviewUnavailable : state === 'busy' || state === 'loading' ? copy.pushWorking : state === 'on' ? copy.pushDisable : canRetry ? copy.pushRetry : compact ? journalCopy[locale].enable : copy.pushEnable;
+  const action = state === 'on' ? disable : canRetry ? retry : enable;
+  const disabled = localUnavailable || state === 'loading' || state === 'busy' || state === 'unsupported' || state === 'denied';
+  const ReminderIcon = state === 'on' ? BellSlash : canRetry ? ArrowClockwise : state === 'loading' || state === 'busy' ? Clock : Bell;
+  if (compact) return <div className="journal-reminder" id="push-reminder" data-push-state={state}><button className="journal-primary" type="button" onClick={action} disabled={disabled} aria-describedby="reminder-status"><ReminderIcon size={19} aria-hidden="true" />{buttonLabel}</button><p id="reminder-status" role="status">{state === 'off' ? journalCopy[locale].sourceNote : message}</p>{isLocalPreview && (state === 'unavailable' || state === 'unsupported') && <a className="journal-reminder-live" href={`https://crw.warpnav.com${pagePath(locale, false)}#push-reminder`} target="_blank" rel="noreferrer">{copy.pushManageLive}<ArrowUpRight size={14} aria-hidden="true" /></a>}</div>;
   return <section className="push-reminder" id="push-reminder" aria-labelledby="push-reminder-title">
     <div className="push-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-        <path d="M6.6 9.7a5.4 5.4 0 0 1 10.8 0c0 5 2 5.2 2 6.7H4.6c0-1.5 2-1.7 2-6.7Z" />
-        <path d="M9.7 19a2.7 2.7 0 0 0 4.6 0" />
-        <path className="push-icon-signal" d="M4.1 7.2a8.3 8.3 0 0 1 1.8-3M19.9 7.2a8.3 8.3 0 0 0-1.8-3" />
-      </svg>
+      <Bell size={26} />
     </div>
     <div><p className="section-label">{copy.pushLabel}</p><h2 id="push-reminder-title">{copy.pushTitle}</h2><p role="status">{message}</p></div>
-    <button type="button" onClick={state === 'on' ? disable : enable} disabled={state === 'loading' || state === 'busy' || state === 'unsupported' || state === 'denied'}>
-      {state === 'busy' || state === 'loading' ? copy.pushWorking : state === 'on' ? copy.pushDisable : copy.pushEnable}
+    <button type="button" onClick={action} disabled={disabled}>
+      <ReminderIcon size={18} />{buttonLabel}
     </button>
   </section>;
 }
@@ -419,6 +483,7 @@ function HistoryPage({ locale }: { locale: Locale }) {
   }, {});
 
   return <main id="content" className="history-page">
+
     <section className="history-intro">
       <p className="section-label">{copy.historyLabel}</p>
       <h1>{copy.historyTitle}</h1>
@@ -428,7 +493,7 @@ function HistoryPage({ locale }: { locale: Locale }) {
 
     <ResetCalendar records={records} locale={locale} />
     {records.length === 0 ? <section className="history-empty">
-      <span aria-hidden="true">{copy.emptyNumber}</span><div><h2>{copy.emptyTitle}</h2><p>{copy.emptyBody}</p><a href={pagePath(locale, false)}>{copy.back} →</a></div>
+      <span aria-hidden="true">{copy.emptyNumber}</span><div><h2>{copy.emptyTitle}</h2><p>{copy.emptyBody}</p><a href={pagePath(locale, false)}>{copy.back}<ArrowRight size={18} /></a></div>
     </section> : <div className="timeline">
       {Object.entries(years).sort(([a], [b]) => Number(b) - Number(a)).map(([year, items]) => <section className="year-group" key={year} aria-labelledby={`year-${year}`}>
         <h2 id={`year-${year}`}>{year}</h2>
@@ -459,7 +524,7 @@ function HistoryItem({ record, locale }: { record: HistoryRecord; locale: Locale
       <blockquote lang="en">“{record.announcement.text}”</blockquote>
       {localized?.context && <p>{localized.context}</p>}
       <p>{localized?.note ?? record.note}</p>
-      <a href={record.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost} ↗</a>
+      <a href={record.announcement.url} target="_blank" rel="noreferrer">{copy.viewPost}<ArrowUpRight size={16} /></a>
     </div>
   </article>;
 }
@@ -510,11 +575,11 @@ function PageTools({ locale }: { locale: Locale }) {
 
   return <div ref={toolsRef} className={`page-tools ${visible ? 'visible' : ''} ${overContent ? 'over-content' : ''}`} role="group" aria-label={labels[locale].group} aria-hidden={!visible}>
     <button type="button" onClick={() => window.location.reload()} aria-label={labels[locale].refresh} title={labels[locale].refresh} tabIndex={visible ? 0 : -1}>
-      <ArrowClockwise size={21} weight="bold" aria-hidden="true" />
+      <ArrowClockwise size={21} aria-hidden="true" />
       <span>{labels[locale].refresh}</span>
     </button>
     <button type="button" onClick={scrollToTop} aria-label={labels[locale].top} title={labels[locale].top} tabIndex={visible ? 0 : -1}>
-      <ArrowUp size={21} weight="bold" aria-hidden="true" />
+      <ArrowUp size={21} aria-hidden="true" />
       <span>{labels[locale].topShort}</span>
     </button>
   </div>;
@@ -522,10 +587,10 @@ function PageTools({ locale }: { locale: Locale }) {
 
 function Footer({ locale }: { locale: Locale }) {
   const copy = ui[locale];
-  return <footer><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav} <span aria-hidden="true">↗</span></a></p></footer>;
+  return <footer><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub<ArrowUpRight size={14} /></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav}<ArrowUpRight size={14} /></a></p></footer>;
 }
 
 function Time({ value, label }: { value: number; label: string }) { return <span><strong>{String(value).padStart(2, '0')}</strong><small>{label}</small></span>; }
 function Fact({ label, value }: { label: string; value: string }) { return <div><span>{label}</span><strong>{value}</strong></div>; }
 
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
+createRoot(document.getElementById('root')!).render(<StrictMode><IconContext.Provider value={iconDefaults}><App /></IconContext.Provider></StrictMode>);
