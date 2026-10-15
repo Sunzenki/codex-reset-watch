@@ -1,3 +1,4 @@
+import { summarizeDeliveries } from '../../_lib/delivery-summary.js';
 import { buildPushPayload } from '../../_lib/push-payload.js';
 import { requireAdmin } from '../../_lib/admin.js';
 import { json, validateMessage } from '../../_lib/push.js';
@@ -75,7 +76,6 @@ export async function onRequestPost({ request, env }) {
 }
 
 async function deliverySummary(db, eventId) {
-  const rows = await db.prepare('SELECT status, COUNT(*) AS total FROM push_deliveries WHERE event_id = ? GROUP BY status').bind(eventId).all();
-  const counts = Object.fromEntries((rows.results ?? []).map((row) => [row.status, Number(row.total)]));
-  return { pending: Number(counts.pending ?? 0), delivered: Number(counts.delivered ?? 0), failed: Number(counts.failed ?? 0) };
+  const rows = await db.prepare('SELECT status, response_status, COUNT(*) AS total FROM push_deliveries WHERE event_id = ? GROUP BY status, response_status').bind(eventId).all();
+  return summarizeDeliveries(rows.results ?? []);
 }

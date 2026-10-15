@@ -1,3 +1,4 @@
+import { summarizeDeliveries } from '../../_lib/delivery-summary.js';
 import { requireAdmin } from '../../_lib/admin.js';
 import { json } from '../../_lib/push.js';
 
@@ -11,12 +12,10 @@ export async function onRequestGet({ request, env }) {
     SUM(CASE WHEN active = 1 AND locale = 'zh-CN' THEN 1 ELSE 0 END) AS locale_zh_cn,
     SUM(CASE WHEN active = 1 AND locale = 'zh-TW' THEN 1 ELSE 0 END) AS locale_zh_tw,
     COUNT(*) AS total FROM subscriptions`).first();
-  const events = await env.PUSH_DB.prepare(`SELECT e.event_id, e.created_at,
-    SUM(CASE WHEN d.status = 'delivered' THEN 1 ELSE 0 END) AS delivered,
-    SUM(CASE WHEN d.status = 'failed' THEN 1 ELSE 0 END) AS failed,
-    SUM(CASE WHEN d.status IN ('pending', 'sending') THEN 1 ELSE 0 END) AS pending
-    FROM push_events e LEFT JOIN push_deliveries d ON d.event_id = e.event_id
-    GROUP BY e.event_id, e.created_at ORDER BY e.created_at DESC LIMIT 8`).all();
+  const events = await env.PUSH_DB.prepare('SELECT event_id, created_at FROM push_events ORDER BY created_at DESC LIMIT 8').all();
+  const deliveries = await env.PUSH_DB.prepare(`SELECT event_id, status, response_status, COUNT(*) AS total
+    FROM push_deliveries WHERE event_id IN (SELECT event_id FROM push_events ORDER BY created_at DESC LIMIT 8)
+    GROUP BY event_id, status, response_status`).all();
   return json({
     subscriptions: {
       active: Number(subscriptions?.active ?? 0),
@@ -29,7 +28,7 @@ export async function onRequestGet({ request, env }) {
       },
     },
     events: (events.results ?? []).map((event) => ({ ...event,
-      delivered: Number(event.delivered ?? 0), failed: Number(event.failed ?? 0), pending: Number(event.pending ?? 0),
+      ...summarizeDeliveries((deliveries.results ?? []).filter((row) => row.event_id === event.event_id)),
     })),
   });
 }

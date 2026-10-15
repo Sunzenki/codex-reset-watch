@@ -1,5 +1,37 @@
 [
   {
+    "id": "reset-2026-10-15-day10-confirmed",
+    "targetAt": "2026-10-15T06:28:13.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Done and dusted",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Done and dusted",
+      "translation": "已经搞定。",
+      "url": "https://x.com/thsottiaux/status/2110618732666257557",
+      "postedAt": "2026-10-15T06:28:13.000Z"
+    },
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "The reports of my reset button being lost are greatly exaggerated\n\nDay 10/ Reset",
+      "translation": "说我的重置按钮丢了，实在是夸大其词。\n\n第 10 天：重置。",
+      "url": "https://x.com/thsottiaux/status/2110595484180214059",
+      "postedAt": "2026-10-15T04:55:51.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Landing within the next 2 hours",
+      "translation": "将在未来两小时内落地。",
+      "url": "https://x.com/thsottiaux/status/2110595554036400151",
+      "postedAt": "2026-10-15T04:56:07.000Z"
+    },
+    "announcedTargetAt": "2026-10-15T06:56:07.000Z",
+    "outcome": "as_announced",
+    "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier estimated deadline was October 15 at 06:56 UTC. Eligible plans and usage windows were not specified.",
+    "recordedAt": "2026-10-15T06:44:24.703Z"
+  },
+  {
     "id": "reset-2026-10-13-day8-global",
     "targetAt": "2026-10-13T05:06:06.000Z",
     "precision": "confirmed",

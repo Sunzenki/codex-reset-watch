@@ -5,9 +5,11 @@ import './admin.css';
 type Locale = 'en' | 'zh-CN' | 'zh-TW';
 type Message = { title: string; body: string; path: string };
 type PushPayload = { eventId: string; messages: Record<Locale, Message> };
+type DeliveryReason = { category: 'expired' | 'failed'; code: number | null; count: number; message: string };
+type DeliverySummary = { delivered: number; expired: number; failed: number; pending: number; reasons: DeliveryReason[] };
 type Overview = {
   subscriptions: { active: number; inactive: number; total: number; byLocale: Record<Locale, number> };
-  events: Array<{ event_id: string; created_at: string; delivered: number; failed: number; pending: number }>;
+  events: Array<DeliverySummary & { event_id: string; created_at: string }>;
 };
 
 const localeNames: Record<Locale, string> = { en: 'English', 'zh-CN': '简体中文', 'zh-TW': '繁體中文' };
@@ -25,6 +27,14 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.error || `请求失败（${response.status}）`);
   return result;
+}
+
+function DeliveryReasons({ reasons }: { reasons: DeliveryReason[] }) {
+  if (!reasons.length) return null;
+  return <ul className="delivery-reasons">{reasons.map((reason) => <li key={`${reason.category}-${reason.code}`} className={reason.category}>
+    <strong>{reason.category === 'expired' ? '订阅失效' : '发送失败'} {reason.count} 条 · {reason.code === null || reason.code === 0 ? '无响应码' : reason.code === 598 || reason.code === 599 ? `内部诊断码 ${reason.code}` : `HTTP ${reason.code}`}</strong>
+    <span>{reason.message}</span>
+  </li>)}</ul>;
 }
 
 function AdminApp() {
@@ -86,6 +96,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   const [activeLocale, setActiveLocale] = useState<Locale>('zh-CN');
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState('');
+  const [reasons, setReasons] = useState<DeliveryReason[]>([]);
   const [error, setError] = useState('');
 
   async function refresh() {
@@ -105,21 +116,17 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
   }
 
   async function send() {
-    setError(''); setNotice('');
+    setError(''); setNotice(''); setReasons([]);
     const active = overview?.subscriptions.active ?? 0;
     if (!window.confirm(`确认向 ${active} 个有效浏览器订阅发送这条通知？\n\n事件 ID：${payload.eventId}\n此操作会创建正式发送记录。`)) return;
     setBusy(true);
     try {
       for (let attempt = 0; attempt < 1100; attempt++) {
-        const result = await api<{ done: boolean; delivered: number; failed: number; pending: number; lastStatus?: number; lastError?: string }>('/api/push/send', {
+        const result = await api<DeliverySummary & { done: boolean }>('/api/push/send', {
           method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload),
         });
-        const diagnostic = result.lastError
-          ? `；诊断：${result.lastError}`
-          : result.lastStatus && result.lastStatus !== 201 && result.lastStatus !== 202
-            ? `；推送服务 HTTP ${result.lastStatus}`
-            : '';
-        setNotice(`已送达 ${result.delivered}，失败 ${result.failed}，待发送 ${result.pending}${diagnostic}`);
+        setNotice(`推送服务已接受 ${result.delivered}，订阅失效 ${result.expired}，发送失败 ${result.failed}，待发送 ${result.pending}`);
+        setReasons(result.reasons);
         if (result.done) break;
       }
       await refresh();
@@ -190,6 +197,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           <strong>准备发送</strong>
           <p>将按各订阅浏览器的语言发送对应版本。推送服务接受不等于用户必然看到通知。</p>
           {notice && <p className="send-notice" role="status">{notice}</p>}
+          <DeliveryReasons reasons={reasons} />
           {error && <p className="form-error" role="alert">{error}</p>}
           <button className="send-button" type="button" disabled={busy || !payload.eventId || !overview} onClick={send}>{busy ? '正在发送…' : `确认并发送给 ${overview?.subscriptions.active ?? 0} 个订阅`}</button>
         </div>
@@ -201,7 +209,8 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
       {!overview?.events.length ? <p className="empty-events">暂无发送记录。</p> : <div className="event-table" role="table" aria-label="最近发送记录">
         {overview.events.map((event) => <div className="event-row" role="row" key={event.event_id}>
           <div role="cell"><strong>{event.event_id}</strong><small>{new Date(event.created_at).toLocaleString('zh-CN')}</small></div>
-          <span role="cell">已送达 {event.delivered}</span><span role="cell">失败 {event.failed}</span><span role="cell">待发送 {event.pending}</span>
+          <span role="cell">服务已接受 {event.delivered}</span><span role="cell">订阅失效 {event.expired}</span><span role="cell">发送失败 {event.failed}</span><span role="cell">待发送 {event.pending}</span>
+          <div className="event-reasons" role="cell"><DeliveryReasons reasons={event.reasons} /></div>
         </div>)}
       </div>}
     </section>

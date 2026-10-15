@@ -1,13 +1,19 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "Day 10 reset expected within two hours",
-  "resetAt": "2026-10-15T06:56:07.000Z",
-  "deadlineEstimated": true,
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "Day 10 usage reset is complete",
+  "resetAt": null,
   "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Landing within the next 2 hours",
-  "scope": "Tibo announced a Day 10 reset; eligible plans and usage windows were not specified.",
+  "originalTimeText": "Done and dusted",
+  "scope": "Day 10 reset; eligible plans and usage windows were not specified.",
   "announcement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Done and dusted",
+    "translation": "已经搞定。",
+    "url": "https://x.com/thsottiaux/status/2110618732666257557",
+    "postedAt": "2026-10-15T06:28:13.000Z"
+  },
+  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "The reports of my reset button being lost are greatly exaggerated\n\nDay 10/ Reset",
     "translation": "说我的重置按钮丢了，实在是夸大其词。\n\n第 10 天：重置。",
@@ -21,6 +27,6 @@
     "url": "https://x.com/thsottiaux/status/2110595554036400151",
     "postedAt": "2026-10-15T04:56:07.000Z"
   },
-  "updatedAt": "2026-10-15T05:02:51.384Z",
-  "note": "The estimated deadline is October 15 at 06:56 UTC, calculated by adding two hours to the timing reply published at 04:56:07 UTC. This is an approximate upper bound, not an exact reset time. Completion has not been verified; the countdown reaching zero does not confirm a reset."
+  "updatedAt": "2026-10-15T06:44:24.703Z",
+  "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier estimated deadline was October 15 at 06:56 UTC. Eligible plans and usage windows were not specified."
 }

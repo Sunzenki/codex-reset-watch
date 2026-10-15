@@ -1,3 +1,4 @@
+import { summarizeDeliveries } from '../functions/_lib/delivery-summary.js';
 import assert from 'node:assert/strict';
 import { buildPushPayload } from '../functions/_lib/push-payload.js';
 import { readFileSync } from 'node:fs';
@@ -84,3 +85,22 @@ for (const data of cases) {
     console.log(`Offline round trip OK: ${host}, ${bytes.byteLength} bytes`);
   }
 }
+
+// Historical expiry, real failures, in-flight rows, and missing diagnostics stay distinct.
+const summary = summarizeDeliveries([
+  { status: 'delivered', response_status: 201, total: 14 },
+  { status: 'failed', response_status: 410, total: 1 },
+  { status: 'failed', response_status: 404, total: 2 },
+  { status: 'failed', response_status: 403, total: 1 },
+  { status: 'failed', response_status: 598, total: 1 },
+  { status: 'failed', response_status: null, total: 1 },
+  { status: 'sending', response_status: null, total: 1 },
+  { status: 'pending', response_status: null, total: 2 },
+]);
+assert.deepEqual([summary.delivered, summary.expired, summary.failed, summary.pending], [14, 3, 3, 3]);
+assert.equal(summary.reasons.length, 5);
+assert.match(summary.reasons.find(r => r.code === 410).message, /无需重试/);
+assert.match(summary.reasons.find(r => r.code === 598).message, /TypeError/);
+assert.match(summary.reasons.find(r => r.code === null).message, /无法确定/);
+assert.deepEqual(summarizeDeliveries([]), { delivered: 0, expired: 0, failed: 0, pending: 0, reasons: [] });
+console.log('Delivery summary classification passed.');

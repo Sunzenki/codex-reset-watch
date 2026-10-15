@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-15-day10-reset-announced",
+  "eventId": "2026-10-15-day10-reset-confirmed",
   "messages": {
     "en": {
-      "title": "Day 10 reset announced 🔋",
-      "body": "Tibo says the reset will land within two hours of his reply. Estimated deadline: Oct 15, 06:56 UTC. Completion is not yet confirmed.",
+      "title": "Day 10 usage reset is complete 🔋",
+      "body": "Tibo confirmed “Done and dusted”, quoting the Day 10 timing reply. The reset is complete. Check your usage!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "第 10 天重置预告 🔋",
-      "body": "Tibo 表示将在回复发布后两小时内落地，预计截止北京时间 10 月 15 日 14:56。目前尚未确认完成，查看倒计时与原帖。",
+      "title": "第 10 天额度重置已完成 🔋",
+      "body": "Tibo 引用本轮时间预告确认：“Done and dusted”（已经搞定）。第 10 天重置已完成，去看看你的额度吧！",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "第 10 天重置預告 🔋",
-      "body": "Tibo 表示將在回覆發佈後兩小時內落地，預計截止台北時間 10 月 15 日 14:56。目前尚未確認完成，查看倒數與原帖。",
+      "title": "第 10 天額度重置已完成 🔋",
+      "body": "Tibo 引用本輪時間預告確認：「Done and dusted」（已經搞定）。第 10 天重置已完成，去看看你的額度吧！",
       "path": "/zh-TW/"
     }
   }
