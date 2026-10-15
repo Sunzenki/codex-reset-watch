@@ -1,32 +1,26 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "A fresh global usage reset is complete",
-  "resetAt": null,
+  "kind": "reset",
+  "status": "estimated",
+  "headline": "Day 10 reset expected within two hours",
+  "resetAt": "2026-10-15T06:56:07.000Z",
+  "deadlineEstimated": true,
   "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "It's done.",
-  "scope": "Global reset; eligible plans and usage windows were not specified.",
+  "originalTimeText": "Landing within the next 2 hours",
+  "scope": "Tibo announced a Day 10 reset; eligible plans and usage windows were not specified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "What would you like with your side of reset? It's done.",
-    "translation": "重置这份配菜，你还想搭点什么？已经完成了。",
-    "url": "https://x.com/thsottiaux/status/2109873287853707513",
-    "postedAt": "2026-10-13T05:06:06.000Z"
-  },
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 8/ Reset",
-    "translation": "第 8 天：重置。",
-    "url": "https://x.com/thsottiaux/status/2109812216212099456",
-    "postedAt": "2026-10-13T01:03:00.000Z"
+    "text": "The reports of my reset button being lost are greatly exaggerated\n\nDay 10/ Reset",
+    "translation": "说我的重置按钮丢了，实在是夸大其词。\n\n第 10 天：重置。",
+    "url": "https://x.com/thsottiaux/status/2110595484180214059",
+    "postedAt": "2026-10-15T04:55:51.000Z"
   },
   "timingSource": {
     "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Global reset landing by EOD PST time. Enjoy",
-    "translation": "全局重置将在 PST 当天结束前落地，尽情使用吧。",
-    "url": "https://x.com/thsottiaux/status/2109812360596865224",
-    "postedAt": "2026-10-13T01:03:00.000Z"
+    "text": "Landing within the next 2 hours",
+    "translation": "将在未来两小时内落地。",
+    "url": "https://x.com/thsottiaux/status/2110595554036400151",
+    "postedAt": "2026-10-15T04:56:07.000Z"
   },
-  "updatedAt": "2026-10-13T07:43:54.392Z",
-  "note": "The displayed time is the public confirmation post time, not the exact backend execution time. The earlier countdown used an estimated deadline of October 13 at 08:00 UTC under literal PST. Eligible plans and usage windows were not separately specified."
+  "updatedAt": "2026-10-15T05:02:51.384Z",
+  "note": "The estimated deadline is October 15 at 06:56 UTC, calculated by adding two hours to the timing reply published at 04:56:07 UTC. This is an approximate upper bound, not an exact reset time. Completion has not been verified; the countdown reaching zero does not confirm a reset."
 }

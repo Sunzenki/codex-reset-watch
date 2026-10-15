@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-13-global-reset-confirmed",
+  "eventId": "2026-10-15-day10-reset-announced",
   "messages": {
     "en": {
-      "title": "Global reset complete 🔋",
-      "body": "Tibo quoted the latest global-reset announcement and confirmed: “It’s done.” Go check your usage!",
+      "title": "Day 10 reset announced 🔋",
+      "body": "Tibo says the reset will land within two hours of his reply. Estimated deadline: Oct 15, 06:56 UTC. Completion is not yet confirmed.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "新一轮全局额度重置已完成 🔋",
-      "body": "Tibo 已引用本轮预告确认：“已经完成了。”去看看你的额度吧！",
+      "title": "第 10 天重置预告 🔋",
+      "body": "Tibo 表示将在回复发布后两小时内落地，预计截止北京时间 10 月 15 日 14:56。目前尚未确认完成，查看倒计时与原帖。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "新一輪全局額度重置已完成 🔋",
-      "body": "Tibo 已引用本輪預告確認：「已經完成了。」去看看你的額度吧！",
+      "title": "第 10 天重置預告 🔋",
+      "body": "Tibo 表示將在回覆發佈後兩小時內落地，預計截止台北時間 10 月 15 日 14:56。目前尚未確認完成，查看倒數與原帖。",
       "path": "/zh-TW/"
     }
   }

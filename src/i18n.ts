@@ -121,22 +121,22 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string }> = {
   "en": {
-    "headline": "A fresh global usage reset is complete",
-    "scope": "Tibo has publicly confirmed completion of the previously announced global reset.",
-    "context": "Tibo quoted the EOD PST global-reset announcement and confirmed: “It’s done.”",
-    "note": "The displayed time is the public confirmation post time, not the exact backend execution time. The earlier countdown used an estimated deadline of October 13 at 08:00 UTC under literal PST. Eligible plans and usage windows were not separately specified."
+    "headline": "Day 10 reset expected within two hours",
+    "scope": "Tibo announced a Day 10 reset; eligible plans and usage windows were not specified.",
+    "context": "Tibo announced “Day 10/ Reset”, then replied that it would land within the next two hours.",
+    "note": "The estimated deadline is October 15 at 06:56 UTC, calculated by adding two hours to the timing reply published at 04:56:07 UTC. This is an approximate upper bound, not an exact reset time. Completion has not been verified; the countdown reaching zero does not confirm a reset."
   },
   "zh-CN": {
-    "headline": "新一轮全局额度重置已完成",
-    "scope": "Tibo 已公开确认，此前预告的本轮全局重置已经完成。",
-    "context": "Tibo 引用了本轮“EOD PST 前落地”的全局重置预告，并明确表示：“已经完成了。”",
-    "note": "所示时间为完成确认帖的发布时间，不代表后台精确执行时刻。此前倒计时按字面 PST 换算至 10 月 13 日 16:00 GMT+8，仅为预计截止时间。原帖未单独列明适用套餐及具体额度窗口。"
+    "headline": "第 10 天重置，预计两小时内落地",
+    "scope": "Tibo 预告了第 10 天重置，未明确适用套餐及具体额度窗口。",
+    "context": "Tibo 发布“第 10 天：重置”，随后回复表示将在未来两小时内落地。",
+    "note": "预计截止时间为 10 月 15 日 14:56（北京时间），按时间回复的发布时间 12:56:07 加两小时换算。这是近似上限，不是精确重置时刻。目前尚未核实完成，倒计时归零也不代表已经重置。"
   },
   "zh-TW": {
-    "headline": "新一輪全局額度重置已完成",
-    "scope": "Tibo 已公開確認，此前預告的本輪全局重置已經完成。",
-    "context": "Tibo 引用了本輪「EOD PST 前落地」的全局重置預告，並明確表示：「已經完成了。」",
-    "note": "所示時間為完成確認帖的發佈時間，不代表後台精確執行時間。此前倒數按字面 PST 換算至 10 月 13 日 16:00 GMT+8，僅為預計截止時間。原帖未單獨列明適用方案及具體額度視窗。"
+    "headline": "第 10 天重置，預計兩小時內落地",
+    "scope": "Tibo 預告了第 10 天重置，未明確適用方案及具體額度視窗。",
+    "context": "Tibo 發佈「第 10 天：重置」，隨後回覆表示將在未來兩小時內落地。",
+    "note": "預計截止時間為 10 月 15 日 14:56（台北時間），按時間回覆的發佈時間 12:56:07 加兩小時換算。這是近似上限，不是精確重置時間。目前尚未核實完成，倒數歸零也不代表已經重置。"
   }
 };
 
