@@ -7,6 +7,8 @@ const ORIGIN = 'https://crw.warpnav.com';
 const current = JSON.parse(readFileSync(join(ROOT, 'public/data/current.json'), 'utf8'));
 const history = JSON.parse(readFileSync(join(ROOT, 'public/data/history.json'), 'utf8'));
 const seoMetadata = JSON.parse(readFileSync(join(ROOT, 'src/seo-metadata.json'), 'utf8'));
+const friendLinks = JSON.parse(readFileSync(join(ROOT, 'src/friend-links.json'), 'utf8'));
+const footerCopy = JSON.parse(readFileSync(join(ROOT, 'src/footer-copy.json'), 'utf8'));
 
 const locales = {
   en: {
@@ -101,6 +103,13 @@ function snapshot(route) {
   return `<main id="content" class="seo-snapshot"><header><p>Codex Reset Watch</p><h1>${escapeHtml(copy.historyTitle)}</h1><p>${escapeHtml(copy.historyDescription)}</p></header><ol>${items}</ol><nav aria-label="Languages">${languageLinks}</nav></main>`;
 }
 
+function footerSnapshot(locale) {
+  const copy = footerCopy[locale];
+  const links = friendLinks.map(({ name, url }) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer"><span>${escapeHtml(name)}</span></a></li>`).join('');
+  const friends = friendLinks.length ? `<nav class="friend-links" aria-label="${escapeHtml(copy.friends)}"><span class="friend-links-label" aria-hidden="true">${escapeHtml(copy.friends)}</span><ul>${links}</ul></nav>` : '';
+  return `<footer class="site-footer${friendLinks.length ? ' site-footer--with-friends' : ''}">${friends}<div class="footer-meta"><p>${escapeHtml(copy.footer)}</p><p class="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub</a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">${escapeHtml(copy.warpnav)}</a></p></div></footer>`;
+}
+
 function structuredData(route) {
   const copy = locales[route.locale];
   const url = `${ORIGIN}${route.path}`;
@@ -150,7 +159,7 @@ for (const route of routes) {
   const jsonLd = JSON.stringify(structuredData(route)).replace(/</g, '\\u003c');
   const bootstrap = JSON.stringify({ current, history }).replace(/</g, '\\u003c');
   html = html.replace('</head>', `    <script>window.__CRW_BOOTSTRAP__=${bootstrap};</script>\n    <script type="application/ld+json">${jsonLd}</script>\n  </head>`);
-  html = html.replace('<div id="root"></div>', `<div id="root">${snapshot(route)}</div>`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${snapshot(route)}${footerSnapshot(route.locale)}</div>`);
   writeFileSync(route.file, html);
 }
 

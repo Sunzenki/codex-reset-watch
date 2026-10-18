@@ -1,4 +1,5 @@
 import seoMetadata from './seo-metadata.json';
+import footerCopy from './footer-copy.json';
 
 export type Locale = 'en' | 'zh-CN' | 'zh-TW';
 
@@ -47,7 +48,7 @@ export const ui = {
     pushLabel: 'Browser reminders', pushTitle: 'Get notified about new resets', pushBody: 'No account required. Your browser stores a private subscription, and you can turn it off at any time.',
     pushEnable: 'Enable reminders', pushDisable: 'Turn off reminders', pushEnabled: 'Reminders are on for this browser.', pushDenied: 'Notifications are blocked in your browser settings.', pushUnsupported: 'This browser does not support CRW reminders yet.', pushWorking: 'Please wait…', pushError: 'Could not update the reminder. Please try again.',
     pushUnavailable: 'The reminder service is temporarily unavailable. Your existing subscriptions are unchanged.', pushLocalPreview: 'The reminder service is unavailable in this local preview. Manage your subscription on the live site.', pushPreviewUnavailable: 'Unavailable in this preview', pushRetry: 'Retry connection', pushManageLive: 'Manage on the live site',
-    footer: '© 2026 Codex Reset Watch · An unofficial just-for-fun site by WarpNav', warpnav: 'WarpNav main site',
+    footer: footerCopy.en.footer, warpnav: footerCopy.en.warpnav,
     headline: { monitoring: 'Watching for the next Codex reset', estimated: 'Reset expected around', confirmed: 'Reset expected at', reached: 'Expected reset time reached', superseded: 'The previous estimate was revised' },
   },
   'zh-CN': {
@@ -82,7 +83,7 @@ export const ui = {
     pushLabel: 'Browser reminders', pushTitle: '额度重置浏览器提醒', pushBody: '无需注册。订阅只绑定当前浏览器，可随时关闭；仅在出现新的额度重置消息时推送。',
     pushEnable: '开启提醒', pushDisable: '关闭提醒', pushEnabled: '此浏览器已开启提醒。', pushDenied: '浏览器已阻止通知，请在网站权限中重新开启。', pushUnsupported: '当前浏览器暂不支持 CRW 提醒。', pushWorking: '处理中…', pushError: '提醒设置失败，请稍后重试。',
     pushUnavailable: '提醒服务暂时无法连接，已有订阅不受影响。', pushLocalPreview: '本地预览提醒服务暂不可用，请在正式站管理订阅。', pushPreviewUnavailable: '本地预览暂不可用', pushRetry: '重试连接', pushManageLive: '在正式站管理提醒',
-    footer: '© 2026 Codex Reset Watch · 由 WarpNav 制作的非官方趣味小站', warpnav: 'WarpNav 主站',
+    footer: footerCopy['zh-CN'].footer, warpnav: footerCopy['zh-CN'].warpnav,
     headline: { monitoring: '正在等待下一次 Codex 重置消息', estimated: '预计重置时间约为', confirmed: '预计重置时间为', reached: '预告重置时间已到', superseded: '此前的重置预告已被修正' },
   },
   'zh-TW': {
@@ -117,7 +118,7 @@ export const ui = {
     pushLabel: 'Browser reminders', pushTitle: '額度重置瀏覽器提醒', pushBody: '無需註冊。訂閱只綁定目前瀏覽器，可隨時關閉；僅在出現新的額度重置消息時推送。',
     pushEnable: '開啟提醒', pushDisable: '關閉提醒', pushEnabled: '此瀏覽器已開啟提醒。', pushDenied: '瀏覽器已封鎖通知，請在網站權限中重新開啟。', pushUnsupported: '目前瀏覽器暫不支援 CRW 提醒。', pushWorking: '處理中…', pushError: '提醒設定失敗，請稍後再試。',
     pushUnavailable: '提醒服務暫時無法連線，已有訂閱不受影響。', pushLocalPreview: '本機預覽提醒服務暫不可用，請在正式站管理訂閱。', pushPreviewUnavailable: '本機預覽暫不可用', pushRetry: '重試連線', pushManageLive: '在正式站管理提醒',
-    footer: '© 2026 Codex Reset Watch · 由 WarpNav 製作的非官方趣味小站', warpnav: 'WarpNav 主站',
+    footer: footerCopy['zh-TW'].footer, warpnav: footerCopy['zh-TW'].warpnav,
     headline: { monitoring: '正在等待下一次 Codex 重置消息', estimated: '預計重置時間約為', confirmed: '預計重置時間為', reached: '預告重置時間已到', superseded: '先前的重置預告已被修正' },
   },
 } as const;

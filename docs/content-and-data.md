@@ -217,7 +217,7 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 `scripts/postbuild-seo.mjs` 会生成：
 
-- 六个公开页面的无 JavaScript 静态正文快照。
+- 六个公开页面的无 JavaScript 静态正文及页脚快照，友链以真实 `<a>` 元素写入原始 HTML。
 - 当前页 `WebSite` + `WebPage` JSON-LD。
 - 历史页 `CollectionPage` + `Dataset` JSON-LD。
 - `sitemap.xml`、`robots.txt`、`llms.txt`。
@@ -247,6 +247,8 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 ## 9. 友情链接
 
-页脚友链在 `src/friend-links.json` 维护，数组中每项使用 `name`（显示站名）和 `url`（完整 HTTPS 网址）；数组顺序即显示顺序，网址保持唯一。显示名以站长确认的写法为准，可使用明确指定的说明性名称；三语言栏目名在 `src/journal-copy.ts` 维护。名单为空时不显示该栏目。
+页脚友链在 `src/friend-links.json` 维护，数组中每项使用 `name`（显示站名）和 `url`（完整 HTTPS 网址）；数组顺序即显示顺序，网址保持唯一。显示名以站长确认的写法为准，可使用明确指定的说明性名称；三语言栏目名、版权及主站标签统一在 `src/footer-copy.json` 维护，由运行时文案和静态构建共享。名单为空时不显示该栏目。
+
+`scripts/postbuild-seo.mjs` 将完整静态页脚放在 `#root` 内的正文之后，保留 `href`、`target="_blank"` 和 `rel="noreferrer"`。React 启动时替换同一个根节点，不额外叠加页脚。检查友链必须解析构建后 HTML 或直接抓取线上原始 HTML，确认链接是页脚内的 `<a>`，不能只搜索 JavaScript 字符串或查看执行脚本后的 DOM。上线时用 `curl` 抓取首页能找到 `deeplaunch.io` 和 `twelve.tools`；这只验证回链可读取性，目录的徽章或审核要求另行处理。
 
 只添加站长确认的站点，不把设计示例当作实际合作方；临时样例仅用于本地隔离预览，不进入正式名单。修改后运行 `pnpm build`、`pnpm docs:check` 和差异检查，检查六个公开路由的页脚、桌面与手机换行、键盘焦点及实际目标网址。视觉规则见 [DESIGN.md](../DESIGN.md#footer-friend-links)。

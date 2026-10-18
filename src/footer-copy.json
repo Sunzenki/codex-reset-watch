@@ -1,0 +1,17 @@
+{
+  "en": {
+    "friends": "Friends",
+    "footer": "© 2026 Codex Reset Watch · An unofficial just-for-fun site by WarpNav",
+    "warpnav": "WarpNav main site"
+  },
+  "zh-CN": {
+    "friends": "友情链接",
+    "footer": "© 2026 Codex Reset Watch · 由 WarpNav 制作的非官方趣味小站",
+    "warpnav": "WarpNav 主站"
+  },
+  "zh-TW": {
+    "friends": "友情連結",
+    "footer": "© 2026 Codex Reset Watch · 由 WarpNav 製作的非官方趣味小站",
+    "warpnav": "WarpNav 主站"
+  }
+}
