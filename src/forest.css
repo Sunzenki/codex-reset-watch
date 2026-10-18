@@ -115,5 +115,6 @@ body::before{background:url('/images/forest-frame.webp') top center / 100% auto 
 .friend-links li{max-width:100%;min-width:0}
 .friend-links a{min-height:44px;max-width:100%;gap:4px;color:inherit;font-size:inherit;font-weight:400;text-decoration:none}
 .friend-links a span{min-width:0;overflow-wrap:anywhere}
+.friend-link-badge{display:block;width:120px;max-width:100%;height:auto;flex-shrink:0}
 .friend-links a:hover{color:var(--lavender-strong);text-decoration:underline;text-underline-offset:4px}
 @media(max-width:600px){.footer-meta{flex-direction:column;align-items:flex-start;gap:12px}.friend-links{gap:18px;font-size:12px;margin-bottom:14px}.friend-links ul{column-gap:20px}}

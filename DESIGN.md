@@ -65,3 +65,5 @@ The selected text-only direction places friend links above the copyright row on 
 Curated names and destinations live in [src/friend-links.json](src/friend-links.json); an empty list hides the section. Never publish preview examples as actual partners. Editing and validation details are in [content-and-data.md](docs/content-and-data.md#9-友情链接).
 
 The static HTML snapshot includes the footer inside the same React root, with real visible friend-link anchors. Both static output and runtime labels use [src/footer-copy.json](src/footer-copy.json). Keep the existing typography/layout; React replaces the snapshot without leaving a duplicate footer.
+
+Directory-required official badges are an exception to the text-only links. DeepLaunch uses the user-supplied official light SVG at its original URL, with intrinsic 200×54 dimensions and CSS display width 120px / proportional height. Do not recolor, redraw, fade or crop the badge, or duplicate the text link alongside it. Other friend links retain the compact text treatment and the badge anchor retains a 44px hit height. Include the same linked image and alternative text in static HTML and React output.

@@ -588,13 +588,13 @@ function PageTools({ locale }: { locale: Locale }) {
 
 function Footer({ locale }: { locale: Locale }) {
   const copy = ui[locale];
-  const friendLinks: readonly { name: string; url: string }[] = friendLinkData;
+  const friendLinks: readonly { name: string; url: string; badge?: { src: string; alt: string; width: number; height: number } }[] = friendLinkData;
   const friendsLabel = journalCopy[locale].friends;
   return <footer className={`site-footer${friendLinks.length ? ' site-footer--with-friends' : ''}`}>
     {friendLinks.length > 0 && <nav className="friend-links" aria-label={friendsLabel}>
       <span className="friend-links-label" aria-hidden="true">{friendsLabel}</span>
-      <ul>{friendLinks.map(({ name, url }) => <li key={url}>
-        <a href={url} target="_blank" rel="noreferrer"><span>{name}</span><ArrowUpRight size={12} /></a>
+      <ul>{friendLinks.map(({ name, url, badge }) => <li key={url}>
+        <a href={url} target="_blank" rel="noreferrer">{badge ? <img className="friend-link-badge" src={badge.src} alt={badge.alt} width={badge.width} height={badge.height} /> : <><span>{name}</span><ArrowUpRight size={12} /></>}</a>
       </li>)}</ul>
     </nav>}
     <div className="footer-meta"><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub<ArrowUpRight size={14} /></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav}<ArrowUpRight size={14} /></a></p></div>

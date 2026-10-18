@@ -105,7 +105,10 @@ function snapshot(route) {
 
 function footerSnapshot(locale) {
   const copy = footerCopy[locale];
-  const links = friendLinks.map(({ name, url }) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer"><span>${escapeHtml(name)}</span></a></li>`).join('');
+  const links = friendLinks.map(({ name, url, badge }) => {
+    const content = badge ? `<img class="friend-link-badge" src="${escapeHtml(badge.src)}" alt="${escapeHtml(badge.alt)}" width="${escapeHtml(badge.width)}" height="${escapeHtml(badge.height)}">` : `<span>${escapeHtml(name)}</span>`;
+    return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${content}</a></li>`;
+  }).join('');
   const friends = friendLinks.length ? `<nav class="friend-links" aria-label="${escapeHtml(copy.friends)}"><span class="friend-links-label" aria-hidden="true">${escapeHtml(copy.friends)}</span><ul>${links}</ul></nav>` : '';
   return `<footer class="site-footer${friendLinks.length ? ' site-footer--with-friends' : ''}">${friends}<div class="footer-meta"><p>${escapeHtml(copy.footer)}</p><p class="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub</a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">${escapeHtml(copy.warpnav)}</a></p></div></footer>`;
 }

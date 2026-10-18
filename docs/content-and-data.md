@@ -249,6 +249,8 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 页脚友链在 `src/friend-links.json` 维护，数组中每项使用 `name`（显示站名）和 `url`（完整 HTTPS 网址）；数组顺序即显示顺序，网址保持唯一。显示名以站长确认的写法为准，可使用明确指定的说明性名称；三语言栏目名、版权及主站标签统一在 `src/footer-copy.json` 维护，由运行时文案和静态构建共享。名单为空时不显示该栏目。
 
+需要官方徽章的站点可配置 `badge`，包含 `src`、`alt`、`width` 和 `height`；静态 HTML 与 React 均使用该配置输出真实 `<a><img></a>`，其余站点输出文字链接。DeepLaunch 使用用户提供的 `https://deeplaunch.io/badge/badge_light.svg`、`Featured on DeepLaunch.io` 和 200×54 原始比例，以 CSS 缩至 120px 宽。保留官方资源地址与替代文本，不重绘或自造认可徽章。只检查图片可访问性和原始 HTML 不代表完成目录的提交、徽章验证或发布日期选择；这些外部表单操作需用户另行明确授权。
+
 `scripts/postbuild-seo.mjs` 将完整静态页脚放在 `#root` 内的正文之后，保留 `href`、`target="_blank"` 和 `rel="noreferrer"`。React 启动时替换同一个根节点，不额外叠加页脚。检查友链必须解析构建后 HTML 或直接抓取线上原始 HTML，确认链接是页脚内的 `<a>`，不能只搜索 JavaScript 字符串或查看执行脚本后的 DOM。上线时用 `curl` 抓取首页能找到 `deeplaunch.io` 和 `twelve.tools`；这只验证回链可读取性，目录的徽章或审核要求另行处理。
 
 只添加站长确认的站点，不把设计示例当作实际合作方；临时样例仅用于本地隔离预览，不进入正式名单。修改后运行 `pnpm build`、`pnpm docs:check` 和差异检查，检查六个公开路由的页脚、桌面与手机换行、键盘焦点及实际目标网址。视觉规则见 [DESIGN.md](../DESIGN.md#footer-friend-links)。

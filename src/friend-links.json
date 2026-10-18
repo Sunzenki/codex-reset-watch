@@ -1,5 +1,14 @@
 [
-  { "name": "DeepLaunch", "url": "https://deeplaunch.io/" },
+  {
+    "name": "DeepLaunch",
+    "url": "https://deeplaunch.io",
+    "badge": {
+      "src": "https://deeplaunch.io/badge/badge_light.svg",
+      "alt": "Featured on DeepLaunch.io",
+      "width": 200,
+      "height": 54
+    }
+  },
   { "name": "Twelve Tools", "url": "https://twelve.tools/" },
   { "name": "高性价比生活指南", "url": "https://life.warpnav.com/" },
   { "name": "杂货喵", "url": "https://zamew.com/" }

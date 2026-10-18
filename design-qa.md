@@ -4,6 +4,8 @@ final result: passed
 
 Scope: shared public footer only. User selected the first text-link concept and requested smaller, quieter text, then supplied four destinations. Final content replaces ToolPilot with DeepLaunch, uses Twelve Tools as the second display name and 高性价比生活指南 for life.warpnav.com. No deployment or notification sending.
 
+Later update on 2026-10-18: the user supplied the official DeepLaunch light badge. The current badge variant is checked through its official image response, production build and static HTML, without repeating browser visual QA per the user's testing limit. The visual comparisons and `passed` result below describe the earlier text-only baseline, not a new visual acceptance of the badge.
+
 ## Visual truth and evidence
 
 - Selected original: `C:/Users/sunze/.codex/generated_images/01a14e15-3992-7fd1-8e01-5b51739ec553/exec-b58c3c6f-599e-460c-b18b-74682ee33610.png`.
