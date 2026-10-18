@@ -1,32 +1,32 @@
 {
   "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "Day 10 usage reset is complete",
+  "headline": "Day 13 usage reset is complete",
   "resetAt": null,
   "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Done and dusted",
-  "scope": "Day 10 reset; eligible plans and usage windows were not specified.",
+  "originalTimeText": "Done",
+  "scope": "Day 13 reset; eligible plans and usage windows were not specified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Done and dusted",
-    "translation": "已经搞定。",
-    "url": "https://x.com/thsottiaux/status/2110618732666257557",
-    "postedAt": "2026-10-15T06:28:13.000Z"
+    "text": "Done",
+    "translation": "已完成。",
+    "url": "https://x.com/thsottiaux/status/2111566005684289735",
+    "postedAt": "2026-10-17T21:12:21.000Z"
   },
   "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "The reports of my reset button being lost are greatly exaggerated\n\nDay 10/ Reset",
-    "translation": "说我的重置按钮丢了，实在是夸大其词。\n\n第 10 天：重置。",
-    "url": "https://x.com/thsottiaux/status/2110595484180214059",
-    "postedAt": "2026-10-15T04:55:51.000Z"
+    "text": "Day 13/ Le limit reset",
+    "translation": "第 13 天：额度重置。",
+    "url": "https://x.com/thsottiaux/status/2111492673890824348",
+    "postedAt": "2026-10-17T16:20:57.000Z"
   },
   "timingSource": {
     "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Landing within the next 2 hours",
-    "translation": "将在未来两小时内落地。",
-    "url": "https://x.com/thsottiaux/status/2110595554036400151",
-    "postedAt": "2026-10-15T04:56:07.000Z"
+    "text": "Landing sometime today by EOD PST",
+    "translation": "将在今天 PST 当天结束前的某个时候落地。",
+    "url": "https://x.com/thsottiaux/status/2111492738025959922",
+    "postedAt": "2026-10-17T16:21:13.000Z"
   },
-  "updatedAt": "2026-10-15T06:44:24.703Z",
-  "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier estimated deadline was October 15 at 06:56 UTC. Eligible plans and usage windows were not specified."
+  "updatedAt": "2026-10-18T01:20:27.332Z",
+  "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier EOD PST reply referred to October 17 in Pacific time; its estimated end-of-day boundary is October 18 at 08:00 UTC under literal PST, or 07:00 UTC if PDT was intended. Eligible plans and usage windows were not specified."
 }

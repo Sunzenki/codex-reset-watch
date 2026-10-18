@@ -1,5 +1,40 @@
 [
   {
+    "id": "reset-2026-10-17-day13-confirmed",
+    "targetAt": "2026-10-17T21:12:21.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Done",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Done",
+      "translation": "已完成。",
+      "url": "https://x.com/thsottiaux/status/2111566005684289735",
+      "postedAt": "2026-10-17T21:12:21.000Z"
+    },
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 13/ Le limit reset",
+      "translation": "第 13 天：额度重置。",
+      "url": "https://x.com/thsottiaux/status/2111492673890824348",
+      "postedAt": "2026-10-17T16:20:57.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Landing sometime today by EOD PST",
+      "translation": "将在今天 PST 当天结束前的某个时候落地。",
+      "url": "https://x.com/thsottiaux/status/2111492738025959922",
+      "postedAt": "2026-10-17T16:21:13.000Z"
+    },
+    "announcedTargetAt": "2026-10-18T08:00:00.000Z",
+    "outcome": "as_announced",
+    "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier EOD PST reply referred to October 17 in Pacific time; its estimated end-of-day boundary is October 18 at 08:00 UTC under literal PST, or 07:00 UTC if PDT was intended. Eligible plans and usage windows were not specified.",
+    "recordedAt": "2026-10-18T01:20:27.332Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-10-15-day10-confirmed",
     "targetAt": "2026-10-15T06:28:13.000Z",
     "precision": "confirmed",
