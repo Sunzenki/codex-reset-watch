@@ -57,3 +57,9 @@ Favicon and touch/notification icons use the coral reset arrow and apricot termi
 ## Social sharing artwork
 
 Approved 2026-10-16: public/og.png uses the forest watercolor window, cream paper, coral/apricot logo and berry text. Preserve the approved composition and native dimensions; metadata must match the file. All three locales share this Chinese-description artwork with localized alt text. No event dates, live status or countdown numbers are embedded. The favicon generator must not overwrite this asset.
+
+## Footer friend links
+
+The selected text-only direction places friend links above the copyright row on the same cream surface. Keep the localized label and site names at supporting-text level: 13px desktop, 12px phone, weight 400, muted text, no oversized heading, permanent underline, cards or decorative images. Use 12px Phosphor external-link arrows, hover underlines, visible keyboard focus and 44px link hit height. Links wrap naturally; long names must not overflow. GitHub and WarpNav main-site attribution remain in the bottom row.
+
+Curated names and destinations live in [src/friend-links.json](src/friend-links.json); an empty list hides the section. Never publish preview examples as actual partners. Editing and validation details are in [content-and-data.md](docs/content-and-data.md#9-友情链接).

@@ -1,5 +1,6 @@
 import { type HistoryMeta } from './history-meta';
 import { journalCopy } from './journal-copy';
+import friendLinkData from './friend-links.json';
 import { inspectPushState, withPushRegistration } from './push-state';
 import { ResetCalendar } from './ResetCalendar';
 import { IconContext, iconDefaults, ArrowClockwise, ArrowUp, ArrowUpRight, ArrowRight, Bell, BellSlash, CheckCircle, CaretDown, Clock, ClockCounterClockwise, Globe, Info, Link, Timer, List, Newspaper, Quotes, X } from './icons';
@@ -587,7 +588,17 @@ function PageTools({ locale }: { locale: Locale }) {
 
 function Footer({ locale }: { locale: Locale }) {
   const copy = ui[locale];
-  return <footer><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub<ArrowUpRight size={14} /></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav}<ArrowUpRight size={14} /></a></p></footer>;
+  const friendLinks: readonly { name: string; url: string }[] = friendLinkData;
+  const friendsLabel = journalCopy[locale].friends;
+  return <footer className={`site-footer${friendLinks.length ? ' site-footer--with-friends' : ''}`}>
+    {friendLinks.length > 0 && <nav className="friend-links" aria-label={friendsLabel}>
+      <span className="friend-links-label" aria-hidden="true">{friendsLabel}</span>
+      <ul>{friendLinks.map(({ name, url }) => <li key={url}>
+        <a href={url} target="_blank" rel="noreferrer"><span>{name}</span><ArrowUpRight size={12} /></a>
+      </li>)}</ul>
+    </nav>}
+    <div className="footer-meta"><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub<ArrowUpRight size={14} /></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav}<ArrowUpRight size={14} /></a></p></div>
+  </footer>;
 }
 
 function Time({ value, label }: { value: number; label: string }) { return <span><strong>{String(value).padStart(2, '0')}</strong><small>{label}</small></span>; }

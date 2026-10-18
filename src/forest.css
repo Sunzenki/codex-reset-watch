@@ -104,3 +104,16 @@ body::before{background:url('/images/forest-frame.webp') top center / 100% auto 
 .journal-metadata span{color:#80636b}
 @media(max-width:900px){.journal-date{grid-row:1;min-height:290px}.journal-metadata>div{padding:8px 14px}.journal-metadata>div+div{padding-left:14px}.journal-metadata strong{font-size:14px}}
 @media(max-width:600px){.journal-date{min-height:0}.journal-metadata{grid-column:1;grid-template-columns:1fr;padding:20px 24px;gap:12px}.journal-metadata>div{padding:8px 0}.journal-metadata>div+div{border-left:0;border-top:1px solid #d8cdbb;padding:14px 0 0}.journal-metadata strong{font-size:14px}}
+
+/* Friend links stay at the footer's supporting text level. */
+.site-footer{display:block}
+.site-footer--with-friends{padding-top:8px}
+.footer-meta{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.friend-links{display:flex;align-items:flex-start;gap:24px;padding-bottom:10px;margin-bottom:18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.6;font-weight:400}
+.friend-links-label{display:flex;align-items:center;min-height:44px;flex-shrink:0}
+.friend-links ul{display:flex;flex-wrap:wrap;gap:0 24px;flex:1;min-width:0;list-style:none;padding:0;margin:0}
+.friend-links li{max-width:100%;min-width:0}
+.friend-links a{min-height:44px;max-width:100%;gap:4px;color:inherit;font-size:inherit;font-weight:400;text-decoration:none}
+.friend-links a span{min-width:0;overflow-wrap:anywhere}
+.friend-links a:hover{color:var(--lavender-strong);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:600px){.footer-meta{flex-direction:column;align-items:flex-start;gap:12px}.friend-links{gap:18px;font-size:12px;margin-bottom:14px}.friend-links ul{column-gap:20px}}
