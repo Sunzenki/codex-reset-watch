@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-10-20-day15-confirmed",
+    "targetAt": "2026-10-20T06:33:48.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "and reset. Enjoy.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 15/ Nevermind, we're still cooking... and reset. Enjoy.",
+      "translation": "第 15 天：没事，我们还在继续忙活……额度也重置了。尽情使用吧。",
+      "url": "https://x.com/thsottiaux/status/2112432076767289678",
+      "postedAt": "2026-10-20T06:33:48.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "The displayed time is the public post timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified.",
+    "recordedAt": "2026-10-20T06:38:32.772Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-10-17-day13-confirmed",
     "targetAt": "2026-10-17T21:12:21.000Z",
     "precision": "confirmed",

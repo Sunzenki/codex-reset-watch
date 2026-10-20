@@ -1,32 +1,18 @@
 {
   "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "Day 13 usage reset is complete",
+  "headline": "Day 15 usage reset is complete",
   "resetAt": null,
   "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Done",
-  "scope": "Day 13 reset; eligible plans and usage windows were not specified.",
+  "originalTimeText": "and reset. Enjoy.",
+  "scope": "Day 15 reset; eligible plans and usage windows were not specified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Done",
-    "translation": "已完成。",
-    "url": "https://x.com/thsottiaux/status/2111566005684289735",
-    "postedAt": "2026-10-17T21:12:21.000Z"
+    "text": "Day 15/ Nevermind, we're still cooking... and reset. Enjoy.",
+    "translation": "第 15 天：没事，我们还在继续忙活……额度也重置了。尽情使用吧。",
+    "url": "https://x.com/thsottiaux/status/2112432076767289678",
+    "postedAt": "2026-10-20T06:33:48.000Z"
   },
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 13/ Le limit reset",
-    "translation": "第 13 天：额度重置。",
-    "url": "https://x.com/thsottiaux/status/2111492673890824348",
-    "postedAt": "2026-10-17T16:20:57.000Z"
-  },
-  "timingSource": {
-    "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Landing sometime today by EOD PST",
-    "translation": "将在今天 PST 当天结束前的某个时候落地。",
-    "url": "https://x.com/thsottiaux/status/2111492738025959922",
-    "postedAt": "2026-10-17T16:21:13.000Z"
-  },
-  "updatedAt": "2026-10-18T01:20:27.332Z",
-  "note": "The displayed time is the public confirmation time, not the exact backend execution time. The earlier EOD PST reply referred to October 17 in Pacific time; its estimated end-of-day boundary is October 18 at 08:00 UTC under literal PST, or 07:00 UTC if PDT was intended. Eligible plans and usage windows were not specified."
+  "updatedAt": "2026-10-20T06:38:32.772Z",
+  "note": "The displayed time is the public post timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified."
 }
