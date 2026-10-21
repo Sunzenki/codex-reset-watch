@@ -1,8 +1,8 @@
 # 资讯指南：内容与维护
 
-2026-10-22 首次正式发布准备；提交、部署及线上核验状态见 [变更日志](../CHANGELOG.md)。当前 21 个选题的三语稿件均为 published，部署使用 pnpm build。
+2026-10-22 首次正式发布及三语线上验收已完成；提交、部署及核验依据见 [变更日志](../CHANGELOG.md)。当前 21 个选题的三语稿件均为 published，部署使用 pnpm build。
 
-选题、来源核验、Google SEO、E-E-A-T、写作文风、发布授权与更正统一执行 [资讯编辑与发布规则](guides-editorial-policy.md)。本文维护文章文件、字段和构建操作；本地技术验收与尚需上线核验的事项见规则第 9 节，不能把本地检查等同于已收录。
+选题、来源核验、Google SEO、E-E-A-T、写作文风、发布授权与更正统一执行 [资讯编辑与发布规则](guides-editorial-policy.md)。本文维护文章文件、字段和构建操作；技术验收与搜索验证范围见规则第 9 节，页面检查通过不等同于已收录。
 
 ## 页面与来源
 
@@ -118,7 +118,7 @@ git diff --check
 
 分类页标题标明当前分类，第二页起添加本语言页码；静态与客户端共用 `guideListTitle`，不会在加载后覆盖成栏目通用标题。这是帮助读者辨识页面的改进，并非 Google 禁止分页复用标题。SEO 检查还核对站内锚点及 picture/srcset 资源，避免目录链接或桌面专用封面遗漏。手机目录的“展开/收起”文字由原生 details 状态驱动，三语同步。
 
-构建生成根目录 404.html，供 Cloudflare Pages 使用。`scripts/vite-preview-404.mjs` 让本地生产预览中不存在的页面返回 404 和 noindex，不再回落为首页 200；这仍不等同于已核验 Cloudflare 生产 HTTP 行为。`pnpm check:guides-seo` 核查静态内容、元数据、来源、译文、链接和 sitemap；传入本地 --base 时增加实际 200/404 响应检查，不依赖 Google 服务或触发真实通知。
+构建生成根目录 404.html，供 Cloudflare Pages 使用。`scripts/vite-preview-404.mjs` 让本地生产预览中不存在的页面返回 404 和 noindex，不再回落为首页 200。2026-10-22 已独立核验 Cloudflare 正式站的有效页面 200，以及旧示例、非法分类和越界分页 404；以后发布仍需复查受影响路径。`pnpm check:guides-seo` 核查静态内容、元数据、来源、译文、链接和 sitemap；传入本地或正式域名 --base 时增加实际 200/404 响应检查，不依赖 Google 服务或触发真实通知。
 
 分页每页八篇；分类与页码保存到 URL，文章的返回列表链接保留原分类与页码。检查主推链接、标题链接、分类、第二页、返回列表、目录、手机菜单和译文缺失提示。多语言与响应式检查遵循 [部署与排障](deployment-troubleshooting.md)，结果见 [最近本地验收](../design-qa.md)。
 
