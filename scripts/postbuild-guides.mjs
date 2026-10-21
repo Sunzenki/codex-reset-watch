@@ -28,6 +28,7 @@ function writePage(options, body) {
     .replace(/(<link rel="canonical" href=")[^"]*/, (_, prefix) => prefix + e(meta.url))
     .replace(/\s*<link rel="alternate"[^>]*>/g, '')
     .replace(/\s*<meta property="og:locale:alternate"[^>]*>/g, '')
+    .replace(/\s*<meta name="keywords"[^>]*>/g, '')
     .replace(/<script>window\.__CRW_BOOTSTRAP__=[\s\S]*?<\/script>/g, '')
     .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
   for (const property of ['og:title', 'twitter:title']) html = html.replace(new RegExp(`(<meta (?:property|name)="${property}" content=")[^"]*`), (_, prefix) => prefix + e(meta.title));
@@ -36,6 +37,7 @@ function writePage(options, body) {
   html = html.replace(/(<meta property="og:url" content=")[^"]*/, (_, prefix) => prefix + e(meta.url))
     .replace(/(<meta property="og:type" content=")[^"]*/, (_, prefix) => prefix + (article ? 'article' : 'website'));
   const alternates = meta.alternates.map(([code, destination]) => `<link rel="alternate" hreflang="${code}" href="${ORIGIN}${destination}" />`);
+  if (meta.keywords.length) alternates.push(`<meta name="keywords" content="${e(meta.keywords.join(', '))}" />`);
   const defaultPath = meta.alternates.find(([code]) => code === 'en')?.[1] ?? meta.alternates[0]?.[1];
   if (defaultPath) alternates.push(`<link rel="alternate" hreflang="x-default" href="${ORIGIN}${defaultPath}" />`);
   const ogLocales = { en: 'en_US', 'zh-CN': 'zh_CN', 'zh-TW': 'zh_TW' };
@@ -47,7 +49,7 @@ function writePage(options, body) {
   writeFileSync(join(DIST, path, 'index.html'), html);
   if (meta.indexable) {
     const modified = article ? article.updatedAt ?? article.publishedAt
-      : editorial ? null : selectList(articles, locale).all.map((item) => item.updatedAt ?? item.publishedAt).sort((a, b) => Date.parse(a) - Date.parse(b)).at(-1);
+      : editorial ? null : selectList(articles, locale, options.category).filtered.map((item) => item.updatedAt ?? item.publishedAt).sort((a, b) => Date.parse(a) - Date.parse(b)).at(-1);
     sitemap.push({ ...meta, modified });
   }
   return html;
@@ -75,6 +77,7 @@ try {
   const notFound = readFileSync(join(DIST, 'guides/index.html'), 'utf8')
     .replace(/<title>[^<]*<\/title>/, '<title>Article not found | Codex Reset Watch</title>')
     .replace(/<link rel="canonical"[^>]*>/g, '').replace(/<link rel="alternate"[^>]*>/g, '')
+    .replace(/<meta name="keywords"[^>]*>/g, '')
     .replace(/<meta (?:property|name)="(?:og:[^"]+|twitter:[^"]+)"[^>]*>/g, '')
     .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
     .replace(/(<meta name="robots" content=")[^"]*/, (_, prefix) => prefix + 'noindex,nofollow')

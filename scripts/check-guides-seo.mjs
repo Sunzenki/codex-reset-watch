@@ -28,6 +28,9 @@ for (const route of pages) {
   const label = (message) => `${path}: ${message}`;
   const meta = guideMetadata({ ...route, articles, previewMode }, copy);
   assert.ok(html.includes(`<title>${escapeHtml(meta.title)}</title>`), label('页面标题与实际分类、页码对应'));
+  assert.ok(html.includes(`name="description" content="${escapeHtml(meta.description)}"`), label('独立页面描述'));
+  for (const field of ['og:description', 'twitter:description']) assert.ok(html.includes(`${field}" content="${escapeHtml(meta.description)}"`), label(`${field} 同步描述`));
+  if (meta.keywords.length) assert.ok(html.includes(`name="keywords" content="${escapeHtml(meta.keywords.join(', '))}"`), label('主题关键词字段'));
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1, label('一个主标题'));
   const canonicals = [...html.matchAll(/<link rel="canonical" href="([^"]+)"/g)];
   assert.equal(canonicals.length, 1, label('一个 canonical'));
@@ -36,7 +39,7 @@ for (const route of pages) {
   assert.equal(data.url, origin + path, label('结构化数据 URL'));
   const robots = html.match(/<meta name="robots" content="([^"]+)"/)[1];
   const state = selectList(articles, locale, route.category, route.page);
-  const shouldIndex = !previewMode && (Boolean(article) || editorial || (route.category === 'all' && state.all.length > 0));
+  const shouldIndex = !previewMode && (Boolean(article) || editorial || (state.valid && state.filtered.length > 0));
   assert.equal(robots.startsWith('index,'), Boolean(shouldIndex), label('索引策略'));
   assert.equal(sitemap.includes(`<loc>${origin + path}</loc>`), Boolean(shouldIndex), label('sitemap 隔离'));
   assert.ok(html.includes(escapeHtml(copy[locale].editorialTitle)), label('可访问编辑说明'));
@@ -71,6 +74,10 @@ for (const route of pages) {
     assert.ok(html.includes('id="editorial-team"'), label('署名链接锚点'));
   } else {
     assert.equal(data['@type'], 'CollectionPage', label('列表类型'));
+    const landing = copy[locale].categoryPages[route.category];
+    assert.ok(html.includes(`<h1>${escapeHtml(landing?.heading ?? copy[locale].heading)}</h1>`), label('主题明确的主标题'));
+    assert.equal(data.description, meta.description, label('列表结构化描述对应页面'));
+    for (const [code, alternate] of meta.alternates) assert.ok(html.includes(`hreflang="${code}" href="${origin + alternate}"`), label('真实栏目译文关联'));
     const rows = [...html.matchAll(/<article class="guide-index-row">([\s\S]*?)<\/article>/g)];
     assert.equal(rows.length, state.visible.length, label('静态与运行时分页数量一致'));
     assert.deepEqual(data.mainEntity.itemListElement.map((item) => item.url), state.visible.map((item) => origin + guidesPath(locale, item.slug)), label('当前页结构化清单'));

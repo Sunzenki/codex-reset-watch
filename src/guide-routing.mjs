@@ -5,7 +5,7 @@ export const guidesPath = (locale, slug = '') => `${locale === 'en' ? '' : `/${l
 export const editorialPath = (locale) => guidesPath(locale, 'editorial');
 export function guideListTitle(copy, category = 'all', page = 1) {
   const [title, brand] = copy.siteTitle.split(/[｜|]/).map((part) => part.trim());
-  const subject = category === 'all' ? title : copy.categories[category];
+  const subject = category === 'all' ? title : copy.categoryPages[category]?.title ?? title;
   const separator = copy.siteTitle.includes('｜') ? '｜' : ' | ';
   return `${subject}${page > 1 ? ` · ${copy.pageTitle.replace('{page}', String(page))}` : ''}${separator}${brand}`;
 }

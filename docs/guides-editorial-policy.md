@@ -136,8 +136,8 @@ Codex 负责检索、整理与写作时，公开编辑说明或文章正文应�
 - 栏目标题与简介清楚说明范围；每条文章显示真实标题、摘要、分类和发布日期，通过正常 `<a href>` 到达独立文章。置顶/精选体现重要性，不把旧文改成新发布日期。
 - 列表用 CollectionPage / ItemList 等合适的结构化数据，不能把整个聚合页标成一篇 NewsArticle；数据与该 URL 的实际内容一致。
 - 分页有独立可访问 URL 和可抓取的前后页链接，不能只靠点击按钮或 `#` 切换。若使用分页模型，每页 self-canonical，不能将第二页一律 canonical 到第一页。[Google 分页说明](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading)
-- 本项目不将临时分类筛选、排序、返回状态参数作为独立搜索落地页。它们采用明确的去重/索引策略：仅改变返回状态的重复 URL 指向干净文章地址；改变实际列表的筛选页默认 noindex、排除 sitemap，且不能靠 robots.txt 阻止 Google 读取该 noindex。[重复 URL 规范](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
-- 空栏目、示例、预览不提交索引；未来若建设独立分类落地页，应先有持续有用的内容、独立 URL 与对应元数据，再另行实施，不能把薄筛选页批量开放索引。
+- 四个固定分类是独立主题归档：为实际内容设置专属标题、描述、H1、简介与主题词；有正式文章时 index,follow、self-canonical，并进入 sitemap，真实对应语言的第一页建立 hreflang。排序、返回状态和临时参数不形成新的搜索落地页，文章返回状态参数指向干净 canonical。[重复 URL 规范](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
+- 空栏目、示例、预览不提交索引；不为关键词排列、同义分类或 URL 参数批量生成重复页面。主题词应自然出现在标题、描述和真实内容中；meta keywords 按需保存，但不作为 Google 排名依据。
 
 ### 7.2 独立文章
 
@@ -173,7 +173,7 @@ Codex 负责检索、整理与写作时，公开编辑说明或文章正文应�
 | 项目 | 当前事实 | 正式发布前处理 |
 | --- | --- | --- |
 | 文章隔离与基础输出 | 编译器区分 draft/preview/published；独立 HTML、元数据、真实译文关联和 sitemap；正式日期拒绝未来值 | 当前 63 个三语稿已设为 published，首次发布字段按本批上线时间；后续发文仍重核易变来源、真实日期与内容质量 |
-| 分页与筛选 SEO | [输出脚本](../scripts/postbuild-guides.mjs) 构建期渲染[实际页面组件](../src/GuidesPage.tsx)；普通分页独立静态路径及 self-canonical，分类 noindex，ItemList 与当前页一致 | 本地已补齐；上线再核对对应 URL、索引指令与 sitemap |
+| 分页与筛选 SEO | [输出脚本](../scripts/postbuild-guides.mjs) 构建期渲染[实际页面组件](../src/GuidesPage.tsx)；普通分页独立静态路径及 self-canonical，有内容的固定分类可索引且拥有独立元数据，ItemList 与当前页一致 | 本地已补齐；上线再核对对应 URL、索引指令与 sitemap |
 | 署名、更新时间和采编说明 | 静态与客户端共用组件，输出组织署名、发布日期、可选实质更新时间及来源/更正；三语 editorial 页面说明维护方与 Codex 的采编范围 | 本地已补齐；正式稿有实际审核或实测时再准确注明范围 |
 | Article 配图 | JSON-LD 已省略不适合的可选 image；社交 OG 保留品牌图，按品牌替代文本描述 | 本地已补齐；未来若添加文章 image，须核验代表性和实际可访问资源 |
 | HTTP 与搜索验证 | 本地生产预览有效页面 200、缺失文章/非法分类/越界分页 404，404 noindex 且无文章 schema；尚无生产或真实用户搜索性能证据 | 首次上线核验生产 200/404、robots 和正式 SEO 输出；有可用权限/数据时做 URL Inspection、富结果与性能检查，无数据如实记录 |

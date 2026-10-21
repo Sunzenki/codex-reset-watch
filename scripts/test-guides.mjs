@@ -127,7 +127,7 @@ test('三语列表标题标明分类和页码，静态与客户端共用标题�
   }
 });
 
-test('正式分页 self-canonical，筛选和预览不索引，结构化数据只列当前页', () => {
+test('正式列表与分类 self-canonical 可索引，预览和空页隔离，清单只列当前页', () => {
   const copy = JSON.parse(readFileSync(new URL('../src/guides-copy.json', import.meta.url), 'utf8'));
   const articles = Array.from({ length: 9 }, (_, i) => ({ ...metadata, id: `guide-${i}`, slug: `guide-${i}` }));
   const options = { locale: 'zh-CN', path: listPath('zh-CN', 'all', 2), articles, previewMode: false, page: 2 };
@@ -137,9 +137,32 @@ test('正式分页 self-canonical，筛选和预览不索引，结构化数据�
   assert.equal(page.data.mainEntity.itemListElement.length, 1);
   assert.equal(page.data.mainEntity.itemListElement[0].position, 9);
   assert.deepEqual(page.alternates, []);
-  assert.equal(guideMetadata({ ...options, category: 'tutorials' }, copy).indexable, false);
+  const category = guideMetadata({ ...options, path: listPath('zh-CN', 'tutorials', 2), category: 'tutorials' }, copy);
+  assert.equal(category.indexable, true);
+  assert.equal(category.url, 'https://crw.warpnav.com/zh-CN/guides/category/tutorials/page/2/');
+  assert.equal(guideMetadata({ ...options, category: 'incidents' }, copy).indexable, false);
   assert.equal(guideMetadata({ ...options, previewMode: true }, copy).indexable, false);
   assert.equal(guideMetadata({ ...options, articles: [] }, copy).indexable, false);
+});
+
+test('分类主题、描述、关键词与真实译文对应，独立归档和预览使用不同索引状态', () => {
+  const copy = JSON.parse(readFileSync(new URL('../src/guides-copy.json', import.meta.url), 'utf8'));
+  const articles = [{ ...metadata }, { ...metadata, locale: 'en' }];
+  for (const locale of ['en', 'zh-CN', 'zh-TW']) {
+    const categoryCopy = Object.values(copy[locale].categoryPages);
+    assert.equal(new Set(categoryCopy.map((item) => item.title)).size, 4);
+    assert.equal(new Set(categoryCopy.map((item) => item.description)).size, 4);
+    assert.ok(categoryCopy.every((item) => item.keywords.length >= 3 && item.heading.includes('Codex')));
+  }
+  const options = { locale: 'zh-CN', category: 'tutorials', page: 1, path: listPath('zh-CN', 'tutorials'), articles, previewMode: false };
+  const meta = guideMetadata(options, copy);
+  assert.equal(meta.description, copy['zh-CN'].categoryPages.tutorials.description);
+  assert.deepEqual(meta.keywords, copy['zh-CN'].categoryPages.tutorials.keywords);
+  assert.deepEqual(meta.alternates, [['zh-CN', '/zh-CN/guides/category/tutorials/'], ['en', '/guides/category/tutorials/']]);
+  assert.equal(meta.indexable, true);
+  assert.equal(guideMetadata({ ...options, previewMode: true }, copy).indexable, false);
+  assert.equal(guideMetadata({ ...options, articles: [] }, copy).indexable, false);
+  assert.equal(guideMetadata({ ...options, page: 2 }, copy).indexable, false);
 });
 
 test('文章作者指向可核查说明，日期与来源保留，不以品牌 OG 冒充文章配图', () => {

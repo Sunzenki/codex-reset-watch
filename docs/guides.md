@@ -114,10 +114,26 @@ git diff --check
 
 `scripts/postbuild-guides.mjs` 在现有六页 SEO 之后，于构建期渲染实际 React 列表/文章/编辑说明组件，生成对应静态 HTML，无需生产 Node SSR 服务。列表、精选、目录、署名、日期、来源和更正共用组件，避免静态模板与客户端各自维护。元数据和索引策略来自 `scripts/guides-seo.mjs`；路由及每页八篇的切分由 `src/guide-routing.mjs` 共享。
 
-普通分页 self-canonical 且可索引；分类筛选、空清单和所有预览页 noindex，不进入 sitemap。ItemList 只描述当前页。真实文章译文建立互相对应的 hreflang；列表仅在各语言有实际内容的第一页关联，不把不同语言的第 2 页强行当作译文。编辑说明使用 AboutPage；文章作者链接到实际组织说明。
+普通列表、四个固定主题分类及其有效分页使用 self-canonical；有正式文章时 index,follow 并进入 sitemap。分类有独立 H1、可见简介、标题、描述与主题关键词；空清单和所有预览页 noindex，不进入 sitemap。ItemList 只描述当前页。真实文章译文建立对应 hreflang；列表与分类仅在有对应内容的第一页关联，不把不同语言的第 2 页强行当作译文。编辑说明使用 AboutPage；文章作者链接到实际组织说明。
 
 分类页标题标明当前分类，第二页起添加本语言页码；静态与客户端共用 `guideListTitle`，不会在加载后覆盖成栏目通用标题。这是帮助读者辨识页面的改进，并非 Google 禁止分页复用标题。SEO 检查还核对站内锚点及 picture/srcset 资源，避免目录链接或桌面专用封面遗漏。手机目录的“展开/收起”文字由原生 details 状态驱动，三语同步。
 
 构建生成根目录 404.html，供 Cloudflare Pages 使用。`scripts/vite-preview-404.mjs` 让本地生产预览中不存在的页面返回 404 和 noindex，不再回落为首页 200；这仍不等同于已核验 Cloudflare 生产 HTTP 行为。`pnpm check:guides-seo` 核查静态内容、元数据、来源、译文、链接和 sitemap；传入本地 --base 时增加实际 200/404 响应检查，不依赖 Google 服务或触发真实通知。
 
 分页每页八篇；分类与页码保存到 URL，文章的返回列表链接保留原分类与页码。检查主推链接、标题链接、分类、第二页、返回列表、目录、手机菜单和译文缺失提示。多语言与响应式检查遵循 [部署与排障](deployment-troubleshooting.md)，结果见 [最近本地验收](../design-qa.md)。
+
+## 列表与分类的主题 SEO
+
+本轮用户要求将四个固定分类建设为可索引的主题归档，替代初版的临时筛选 noindex 策略。配置位于 src/guides-copy.json：主列表的 siteTitle、seoDescription、seoKeywords；四类的 categoryPages.heading/title/description/keywords。共享标题函数同步静态与客户端，分页标题和描述带本语言页码；OG/Twitter、CollectionPage 与页面描述一致。分类 sitemap lastmod 取本分类文章的实际变更日期。
+
+| 页面 | 内容重点 |
+| --- | --- |
+| 资讯总列表 | Codex / OpenAI、额度重置、产品更新、故障排查与实用指南 |
+| 新闻动态 | 模型可用性、迁移安排与使用政策 |
+| 产品更新 | Codex CLI/桌面端、模型与 API 的版本、功能及适用范围 |
+| 故障信息 | OpenAI Status、受影响组件、恢复进展及任务排查 |
+| 使用指南 | 用量面板、共享额度、重置时间与 API 计费 |
+
+关键词按真实主题组织，不为同义词或长尾组合生成重复落地页。按用户要求输出简洁 meta keywords 字段；[Google 明确不使用它决定索引或排名](https://developers.google.com/search/docs/crawling-indexing/special-tags)，不能把填写标签当成关键词优化完成。核心工作是准确的标题、可读描述、主题正文、内链和来源。文章仍用自身 title/summary 作为独立标题及描述；正文中的型号、范围与操作入口保持自然表达。
+
+真实源内容不足的空分类、预览稿、非法或越界地址保持既有索引隔离/404；分类地址与查询参数不同，文章返回状态参数继续 canonical 到干净文章 URL。实际 Google 收录、标题改写和搜索摘要需要抓取及 Search Console 证据，不能以构建通过保证。

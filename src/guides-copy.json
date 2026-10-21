@@ -1,7 +1,7 @@
 {
   "zh-CN": {
     "title": "资讯指南",
-    "description": "OpenAI / Codex 新闻、更新、故障信息与使用教程。",
+    "description": "Codex / OpenAI 额度重置、产品更新、故障动态与实用教程。",
     "all": "全部",
     "categories": {
       "news": "新闻动态",
@@ -36,7 +36,7 @@
     "noArticlesBody": "我们会在核对来源后发布新闻、更新与使用指南。",
     "notFound": "没有找到这篇文章",
     "notFoundBody": "链接可能有误，或文章尚未发布。你可以返回资讯列表。",
-    "siteTitle": "资讯指南｜Codex Reset Watch",
+    "siteTitle": "Codex 与 OpenAI 资讯指南：额度重置、更新与故障排查｜Codex Reset Watch",
     "pageTitle": "第 {page} 页",
     "editorialTitle": "编辑与更正说明",
     "editorialIntro": "Codex Reset Watch 是 WarpNav 维护的非官方信息站，关注 Codex 与 OpenAI 用户的实际使用问题。",
@@ -79,11 +79,72 @@
     "seriesLegend": "日历内容图例",
     "seriesMixed": "功能＋重置",
     "seriesUnconfirmed": "待核对 / 未到日期",
-    "pacificTime": "美西时间"
+    "pacificTime": "美西时间",
+    "heading": "Codex 资讯指南",
+    "seoDescription": "追踪 Codex 与 OpenAI 的额度重置、产品更新和服务故障，查阅 Tibo 每日更新目录、官方状态事件、模型迁移及用量教程。文章保留原始来源、适用范围和日期，帮助判断变化对自己账号与任务的影响。",
+    "seoKeywords": [
+      "Codex",
+      "OpenAI",
+      "Codex 额度重置",
+      "产品更新",
+      "OpenAI 故障",
+      "Codex 使用指南"
+    ],
+    "pageDescription": "第 {page} 页：{description}",
+    "categoryPages": {
+      "news": {
+        "heading": "Codex 与 OpenAI 新闻",
+        "title": "Codex 与 OpenAI 新闻动态：模型与使用政策",
+        "description": "关注会影响 Codex 与 OpenAI 用户实际使用的消息，梳理模型可用性、迁移安排、政策变化与适用对象，并链接原始公告。",
+        "keywords": [
+          "Codex 新闻",
+          "OpenAI 动态",
+          "模型迁移",
+          "模型可用性",
+          "使用政策"
+        ]
+      },
+      "updates": {
+        "heading": "Codex 产品更新",
+        "title": "Codex 产品更新：客户端、模型与 API 变化",
+        "description": "按版本和功能查阅 Codex 客户端、模型与 OpenAI API 的实质变化，了解推出范围、使用条件、操作入口及用量影响。",
+        "keywords": [
+          "Codex 更新",
+          "Codex CLI",
+          "Codex 桌面端",
+          "OpenAI API",
+          "模型更新"
+        ]
+      },
+      "incidents": {
+        "heading": "OpenAI 与 Codex 故障信息",
+        "title": "OpenAI 与 Codex 故障信息：状态通报与恢复进展",
+        "description": "查阅 Codex、ChatGPT 与 OpenAI API 的具体故障事件，核对官方通报、受影响组件、UTC 时间线、恢复进展及任务排查方法。",
+        "keywords": [
+          "OpenAI Status",
+          "Codex 故障",
+          "ChatGPT 故障",
+          "API 服务异常",
+          "故障恢复"
+        ]
+      },
+      "tutorials": {
+        "heading": "Codex 使用指南",
+        "title": "Codex 使用指南：额度查询、重置时间与排错",
+        "description": "整理 Codex 额度查询、共享用量与重置时间的实用方法，区分订阅和 API 计费，提供核对入口、操作步骤与适用条件。",
+        "keywords": [
+          "Codex 使用指南",
+          "Codex 额度查询",
+          "用量面板",
+          "额度重置时间",
+          "API 计费"
+        ]
+      }
+    }
   },
   "zh-TW": {
     "title": "資訊指南",
-    "description": "OpenAI / Codex 新聞、更新、故障資訊與使用教學。",
+    "description": "Codex / OpenAI 配額重置、產品更新、服務異常與實用教學。",
     "all": "全部",
     "categories": {
       "news": "新聞動態",
@@ -118,7 +179,7 @@
     "noArticlesBody": "我們會在核對來源後發布新聞、更新與使用指南。",
     "notFound": "找不到這篇文章",
     "notFoundBody": "連結可能有誤，或文章尚未發布。你可以返回資訊列表。",
-    "siteTitle": "資訊指南｜Codex Reset Watch",
+    "siteTitle": "Codex 與 OpenAI 資訊指南：配額重置、更新與疑難排解｜Codex Reset Watch",
     "pageTitle": "第 {page} 頁",
     "editorialTitle": "編輯與更正說明",
     "editorialIntro": "Codex Reset Watch 是 WarpNav 維護的非官方資訊站，關注 Codex 與 OpenAI 使用者的實際使用問題。",
@@ -161,11 +222,72 @@
     "seriesLegend": "日曆內容圖例",
     "seriesMixed": "功能＋重置",
     "seriesUnconfirmed": "待核對 / 未到日期",
-    "pacificTime": "美西時間"
+    "pacificTime": "美西時間",
+    "heading": "Codex 資訊指南",
+    "seoDescription": "追蹤 Codex 與 OpenAI 的配額重置、產品更新及服務異常，查閱 Tibo 每日更新目錄、官方狀態事件、模型遷移與用量教學。文章保留原始來源、適用範圍和日期，協助判斷變化對自己帳號及任務的影響。",
+    "seoKeywords": [
+      "Codex",
+      "OpenAI",
+      "Codex 配額重置",
+      "產品更新",
+      "OpenAI 服務異常",
+      "Codex 使用指南"
+    ],
+    "pageDescription": "第 {page} 頁：{description}",
+    "categoryPages": {
+      "news": {
+        "heading": "Codex 與 OpenAI 新聞",
+        "title": "Codex 與 OpenAI 新聞動態：模型與使用政策",
+        "description": "關注影響 Codex 與 OpenAI 使用者實際操作的消息，整理模型可用性、遷移安排、政策變化及適用對象，並附上原始公告。",
+        "keywords": [
+          "Codex 新聞",
+          "OpenAI 動態",
+          "模型遷移",
+          "模型可用性",
+          "使用政策"
+        ]
+      },
+      "updates": {
+        "heading": "Codex 產品更新",
+        "title": "Codex 產品更新：用戶端、模型與 API 變化",
+        "description": "依版本及功能查閱 Codex 用戶端、模型與 OpenAI API 的實質變化，了解推出範圍、使用條件、操作入口及用量影響。",
+        "keywords": [
+          "Codex 更新",
+          "Codex CLI",
+          "Codex 桌面版",
+          "OpenAI API",
+          "模型更新"
+        ]
+      },
+      "incidents": {
+        "heading": "OpenAI 與 Codex 故障資訊",
+        "title": "OpenAI 與 Codex 故障資訊：狀態通報與恢復進度",
+        "description": "查閱 Codex、ChatGPT 與 OpenAI API 的個別異常事件，核對官方通報、受影響元件、UTC 時間軸、恢復進度與任務排查方法。",
+        "keywords": [
+          "OpenAI Status",
+          "Codex 故障",
+          "ChatGPT 故障",
+          "API 服務異常",
+          "故障恢復"
+        ]
+      },
+      "tutorials": {
+        "heading": "Codex 使用指南",
+        "title": "Codex 使用指南：配額查詢、重置時間與疑難排解",
+        "description": "整理 Codex 配額查詢、共享用量及重置時間的實用方法，區分訂閱與 API 計費，提供核對入口、操作步驟和適用條件。",
+        "keywords": [
+          "Codex 使用指南",
+          "Codex 配額查詢",
+          "用量面板",
+          "配額重置時間",
+          "API 計費"
+        ]
+      }
+    }
   },
   "en": {
     "title": "News & guides",
-    "description": "OpenAI and Codex news, product updates, incidents and practical guides.",
+    "description": "Usage resets, product updates, service incidents and practical guides for Codex and OpenAI users.",
     "all": "All",
     "categories": {
       "news": "News",
@@ -200,7 +322,7 @@
     "noArticlesBody": "News, updates and guides will appear here after their sources are checked.",
     "notFound": "Article not found",
     "notFoundBody": "The link may be incorrect, or the article has not been published. You can return to the article list.",
-    "siteTitle": "News & Guides | Codex Reset Watch",
+    "siteTitle": "Codex & OpenAI Guides: Usage Resets, Updates & Troubleshooting | Codex Reset Watch",
     "pageTitle": "Page {page}",
     "editorialTitle": "Editorial & corrections policy",
     "editorialIntro": "Codex Reset Watch is an unofficial site maintained by WarpNav, focused on practical issues for Codex and OpenAI users.",
@@ -243,6 +365,67 @@
     "seriesLegend": "Calendar legend",
     "seriesMixed": "Feature + reset",
     "seriesUnconfirmed": "Unverified / upcoming",
-    "pacificTime": "Pacific Time"
+    "pacificTime": "Pacific Time",
+    "heading": "Codex & OpenAI guides",
+    "seoDescription": "Track Codex and OpenAI usage resets, product changes and service incidents. Read Tibo’s daily update index, model migration checklists and usage guides with original sources, dates and eligibility details.",
+    "seoKeywords": [
+      "Codex",
+      "OpenAI",
+      "Codex usage resets",
+      "product updates",
+      "OpenAI incidents",
+      "Codex guides"
+    ],
+    "pageDescription": "Page {page}: {description}",
+    "categoryPages": {
+      "news": {
+        "heading": "Codex & OpenAI news",
+        "title": "Codex & OpenAI News: Model Availability & Policy Changes",
+        "description": "Follow Codex and OpenAI news that affects everyday use, including model availability, migration plans and policy changes, with eligibility details and original announcements.",
+        "keywords": [
+          "Codex news",
+          "OpenAI news",
+          "model migration",
+          "model availability",
+          "usage policies"
+        ]
+      },
+      "updates": {
+        "heading": "Codex product updates",
+        "title": "Codex Updates: Clients, Models & OpenAI API Changes",
+        "description": "Browse Codex client, model and OpenAI API changes by version and feature. Check rollout scope, requirements, entry points and usage implications.",
+        "keywords": [
+          "Codex updates",
+          "Codex CLI",
+          "Codex desktop",
+          "OpenAI API",
+          "model updates"
+        ]
+      },
+      "incidents": {
+        "heading": "OpenAI & Codex incidents",
+        "title": "OpenAI & Codex Incidents: Status Updates & Recovery",
+        "description": "Look up specific Codex, ChatGPT and OpenAI API incidents, with official status updates, affected components, UTC timelines, recovery progress and task checks.",
+        "keywords": [
+          "OpenAI Status",
+          "Codex incidents",
+          "ChatGPT outages",
+          "API service incidents",
+          "service recovery"
+        ]
+      },
+      "tutorials": {
+        "heading": "Codex usage guides",
+        "title": "Codex Guides: Usage Limits, Reset Times & Troubleshooting",
+        "description": "Find practical ways to check Codex limits, shared usage and reset times. Follow documented entry points and steps, with subscription and API billing kept clear.",
+        "keywords": [
+          "Codex guides",
+          "Codex usage limits",
+          "usage dashboard",
+          "usage reset times",
+          "API billing"
+        ]
+      }
+    }
   }
 }

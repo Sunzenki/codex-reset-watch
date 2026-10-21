@@ -27,11 +27,12 @@ export function GuidePreviewNote({ locale }: { locale: Locale }) {
 export function GuidesPage({ locale, route }: { locale: Locale; route?: ListRoute }) {
   const copy = guideCopy[locale];
   const state = listState(locale, route);
+  const landing = state.category === 'all' ? undefined : copy.categoryPages[state.category as GuideCategory];
   const featured = state.all.filter((article) => article.featuredOrder).sort((a, b) => a.featuredOrder! - b.featuredOrder!).slice(0, 3);
   const showFeatured = state.category === 'all' && state.page === 1 && featured.length > 0;
   let previousMonth = '';
   return <main id="content" className="guides-page">
-    <header className="guides-intro"><h1>{copy.title}</h1><p>{copy.description}</p></header>
+    <header className="guides-intro"><h1>{landing?.heading ?? copy.heading}</h1><p>{landing?.description ?? copy.description}</p></header>
     {state.untranslated && <p className="guide-language-notice" role="status"><Info size={18} /><span>{copy.untranslated}</span></p>}
     {showFeatured && <GuideCarousel articles={featured} locale={locale} />}
     <nav className="guide-filters" aria-label={copy.title}>
