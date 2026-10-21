@@ -1,0 +1,10 @@
+export const guideCategories: readonly ['news', 'updates', 'incidents', 'tutorials'];
+export const guideLocales: readonly ['en', 'zh-CN', 'zh-TW'];
+export const pageSize: number;
+export type ListRoute = { category: string; page: number };
+export function guidesPath(locale: string, slug?: string): string;
+export function editorialPath(locale: string): string;
+export function guideListTitle(copy: { title: string; siteTitle: string; categories: Record<string, string>; pageTitle: string }, category?: string, page?: number): string;
+export function listPath(locale: string, category?: string, page?: number): string;
+export function parseListPath(pathname: string, locale: string): ListRoute | null;
+export function selectList<T extends {locale: string; category: string}>(articles: T[], locale: string, category?: string, page?: number): ListRoute & { totalPages: number; all: T[]; filtered: T[]; visible: T[]; valid: boolean };

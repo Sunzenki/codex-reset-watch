@@ -10,6 +10,9 @@
 /history/*
   Cache-Control: public, max-age=0, must-revalidate
 
+/guides/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /zh-CN/*
   Cache-Control: public, max-age=0, must-revalidate
 

@@ -17,10 +17,10 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 - 项目名称为 **Codex Reset Watch**，简称 **CRW**，正式域名为 `crw.warpnav.com`。
 - 所有权与页脚归属为 WarpNav，主站链接为 <https://warpnav.com/>。
 - 项目是娱乐性质的独立站，不包装成 OpenAI 官方产品，也不使用 OpenAI 官方 Logo。
-- 信息目前主要来自 Tibo（`@thsottiaux`）在 X 上的公开发言。
-- 信息发现依靠站长日常浏览；不使用 X API、不爬取 X、不建立自动监控或邮件提醒。
+- 重置消息重点核对 Tibo（`@thsottiaux`）的 X 原帖；资讯采编另主动查阅 OpenAI 官方文档、更新日志、状态事件及 `@OpenAI`、`@OpenAIDevs`、`@ChatGPT` 原帖与高相关回复，按 [资讯编辑与发布规则](docs/guides-editorial-policy.md) 取舍与核验。
+- 信息由站长提供或在 Codex 采编任务中主动检索；未建立定时监控、X 抓取服务或邮件提醒。不能将一次检索或文章授权说成持续后台值守。
 - 网站不会根据历史间隔自动预测下一次重置，也不会自动修改公开数据。
-- 站长发现新消息后，将原帖交给 Codex 或手动更新源码。
+- 站长可提供原帖，Codex 也可主动核验线索并按对应规则维护源码；资讯常规采编和发布已有持续授权，不自动发送通知。
 - 预告时间到达只代表倒计时归零，不证明额度已经重置。
 - 公开事实、账号实际观察和编辑推断必须明确区分；不能把单点观察扩大成全量结论。
 - 宁可暂时没有记录，也不补写无法验证的数据。
@@ -40,7 +40,7 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 | --- | --- |
 | 前端 | React 19 + TypeScript |
 | 构建 | Vite 8，Node `>=22.13.0` |
-| 内容数据 | `public/data/*.json` 静态 JSON |
+| 内容数据 | 重置事实为 `public/data/*.json`；资讯文章为 `content/guides/{locale}/*.md` |
 | 动态接口 | Cloudflare Pages Functions |
 | 推送数据 | Cloudflare D1：`crw-push`，绑定 `PUSH_DB` |
 | 浏览器推送 | Web Push + VAPID + Service Worker |
@@ -60,6 +60,8 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 
 根地址 `/` 直接承载英文首页，英文历史页为 `/history/`；旧 `/en/` 与 `/en/history/` 分别 301 到 `/` 与 `/history/`。中文语言拥有独立 URL、HTML、canonical、hreflang 和静态 SEO 内容，运行时与英文页面共享组件。
 
+资讯栏目入口：英文 `/guides/`、简中 `/zh-CN/guides/`、繁中 `/zh-TW/guides/`，文章为其下 `{slug}/`。文章维护、置顶/精选轮播、系列目录与预览隔离见 [资讯指南维护](docs/guides.md)。旧版式示例已移除，当前有 21 个选题的英/简/繁全文，共 63 个 published 文件；本次正式发布使用 pnpm build，提交、部署与线上核验阶段见变更日志。
+
 `/crwmaster/` 不是公开导航项并使用 `noindex,nofollow,noarchive`，但隐藏路径不是安全边界；真正保护来自 Secrets、签名会话、同源校验和登录限速。
 
 ## 3. 任务路由：本次还要读什么
@@ -69,6 +71,8 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 | 任务 | 必读文档 |
 | --- | --- |
 | 新预告、状态、历史、三语言或 SEO | [`docs/content-and-data.md`](docs/content-and-data.md) |
+| 资讯文章、置顶、精选、多语言文章或 Markdown | [`docs/guides.md`](docs/guides.md) |
+| 资讯选题、来源、文风、质量标准与文章发布 | [`docs/guides-editorial-policy.md`](docs/guides-editorial-policy.md) |
 | 浏览器订阅、后台、D1、Service Worker 或真实通知 | [`docs/push-operations.md`](docs/push-operations.md) |
 | UI、样式、交互或图片 | [`DESIGN.md`](DESIGN.md)、[`docs/deployment-troubleshooting.md`](docs/deployment-troubleshooting.md) |
 | 构建、预览、Git、Cloudflare、缓存、广告或统计 | [`docs/deployment-troubleshooting.md`](docs/deployment-troubleshooting.md) |
@@ -131,7 +135,7 @@ codex-reset-time/
 
 ## 5. 内容更新标准流程
 
-以下是入口流程；字段和措辞细节见内容专题文档。
+以下是当前/历史重置事件的入口流程；字段和措辞细节见内容专题文档。资讯文章按 [编辑与发布规则](docs/guides-editorial-policy.md) 执行，涉及重置事实时再同步本节数据流程。
 
 1. **核对来源**：打开原帖，记录 URL、原文、准确发帖时间、时区、范围和后续纠正。
 2. **划分证据**：区分公开事实、账号观察和编辑判断，明确证据覆盖范围。
@@ -210,6 +214,7 @@ pnpm exec wrangler pages functions build
 
 - 构建失败不推送。
 - UI 修改先启动本地生产预览，用户明确同意后才能提交和推送。
+- 常规资讯文章的持续发布授权及首次上线前提见 [编辑与发布规则](docs/guides-editorial-policy.md)；不把 UI 审批流程扩展成逐篇文章审批，也不借文章更新夹带未批准的栏目结构或无关改动。
 - 提交前对本次文件运行 `git diff --check` 并查看实际 diff。
 - 使用精确路径 `git add`，禁止 `git add .`。
 - 不提交 `dist` 或无关用户修改。
@@ -247,7 +252,7 @@ GitHub 推送成功不等于上线已经独立验证。除非用户明确要求�
 ## 10. 文档维护规则
 
 - `AGENTS.md` 保存简短执行规则与任务路由；README 保存项目介绍、命令和链接；本手册保存架构、产品边界与操作摘要。
-- 本手册只保存当前有效规则，不追加逐日工作纪要。视觉细节集中在 `DESIGN.md`，实现步骤集中在三份专题文档。
+- 本手册只保存当前有效规则，不追加逐日工作纪要。视觉细节集中在 `DESIGN.md`，专题文档分别维护内容数据、资讯采编、文章实现、推送与部署细节。
 - 专题文档保存可执行细节；同一规则只保留一个权威位置，其他地方使用链接或一句摘要。
 - 会随时间变化的事件、订阅数、部署状态和依赖版本不写成永久事实；任务开始时实时核验。
 - 已解决事故的完整过程进入 `docs/history/`，现行文档只保留事故揭示出的当前约束。
@@ -266,6 +271,8 @@ GitHub 推送成功不等于上线已经独立验证。除非用户明确要求�
 - [`CHANGELOG.md`](CHANGELOG.md)
 - [`design-qa.md`](design-qa.md)（最近一次本地视觉验收）
 - [`docs/content-and-data.md`](docs/content-and-data.md)
+- [`docs/guides-editorial-policy.md`](docs/guides-editorial-policy.md)
+- [`docs/guides.md`](docs/guides.md)
 - [`docs/push-operations.md`](docs/push-operations.md)
 - [`docs/deployment-troubleshooting.md`](docs/deployment-troubleshooting.md)
 - [`docs/history/2026-09-08-to-09-project-log.md`](docs/history/2026-09-08-to-09-project-log.md)

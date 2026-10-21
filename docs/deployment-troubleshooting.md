@@ -57,14 +57,20 @@ pnpm exec wrangler pages deployment list --project-name codex-reset-watch
 
 完整构建按顺序执行：
 
-1. `scripts/validate-data.mjs`
-2. `tsc -b`
-3. `vite build`
-4. `scripts/postbuild-seo.mjs`
+1. `scripts/prepare-guides.mjs`（预览模式附加 `--preview`）
+2. `scripts/validate-data.mjs`
+3. `tsc -b`
+4. `vite build`
+5. `scripts/postbuild-seo.mjs`
+6. `scripts/postbuild-guides.mjs`（构建期渲染资讯 React 页面，不引入生产 SSR 服务）
 
 构建失败时先修复日期、状态值、重复 ID、缺失字段、SEO 不一致或 TypeScript 错误，不得带着失败结果推送。
 
 ## 3. 本地预览边界
+
+资讯栏目未发布稿使用 `pnpm build:preview` 后再运行 `pnpm preview`；正式发布必须重新执行 `pnpm build`，避免把 preview 模式的 noindex 产物部署到正式站。示例隔离、文章状态与构建步骤见 [资讯指南维护](guides.md)。资讯 UI 验收还需检查三语列表与详情，以及分类/分页/目录/置顶/译文缺失提示。
+
+构建后运行 `pnpm check:guides-seo`；预览启动后可运行 `pnpm check:guides-seo --base=http://127.0.0.1:4173`，补查实际 200/404。资讯分页与分类有独立静态路径，本地生产预览的缺失页面由 `scripts/vite-preview-404.mjs` 返回 404/noindex；Cloudflare 生产 404 仍需上线后独立核验。修改 Vite 预览插件后需重启预览进程；静态产物更新则刷新页面即可。
 
 `pnpm dev` 和 `pnpm preview` 只提供 Vite 前端与静态文件，不运行本项目的 Pages Functions API。`/api/push/config` 失败不能据此判断浏览器不支持推送，也不能通过重复点击“重试连接”补出本地后端。需要同时验证前端、Functions 和本地 D1 时，先构建，再运行：
 

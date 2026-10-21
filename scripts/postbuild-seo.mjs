@@ -94,7 +94,9 @@ function currentHeadline(locale) {
 
 function snapshot(route) {
   const copy = locales[route.locale];
-  const languageLinks = Object.entries(locales).map(([code, value]) => `<a href="${routePath(code, route.kind)}" lang="${value.lang}">${code}</a>`).join(' · ');
+  const guidesPath = route.locale === 'en' ? '/guides/' : `/${route.locale}/guides/`;
+  const guidesLabel = { en: 'News & guides', 'zh-CN': '资讯指南', 'zh-TW': '資訊指南' }[route.locale];
+  const languageLinks = Object.entries(locales).map(([code, value]) => `<a href="${routePath(code, route.kind)}" lang="${value.lang}">${code}</a>`).join(' · ') + ` · <a href="${guidesPath}">${guidesLabel}</a>`;
   if (route.kind === 'home') {
     const source = current.announcement;
     return `<main id="content" class="seo-snapshot"><header><p>Codex Reset Watch</p><h1>${escapeHtml(currentHeadline(route.locale))}</h1><p>${escapeHtml(copy.homeDescription)}</p></header>${current.resetAt ? `<p><time datetime="${escapeHtml(current.resetAt)}">${escapeHtml(displayDate(current.resetAt, route.locale))}</time></p>` : ''}${source ? `<section><h2>${escapeHtml(copy.source)}</h2><blockquote cite="${escapeHtml(source.url)}" lang="en">${escapeHtml(source.text)}</blockquote><p><a href="${escapeHtml(source.url)}">Tibo (@thsottiaux) on X</a></p></section>` : ''}<p>${escapeHtml(copy.updated)}: <time datetime="${escapeHtml(current.updatedAt)}">${escapeHtml(displayDate(current.updatedAt, route.locale))}</time></p><nav aria-label="Languages">${languageLinks}</nav></main>`;

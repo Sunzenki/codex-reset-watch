@@ -38,6 +38,7 @@ next-env.d.ts
 *.tsbuildinfo
 /.wrangler/
 /outputs/
+/src/generated/
 /work/
 
 # Project instructions, maintenance guides and history belong in Git.

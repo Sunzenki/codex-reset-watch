@@ -6,11 +6,14 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "node scripts/validate-data.mjs && tsc -b && vite build && node scripts/postbuild-seo.mjs",
+    "dev": "node scripts/prepare-guides.mjs --preview && vite",
+    "build": "node scripts/prepare-guides.mjs && node scripts/validate-data.mjs && tsc -b && vite build && node scripts/postbuild-seo.mjs && node scripts/postbuild-guides.mjs",
+    "build:preview": "node scripts/prepare-guides.mjs --preview && node scripts/validate-data.mjs && tsc -b && vite build && node scripts/postbuild-seo.mjs && node scripts/postbuild-guides.mjs",
     "preview": "vite preview",
     "docs:check": "node scripts/check-docs.mjs",
     "test:docs": "node --test --test-isolation=none scripts/test-docs-check.mjs",
+    "test:guides": "node --test scripts/test-guides.mjs",
+    "check:guides-seo": "node scripts/check-guides-seo.mjs",
     "test:push": "node scripts/test-web-push-build.mjs",
     "test:push-state": "node --experimental-strip-types --test --test-isolation=none scripts/test-push-state.mjs",
     "push:send": "node scripts/send-push.mjs"
@@ -25,6 +28,8 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.1.1",
     "typescript": "5.9.3",
     "vite": "8.0.13",
     "wrangler": "^4.129.0"

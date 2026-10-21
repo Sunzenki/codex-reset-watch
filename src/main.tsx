@@ -3,7 +3,10 @@ import { journalCopy } from './journal-copy';
 import friendLinkData from './friend-links.json';
 import { inspectPushState, withPushRegistration } from './push-state';
 import { ResetCalendar } from './ResetCalendar';
-import { IconContext, iconDefaults, ArrowClockwise, ArrowUp, ArrowUpRight, ArrowRight, Bell, BellSlash, CheckCircle, CaretDown, Clock, ClockCounterClockwise, Globe, Info, Link, Timer, List, Newspaper, Quotes, X } from './icons';
+import { IconContext, iconDefaults, BookOpen, ArrowClockwise, ArrowUp, ArrowUpRight, ArrowRight, Bell, BellSlash, CheckCircle, CaretDown, Clock, ClockCounterClockwise, Globe, Info, Link, Timer, List, Newspaper, Quotes, X } from './icons';
+import { GuideArticlePage, GuideNotFound, GuidesPage, GuideEditorialPage } from './GuidesPage';
+import { findArticle, guideCopy, guideLanguagePath, guidesPath, editorialPath, listState, type GuideArticle } from './guides';
+import { guideListTitle, parseListPath } from './guide-routing.mjs';
 import { StrictMode, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
@@ -15,6 +18,7 @@ import './calendar.css';
 import './journal.css';
 import './journal-history.css';
 import './forest.css';
+import './guides.css';
 
 type Status = 'monitoring' | 'estimated' | 'confirmed' | 'reached' | 'superseded';
 type Outcome = 'unverified' | 'as_announced' | 'revised' | 'cancelled';
@@ -41,8 +45,13 @@ function routeInfo() {
   const parts = window.location.pathname.split('/').filter(Boolean);
   const candidate = parts[0] as Locale | undefined;
   const locale = candidate && supportedLocales.has(candidate) ? candidate : 'en';
-  const isHistory = locale === 'en' ? parts[0] === 'history' : parts[1] === 'history';
-  return { locale, isHistory };
+  const remaining = candidate && supportedLocales.has(candidate) ? parts.slice(1) : parts;
+  const section = remaining.length === 0 ? 'current'
+    : remaining.length === 1 && remaining[0] === 'history' ? 'history'
+    : parseListPath(window.location.pathname, locale) ? 'guides'
+    : remaining[0] === 'guides' && remaining[1] === 'editorial' && remaining.length === 2 ? 'editorial'
+    : remaining[0] === 'guides' && remaining.length === 2 ? 'article' : 'notFound';
+  return { locale, isHistory: section === 'history', section, slug: remaining[1] ?? '' } as const;
 }
 
 function pagePath(locale: Locale, isHistory: boolean) {
@@ -119,30 +128,40 @@ function resetHeadline(status: Status, resetAt: string | null, locale: Locale) {
 }
 
 function App() {
-  const { locale, isHistory } = routeInfo();
+  const { locale, isHistory, section, slug } = routeInfo();
   const copy = ui[locale];
+  const article = section === 'article' ? findArticle(locale, slug) : undefined;
+  const missing = section === 'notFound' || (section === 'article' && !article) || (section === 'guides' && !listState(locale).valid);
   useEffect(() => {
     document.documentElement.lang = localeConfig[locale].htmlLang;
-    document.title = isHistory ? copy.titleHistory : copy.titleCurrent;
-  }, [copy, isHistory, locale]);
+    document.documentElement.dataset.section = section === 'editorial' ? 'article' : section;
+    const guideRoute = section === 'guides' ? listState(locale) : undefined;
+    document.title = missing ? guideCopy[locale].notFound : section === 'editorial' ? `${guideCopy[locale].editorialTitle} | Codex Reset Watch` : guideRoute ? guideListTitle(guideCopy[locale], guideRoute.category, guideRoute.page)
+      : section === 'article' ? article ? `${article.title} | Codex Reset Watch` : guideCopy[locale].notFound
+      : isHistory ? copy.titleHistory : copy.titleCurrent;
+    if (missing) {
+      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex,nofollow');
+      document.querySelectorAll('link[rel="canonical"],link[rel="alternate"],script[type="application/ld+json"]').forEach((node) => node.remove());
+    }
+  }, [copy, isHistory, locale, section, article, missing]);
   useEffect(() => {
-    if (isHistory || window.location.hash !== '#push-reminder') return;
+    if (section !== 'current' || window.location.hash !== '#push-reminder') return;
     const frame = window.requestAnimationFrame(() => {
       document.getElementById('push-reminder')?.scrollIntoView({ block: 'start' });
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [isHistory]);
+  }, [section]);
 
   return <>
     <a className="skip-link" href="#content">{copy.skip}</a>
-    <Header locale={locale} active={isHistory ? 'history' : 'current'} />
-    {isHistory ? <HistoryPage locale={locale} /> : <CurrentPage locale={locale} />}
+    <Header locale={locale} active={section === 'current' ? 'current' : isHistory ? 'history' : 'guides'} article={article} />
+    {missing ? <GuideNotFound locale={locale} /> : section === 'editorial' ? <GuideEditorialPage locale={locale} /> : section === 'guides' ? <GuidesPage locale={locale} /> : section === 'article' ? <GuideArticlePage locale={locale} slug={slug} /> : isHistory ? <HistoryPage locale={locale} /> : <CurrentPage locale={locale} />}
     <PageTools locale={locale} />
     <Footer locale={locale} />
   </>;
 }
 
-function Header({ locale, active }: { locale: Locale; active: 'current' | 'history' }) {
+function Header({ locale, active, article }: { locale: Locale; active: 'current' | 'history' | 'guides'; article?: GuideArticle }) {
   const copy = ui[locale];
   const selected = localeOptions.find((item) => item.code === locale)!;
   const isHistory = active === 'history';
@@ -185,6 +204,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
       <nav id="primary-navigation" className={mobileNavOpen ? 'mobile-nav-open' : ''} aria-label="Primary navigation">
         <a onClick={() => setMobileNavOpen(false)} className={active === 'current' ? 'active' : ''} href={pagePath(locale, false)} aria-current={active === 'current' ? 'page' : undefined}><Newspaper size={16} />{copy.navCurrent}</a>
         <a onClick={() => setMobileNavOpen(false)} className={active === 'history' ? 'active' : ''} href={pagePath(locale, true)} aria-current={active === 'history' ? 'page' : undefined}><ClockCounterClockwise size={16} />{copy.navHistory}</a>
+        <a onClick={() => setMobileNavOpen(false)} className={active === 'guides' ? 'active' : ''} href={guidesPath(locale)} aria-current={active === 'guides' ? 'page' : undefined}><BookOpen size={17} />{guideCopy[locale].title}</a>
       </nav>
       <details className="language-menu" ref={languageRef} onToggle={(event) => {
         if (event.currentTarget.open) setMobileNavOpen(false);
@@ -192,7 +212,7 @@ function Header({ locale, active }: { locale: Locale; active: 'current' | 'histo
         <summary aria-label={`${copy.language}: ${selected.label}`}><Globe size={19} aria-hidden="true" /><b className="language-full">{selected.label}</b><b className="language-short">{selected.shortLabel}</b><CaretDown size={13} aria-hidden="true" /></summary>
         <ul>
           {localeOptions.map((option) => <li key={option.code}>
-            <a href={pagePath(option.code, isHistory)} lang={localeConfig[option.code].htmlLang} aria-current={option.code === locale ? 'page' : undefined}>
+            <a href={active === 'guides' ? window.location.pathname.endsWith('/editorial/') ? editorialPath(option.code) : guideLanguagePath(option.code, article) : pagePath(option.code, isHistory)} lang={localeConfig[option.code].htmlLang} aria-current={option.code === locale ? 'page' : undefined}>
               <span>{option.label}</span>{option.code === locale && <CheckCircle size={16} aria-hidden="true" />}
             </a>
           </li>)}

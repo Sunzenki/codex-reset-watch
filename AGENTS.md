@@ -11,6 +11,7 @@
 | 修改范围 | 继续阅读 |
 | --- | --- |
 | 事件、历史、语言、SEO | [内容与数据](docs/content-and-data.md) |
+| 资讯选题、采编、文风、文章发布与更正 | [资讯编辑与发布规则](docs/guides-editorial-policy.md)、[文章维护](docs/guides.md) |
 | 提醒、后台、订阅、真实通知 | [推送操作](docs/push-operations.md) |
 | UI、样式、图片、交互 | [设计规范](DESIGN.md)、[部署与排障](docs/deployment-troubleshooting.md) |
 | 构建、发布、缓存、统计 | [部署与排障](docs/deployment-troubleshooting.md) |
@@ -20,6 +21,7 @@
 
 - CRW 是非官方、人工整理的信息站。倒计时归零不证明完成，确认帖时间不等于后台执行时刻。
 - 当前与历史事实以 `public/data/current.json`、`public/data/history.json` 为准；事件文案在 `src/i18n.ts`，通用手账标签在 `src/journal-copy.ts`。
+- 用户已将资讯文章采编与常规发布交由 Codex 自主执行，范围和流程见资讯编辑与发布规则；本地栏目首次上线准备、UI 变更和真实通知分别按相应流程处理，不重复要求逐篇批准。
 - UI 按 `DESIGN.md` 执行；历史颜色表示全局/储备类型，证据和时间依据由详情表达。旧深色设计及历史计划不作为现行指令。
 - 功能图标统一从 `src/icons.ts` 使用现有 Phosphor，尺寸、线条与语义按设计规范；保留可读文字和图标按钮的无障碍名称。
 - 预览环境与正式站是不同 origin，不能混用提醒订阅。已有订阅优先识别，服务配置失败不能冒充浏览器不支持。

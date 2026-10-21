@@ -4,6 +4,8 @@
 > 本文是内容事件、历史记录、多语言和 SEO 修改的操作规则。开始任务前先读[主维护手册](../PROJECT-MAINTENANCE-GUIDE.md)。
 > 会变化的当前事件以 `public/data/current.json`、`public/data/history.json` 和实际代码为准，不以本文示例为准。修改摘要、验证和发布阶段记入[变更记录](../CHANGELOG.md)；文档更新不代表已经部署。
 
+资讯列表与文章另按 [编辑与发布规则](guides-editorial-policy.md) 执行选题、文风、SEO 和更正，Markdown 操作见 [文章维护](guides.md)。文章涉及重置事实时仍同步本文定义的权威数据，不把文章替代事件记录。 系列索引与文章头部可明确使用目录 PT 日期；本站发布日期仍单独保存，详见文章维护的日期规则，不改变首页/历史时间换算。资讯普通日期按英文 UTC、简中 Asia/Shanghai、繁中 Asia/Taipei 显示；系列标签以“美西时间 / 美西時間 / Pacific Time”说明时区。三语正文、来源范围和内链同步维护，不能以译文日期覆盖事件日期。
+
 ## 1. 内容原则与证据分层
 
 CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开原帖，不根据网友转述直接更新，也不为了填满页面而补写无法验证的数据。
@@ -182,7 +184,7 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 ### 5.4 更新 SEO（仅在受影响时）
 
-`src/seo-metadata.json` 是六个公开页面运行时标题和构建后结构化数据的统一 SEO 数据源。通用页面定位、标题或摘要变化时，同步更新：
+`src/seo-metadata.json` 是原有六个首页/历史页面运行时标题和构建后结构化数据的统一 SEO 数据源。新增资讯列表与文章从 `src/guides-copy.json` 和 Markdown front matter 生成元数据，见 [资讯指南维护](guides.md)。通用页面定位、标题或摘要变化时，同步更新：
 
 - `src/seo-metadata.json`。
 - 六个语言 HTML 入口中的 title、description、Open Graph 和 Twitter 文案。

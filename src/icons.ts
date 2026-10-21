@@ -6,7 +6,7 @@ export {
   IconContext, Archive, ArrowClockwise, ArrowLeft, ArrowRight, ArrowUp,
   ArrowUpRight, Bell, BellSlash, Browser, CalendarBlank, CaretDown,
   CaretLeft, CaretRight, CheckCircle, Clock, ClockCounterClockwise, Globe, Info, Link, Timer, LinkBreak,
-  List, Newspaper, PaperPlaneTilt, Quotes, SignIn, SignOut, Translate, WarningCircle, X,
+  BookOpen, PushPin, UserCircle, List, Newspaper, PaperPlaneTilt, Pause, Play, Quotes, SignIn, SignOut, Translate, WarningCircle, X,
 } from '@phosphor-icons/react';
 
 export const iconDefaults = {

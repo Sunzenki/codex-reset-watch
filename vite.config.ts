@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import previewNotFound from './scripts/vite-preview-404.mjs';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), previewNotFound()],
   build: {
     target: 'es2022',
     rollupOptions: { input: {
