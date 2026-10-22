@@ -69,7 +69,7 @@ Section headings for methodology and event evidence match Recent records: 26px d
 
 Hero refinement: retain the date/story/quote layout, shorten date paper, move the original-post link into the quote, and remove duplicated hero publication text. One paper summary holds original wording, publication and site update; values use 15px desktop / 14px phone. Publication in this summary is explicitly fixed PST (UTC−8), a display conversion, not evidence of the author’s location or the original timestamp zone. JSON retains UTC provenance; other localized timestamps retain their existing zone labels.
 
-General homepage/history timestamps use UTC notation (UTC, UTC+8), never mixed GMT notation. The explicitly requested PST (UTC−8) summary conversion remains unchanged. The guides series calendar/date labels explicitly use Pacific PT as documented above; they are event dates, separate from site publication timestamps.
+General homepage/history timestamps use UTC notation (UTC, UTC+8), never mixed GMT notation. The explicitly requested PST (UTC−8) summary conversion remains unchanged. Guide list month groups, date rails and inline dates use the actual site publication timestamp in the route timezone (English UTC, Chinese UTC+8). Pacific PT series dates remain in article details and the series calendar, separate from publication dates.
 
 Favicon and touch/notification icons use the coral reset arrow and apricot terminal mark from public/images/forest-icon.png. Run python scripts/generate-brand-assets.py to regenerate PNG/ICO sizes without rewriting social artwork. Public HTML uses versioned ICO/PNG and Apple-touch links.
 

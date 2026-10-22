@@ -81,11 +81,22 @@ for (const route of pages) {
     const rows = [...html.matchAll(/<article class="guide-index-row">([\s\S]*?)<\/article>/g)];
     assert.equal(rows.length, state.visible.length, label('静态与运行时分页数量一致'));
     assert.deepEqual(data.mainEntity.itemListElement.map((item) => item.url), state.visible.map((item) => origin + guidesPath(locale, item.slug)), label('当前页结构化清单'));
+    const publicationZone = locale === 'en' ? 'UTC' : locale === 'zh-TW' ? 'Asia/Taipei' : 'Asia/Shanghai';
+    const publicationDate = (value, options) => new Intl.DateTimeFormat(locale, { ...options, timeZone: publicationZone }).format(new Date(value));
+    const expectedMonths = [];
     state.visible.forEach((item, index) => {
       // React uses &#x27; for apostrophes; the head template uses equivalent &#39;.
       assert.ok(rows[index][1].replaceAll('&#x27;', '&#39;').includes(escapeHtml(item.title)), label('当前页文章顺序'));
-      assert.ok(rows[index][1].includes(`dateTime="${articleDate(item, articles).date}"`), label('列表系列日期对应日历'));
+      const rowTimes = [...rows[index][1].matchAll(/<time[^>]*dateTime="([^"]+)"[^>]*>([\s\S]*?)<\/time>/gi)];
+      assert.deepEqual(rowTimes.map((time) => time[1]), [item.publishedAt, item.publishedAt], label('列表两处日期均使用真实发布日期'));
+      const day = publicationDate(item.publishedAt, { day: 'numeric' }).replace(/[^0-9]/g, '');
+      const month = publicationDate(item.publishedAt, { month: locale === 'en' ? 'short' : 'numeric' });
+      assert.equal(rowTimes[0][2], `<strong>${day}</strong><span>${month}</span>`, label('日期栏按页面语言时区换算'));
+      assert.equal(rowTimes[1][2], publicationDate(item.publishedAt, { year: 'numeric', month: '2-digit', day: '2-digit' }), label('行内发布日期按页面语言时区显示'));
+      const heading = publicationDate(item.publishedAt, { year: 'numeric', month: 'long' });
+      if (expectedMonths.at(-1) !== heading) expectedMonths.push(heading);
     });
+    assert.deepEqual([...html.matchAll(/<h2 class="guide-month">([^<]+)<\/h2>/g)].map((match) => match[1]), expectedMonths, label('月份分组使用真实发布日期'));
     if (state.totalPages > 1) assert.ok(html.includes('class="guide-pagination"'), label('静态分页链接'));
   }
   const references = [...html.matchAll(/(?:href|src)="([/#](?!\/)[^"]*)"/g)].map((match) => match[1]);

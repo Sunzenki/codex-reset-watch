@@ -40,13 +40,13 @@ export function GuidesPage({ locale, route }: { locale: Locale; route?: ListRout
     </nav>
     <section id="guide-list" className="guide-index" aria-label={copy.articles}>
       {state.visible.map((article) => {
-        const date = articleDate(article, guideManifest.articles);
-        const monthKey = displayedDate(article, locale, { year: 'numeric', month: 'numeric' });
+        const date = article.publishedAt;
+        const monthKey = stamp(date, locale, { year: 'numeric', month: 'numeric' });
         const monthChanged = monthKey !== previousMonth;
         previousMonth = monthKey;
-        return <div key={article.slug}>{monthChanged && <h2 className="guide-month">{displayedDate(article, locale, { year: 'numeric', month: 'long' })}</h2>}
-          <article className="guide-index-row"><time className="guide-date" dateTime={date.date}><strong>{displayedDate(article, locale, { day: 'numeric' }).replace(/[^0-9]/g, '')}</strong><span>{displayedDate(article, locale, { month: locale === 'en' ? 'short' : 'numeric' })}</span></time>
-            <div className="guide-row-meta"><div className="guide-badges"><Category category={article.category} locale={locale} />{article.pinned && <Pinned locale={locale} />}</div><time dateTime={date.date}>{displayedDate(article, locale, { year: 'numeric', month: '2-digit', day: '2-digit' })}{date.kind !== 'published' && <span> · {copy.pacificTime}</span>}</time></div>
+        return <div key={article.slug}>{monthChanged && <h2 className="guide-month">{stamp(date, locale, { year: 'numeric', month: 'long' })}</h2>}
+          <article className="guide-index-row"><time className="guide-date" dateTime={date}><strong>{stamp(date, locale, { day: 'numeric' }).replace(/[^0-9]/g, '')}</strong><span>{stamp(date, locale, { month: locale === 'en' ? 'short' : 'numeric' })}</span></time>
+            <div className="guide-row-meta"><div className="guide-badges"><Category category={article.category} locale={locale} />{article.pinned && <Pinned locale={locale} />}</div><time dateTime={date}>{stamp(date, locale, { year: 'numeric', month: '2-digit', day: '2-digit' })}</time></div>
             <div className="guide-row-story"><h3><a href={articleLink(article, state.category, state.page)}>{article.title}</a></h3><p>{article.summary}</p></div>
             <a className="guide-row-open" href={articleLink(article, state.category, state.page)} aria-label={article.title}><ArrowRight size={19} /></a>
           </article>

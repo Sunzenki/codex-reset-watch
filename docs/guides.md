@@ -79,13 +79,13 @@ sources:
 
 旧八个版式示例已从内容源移除，旧地址本地预览返回 404。当前源码有 22 个选题：Tibo 目录与 Day 1–17，以及模型退役迁移、CLI 0.163.0 更新、10 月 21 日故障记录、用量面板四篇实用稿。英文、简中、繁中各 22 篇，共 66 个 `published` 文件；每页 8 篇，实际为 8 / 8 / 6，第一页同时覆盖四种分类。Tibo 底稿见 [系列核验](tibo-28-days-source-review.md)，实用稿来源、范围与译文处理见 [采编记录](guides-practical-source-review.md)。精选顺序仍为目录、Day 16 缓存、Day 7 上下文。
 
-本批首次发布字段为 `2026-10-21T20:51:53Z`（北京时间 10 月 22 日 04:51:53），属于本次上线批次时间；部署完成时刻另记日志。该字段替换预览阶段的整理时间，不倒填成事件日期。系列文章的列表日期及详情主日期按日历的 PT 日期显示，标为“系列日期”；目录标“计划起始”。时区标签使用“美西时间 / 美西時間 / Pacific Time”，保留 America/Los_Angeles 的日期规则。例如 Day 16 显示 2026-10-20，而原帖 UTC 是 2026-10-21。`publishedAt` 保留本站实际稿件/首次公开时间，不能用事件日倒填。预览稿不输出 Article 的 datePublished/dateModified；正式发布后才输出真实值，并在来源区域显示本站发布日期。新普通文章仍显示真实发布日期。
+首发批次字段为 `2026-10-21T20:51:53Z`（北京时间 10 月 22 日 04:51:53），属于该批次上线时间；部署完成时刻另记日志。该字段替换预览阶段的整理时间，不倒填成事件日期。所有资讯列表的月份分组、日期栏和行内日期统一显示本站 `publishedAt`，按英文 UTC、简中 Asia/Shanghai、繁中 Asia/Taipei 换算；不带美西时间标签。例如 Day 17 列表三语均为 10 月 22 日，首发目录列表为英文 10 月 21 日、中文 10 月 22 日。系列日期保留在详情主日期和总目录日历：日文章标“系列日期”，目录标“计划起始”，使用“美西时间 / 美西時間 / Pacific Time”说明 America/Los_Angeles 日期规则。例如 Day 16 详情与日历为 2026-10-20，而原帖 UTC 是 2026-10-21。`publishedAt` 保留本站实际稿件/首次公开时间，不能用事件日倒填。预览稿不输出 Article 的 datePublished/dateModified；正式发布后才输出真实值，并在来源区域显示本站发布日期。
 
 ## 系列总目录与日文章
 
 目录 front matter 的 `series` 对象：`id`（系列关联）、`startDate`（YYYY-MM-DD）、`days: 28`、`timeZone: America/Los_Angeles`、`checkedAt`（本轮资料实际核对时间）。这组字段只随目录文章进入清单，正式构建会连同预览目录排除。
 
-日文章设置 `seriesId`、`seriesDay`（1–28）、`seriesKinds`（`feature` / `reset` / `banked` / `broadcast`，可多选）和 `announcedAt`（主要来源带时区时间；来源最后编辑时间须在正文说明）。`publishedAt` 仍是本站稿件日期，不用事件日倒填。日历日期统一由目录 startDate 与 seriesDay 派生，不从 UTC 原帖日期直接截取；列表置顶优先，其余按本站发布时间倒序，显示的系列日期与排序依据各自保留含义。
+日文章设置 `seriesId`、`seriesDay`（1–28）、`seriesKinds`（`feature` / `reset` / `banked` / `broadcast`，可多选）和 `announcedAt`（主要来源带时区时间；来源最后编辑时间须在正文说明）。`publishedAt` 仍是本站稿件日期，不用事件日倒填。日历日期统一由目录 startDate 与 seriesDay 派生，不从 UTC 原帖日期直接截取；列表置顶优先，其余按本站发布时间倒序，并显示实际发布日期。详情与日历继续显示系列日期。
 
 每日文章三语标题统一以 `Tibo's Day {日号}` 开头，例如 `Tibo's Day 16｜API 可选 12 小时缓存…`；日号不补零。列表、详情、精选、相关阅读及元数据直接使用这一标题。总目录保留独立目录名称；日历格已有 DAY 日号，因此其正文标题仍省去重复的系列前缀。
 

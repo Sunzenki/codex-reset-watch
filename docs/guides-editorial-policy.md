@@ -144,7 +144,7 @@ Codex 负责检索、整理与写作时，公开编辑说明或文章正文应�
 - 一篇解决一个明确问题，有唯一稳定 URL 和清楚的 H1；`title` 与正文同语言、准确描述主题，不堆关键词。[标题指南](https://developers.google.com/search/docs/appearance/title-link)
 - `summary` 对应实际内容，作为列表简介和描述的当前统一数据源。描述没有 Google 规定的固定字数门槛；按含义和展示效果写，不把原六页的 150–160 字符校验移植成文章质量标准。[摘要指南](https://developers.google.com/search/docs/appearance/snippet)
 - 发布日期是本站文章首次公开日期，更新时间对应实质修订；事件日期放在正文中标清。不能倒填成来源发帖日、使用未来日期，或只改时间骗取新鲜度。可见日期、结构化数据与 sitemap 的相关日期相符。[日期指南](https://developers.google.com/search/docs/appearance/publication-dates)
-- 连载回顾可以将明确标注的“系列日期”用于索引和文章头部，与目录日历一致；这描述事件归档，不称作本站创建/发布日期。真实 `publishedAt` 单独保存，正式稿在来源区域可见，并与 Article / sitemap 一致。未发布预览稿不填写 Article 的 datePublished/dateModified，避免把本地创建时间伪装成已公开日期。
+- 连载回顾在文章头部和总目录日历使用明确标注的“系列日期”，描述事件归档；资讯列表统一显示真实 `publishedAt`，按英文 UTC、简中及繁中 UTC+8 换算。真实发布日期也在正式文章来源区域可见，并与 Article / sitemap 一致。未发布预览稿不填写 Article 的 datePublished/dateModified，避免把本地创建时间伪装成已公开日期。
 - 文章使用 Article 或适用子类型，headline、datePublished、dateModified、author、publisher 与实际页面一致。作者身份可核查，不捏造履历或审核；结构化数据只能描述页面真实内容。[Article 指南](https://developers.google.com/search/docs/appearance/structured-data/article)、[结构化数据通则](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)
 - 有正文、主要标题、来源和相关日期的静态 HTML；JavaScript 加载前后语义一致。正式页面的 canonical 指向自身干净地址，文章返回列表用的 query 不形成重复文章索引。
 - 有真实译文才建立相互对应的 hreflang，每种语言各自 canonical；不让未翻译正文冒充对应语言，也不以跨语言 canonical 合并真正译文。[多语言指南](https://developers.google.com/search/docs/specialty/international/localized-versions)
