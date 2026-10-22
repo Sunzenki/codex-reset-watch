@@ -278,10 +278,10 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const tone = isLatestUpdate || isBankedLoading ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
   const journal = journalCopy[locale];
-  const displayAt = isResetConfirmed ? data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
+  const displayAt = isOwnerObserved ? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
   const headline = isResetConfirmed ? content.headline : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale);
   const prefix = headline.match(/^(第\s*\d+\s*天|Day\s+\d+)\s*/)?.[0];
-  const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];
+  const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];
   const body = isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : journal.confirmation : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : isBankedLoading ? copy.bankedPendingBody : copy.waitingBody;
 
   return <main id="content" className="journal-page">

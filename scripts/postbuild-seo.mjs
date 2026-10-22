@@ -58,7 +58,7 @@ function displayDate(value, locale) {
 }
 
 function confirmedHeadline(locale) {
-  if (current.confirmationBasis === 'owner_observed') return locales[locale].confirmedResetHeadline;
+  if (current.confirmationBasis === 'owner_observed') return { en: 'Usage reset has landed', 'zh-CN': '额度重置已落地', 'zh-TW': '額度重置已落地' }[locale];
   const copy = locales[locale];
   const config = locales[locale];
   const hasLandingTime = Boolean(current.resetAt);

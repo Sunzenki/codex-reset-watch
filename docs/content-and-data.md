@@ -91,6 +91,8 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 `kind` 描述事件形态，`status` 描述证据或进度，二者不能混用。`rollout_observed` 和 `reset_confirmed` 都可以使用 `status: "confirmed"` 与 `resetAt: null`；不要为了显示倒计时虚构时间。
 
+站长实测重置落地时使用 `reset_confirmed` 与 `confirmationBasis: "owner_observed"`；首页日期栏显示本站实测记录时间 `updatedAt`，公开原帖时间单独保留。页面标题可简写“额度重置已落地”，实测依据在来源说明交代；历史采用 `timeBasis: "observation"`，不把未知执行时刻填成预告截止时间。
+
 运行时 H1 由 `src/main.tsx` 的状态分支和 `src/i18n.ts` 的当前事件文案共同决定，无 JavaScript 静态快照由 `scripts/postbuild-seo.mjs` 生成。JSON 中的 `headline` 不能被视为唯一标题来源。
 
 ## 4. 历史记录数据模型

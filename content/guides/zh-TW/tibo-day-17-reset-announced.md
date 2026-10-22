@@ -2,15 +2,17 @@
 {
   "id": "tibo-day-17",
   "slug": "tibo-day-17-reset-announced",
-  "title": "Tibo's Day 17｜額度重置預告，PST 上午 10 點前落地",
-  "summary": "時間回覆對應台北時間 10 月 23 日 02:00 前；若 PST 泛指夏令時間，則為 01:00。保留預告、完成狀態與帳戶額度的區別。",
+  "title": "Tibo's Day 17｜額度重置已落地",
+  "summary": "第 17 天額度重置已落地，站長帳戶已實測恢復。保留先前預告、截止時間換算及帳戶用量查詢入口。",
   "locale": "zh-TW",
   "category": "updates",
   "publishedAt": "2026-10-22T07:32:36Z",
   "status": "published",
   "seriesId": "tibo-28-days",
   "seriesDay": 17,
-  "seriesKinds": ["reset"],
+  "seriesKinds": [
+    "reset"
+  ],
   "announcedAt": "2026-10-22T06:55:22Z",
   "sources": [
     {
@@ -25,11 +27,14 @@
       "label": "OpenAI：Codex 方案、用量與一次性重置說明",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-22T19:10:42.948Z"
 }
 ---
 
-Tibo 在 [Day 17 原帖](https://x.com/thsottiaux/status/2113162277688070445)宣布新一輪額度重置，隨後[補充時間](https://x.com/thsottiaux/status/2113162413008884099)：「Lands tomorrow before 10am PST.」按原文 PST 換算，預計台北時間 **10 月 23 日 02:00 前**落地；若他泛指當地夏令時間 PDT，則為 **01:00 前**。本次核對的兩則訊息仍是預告，尚無完成確認。
+第 17 天額度重置已落地。站長於台北時間 10 月 23 日確認自己的帳戶額度已恢復。Tibo 暫未另發完成確認帖，具體重置時間未知。
+
+Tibo 在 [Day 17 原帖](https://x.com/thsottiaux/status/2113162277688070445)宣布新一輪額度重置，隨後[補充時間](https://x.com/thsottiaux/status/2113162413008884099)：「Lands tomorrow before 10am PST.」按原文 PST 換算，預計台北時間 **10 月 23 日 02:00 前**落地；若他泛指當地夏令時間 PDT，則為 **01:00 前**。
 
 ## 「明天上午 10 點前」是哪一天
 
@@ -42,7 +47,7 @@ Tibo 在 [Day 17 原帖](https://x.com/thsottiaux/status/2113162277688070445)宣
 
 回覆發佈時，美國太平洋當地仍是 **10 月 21 日 23:55 PDT**，因此這裡將 tomorrow 解釋為當地 10 月 22 日。Day 17 也按 10 月 21 日的系列日期歸檔，文章發佈日期另行記錄。
 
-主帖使用「今天是重置日」的說法，緊接著的回覆給出了「明天上午 10 點前」的預期。本站倒數採用後者，並保留字面 PST 的換算結果。**before 指截止邊界**，實際可能更早；倒數歸零時仍需看後續確認。
+主帖使用「今天是重置日」的說法，緊接著的回覆給出了「明天上午 10 點前」的預期。先前倒數採用後者，並保留字面 PST 的換算結果。以下截止時間保留為預告時間線，目前落地狀態依據站長實測更新。
 
 ## 方案、視窗和重置方式說清楚了嗎
 
@@ -54,4 +59,4 @@ Tibo 在 [Day 17 原帖](https://x.com/thsottiaux/status/2113162277688070445)宣
 
 先開啟[帳戶用量面板](https://chatgpt.com/codex/settings/usage)，或在目前 CLI 工作階段輸入 `/status`，核對使用的帳戶、工作區、視窗名稱、剩餘量及顯示的恢復時間。這些查詢入口也列在上述官方說明文件中。
 
-比較重置前後時，保留同一帳戶和視窗的時間記錄；單一帳戶的變化只說明該帳戶的情況。具體操作可看[用量面板與共享額度說明](/zh-TW/guides/codex-usage-dashboard-and-shared-limits/)。本輪公開預告與倒數見[重置動態](/zh-TW/)，已歸檔的確認記錄見[歷史記錄](/zh-TW/history/)。
+比較重置前後時，保留同一帳戶和視窗的時間記錄；單一帳戶的變化只說明該帳戶的情況。具體操作可看[用量面板與共享額度說明](/zh-TW/guides/codex-usage-dashboard-and-shared-limits/)。本輪最新狀態見[重置動態](/zh-TW/)，已歸檔的確認記錄見[歷史記錄](/zh-TW/history/)。

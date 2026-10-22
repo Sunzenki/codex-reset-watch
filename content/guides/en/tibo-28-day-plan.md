@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo’s 28-day plan: Codex daily update index",
-  "summary": "Follow Codex and ChatGPT Work features, usage resets and their scope. Days 1–17 are covered, including the Day 17 reset announcement and deadline conversion.",
+  "summary": "Follow Codex and ChatGPT Work features, usage resets and their scope. Days 1–17 are covered; the Day 17 reset has landed.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-22T07:29:30Z",
+  "updatedAt": "2026-10-22T19:10:42.948Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-22T07:29:30Z"
+    "checkedAt": "2026-10-22T19:10:42.948Z"
   },
   "sources": [
     {
@@ -49,8 +49,8 @@
 
 ## How dates and categories are recorded
 
-The [Day 17 reset announcement](/guides/tibo-day-17-reset-announced/) is now covered: delivery is expected before October 22, 18:00 UTC under literal PST, or 17:00 UTC if PDT was intended. Completion remains unconfirmed.
+The [Day 17 reset](/guides/tibo-day-17-reset-announced/) has landed, verified on the site owner’s account. The article preserves the earlier announcement and deadline.
 
-Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage-reset announcement. Later days will receive articles when their updates can be verified.
+Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account. Later days will receive articles when their updates can be verified.
 
-Calendar dates follow US Pacific time (PT), including daylight saving changes. Daily articles separately list important post times in UTC. Lists and article headers use the calendar’s series date; this index uses the plan’s start date. Day 9 retains the distinction between the post’s last edit time and its original publication time.
+Calendar dates follow US Pacific time (PT), including daylight saving changes. Daily articles separately list important post times in UTC. Lists show the site’s actual publication date. Series dates remain in article details and this calendar; this index’s header uses the plan’s start date. Day 9 retains the distinction between the post’s last edit time and its original publication time.

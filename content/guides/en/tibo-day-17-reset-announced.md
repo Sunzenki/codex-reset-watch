@@ -2,15 +2,17 @@
 {
   "id": "tibo-day-17",
   "slug": "tibo-day-17-reset-announced",
-  "title": "Tibo's Day 17 | Usage reset expected before 10am PST",
-  "summary": "The timing reply points to October 22, 18:00 UTC under literal PST, or 17:00 UTC if PDT was intended. What is announced and how to check your own allowance.",
+  "title": "Tibo's Day 17 | Usage reset has landed",
+  "summary": "The Day 17 usage reset has landed, verified on the site owner’s account. The earlier announcement and deadline remain on record.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-22T07:32:36Z",
   "status": "published",
   "seriesId": "tibo-28-days",
   "seriesDay": 17,
-  "seriesKinds": ["reset"],
+  "seriesKinds": [
+    "reset"
+  ],
   "announcedAt": "2026-10-22T06:55:22Z",
   "sources": [
     {
@@ -25,11 +27,14 @@
       "label": "OpenAI: Codex plans, usage and one-time resets",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-22T19:10:42.948Z"
 }
 ---
 
-Tibo announced a usage reset in his [Day 17 post](https://x.com/thsottiaux/status/2113162277688070445), then [added a timing reply](https://x.com/thsottiaux/status/2113162413008884099): “Lands tomorrow before 10am PST.” Taken literally, the deadline is **October 22, 18:00 UTC**; if PST refers loosely to local daylight time, it is **17:00 UTC**. The two messages checked for this article announce an upcoming reset; neither confirms completion.
+The **Day 17 usage reset has landed**. The site owner verified restored usage on their account on October 23 (UTC+8). Tibo has not posted a separate completion confirmation; the exact reset time is unknown.
+
+Tibo announced a usage reset in his [Day 17 post](https://x.com/thsottiaux/status/2113162277688070445), then [added a timing reply](https://x.com/thsottiaux/status/2113162413008884099): “Lands tomorrow before 10am PST.” Taken literally, the deadline is **October 22, 18:00 UTC**; if PST refers loosely to local daylight time, it is **17:00 UTC**.
 
 ## Which day is “tomorrow before 10am”?
 
@@ -42,7 +47,7 @@ Tibo announced a usage reset in his [Day 17 post](https://x.com/thsottiaux/statu
 
 When the reply was posted, the local Pacific time was still **October 21, 23:55 PDT**. This is why CRW interprets tomorrow as October 22 there. Day 17 is filed under the October 21 series date, with this article’s publication date recorded separately.
 
-The main post calls it reset day today; the reply immediately afterward gives tomorrow before 10am as the delivery expectation. CRW uses the more specific reply for its countdown and preserves the literal PST conversion. **Before gives a deadline boundary**: delivery may happen earlier, and reaching zero still requires a later confirmation.
+The main post calls it reset day today; the reply immediately afterward gives tomorrow before 10am as the delivery expectation. The earlier countdown used the more specific reply and the literal PST conversion. This deadline is retained as part of the announcement timeline; the current status is based on the site owner’s verification.
 
 ## Plans, usage windows and reset type
 
@@ -54,4 +59,4 @@ Neither post lists eligible plans, identifies the usage windows affected or says
 
 Open your [usage dashboard](https://chatgpt.com/codex/settings/usage), or enter `/status` in an active CLI session. Check the account and workspace you are using, the allowance name, remaining usage and any reset time shown. The official help article above lists these lookup methods.
 
-For a before-and-after comparison, keep timestamps for the same account and allowance; one account’s change describes that account. See the [usage dashboard and shared limits guide](/guides/codex-usage-dashboard-and-shared-limits/) for the practical checks. The [reset updates page](/) holds this announcement and countdown; [history](/history/) keeps archived confirmation records.
+For a before-and-after comparison, keep timestamps for the same account and allowance; one account’s change describes that account. See the [usage dashboard and shared limits guide](/guides/codex-usage-dashboard-and-shared-limits/) for the practical checks. The [reset updates page](/) shows the latest status; [history](/history/) keeps archived confirmation records.

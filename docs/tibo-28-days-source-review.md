@@ -98,3 +98,9 @@
 - **回复处理与缺口**：读取了主帖下要求 banked reset 的回复、时间帖下按 UTC+8 换算的回复及质疑 today/tomorrow 的回复；仅用于识别读者问题，不把诉求当发放承诺，也不采用评论替代时区计算。两条作者消息未明确套餐、额度窗口、储备方式或完成情况。Daybreak Blue 提醒与额度时间说明无直接关系，未扩写成新功能或独立产品稿。
 - **官方查漏**：同轮打开 [OpenAI Status](https://status.openai.com/)、[Codex 帮助文档](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)、[更新日志](https://learn.chatgpt.com/docs/changelog)及 [Codex Releases](https://github.com/openai/codex/releases)。本稿仅采用帮助文档中用量面板、CLI `/status` 与一次性重置条件的说明；当前故障和 alpha 版本不拼入本次重置报道。没有将上述入口或已读评论说成全平台检索或完成确认。
 - **文章与目录**：新增英/简/繁 `tibo-day-17-reset-announced`，保留同一 id 与 10 月 21 日系列日期；目录保留原始 publishedAt，更新摘要、核对时间、来源与直接内链。统计由日文章派生为 17/28、11 个功能日、8 个重置相关日；Day 16 的相邻日入口随清单自动指向 Day 17，不重写旧日的历史事实。先保存三语 draft、审读后设为 published 以准备正式构建，实际提交/部署阶段以变更日志为准。
+
+## 2026-10-23 — Day 17 落地更新
+
+- 站长在本次会话确认自己的账号额度已恢复，并转述 X 上也有其他用户反馈；本轮未逐条核验这些网友反馈。通过 agent-reach / Jina Reader 重读主帖与时间回复，未取得 Tibo 的独立完成确认帖。
+- 首页及三语文章统一使用“第 17 天额度重置已落地”，来源说明简述站长实测。保留原始预告、PST/PDT 截止时间及未知执行时刻；历史采用本站实测记录时间，不将截止时间当作实际完成时间。
+- 更新三语 Day 17 标题、摘要、正文、总目录与日历派生标题；publishedAt、slug 和系列日不变，仅增加实质修订时间。同步修正目录正文中遗留的列表系列日期说明，遵循列表实际发布日期规则。

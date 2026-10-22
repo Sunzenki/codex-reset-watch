@@ -1,5 +1,33 @@
 [
   {
+    "id": "reset-2026-10-23-day17-observed",
+    "targetAt": "2026-10-22T19:10:42.948Z",
+    "precision": "estimated",
+    "originalTimezone": "Site observation timestamp (UTC)",
+    "originalTimeText": "Lands tomorrow before 10am PST.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.\n\nAlso good time to remind you to get Daybreak Blue access, it only takes 15 mins and you don’t want to have to do it in the middle of an incident.",
+      "translation": "第 17 天：你们肯定以为我们忘了，但没有，今天是重置日。\n\n也趁这个机会提醒大家开通 Daybreak Blue 访问权限，只需要 15 分钟；你肯定不想在故障发生时才去办。",
+      "url": "https://x.com/thsottiaux/status/2113162277688070445",
+      "postedAt": "2026-10-22T06:55:22.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Lands tomorrow before 10am PST.",
+      "translation": "将在明天 PST 上午 10 点前落地。",
+      "url": "https://x.com/thsottiaux/status/2113162413008884099",
+      "postedAt": "2026-10-22T06:55:54.000Z"
+    },
+    "announcedTargetAt": "2026-10-22T18:00:00.000Z",
+    "outcome": "as_announced",
+    "note": "The site owner verified restored usage. The archive time is the site’s observation record time, not the exact reset time. Tibo has not posted a separate completion confirmation.",
+    "recordedAt": "2026-10-22T19:10:42.948Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "observation"
+  },
+  {
     "id": "reset-2026-10-20-day15-confirmed",
     "targetAt": "2026-10-20T06:33:48.000Z",
     "precision": "confirmed",

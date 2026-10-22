@@ -1,12 +1,11 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "Day 17 usage reset announced",
-  "resetAt": "2026-10-22T18:00:00.000Z",
-  "deadlineEstimated": true,
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "Day 17 usage reset has landed",
+  "resetAt": null,
   "sourceTimezone": "PST (UTC−8, as written)",
   "originalTimeText": "Lands tomorrow before 10am PST.",
-  "scope": "Day 17 reset expected before October 22, 10:00 PST; eligible plans and usage windows were not specified.",
+  "scope": "Day 17 usage reset verified on the site owner’s account.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.\n\nAlso good time to remind you to get Daybreak Blue access, it only takes 15 mins and you don’t want to have to do it in the middle of an incident.",
@@ -21,6 +20,9 @@
     "url": "https://x.com/thsottiaux/status/2113162413008884099",
     "postedAt": "2026-10-22T06:55:54.000Z"
   },
-  "updatedAt": "2026-10-22T07:19:14.000Z",
-  "note": "Completion has not been confirmed. At the timing reply's publication, the Pacific date was October 21; tomorrow is interpreted as October 22. The countdown uses the before-10am boundary under literal PST: October 22, 18:00 UTC (October 23, 02:00 UTC+8). If PST meant local PDT (UTC−7), the boundary would be October 22, 17:00 UTC (October 23, 01:00 UTC+8). This is an estimated deadline, not an exact reset time. Eligible plans and usage windows were not specified."
+  "updatedAt": "2026-10-22T19:10:42.948Z",
+  "note": "The site owner confirmed restored usage on their account on October 23 (UTC+8). No separate completion post from Tibo was found. The exact execution time is unknown. Earlier timing reply and estimated deadline are preserved.",
+  "confirmationBasis": "owner_observed",
+  "observationBasis": "owner_account",
+  "announcedTargetAt": "2026-10-22T18:00:00.000Z"
 }
