@@ -63,7 +63,7 @@ sources:
 | `incidents` | 故障信息 | 杏色 |
 | `tutorials` | 使用指南 | 鼠尾草绿 |
 
-- `pinned: true` 使文章优先排列；多个置顶按 `pinOrder` 从小到大，同优先级再按显示日期倒序。普通文章按发布时间倒序，系列文章按日历日期倒序，不用更新时间制造“新文章”。取消置顶只需改为 false。
+- `pinned: true` 使文章优先排列；多个置顶按 `pinOrder` 从小到大，同优先级再按本站 `publishedAt` 倒序。非置顶文章统一按 `publishedAt` 倒序，系列文章也遵循此规则；发布时间相同的批次再按显示日期、同系列日号倒序及 slug 稳定排列，不用 `updatedAt` 制造“新文章”。取消置顶只需改为 false。
 - `featuredOrder` 为独立精选设置，正整数从小到大，最多取前三篇；不填写则不进入精选。精选只在“全部”的第一页展示，满宽单篇轮播，每 7 秒切换；鼠标停留、键盘焦点在内、页面隐藏或用户暂停时停止，手动切换后保持暂停。系统减少动态效果时不自动轮播。文章不足三篇时按实际数量展示，只有一篇时隐藏切换控件。
 - `cover` 可选，只接受实际存在的 `public/images/` 图片；不强制每篇配图。三张精选封面是与文章对应的主题示意（28 天日历、12h 缓存复用、272k → 500k），网页使用 WebP；记录见 [封面与提示词](design-references/tibo-banner-prompts.md)。`coverAlt` 为准确替代文本，`coverWidth` / `coverHeight` 为正整数真实尺寸；用 contain 保留数字、箭头和图意，不裁切信息；可选 `bannerCover` 指向同主题的桌面专用横向图片，同样必须是本地真实资源，并配套 `cover`。宽于 700px 时 picture 选择约 6.5:1 的桌面稿，图片区限制在 120–190px，配紧凑标题摘要；手机继续使用 `cover` 原始比例。横幅服务于列表阅读，不能通过无限增高封面挤掉首屏文章。文章社交分享暂沿用站点共用森林 OG 图及品牌替代文本，标题、摘要和 URL 独立生成。Article JSON-LD 当前省略可选 image，不能从 cover 或品牌 OG 自动推定文章内容图片。
 - `sources` 为名称与 https / 站内 URL 数组，正式文章至少保留一项来源。`corrections` 可选，为 `date`、`text` 对象数组，在正文下方展示。
@@ -85,7 +85,7 @@ sources:
 
 目录 front matter 的 `series` 对象：`id`（系列关联）、`startDate`（YYYY-MM-DD）、`days: 28`、`timeZone: America/Los_Angeles`、`checkedAt`（本轮资料实际核对时间）。这组字段只随目录文章进入清单，正式构建会连同预览目录排除。
 
-日文章设置 `seriesId`、`seriesDay`（1–28）、`seriesKinds`（`feature` / `reset` / `banked` / `broadcast`，可多选）和 `announcedAt`（主要来源带时区时间；来源最后编辑时间须在正文说明）。`publishedAt` 仍是本站稿件日期，不用事件日倒填。日历日期统一由目录 startDate 与 seriesDay 派生，列表置顶优先，其余按显示日期倒序，不从 UTC 原帖日期直接截取。
+日文章设置 `seriesId`、`seriesDay`（1–28）、`seriesKinds`（`feature` / `reset` / `banked` / `broadcast`，可多选）和 `announcedAt`（主要来源带时区时间；来源最后编辑时间须在正文说明）。`publishedAt` 仍是本站稿件日期，不用事件日倒填。日历日期统一由目录 startDate 与 seriesDay 派生，不从 UTC 原帖日期直接截取；列表置顶优先，其余按本站发布时间倒序，显示的系列日期与排序依据各自保留含义。
 
 每日文章三语标题统一以 `Tibo's Day {日号}` 开头，例如 `Tibo's Day 16｜API 可选 12 小时缓存…`；日号不补零。列表、详情、精选、相关阅读及元数据直接使用这一标题。总目录保留独立目录名称；日历格已有 DAY 日号，因此其正文标题仍省去重复的系列前缀。
 

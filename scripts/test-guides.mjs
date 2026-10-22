@@ -35,6 +35,25 @@ test('置顶优先于日期，多个置顶按 pinOrder 排列，普通文章按�
   ]).articles;
   assert.deepEqual(results.map((item) => item.id), ['old-pinned', 'another-pinned', 'latest', 'older']);
 });
+test('新发布的系列文章优先于较早资讯，同批按系列日排列，旧文更新不顶到前面', () => {
+  const item = (id, publishedAt, extra = {}) => compileArticle(source({ id, slug: id, publishedAt, category: 'updates', ...extra }));
+  const plan = item('series-index', '2026-10-01T00:00:00Z', {
+    pinned: true, series: { id: 'release-order', startDate: '2026-10-05', days: 28, timeZone: 'America/Los_Angeles', checkedAt: '2026-10-21T12:00:00Z' },
+  });
+  const daily = (day, publishedAt) => item(`day-${day}`, publishedAt, {
+    seriesId: 'release-order', seriesDay: day, seriesKinds: ['reset'], announcedAt: '2026-10-21T00:00:00Z',
+  });
+  const latest = daily(17, '2026-10-21T12:00:00Z');
+  const results = createManifest([
+    item('earlier-news', '2026-10-21T03:00:00Z', { category: 'news' }),
+    daily(15, '2026-10-20T12:00:00Z'),
+    item('older-updated', '2026-10-18T00:00:00Z', { category: 'news', updatedAt: '2026-10-21T15:00:00Z' }),
+    latest, plan, daily(16, '2026-10-20T12:00:00Z'),
+  ]).articles;
+  assert.equal(articleDate(latest, results).date, '2026-10-21');
+  assert.deepEqual(selectList(results, 'zh-CN').visible.map((article) => article.id), ['series-index', 'day-17', 'earlier-news', 'day-16', 'day-15', 'older-updated']);
+  assert.deepEqual(selectList(results, 'zh-CN', 'updates').visible.map((article) => article.id), ['series-index', 'day-17', 'day-16', 'day-15']);
+});
 test('拒绝重复路径和同语言的重复文章关联', () => {
   const item = compileArticle(source());
   assert.throws(() => createManifest([item, item]), /重复/);

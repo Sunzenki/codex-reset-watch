@@ -128,6 +128,6 @@ export function createManifest(articles, includePreview = false) {
   for (const article of visible.filter((item) => item.seriesId)) {
     if (!visible.some((item) => item.locale === article.locale && item.series?.id === article.seriesId)) throw new Error(`系列日文章缺少同语言、同构建可见的目录：${article.slug}`);
   }
-  visible.sort((a, b) => Number(b.pinned) - Number(a.pinned) || (a.pinned && b.pinned ? a.pinOrder - b.pinOrder : 0) || Date.parse(articleDate(b, visible).date) - Date.parse(articleDate(a, visible).date) || (a.seriesId && a.seriesId === b.seriesId ? b.seriesDay - a.seriesDay : 0) || a.slug.localeCompare(b.slug));
+  visible.sort((a, b) => Number(b.pinned) - Number(a.pinned) || (a.pinned && b.pinned ? a.pinOrder - b.pinOrder : 0) || Date.parse(b.publishedAt) - Date.parse(a.publishedAt) || Date.parse(articleDate(b, visible).date) - Date.parse(articleDate(a, visible).date) || (a.seriesId && a.seriesId === b.seriesId ? b.seriesDay - a.seriesDay : 0) || a.slug.localeCompare(b.slug));
   return { previewMode: includePreview, articles: visible };
 }
