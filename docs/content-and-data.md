@@ -1,6 +1,6 @@
 # CRW 内容、数据与 SEO 维护规则
 
-> 更新日期：2026-10-15
+> 更新日期：2026-10-22
 > 本文是内容事件、历史记录、多语言和 SEO 修改的操作规则。开始任务前先读[主维护手册](../PROJECT-MAINTENANCE-GUIDE.md)。
 > 会变化的当前事件以 `public/data/current.json`、`public/data/history.json` 和实际代码为准，不以本文示例为准。修改摘要、验证和发布阶段记入[变更记录](../CHANGELOG.md)；文档更新不代表已经部署。
 
@@ -166,6 +166,7 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 - 通用 `ui` 文案。
 - `currentCopy` 的 `headline`、`scope`、`context`、`note` 和需要时的 `sourceTranslation`。
+- 原帖较长且包含无关内容时，可用 `sourceExcerpt` 展示与重置有关的连续原文；右栏自动标明节选，`sourceTranslation` 对应节选。JSON 的 `announcement.text` 和 `translation` 保留完整原文与译文，原帖链接保持可用。
 - 新增历史记录对应的 `historyCopy`。
 - `localizedSourceTimezone` 等与来源时间相关的本地化映射。
 

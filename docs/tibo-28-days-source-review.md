@@ -89,3 +89,12 @@
 八个旧版式示例已移除，仅保留上述 17 篇简中预览稿。全部标题/摘要与修订后正文对应，未虚构实测或人工记者审核。尚缺第 3 天到账确认、Ultrafast 完整套餐表、time travel 外部回滚规则和长期缓存独立实测；分别在相关段落按实际证据限缩措辞，没有用泛免责声明代替事实。
 
 本轮没有把系列日倒填为 datePublished。列表和主日期按目录日期显示，目录为 10/05，Day 1–16 为 10/05–10/20 PT；未发布稿不输出 Article 发布/更新日期，正式发表后仍需真实公开日期。封面及生成提示词见 [banner 记录](design-references/tibo-banner-prompts.md)。
+
+## 2026-10-22 — Day 17 重置预告续编
+
+- **读者与增量**：面向等待额度恢复的 Codex / Work 用户，补齐置顶目录之后的 Day 17 独立说明。本站已有 Day 1–16、用量面板教程和首页事件；本篇增加主帖与回复的时间链路、跨日和 PST/PDT 换算、账号核对入口，不把预告写成完成。
+- **读取方式与时间**：本轮于 `2026-10-22T07:29:30Z` 前后，通过 agent-reach 的 Jina Reader 重新读取 [Day 17 主帖](https://x.com/thsottiaux/status/2113162277688070445)及[时间回复](https://x.com/thsottiaux/status/2113162413008884099)。这是 Reader 返回的公开内容及部分回复，不是 Chrome 登录原站或全量线程复核；未操作关注、点赞、发帖、通知或真实账号用量。
+- **核对事实**：主帖公开时间 `2026-10-22T06:55:22Z`，宣布 reset day；回复公开时间 `2026-10-22T06:55:54Z`，给出“Lands tomorrow before 10am PST.”。当时当地为 10 月 21 日 23:55 PDT；系列日为 10 月 21 日，tomorrow 按当地 10 月 22 日解释。字面 PST 截止为 10 月 22 日 18:00 UTC / 10 月 23 日 02:00 UTC+8；若泛指 PDT，则早一小时。
+- **回复处理与缺口**：读取了主帖下要求 banked reset 的回复、时间帖下按 UTC+8 换算的回复及质疑 today/tomorrow 的回复；仅用于识别读者问题，不把诉求当发放承诺，也不采用评论替代时区计算。两条作者消息未明确套餐、额度窗口、储备方式或完成情况。Daybreak Blue 提醒与额度时间说明无直接关系，未扩写成新功能或独立产品稿。
+- **官方查漏**：同轮打开 [OpenAI Status](https://status.openai.com/)、[Codex 帮助文档](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)、[更新日志](https://learn.chatgpt.com/docs/changelog)及 [Codex Releases](https://github.com/openai/codex/releases)。本稿仅采用帮助文档中用量面板、CLI `/status` 与一次性重置条件的说明；当前故障和 alpha 版本不拼入本次重置报道。没有将上述入口或已读评论说成全平台检索或完成确认。
+- **文章与目录**：新增英/简/繁 `tibo-day-17-reset-announced`，保留同一 id 与 10 月 21 日系列日期；目录保留原始 publishedAt，更新摘要、核对时间、来源与直接内链。统计由日文章派生为 17/28、11 个功能日、8 个重置相关日；Day 16 的相邻日入口随清单自动指向 Day 17，不重写旧日的历史事实。先保存三语 draft、审读后设为 published 以准备正式构建，实际提交/部署阶段以变更日志为准。

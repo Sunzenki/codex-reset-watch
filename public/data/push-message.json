@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-20-day15-reset-confirmed",
+  "eventId": "2026-10-22-day17-reset-announced",
   "messages": {
     "en": {
-      "title": "Day 15 usage reset is complete 🔋",
-      "body": "Tibo announced the Day 15 reset. Public post: October 20, 06:33 UTC. Check your usage.",
+      "title": "Day 17 usage reset announced 🔋",
+      "body": "Expected before October 22, 18:00 UTC (literal PST; 17:00 if PDT). Completion unconfirmed. See the source and countdown.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "第 15 天额度重置已完成 🔋",
-      "body": "Tibo 发帖宣布第 15 天额度重置。原帖发布于北京时间 10 月 20 日 14:33，去看看你的额度吧。",
+      "title": "第 17 天额度重置已预告 🔋",
+      "body": "预计北京时间 10 月 23 日 02:00 前落地；按原文 PST 换算，若指 PDT 则为 01:00。目前尚未确认完成，点击查看来源与倒计时。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "第 15 天額度重置已完成 🔋",
-      "body": "Tibo 發帖宣佈第 15 天額度重置。原帖發佈於台北時間 10 月 20 日 14:33，去看看你的額度吧。",
+      "title": "第 17 天額度重置已預告 🔋",
+      "body": "預計台北時間 10 月 23 日 02:00 前落地；按原文 PST 換算，若指 PDT 則為 01:00。目前尚未確認完成，點擊查看來源與倒數。",
       "path": "/zh-TW/"
     }
   }

@@ -32,7 +32,7 @@ export const ui = {
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
     ownerResetTitle: 'Verified in practice', ownerResetBody: 'The exact reset time is unknown. This observation does not confirm completion across every account.', resetConfirmedTitle: 'This reset has been publicly confirmed', resetConfirmedBody: 'The timestamp above is the public confirmation time. The exact completion time was not provided.',
     factOriginal: 'Original wording', factZone: 'Source time zone', factAnnouncementPacific: 'Announcement time · Pacific', factTiming: 'Timing basis', factConfirmation: 'Confirmation basis', confirmationPostTime: 'Post published', factObservation: 'Verification basis', factUpdated: 'Site updated',
-    sourceLabel: 'Source & context', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View announcement', viewTimingPost: 'View timing reply', postedAt: 'Posted',
+    sourceLabel: 'Source & context', sourceExcerptLabel: 'Post excerpt', evidenceTitle: 'What this is based on', source: 'Source', viewPost: 'View announcement', viewTimingPost: 'View timing reply', postedAt: 'Posted',
     methodLabel: 'Methodology', methodTitle: 'How this tracker works', methodIntro: 'A small, source-first tracker designed to keep estimates, conversions, and confirmed outcomes clearly separated.',
     methodSourceTitle: 'Source-first records', methodSourceBody: 'Each record links to its public source. Quotes keep their original language; later corrections are recorded separately.',
     methodTimeTitle: 'Consistent time conversion', methodTimeBody: 'Chinese pages show UTC+8, while English pages show UTC, making timestamps easier to compare.',
@@ -67,7 +67,7 @@ export const ui = {
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
     ownerResetTitle: '已实测验证', ownerResetBody: '具体重置时刻未知；此观察不代表所有账号均已完成。', resetConfirmedTitle: '本轮重置已公开确认', resetConfirmedBody: '上方时间为公开确认帖的发布时间，实际完成时刻未单独公布。',
     factOriginal: '原帖措辞', factZone: '原始时区', factAnnouncementPacific: '公告发布时间 · 太平洋时间', factTiming: '时间依据', factConfirmation: '确认依据', confirmationPostTime: '原帖发布', factObservation: '到账依据', factUpdated: '本站更新',
-    sourceLabel: 'Source & context', evidenceTitle: '信息依据', source: '来源', viewPost: '查看公告原帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
+    sourceLabel: 'Source & context', sourceExcerptLabel: '原帖节选', evidenceTitle: '信息依据', source: '来源', viewPost: '查看公告原帖', viewTimingPost: '查看时间回复', postedAt: '发布于',
     methodLabel: 'Methodology', methodTitle: '本站如何整理信息', methodIntro: '这是一个以来源为先的小型记录站，明确区分预估时间、时区换算和已经确认的结果。',
     methodSourceTitle: '保留公开来源', methodSourceBody: '每条记录附公开原帖，引文保留原语言；后续更正另行记录。',
     methodTimeTitle: '统一换算时间', methodTimeBody: '中文页面统一显示 UTC+8，英文页面显示 UTC，方便核对时间。',
@@ -102,7 +102,7 @@ export const ui = {
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
     ownerResetTitle: '已實測驗證', ownerResetBody: '具體重置時間未知；此觀察不代表所有帳戶均已完成。', resetConfirmedTitle: '本輪重置已公開確認', resetConfirmedBody: '上方時間為公開確認帖的發佈時間，實際完成時間未單獨公佈。',
     factOriginal: '原帖措辭', factZone: '原始時區', factAnnouncementPacific: '公告發佈時間 · 太平洋時間', factTiming: '時間依據', factConfirmation: '確認依據', confirmationPostTime: '原帖發佈', factObservation: '到帳依據', factUpdated: '本站更新',
-    sourceLabel: 'Source & context', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看公告原帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
+    sourceLabel: 'Source & context', sourceExcerptLabel: '原帖節錄', evidenceTitle: '資訊依據', source: '來源', viewPost: '查看公告原帖', viewTimingPost: '查看時間回覆', postedAt: '發佈於',
     methodLabel: 'Methodology', methodTitle: '本站如何整理資訊', methodIntro: '這是一個以來源為先的小型記錄站，明確區分預估時間、時區換算與已確認的結果。',
     methodSourceTitle: '保留公開來源', methodSourceBody: '每筆記錄附公開原帖，引文保留原語言；後續更正另行記錄。',
     methodTimeTitle: '統一換算時間', methodTimeBody: '中文頁面統一顯示 UTC+8，英文頁面顯示 UTC，方便核對時間。',
@@ -123,26 +123,29 @@ export const ui = {
   },
 } as const;
 
-export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceTranslation?: string }> = {
+export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Day 15 usage reset is complete",
-    "scope": "Tibo announced the Day 15 reset with “and reset. Enjoy.”",
-    "context": "Tibo quoted his earlier “Day 15/ We're cooked” post and wrote: “Nevermind, we're still cooking... and reset. Enjoy.”",
-    "note": "The displayed time is the public post timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified."
+    "headline": "Day 17 usage reset announced",
+    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
+    "scope": "Tibo expects the reset to land before October 22, 10:00 PST.",
+    "context": "Tibo announced a reset on Day 17 and added a timing reply: “Lands tomorrow before 10am PST.”",
+    "note": "Completion has not been confirmed. The reply was posted on October 21 in Pacific time, so “tomorrow” is interpreted as October 22. The estimated deadline is October 22, 18:00 UTC under literal PST, or 17:00 UTC if he meant local PDT. The countdown uses the literal PST boundary; the reset may land earlier. Eligible plans and usage windows were not specified."
   },
   "zh-CN": {
-    "headline": "第 15 天额度重置已完成",
-    "sourceTranslation": "第 15 天：没事，我们还在继续忙活……额度也重置了。尽情使用吧。",
-    "scope": "Tibo 发帖宣布第 15 天重置：“and reset. Enjoy.”",
-    "context": "Tibo 引用此前“Day 15/ We're cooked”的帖子，表示还在继续忙活，并宣布额度重置。",
-    "note": "所示时间为原帖发布时间，不代表后台精确执行时刻。原帖未明确适用套餐及具体额度窗口。"
+    "headline": "第 17 天额度重置已预告",
+    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
+    "sourceTranslation": "第 17 天：你们肯定以为我们忘了，但没有，今天是重置日。",
+    "scope": "预计北京时间 10 月 23 日 02:00 前落地（按原文 PST 换算）。",
+    "context": "Tibo 在 Day 17 宣布重置，并回复：“Lands tomorrow before 10am PST.”（明天 PST 上午 10 点前落地）。",
+    "note": "目前尚未确认完成。回复发布时美西仍是 10 月 21 日，因此将“明天”解释为美西 10 月 22 日。按字面 PST 换算，预计截止为北京时间 10 月 23 日 02:00；若泛指当地夏令时间 PDT，则为 01:00。倒计时采用字面 PST 的截止边界，实际重置可能更早。原帖未明确适用套餐及具体额度窗口。"
   },
   "zh-TW": {
-    "headline": "第 15 天額度重置已完成",
-    "sourceTranslation": "第 15 天：沒事，我們還在繼續忙活……額度也重置了。盡情使用吧。",
-    "scope": "Tibo 發帖宣佈第 15 天重置：「and reset. Enjoy.」",
-    "context": "Tibo 引用先前「Day 15/ We're cooked」的貼文，表示還在繼續忙活，並宣佈額度重置。",
-    "note": "所示時間為原帖發佈時間，不代表後台精確執行時間。原帖未明確適用方案及具體額度視窗。"
+    "headline": "第 17 天額度重置已預告",
+    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
+    "sourceTranslation": "第 17 天：你們肯定以為我們忘了，但沒有，今天是重置日。",
+    "scope": "預計台北時間 10 月 23 日 02:00 前落地（按原文 PST 換算）。",
+    "context": "Tibo 在 Day 17 宣布重置，並回覆：「Lands tomorrow before 10am PST.」（明天 PST 上午 10 點前落地）。",
+    "note": "目前尚未確認完成。回覆發佈時美西仍是 10 月 21 日，因此將「明天」解釋為美西 10 月 22 日。按字面 PST 換算，預計截止為台北時間 10 月 23 日 02:00；若泛指當地夏令時間 PDT，則為 01:00。倒數採用字面 PST 的截止邊界，實際重置可能更早。原帖未明確適用方案及具體額度視窗。"
   }
 };
 

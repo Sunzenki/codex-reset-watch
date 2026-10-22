@@ -303,8 +303,8 @@ function CurrentPage({ locale }: { locale: Locale }) {
         {data.announcement ? <>
           <div className="journal-source-note">
             <Quotes size={29} weight="fill" aria-hidden="true" />
-            <p className="journal-author">{data.announcement.source.replace(' / X post', '').replace(' / X reply', '')}</p>
-            <blockquote lang="en">{data.announcement.text}</blockquote>
+            <p className="journal-author">{data.announcement.source.replace(' / X post', '').replace(' / X reply', '')}{content.sourceExcerpt && <> · {copy.sourceExcerptLabel}</>}</p>
+            <blockquote lang="en">{content.sourceExcerpt || data.announcement.text}</blockquote>
             {locale !== 'en' && (content.sourceTranslation || data.announcement.translation) && <p className="journal-translation" lang={content.sourceTranslation ? localeConfig[locale].htmlLang : 'zh-CN'}>{content.sourceTranslation || data.announcement.translation}</p>}
             <a className="journal-text-link journal-quote-link" href={data.announcement.url} target="_blank" rel="noreferrer">{journal.source}<ArrowUpRight size={17} aria-hidden="true" /></a>
           </div>

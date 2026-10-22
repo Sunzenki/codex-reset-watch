@@ -16,6 +16,8 @@ CRW is unofficial and manually curated. JSON remains authoritative. Public confi
 
 Homepage: compact brand/navigation; left date, central current event, right original-post note; publication/update metadata; latest three earlier records sorted by targetAt, excluding the current source and rule changes; always-visible three-note methodology section. Event-specific source context remains above recent records. No event timeline or marginal handwritten slogans. The title-to-action region holds the countdown for timed announcements, pending confirmation after expiry, or completion information. Never render a fictitious timer for completed/untimed events. Metadata uses explicitly labelled route timezones except the homepage publication summary, which uses fixed PST (UTC−8).
 
+The original-post note may show a labelled, verbatim excerpt relevant to the reset when the full post includes unrelated content. Keep its translation equally scoped, the complete source in JSON, and the original-post link visible.
+
 History: heading, calendar and selected-date details, archive records. Green means global reset, apricot means banked reset; irregular watercolor day marks retain readable numbers, focus and selected outlines. Color never replaces evidence/outcome labels. Preserve full detail text, timestamps and source links.
 
 Local navigation exposes Reset updates / History / News & guides, 重置动态 / 历史记录 / 资讯指南, 重置動態 / 歷史記錄 / 資訊指南. The guide section covers OpenAI/Codex news, updates, incidents and tutorials; it is not a personal blog. Release evidence remains in CHANGELOG. Homepage reminder controls remain available.
