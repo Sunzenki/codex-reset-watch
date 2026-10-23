@@ -1,6 +1,6 @@
 # CRW 内容、数据与 SEO 维护规则
 
-> 更新日期：2026-10-22
+> 更新日期：2026-10-24
 > 本文是内容事件、历史记录、多语言和 SEO 修改的操作规则。开始任务前先读[主维护手册](../PROJECT-MAINTENANCE-GUIDE.md)。
 > 会变化的当前事件以 `public/data/current.json`、`public/data/history.json` 和实际代码为准，不以本文示例为准。修改摘要、验证和发布阶段记入[变更记录](../CHANGELOG.md)；文档更新不代表已经部署。
 
