@@ -1,5 +1,33 @@
 [
   {
+    "id": "reset-2026-10-24-day18-observed",
+    "targetAt": "2026-10-23T17:58:13.332Z",
+    "precision": "estimated",
+    "originalTimezone": "Site observation timestamp (UTC)",
+    "originalTimeText": "Landing tomorrow before 10am PST together with a small ship.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, we shipped some performance improvements and Uber is going all-in on codex & work. But yes… that’s a reset!",
+      "translation": "第 18 天：Decisions API 已正式可用，OpenResponses 加入了 Linux 基金会，我们发布了一些性能改进，Uber 正全面采用 Codex 与 Work。没错……又是一次额度重置！",
+      "url": "https://x.com/thsottiaux/status/2113492187770175603",
+      "postedAt": "2026-10-23T04:46:19.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Landing tomorrow before 10am PST together with a small ship.",
+      "translation": "将在明天 PST 上午 10 点前落地，同时还会有一项小更新。",
+      "url": "https://x.com/thsottiaux/status/2113492502355562875",
+      "postedAt": "2026-10-23T04:47:34.000Z"
+    },
+    "announcedTargetAt": "2026-10-23T18:00:00.000Z",
+    "outcome": "as_announced",
+    "note": "The site owner verified restored usage. The archive time is the site observation record time, not the exact reset time. Tibo has not posted a separate completion confirmation.",
+    "recordedAt": "2026-10-23T17:58:13.332Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "observation"
+  },
+  {
     "id": "reset-2026-10-23-day17-observed",
     "targetAt": "2026-10-22T19:10:42.948Z",
     "precision": "estimated",

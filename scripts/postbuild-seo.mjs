@@ -58,7 +58,10 @@ function displayDate(value, locale) {
 }
 
 function confirmedHeadline(locale) {
-  if (current.confirmationBasis === 'owner_observed') return { en: 'Usage reset has landed', 'zh-CN': '额度重置已落地', 'zh-TW': '額度重置已落地' }[locale];
+  if (current.confirmationBasis === 'owner_observed') {
+    const day = current.announcement?.text.match(/^Day\s+(\d+)\//)?.[1];
+    return { en: `${day ? `Day ${day} ` : ''}usage reset has landed`, 'zh-CN': `${day ? `第 ${day} 天` : ''}额度重置已落地`, 'zh-TW': `${day ? `第 ${day} 天` : ''}額度重置已落地` }[locale];
+  }
   const copy = locales[locale];
   const config = locales[locale];
   const hasLandingTime = Boolean(current.resetAt);

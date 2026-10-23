@@ -93,7 +93,7 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 站长实测重置落地时使用 `reset_confirmed` 与 `confirmationBasis: "owner_observed"`；首页日期栏显示本站实测记录时间 `updatedAt`，公开原帖时间单独保留。页面标题可简写“额度重置已落地”，实测依据在来源说明交代；历史采用 `timeBasis: "observation"`，不把未知执行时刻填成预告截止时间。
 
-切换下一轮预告时保留上一轮历史。最近记录中，`eventType: "reset"`、`timeBasis: "observation"`、`outcome: "as_announced"` 的实测落地记录显示“已完成”，具体依据仍由详情说明。预计截止时间的静态标题从本轮原帖读取 Day 日号，避免沿用上一轮编号。
+切换下一轮预告时保留上一轮历史。最近记录中，`eventType: "reset"`、`timeBasis: "observation"`、`outcome: "as_announced"` 的实测落地记录显示“已完成”，具体依据仍由详情说明。预计截止时间及实测落地的静态标题从本轮原帖读取 Day 日号，与运行时标题保持一致。
 
 运行时 H1 由 `src/main.tsx` 的状态分支和 `src/i18n.ts` 的当前事件文案共同决定，无 JavaScript 静态快照由 `scripts/postbuild-seo.mjs` 生成。JSON 中的 `headline` 不能被视为唯一标题来源。
 

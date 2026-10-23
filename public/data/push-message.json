@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-23-day18-reset-announced",
+  "eventId": "2026-10-24-day18-reset-landed",
   "messages": {
     "en": {
-      "title": "Day 18 usage reset announced 🔋",
-      "body": "Another reset is expected before October 23, 18:00 UTC (10am PST), alongside a small update. See the countdown and source.",
+      "title": "Day 18 usage reset has landed 🔋",
+      "body": "The Day 18 usage reset has landed. Check your allowance and get back to work!",
       "path": "/"
     },
     "zh-CN": {
-      "title": "第 18 天额度重置已预告 🔋",
-      "body": "预计北京时间 10 月 24 日 02:00 前落地，同时还有一项小更新。点击查看倒计时与原帖。",
+      "title": "第 18 天额度重置已落地 🔋",
+      "body": "第 18 天额度重置已落地，快去看看你的额度，可以继续开工啦！",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "第 18 天額度重置已預告 🔋",
-      "body": "預計台北時間 10 月 24 日 02:00 前落地，同時還有一項小更新。點擊查看倒數與原帖。",
+      "title": "第 18 天額度重置已落地 🔋",
+      "body": "第 18 天額度重置已落地，快去看看你的額度，可以繼續開工啦！",
       "path": "/zh-TW/"
     }
   }

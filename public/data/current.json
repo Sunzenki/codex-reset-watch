@@ -1,12 +1,11 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "Day 18 usage reset announced",
-  "resetAt": "2026-10-23T18:00:00.000Z",
-  "deadlineEstimated": true,
-  "sourceTimezone": "PST (UTC−8, as written)",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "Day 18 usage reset has landed",
+  "resetAt": null,
+  "sourceTimezone": "Site observation timestamp (UTC)",
   "originalTimeText": "Landing tomorrow before 10am PST together with a small ship.",
-  "scope": "Day 18 usage reset and a small update expected before October 23, 10am PST.",
+  "scope": "Day 18 usage reset has landed.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, we shipped some performance improvements and Uber is going all-in on codex & work. But yes… that’s a reset!",
@@ -21,6 +20,7 @@
     "url": "https://x.com/thsottiaux/status/2113492502355562875",
     "postedAt": "2026-10-23T04:47:34.000Z"
   },
-  "updatedAt": "2026-10-23T04:54:19.281Z",
-  "note": "Day 18 is a new reset announcement, separate from the landed Day 17 reset. The reply was posted on October 22 in Pacific time, so tomorrow means October 23 there. The countdown uses literal PST: October 23, 18:00 UTC / October 24, 02:00 UTC+8. If PST meant PDT, the deadline is one hour earlier. The small update was not described; eligible plans and usage windows were not specified."
+  "updatedAt": "2026-10-23T17:58:13.332Z",
+  "note": "The site owner confirmed restored usage and reported similar community observations. The record time is the site update time; Tibo has not posted a separate completion confirmation.",
+  "confirmationBasis": "owner_observed"
 }
