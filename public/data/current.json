@@ -1,28 +1,26 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "Day 17 usage reset has landed",
-  "resetAt": null,
+  "kind": "reset",
+  "status": "estimated",
+  "headline": "Day 18 usage reset announced",
+  "resetAt": "2026-10-23T18:00:00.000Z",
+  "deadlineEstimated": true,
   "sourceTimezone": "PST (UTC−8, as written)",
-  "originalTimeText": "Lands tomorrow before 10am PST.",
-  "scope": "Day 17 usage reset verified on the site owner’s account.",
+  "originalTimeText": "Landing tomorrow before 10am PST together with a small ship.",
+  "scope": "Day 18 usage reset and a small update expected before October 23, 10am PST.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.\n\nAlso good time to remind you to get Daybreak Blue access, it only takes 15 mins and you don’t want to have to do it in the middle of an incident.",
-    "translation": "第 17 天：你们肯定以为我们忘了，但没有，今天是重置日。\n\n也趁这个机会提醒大家开通 Daybreak Blue 访问权限，只需要 15 分钟；你肯定不想在故障发生时才去办。",
-    "url": "https://x.com/thsottiaux/status/2113162277688070445",
-    "postedAt": "2026-10-22T06:55:22.000Z"
+    "text": "Day 18/ Decisions API is GA, OpenResponses joined the Linux Foundation, we shipped some performance improvements and Uber is going all-in on codex & work. But yes… that’s a reset!",
+    "translation": "第 18 天：Decisions API 已正式可用，OpenResponses 加入了 Linux 基金会，我们发布了一些性能改进，Uber 正全面采用 Codex 与 Work。没错……又是一次额度重置！",
+    "url": "https://x.com/thsottiaux/status/2113492187770175603",
+    "postedAt": "2026-10-23T04:46:19.000Z"
   },
   "timingSource": {
     "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Lands tomorrow before 10am PST.",
-    "translation": "将在明天 PST 上午 10 点前落地。",
-    "url": "https://x.com/thsottiaux/status/2113162413008884099",
-    "postedAt": "2026-10-22T06:55:54.000Z"
+    "text": "Landing tomorrow before 10am PST together with a small ship.",
+    "translation": "将在明天 PST 上午 10 点前落地，同时还会有一项小更新。",
+    "url": "https://x.com/thsottiaux/status/2113492502355562875",
+    "postedAt": "2026-10-23T04:47:34.000Z"
   },
-  "updatedAt": "2026-10-22T19:10:42.948Z",
-  "note": "The site owner confirmed restored usage on their account on October 23 (UTC+8). No separate completion post from Tibo was found. The exact execution time is unknown. Earlier timing reply and estimated deadline are preserved.",
-  "confirmationBasis": "owner_observed",
-  "observationBasis": "owner_account",
-  "announcedTargetAt": "2026-10-22T18:00:00.000Z"
+  "updatedAt": "2026-10-23T04:54:19.281Z",
+  "note": "Day 18 is a new reset announcement, separate from the landed Day 17 reset. The reply was posted on October 22 in Pacific time, so tomorrow means October 23 there. The countdown uses literal PST: October 23, 18:00 UTC / October 24, 02:00 UTC+8. If PST meant PDT, the deadline is one hour earlier. The small update was not described; eligible plans and usage windows were not specified."
 }

@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天计划：Codex 每日更新目录",
-  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–17；第 17 天额度重置已落地。",
+  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–18；Day 17 已落地，Day 18 预告新一轮重置。",
   "locale": "zh-CN",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-22T19:10:42.948Z",
+  "updatedAt": "2026-10-23T04:54:19.281Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-22T19:10:42.948Z"
+    "checkedAt": "2026-10-23T04:54:19.281Z"
   },
   "sources": [
     {
@@ -36,6 +36,14 @@
     {
       "label": "Tibo：Day 17 时间回复",
       "url": "https://x.com/thsottiaux/status/2113162413008884099"
+    },
+    {
+      "label": "Tibo：Day 18 重置预告",
+      "url": "https://x.com/thsottiaux/status/2113492187770175603"
+    },
+    {
+      "label": "Tibo：时间回复与小更新",
+      "url": "https://x.com/thsottiaux/status/2113492502355562875"
     }
   ],
   "coverAlt": "Codex 28 天计划示意：七列四行日历与功能、重置分类。",
@@ -51,6 +59,8 @@
 
 [第 17 天额度重置已落地](/zh-CN/guides/tibo-day-17-reset-announced/)，站长账号已实测恢复；文章保留此前预告与截止时间换算。
 
-点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地。后续日期有可核实内容后再补文章。
+[Day 18 又预告了一轮重置](/zh-CN/guides/tibo-day-18-reset-announced/)，预计北京时间 10 月 24 日 02:00 前落地，同时还有一项小更新。
+
+点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地，第 18 天为下一轮重置预告。后续日期有可核实内容后再补文章。
 
 日历按美国太平洋时间（PT）排日期，随夏令时变化；各日说明另外列出主要消息的 UTC 时间。列表显示本站实际发布日期；系列日期保留在文章详情与日历中，目录头部显示计划起始日。来源的 UTC 发帖时间另列在各日说明中；第 9 天保留“最后编辑”的时间含义。

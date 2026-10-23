@@ -72,7 +72,11 @@ function confirmedHeadline(locale) {
 
 function currentHeadline(locale) {
   const copy = locales[locale];
-  if (current.deadlineEstimated) return Date.now() >= Date.parse(current.resetAt) ? {"en":"Estimated deadline reached · awaiting confirmation","zh-CN":"预计截止时间已到，待确认","zh-TW":"預計截止時間已到，待確認"}[locale] : {"en":"Day 17 usage reset announced","zh-CN":"第 17 天额度重置已预告","zh-TW":"第 17 天額度重置已預告"}[locale];
+  if (current.deadlineEstimated) {
+    if (Date.now() >= Date.parse(current.resetAt)) return { en: 'Estimated deadline reached · awaiting confirmation', 'zh-CN': '预计截止时间已到，待确认', 'zh-TW': '預計截止時間已到，待確認' }[locale];
+    const day = current.announcement?.text.match(/^Day\s+(\d+)\//)?.[1];
+    return { en: `${day ? `Day ${day} ` : ''}usage reset announced`, 'zh-CN': `${day ? `第 ${day} 天` : ''}额度重置已预告`, 'zh-TW': `${day ? `第 ${day} 天` : ''}額度重置已預告` }[locale];
+  }
   if (current.kind === 'reset_confirmed' && current.announcement) return confirmedHeadline(locale);
   if (current.kind === 'rollout_observed') return copy.rolloutHeadline;
   if (current.dateConfirmed && current.resetAt && Date.now() < Date.parse(current.resetAt)) return copy.confirmedDateHeadline;

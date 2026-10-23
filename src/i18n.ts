@@ -125,27 +125,27 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Day 17 usage reset has landed",
-    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
-    "scope": "The usage reset has landed and was verified on the site owner’s account.",
-    "context": "Tibo announced the Day 17 reset and expected it before 10am PST. The site owner has now verified restored usage.",
-    "note": "Verified on the site owner’s account. Tibo has not posted a separate completion confirmation; the exact reset time is unknown."
+    "headline": "Day 18 usage reset announced",
+    "sourceExcerpt": "But yes… that’s a reset!",
+    "scope": "Expected before October 23, 10am PST, alongside a small update.",
+    "context": "Tibo announced another reset on Day 18, alongside a small update. The Day 17 reset has already landed.",
+    "note": "The countdown uses October 23, 18:00 UTC under literal PST; if local PDT was intended, the deadline is 17:00 UTC. Details of the small update have not been announced."
   },
   "zh-CN": {
-    "headline": "第 17 天额度重置已落地",
-    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
-    "sourceTranslation": "第 17 天：你们肯定以为我们忘了，但没有，今天是重置日。",
-    "scope": "本轮额度重置已落地，站长账号已实测恢复。",
-    "context": "Tibo 此前预告 Day 17 重置将在 PST 上午 10 点前落地，站长现已实测额度恢复。",
-    "note": "本站依据站长账号实测更新。Tibo 暂未另发完成确认帖，具体重置时刻未知。"
+    "headline": "第 18 天额度重置已预告",
+    "sourceExcerpt": "But yes… that’s a reset!",
+    "sourceTranslation": "没错……又是一次额度重置！",
+    "scope": "预计北京时间 10 月 24 日 02:00 前落地，同时还有一项小更新。",
+    "context": "Day 17 刚落地，Tibo 又预告了 Day 18 重置，并表示会和一项小更新一起推出。",
+    "note": "倒计时按原文 PST 换算至北京时间 10 月 24 日 02:00；若指当地夏令时间 PDT，则为 01:00。小更新的具体内容尚未公布。"
   },
   "zh-TW": {
-    "headline": "第 17 天額度重置已落地",
-    "sourceExcerpt": "Day 17/ Bet you thought we forgot, but no, it’s reset day today.",
-    "sourceTranslation": "第 17 天：你們肯定以為我們忘了，但沒有，今天是重置日。",
-    "scope": "本輪額度重置已落地，站長帳戶已實測恢復。",
-    "context": "Tibo 此前預告 Day 17 重置將在 PST 上午 10 點前落地，站長現已實測額度恢復。",
-    "note": "本站依據站長帳戶實測更新。Tibo 暫未另發完成確認帖，具體重置時間未知。"
+    "headline": "第 18 天額度重置已預告",
+    "sourceExcerpt": "But yes… that’s a reset!",
+    "sourceTranslation": "沒錯……又是一次額度重置！",
+    "scope": "預計台北時間 10 月 24 日 02:00 前落地，同時還有一項小更新。",
+    "context": "Day 17 剛落地，Tibo 又預告了 Day 18 重置，並表示會和一項小更新一起推出。",
+    "note": "倒數按原文 PST 換算至台北時間 10 月 24 日 02:00；若指當地夏令時間 PDT，則為 01:00。小更新的具體內容尚未公布。"
   }
 };
 

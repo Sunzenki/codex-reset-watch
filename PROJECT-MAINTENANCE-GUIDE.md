@@ -60,7 +60,7 @@ Codex Reset Watch 是一个轻松、非官方、人工整理的 Codex rate-limit
 
 根地址 `/` 直接承载英文首页，英文历史页为 `/history/`；旧 `/en/` 与 `/en/history/` 分别 301 到 `/` 与 `/history/`。中文语言拥有独立 URL、HTML、canonical、hreflang 和静态 SEO 内容，运行时与英文页面共享组件。
 
-资讯栏目入口：英文 `/guides/`、简中 `/zh-CN/guides/`、繁中 `/zh-TW/guides/`，文章为其下 `{slug}/`。文章维护、置顶/精选轮播、系列目录与预览隔离见 [资讯指南维护](docs/guides.md)。旧版式示例已移除，当前源码有 22 个选题的英/简/繁全文，共 66 个 published 文件，含本轮新增 Day 17；正式发布使用 pnpm build，提交、部署与线上核验阶段见变更日志。
+资讯栏目入口：英文 `/guides/`、简中 `/zh-CN/guides/`、繁中 `/zh-TW/guides/`，文章为其下 `{slug}/`。文章维护、置顶/精选轮播、系列目录与预览隔离见 [资讯指南维护](docs/guides.md)。旧版式示例已移除，当前源码有 23 个选题的英/简/繁全文，共 69 个 published 文件，含 Day 18；本轮本地预览已获用户确认。正式发布使用 pnpm build，提交、部署与线上核验阶段见变更日志。
 
 `/crwmaster/` 不是公开导航项并使用 `noindex,nofollow,noarchive`，但隐藏路径不是安全边界；真正保护来自 Secrets、签名会话、同源校验和登录限速。
 
