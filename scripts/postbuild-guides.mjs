@@ -6,6 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { ROOT, escapeHtml as e, locales } from './guides-content.mjs';
 import { guideCategories, guidesPath, editorialPath, listPath, selectList } from '../src/guide-routing.mjs';
 import { guideMetadata, ORIGIN } from './guides-seo.mjs';
+import { footerSnapshot } from './footer-snapshot.mjs';
 
 const DIST = join(ROOT, 'dist');
 const manifest = JSON.parse(readFileSync(join(ROOT, 'src/generated/guides.json'), 'utf8'));
@@ -19,7 +20,7 @@ function writePage(options, body) {
   const { locale, path, article, editorial } = options;
   const meta = guideMetadata({ ...options, articles, previewMode }, copy);
   let html = templates[locale];
-  const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] ?? '';
+  const footer = footerSnapshot(locale);
   const fallbackImage = `${ORIGIN}/og.png?v=forest-20261016`;
   html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${e(meta.title)}</title>`)
     .replace(/(<html\b[^>]*)(>)/, `$1 data-section="${article || editorial ? 'article' : 'guides'}"$2`)

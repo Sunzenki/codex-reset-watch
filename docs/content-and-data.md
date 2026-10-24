@@ -254,10 +254,10 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 ## 9. 友情链接
 
-页脚友链在 `src/friend-links.json` 维护，数组中每项使用 `name`（显示站名）和 `url`（完整 HTTPS 网址）；数组顺序即显示顺序，网址保持唯一。显示名以站长确认的写法为准，可使用明确指定的说明性名称；三语言栏目名、版权及主站标签统一在 `src/footer-copy.json` 维护，由运行时文案和静态构建共享。名单为空时不显示该栏目。
+页脚友链在 `src/friend-links.json` 维护，数组中每项使用 `name`（显示站名）和 `url`（完整 HTTPS 网址）；数组顺序即显示顺序，网址保持唯一。显示名以站长确认的写法为准，可使用明确指定的说明性名称；三语言栏目名、版权及主站标签统一在 `src/footer-copy.json` 维护，由运行时文案和静态构建共享。友情链接区（包括所有徽章）仅在 `/`、`/zh-CN/`、`/zh-TW/` 三个首页展示；历史、资讯列表/分类/分页、文章、编辑说明及错误页不输出友链，保留版权及归属行。名单为空时不显示该栏目。
 
-需要官方徽章的站点可配置 `badge`，包含 `src`、`alt`、`width` 和 `height`；静态 HTML 与 React 均使用该配置输出真实 `<a><img></a>`，其余站点输出文字链接。DeepLaunch 使用用户提供的 `https://deeplaunch.io/badge/badge_light.svg`、`Featured on DeepLaunch.io` 和 200×54 原始比例，以 CSS 缩至 120px 宽。保留官方资源地址与替代文本，不重绘或自造认可徽章。只检查图片可访问性和原始 HTML 不代表完成目录的提交、徽章验证或发布日期选择；这些外部表单操作需用户另行明确授权。
+需要官方徽章的站点可配置 `badge`，包含 `src`、`alt`、`width` 和 `height`，可选 `displayWidth` 指定 CSS 显示宽度（默认 120px），高度按原始比例缩放；静态 HTML 与 React 均使用该配置输出真实 `<a><img></a>`，其余站点输出文字链接。DeepLaunch 保留官方浅色 SVG、200×54 原始比例及 120px 显示宽度；Dang.ai 和 Startup Fame 使用用户提供的浅色徽章，分别保留 260×94、171×54 原始尺寸，显示宽度为 130px、152px。保留官方资源地址、替代文本及 Startup Fame 回链的来源参数，不重绘或自造认可徽章；目录会复查，不能随意撤下必需徽章。只检查图片可访问性和原始 HTML 不代表完成目录的提交、徽章验证或发布日期选择；这些外部表单操作按用户明确授权执行。
 
-`scripts/postbuild-seo.mjs` 将完整静态页脚放在 `#root` 内的正文之后，保留 `href`、`target="_blank"` 和 `rel="noreferrer"`。React 启动时替换同一个根节点，不额外叠加页脚。检查友链必须解析构建后 HTML 或直接抓取线上原始 HTML，确认链接是页脚内的 `<a>`，不能只搜索 JavaScript 字符串或查看执行脚本后的 DOM。上线时用 `curl` 抓取首页能找到 `deeplaunch.io` 和 `twelve.tools`；这只验证回链可读取性，目录的徽章或审核要求另行处理。
+`scripts/footer-snapshot.mjs` 统一生成静态页脚，`scripts/postbuild-seo.mjs` 仅为首页启用友链，资讯构建默认不启用；页脚放在 `#root` 内的正文之后，保留 `href` 和 `target="_blank"`。每项可配置 `rel`，默认 `noreferrer`，Dang.ai 按用户代码保留 `dofollow noopener`，Startup Fame 使用 `noopener`，均不添加 `nofollow`。React 按当前页面类型决定是否输出友链，并替换同一个根节点，不额外叠加页脚。检查友链必须解析构建后 HTML 或直接抓取线上原始 HTML，确认首页链接是页脚内的 `<a>`、内页没有友链，不能只搜索 JavaScript 字符串或查看执行脚本后的 DOM。上线时核对每个友链的真实目标、徽章图片地址、替代文本和链接属性；这只验证回链可读取性，目录的徽章或审核要求另行处理。
 
 只添加站长确认的站点，不把设计示例当作实际合作方；临时样例仅用于本地隔离预览，不进入正式名单。修改后运行 `pnpm build`、`pnpm docs:check` 和差异检查，检查六个公开路由的页脚、桌面与手机换行、键盘焦点及实际目标网址。视觉规则见 [DESIGN.md](../DESIGN.md#footer-friend-links)。

@@ -9,6 +9,30 @@
       "height": 54
     }
   },
+  {
+    "name": "Dang.ai",
+    "url": "https://dang.ai",
+    "rel": "dofollow noopener",
+    "badge": {
+      "src": "https://assets.dang.ai/badges/dang-verified-light.png",
+      "alt": "Verified on DANG!",
+      "width": 260,
+      "height": 94,
+      "displayWidth": 130
+    }
+  },
+  {
+    "name": "Startup Fame",
+    "url": "https://startupfa.me/s/codex-reset-watch?utm_source=crw.warpnav.com",
+    "rel": "noopener",
+    "badge": {
+      "src": "https://startupfa.me/badge?t=classic&theme=light",
+      "alt": "Codex Reset Watch - Featured on Startup Fame",
+      "width": 171,
+      "height": 54,
+      "displayWidth": 152
+    }
+  },
   { "name": "Twelve Tools", "url": "https://twelve.tools/" },
   { "name": "高性价比生活指南", "url": "https://life.warpnav.com/" }
 ]

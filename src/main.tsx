@@ -157,7 +157,7 @@ function App() {
     <Header locale={locale} active={section === 'current' ? 'current' : isHistory ? 'history' : 'guides'} article={article} />
     {missing ? <GuideNotFound locale={locale} /> : section === 'editorial' ? <GuideEditorialPage locale={locale} /> : section === 'guides' ? <GuidesPage locale={locale} /> : section === 'article' ? <GuideArticlePage locale={locale} slug={slug} /> : isHistory ? <HistoryPage locale={locale} /> : <CurrentPage locale={locale} />}
     <PageTools locale={locale} />
-    <Footer locale={locale} />
+    <Footer locale={locale} showFriends={section === 'current' && !missing} />
   </>;
 }
 
@@ -607,15 +607,16 @@ function PageTools({ locale }: { locale: Locale }) {
   </div>;
 }
 
-function Footer({ locale }: { locale: Locale }) {
+function Footer({ locale, showFriends }: { locale: Locale; showFriends: boolean }) {
   const copy = ui[locale];
-  const friendLinks: readonly { name: string; url: string; badge?: { src: string; alt: string; width: number; height: number } }[] = friendLinkData;
+  const friendLinks: readonly { name: string; url: string; rel?: string; badge?: { src: string; alt: string; width: number; height: number; displayWidth?: number } }[] = friendLinkData;
   const friendsLabel = journalCopy[locale].friends;
-  return <footer className={`site-footer${friendLinks.length ? ' site-footer--with-friends' : ''}`}>
-    {friendLinks.length > 0 && <nav className="friend-links" aria-label={friendsLabel}>
+  const hasFriends = showFriends && friendLinks.length > 0;
+  return <footer className={`site-footer${hasFriends ? ' site-footer--with-friends' : ''}`}>
+    {hasFriends && <nav className="friend-links" aria-label={friendsLabel}>
       <span className="friend-links-label" aria-hidden="true">{friendsLabel}</span>
-      <ul>{friendLinks.map(({ name, url, badge }) => <li key={url}>
-        <a href={url} target="_blank" rel="noreferrer">{badge ? <img className="friend-link-badge" src={badge.src} alt={badge.alt} width={badge.width} height={badge.height} /> : <><span>{name}</span><ArrowUpRight size={12} /></>}</a>
+      <ul>{friendLinks.map(({ name, url, rel, badge }) => <li key={url}>
+        <a href={url} target="_blank" rel={rel ?? 'noreferrer'}>{badge ? <img className="friend-link-badge" src={badge.src} alt={badge.alt} width={badge.width} height={badge.height} style={badge.displayWidth ? { width: badge.displayWidth } : undefined} /> : <><span>{name}</span><ArrowUpRight size={12} /></>}</a>
       </li>)}</ul>
     </nav>}
     <div className="footer-meta"><p>{copy.footer}</p><p className="footer-links"><a href="https://github.com/Sunzenki/codex-reset-watch" target="_blank" rel="noreferrer">GitHub<ArrowUpRight size={14} /></a><a href="https://warpnav.com/" target="_blank" rel="noreferrer">{copy.warpnav}<ArrowUpRight size={14} /></a></p></div>
