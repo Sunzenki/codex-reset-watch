@@ -119,3 +119,13 @@
 - 站长在本次会话确认自己的账号额度已恢复，并转述其他用户也已发帖确认；本轮直接依据站长实测更新，未将社区转述或 Tibo 的原预告记为公开完成确认。记录时间为 2026-10-23T17:58:13.332Z。
 - 首页及三语文章更新为“第 18 天额度重置已落地”，结束倒计时，新增实测历史记录；Day 17 记录不变。保留原预告时间线与独立文章 URL、首次发布日期及系列日期，仅更新实质修订时间。
 - 同步置顶目录与日历派生标题、三语后台通知草稿及新事件 ID；通知由站长手动发送。本次用户已明确授权检查通过后直接提交、推送及上线，发布阶段见变更日志。
+
+## 2026-10-25 — Day 19 功能更新与 Day 20 重置预告
+
+- **读者与增量**：面向 Codex / Work 使用者，补齐已有 Day 1–18 目录之后的两天。Day 19 解释通话、推理强度与缓存的关系，结合 CLI 正式说明梳理适用入口；Day 20 提供 midnight 的跨日及 PST/PDT 换算、未知范围和账号核对入口。两天三语先保存 draft，审读后按既有授权转为 published，本站首次发布批次字段为 2026-10-25T04:07:41.776Z，不倒填为事件日。
+- **读取方式与时间**：本轮于 2026-10-25T03:58Z–04:08Z 前后，通过 agent-reach / Jina Reader 与 Chrome 原站读取公开内容。Reader 的 Day 20 单帖只返回登录壳，因此主帖正文、作者回复和 DOM datetime 以 Chrome 登录原站读取为准；用户截图仅作线索。作者资料注明 Codex & ChatGPT @OpenAI，与既有来源身份一致。未执行社交写操作或账号用量实测。
+- **Day 19 一手来源**：[主帖](https://x.com/thsottiaux/status/2113770573994299544)为 2026-10-23T23:12:31Z；[CLI 补充](https://x.com/thsottiaux/status/2113770862860222611)为 23:13:40Z。主帖说明 dot 通话接通更快、Codex / Work 对话中切换 reasoning 不再使缓存失效；补充列出预设、行内设置、企业 MCP 登录、长会话恢复和 Windows 企业代理认证，完整补充由 Reader 读取。与 [CLI 0.164.0 正式发布说明](https://github.com/openai/codex/releases/tag/rust-v0.164.0)交叉核对，未将 CLI 用量增长宣称写成额度增加，也未自行量化性能收益。系列日期为美西 10 月 23 日，计 feature，不计 reset。
+- **Day 20 一手来源**：[主帖](https://x.com/thsottiaux/status/2114200152701575656)为 2026-10-25T03:39:31Z；[作者时间回复](https://x.com/thsottiaux/status/2114200291319124163)为 03:40:04Z。原文分别为“Day 20/ Rest and reset”和“By midnight PST”。发帖时美西为 10 月 24 日晚，午夜按即将到来的当天结束解释；字面 PST 截止为 10 月 25 日 08:00 UTC / 北京与台北 16:00，若泛指 PDT 为 07:00 UTC / 15:00。以 estimated 和 deadlineEstimated 记录，不当作精确执行承诺。未见完成确认；套餐、额度窗口及储备方式未列明。系列日期为美西 10 月 24 日，计 reset。
+- **回复取舍**：Chrome 读取了 Day 20 作者回复、时区换算困惑与日历回复，Day 19 的功能质疑、缓存适用问题及 CLI 补充；Reader 完整读取 CLI 补充与其可见回复。未把被截断的用户回复概括为完整观点，也未把评论的诉求、质疑或点赞数当作功能政策或全量账号证据。
+- **官方查漏**：同轮读取 [OpenAI Status](https://status.openai.com/)、[套餐帮助](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)、[Releases](https://github.com/openai/codex/releases)和 @OpenAI / @OpenAIDevs / @ChatGPT 的 Reader 可见主页。developers 与 learn 的 changelog 均因抓取体积限制未读到内容，不记为核验完成；本稿 CLI 事实直接采用正式 release。其他动态不拼入这两篇日文章，也不据此判断本轮重置完成。
+- **同步范围**：首页三语预告、预计截止倒计时、后台三语通知草稿；新增 Day 19/20 三语文章，目录保留首次发布日期与起始日。目录及相邻导航由同批文章派生为 20/28、12 个功能日、10 个重置相关日。历史 JSON 及 Day 17/18 文章保持原状，通知尚未发送。构建、提交、部署与线上状态见变更日志。

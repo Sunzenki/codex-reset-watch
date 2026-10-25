@@ -125,27 +125,24 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Day 18 usage reset has landed",
-    "sourceExcerpt": "But yes… that’s a reset!",
-    "scope": "Usage has been restored on the site owner’s account.",
-    "context": "The Day 18 reset has landed, following the completed Day 17 reset.",
-    "note": "Verified on the site owner’s account. The original announcement and timing reply are kept for reference."
+    "headline": "Day 20 usage reset announced",
+    "scope": "Eligible plans and usage windows were not specified.",
+    "context": "Tibo announced “Rest and reset” on Day 20, then added “By midnight PST”. The earlier Day 17 and Day 18 landed records remain in the archive.",
+    "note": "The post was published on October 24 in Pacific time. The countdown uses the upcoming midnight under literal PST: October 25 at 08:00 UTC. If local PDT was intended, it is 07:00 UTC. This is an estimated deadline; completion is not yet confirmed."
   },
   "zh-CN": {
-    "headline": "第 18 天额度重置已落地",
-    "sourceExcerpt": "But yes… that’s a reset!",
-    "sourceTranslation": "没错……又是一次额度重置！",
-    "scope": "站长账号已确认额度恢复。",
-    "context": "第 18 天额度重置已落地，Day 17 的落地记录也继续保留。",
-    "note": "落地状态依据站长实测更新。原预告与时间回复保留供回看。"
+    "headline": "第 20 天额度重置已预告",
+    "sourceTranslation": "第 20 天：休息一下，重置额度。",
+    "scope": "原帖未列明适用套餐及具体额度窗口。",
+    "context": "Tibo 在 Day 20 宣布“Rest and reset”，随后回复“By midnight PST”。此前 Day 17、Day 18 的落地记录继续保留。",
+    "note": "发帖时美西仍为 10 月 24 日，午夜按当天结束理解。倒计时按字面 PST 换算至北京时间 10 月 25 日 16:00；若泛指当地 PDT，则为 15:00。这是预计截止时间，目前尚未确认落地。"
   },
   "zh-TW": {
-    "headline": "第 18 天額度重置已落地",
-    "sourceExcerpt": "But yes… that’s a reset!",
-    "sourceTranslation": "沒錯……又是一次額度重置！",
-    "scope": "站長帳戶已確認額度恢復。",
-    "context": "第 18 天額度重置已落地，Day 17 的落地記錄也繼續保留。",
-    "note": "落地狀態依據站長實測更新。原預告與時間回覆保留供回看。"
+    "headline": "第 20 天額度重置已預告",
+    "sourceTranslation": "第 20 天：休息一下，重置額度。",
+    "scope": "原帖未列明適用方案及具體額度視窗。",
+    "context": "Tibo 在 Day 20 宣布「Rest and reset」，隨後回覆「By midnight PST」。先前 Day 17、Day 18 的落地記錄繼續保留。",
+    "note": "發帖時美西仍為 10 月 24 日，午夜按當天結束理解。倒數按字面 PST 換算至台北時間 10 月 25 日 16:00；若泛指當地 PDT，則為 15:00。這是預計截止時間，目前尚未確認落地。"
   }
 };
 
