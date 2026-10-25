@@ -1,5 +1,40 @@
 [
   {
+    "id": "reset-2026-10-25-day20-confirmed",
+    "targetAt": "2026-10-25T06:06:16.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "It is all propagated.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.",
+      "translation": "已经全部生效了。明天尽情用 Codex 大干一场吧，接下来的一周也会很有意思。",
+      "url": "https://x.com/thsottiaux/status/2114237083652882932",
+      "postedAt": "2026-10-25T06:06:16.000Z"
+    },
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 20/ Rest and reset",
+      "translation": "第 20 天：休息一下，重置额度。",
+      "url": "https://x.com/thsottiaux/status/2114200152701575656",
+      "postedAt": "2026-10-25T03:39:31.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "By midnight PST",
+      "translation": "在 PST 午夜前。",
+      "url": "https://x.com/thsottiaux/status/2114200291319124163",
+      "postedAt": "2026-10-25T03:40:04.000Z"
+    },
+    "announcedTargetAt": "2026-10-25T08:00:00.000Z",
+    "outcome": "as_announced",
+    "note": "Tibo quoted the Day 20 timing reply and confirmed that the reset had fully propagated. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not separately specified.",
+    "recordedAt": "2026-10-25T06:22:19.542Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-10-24-day18-observed",
     "targetAt": "2026-10-23T17:58:13.332Z",
     "precision": "estimated",

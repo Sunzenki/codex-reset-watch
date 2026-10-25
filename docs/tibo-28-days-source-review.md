@@ -129,3 +129,10 @@
 - **回复取舍**：Chrome 读取了 Day 20 作者回复、时区换算困惑与日历回复，Day 19 的功能质疑、缓存适用问题及 CLI 补充；Reader 完整读取 CLI 补充与其可见回复。未把被截断的用户回复概括为完整观点，也未把评论的诉求、质疑或点赞数当作功能政策或全量账号证据。
 - **官方查漏**：同轮读取 [OpenAI Status](https://status.openai.com/)、[套餐帮助](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)、[Releases](https://github.com/openai/codex/releases)和 @OpenAI / @OpenAIDevs / @ChatGPT 的 Reader 可见主页。developers 与 learn 的 changelog 均因抓取体积限制未读到内容，不记为核验完成；本稿 CLI 事实直接采用正式 release。其他动态不拼入这两篇日文章，也不据此判断本轮重置完成。
 - **同步范围**：首页三语预告、预计截止倒计时、后台三语通知草稿；新增 Day 19/20 三语文章，目录保留首次发布日期与起始日。目录及相邻导航由同批文章派生为 20/28、12 个功能日、10 个重置相关日。历史 JSON 及 Day 17/18 文章保持原状，通知尚未发送。构建、提交、部署与线上状态见变更日志。
+
+## 2026-10-25 — Day 20 公开完成确认
+
+- **来源与读取**：用户提供[完成确认帖](https://x.com/thsottiaux/status/2114237083652882932)。本轮于 2026-10-25T06:20Z 前后通过 agent-reach / Jina Reader 读取完整正文、准确发布时间、所引用的 [Day 20 时间回复](https://x.com/thsottiaux/status/2114200291319124163)及可见回复。正文为“It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.”，公开发布时间为 2026-10-25T06:06:16Z，即北京时间与台北时间 14:06:16；引用关系明确指向本轮重置。
+- **证据与范围**：据作者公开确认，将 Day 20 更新为已落地，历史采用 confirmation 时间依据、confirmed 精度和 as_announced 结果。该时间是公开确认时间，不是后台精确执行时刻。预告的午夜边界保留为历史估计，不再显示倒计时；原帖没有新增套餐、窗口或储备方式说明。Reader 可见一条用户表示尚未收到重置的回复，仅属单个账号反馈，未独立核验，不据此扩写故障或否定作者确认，也不保证每个访问者的账号状态。
+- **维护方式**：更新已有三语 Day 20 与总目录，不新建薄快讯；保留首次发布日期、系列日期、URL 和 Day 19 内容。首页引用只节选完成句，JSON 保留全文；后台草稿同步新事件 ID。修复公开完成态静态标题仍可能沿用旧 Day 15 的问题，改从本轮 previousAnnouncement 取日号。本文是同日已核验预告的状态续编，不重新混入无关官方动态。
+- **授权与状态**：用户明确要求检查通过后直接提交、推送上线；真实通知未获发送指令。本轮未操作点赞、发帖、真实订阅或账号用量。实际验证、提交与部署阶段见变更日志。

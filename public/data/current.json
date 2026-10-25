@@ -1,13 +1,19 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "Day 20 usage reset announced",
-  "resetAt": "2026-10-25T08:00:00.000Z",
-  "sourceTimezone": "PST (UTC-8)",
-  "deadlineEstimated": true,
-  "originalTimeText": "By midnight PST",
-  "scope": "Day 20 usage reset announced; eligible plans and usage windows were not specified.",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "Day 20 usage reset has landed",
+  "resetAt": null,
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "It is all propagated.",
+  "scope": "Tibo confirmed that the Day 20 usage reset had fully propagated.",
   "announcement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.",
+    "translation": "已经全部生效了。明天尽情用 Codex 大干一场吧，接下来的一周也会很有意思。",
+    "url": "https://x.com/thsottiaux/status/2114237083652882932",
+    "postedAt": "2026-10-25T06:06:16.000Z"
+  },
+  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "Day 20/ Rest and reset",
     "translation": "第 20 天：休息一下，重置额度。",
@@ -21,6 +27,6 @@
     "url": "https://x.com/thsottiaux/status/2114200291319124163",
     "postedAt": "2026-10-25T03:40:04.000Z"
   },
-  "updatedAt": "2026-10-25T04:06:50.851Z",
-  "note": "At posting time it was October 24 in US Pacific time. The countdown interprets midnight as the end of that day: October 25 at 08:00 UTC under literal PST (UTC-8), or 07:00 UTC if local PDT was intended. This is an estimated deadline, not a confirmed execution time. No completion confirmation was found."
+  "updatedAt": "2026-10-25T06:22:19.542Z",
+  "note": "Tibo quoted the Day 20 timing reply and confirmed that the reset had fully propagated. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not separately specified."
 }
