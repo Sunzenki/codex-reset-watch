@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天計畫：Codex 每日更新目錄",
-  "summary": "逐日檢視 Codex 與 ChatGPT Work 的功能變化、額度重置及適用範圍。已整理 Day 1–21；Day 20 獲公開完成確認，Day 21 已由站長帳戶實測落地。",
+  "summary": "逐日檢視 Codex 與 ChatGPT Work 的功能變化、額度重置及適用範圍。已整理 Day 1–22；Day 22 發佈 GPT-6.1 Terra，說明模型入口、API 價格與用量條件。",
   "locale": "zh-TW",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-26T06:21:03.358Z",
+  "updatedAt": "2026-10-26T19:52:27.779Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-26T06:21:03.358Z"
+    "checkedAt": "2026-10-26T19:52:27.779Z"
   },
   "sources": [
     {
@@ -68,6 +68,10 @@
     {
       "label": "Tibo：Day 21 重置日",
       "url": "https://x.com/thsottiaux/status/2114588174249071102"
+    },
+    {
+      "label": "Tibo：Day 22，Terra 回歸",
+      "url": "https://x.com/thsottiaux/status/2114800277677092936"
     }
   ],
   "coverAlt": "Codex 28 天計畫示意：七列四行日曆與功能、重置分類。",
@@ -88,6 +92,8 @@
 [Day 19](/zh-TW/guides/tibo-day-19-small-updates/)整理 dot 通話連線、切換推理強度保留快取及 CLI 更新。[Day 20 額度重置已落地](/zh-TW/guides/tibo-day-20-reset-announced/)，Tibo 於台北時間 10 月 25 日 14:06:16 發帖確認全部生效；文章保留先前的 PST 午夜預告和時間換算。
 
 [Day 21 額度重置已落地](/zh-TW/guides/tibo-day-21-reset-landed/)，站長帳戶已親自確認額度恢復。原帖沒有給出預定執行時間，本站直接記錄實測落地，不顯示倒數。
+
+[Day 22 發佈 GPT-6.1 Terra](/zh-TW/guides/tibo-day-22-gpt-6-1-terra/)，主打寫作、視覺理解和電腦操作。本日歸為功能更新，文章分別說明模型用量效率與額度重置。
 
 點選日期檢視當天變化、適用條件、原帖與相關問答。「已整理」表示已有獨立說明；第 3 天儲備重置仍為預告，第 15 天標為直播與重置，第 17 天額度重置已實測落地，第 18 天額度重置也已落地。第 19 天為功能更新，第 20 天重置已獲公開完成確認。後續日期有可核實內容後再補文章。
 
