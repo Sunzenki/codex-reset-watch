@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-10-26-day21-observed",
+    "targetAt": "2026-10-26T06:21:03.358Z",
+    "precision": "estimated",
+    "originalTimezone": "Site observation timestamp (UTC)",
+    "originalTimeText": "But today is a reset.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 21/ Wonder what happens the remaining seven days. But today is a reset.",
+      "translation": "第 21 天：不知道剩下七天会发生什么。不过今天是重置日。",
+      "url": "https://x.com/thsottiaux/status/2114588174249071102",
+      "postedAt": "2026-10-26T05:21:22.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "The site owner confirmed restored usage on their own account. The recorded time is the site observation record time, not the exact reset time. Tibo’s post says today is a reset, without specifying an execution time, eligible plans or usage windows; no separate completion confirmation was found in this read.",
+    "recordedAt": "2026-10-26T06:21:03.358Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "observation"
+  },
+  {
     "id": "reset-2026-10-25-day20-confirmed",
     "targetAt": "2026-10-25T06:06:16.000Z",
     "precision": "confirmed",

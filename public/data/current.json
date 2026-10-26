@@ -1,32 +1,19 @@
 {
   "kind": "reset_confirmed",
   "status": "confirmed",
-  "headline": "Day 20 usage reset has landed",
+  "headline": "Day 21 usage reset has landed",
   "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "It is all propagated.",
-  "scope": "Tibo confirmed that the Day 20 usage reset had fully propagated.",
+  "sourceTimezone": "Site observation timestamp (UTC)",
+  "originalTimeText": "But today is a reset.",
+  "scope": "Day 21 usage reset verified on the site owner’s account.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.",
-    "translation": "已经全部生效了。明天尽情用 Codex 大干一场吧，接下来的一周也会很有意思。",
-    "url": "https://x.com/thsottiaux/status/2114237083652882932",
-    "postedAt": "2026-10-25T06:06:16.000Z"
+    "text": "Day 21/ Wonder what happens the remaining seven days. But today is a reset.",
+    "translation": "第 21 天：不知道剩下七天会发生什么。不过今天是重置日。",
+    "url": "https://x.com/thsottiaux/status/2114588174249071102",
+    "postedAt": "2026-10-26T05:21:22.000Z"
   },
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 20/ Rest and reset",
-    "translation": "第 20 天：休息一下，重置额度。",
-    "url": "https://x.com/thsottiaux/status/2114200152701575656",
-    "postedAt": "2026-10-25T03:39:31.000Z"
-  },
-  "timingSource": {
-    "source": "Tibo (@thsottiaux) / X reply",
-    "text": "By midnight PST",
-    "translation": "在 PST 午夜前。",
-    "url": "https://x.com/thsottiaux/status/2114200291319124163",
-    "postedAt": "2026-10-25T03:40:04.000Z"
-  },
-  "updatedAt": "2026-10-25T06:22:19.542Z",
-  "note": "Tibo quoted the Day 20 timing reply and confirmed that the reset had fully propagated. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not separately specified."
+  "updatedAt": "2026-10-26T06:21:03.358Z",
+  "note": "The site owner confirmed restored usage on their own account. The recorded time is the site observation record time, not the exact reset time. Tibo’s post says today is a reset, without specifying an execution time, eligible plans or usage windows; no separate completion confirmation was found in this read.",
+  "confirmationBasis": "owner_observed"
 }

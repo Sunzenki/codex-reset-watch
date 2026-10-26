@@ -125,33 +125,34 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Day 20 usage reset has landed",
-    "scope": "Tibo confirms that the reset has fully propagated.",
-    "sourceExcerpt": "It is all propagated.",
-    "context": "Tibo quoted his Day 20 timing reply and confirmed that the reset had fully propagated.",
-    "note": "Confirmation was posted on October 25 at 06:06:16 UTC. This is the public confirmation time; the exact backend execution time was not given. The earlier announcement and timing reply remain available."
+    "headline": "Day 21 usage reset has landed",
+    "scope": "Usage has been restored on the site owner’s account.",
+    "sourceExcerpt": "But today is a reset.",
+    "context": "Tibo named Day 21 as a reset day. The site owner has verified restored usage on their account; the Day 20 record remains in history.",
+    "note": "Completion is based on the site owner’s account observation. The date is the site observation record time; the original post was published on October 26 at 05:21:22 UTC. The exact reset time was not given."
   },
   "zh-CN": {
-    "headline": "第 20 天额度重置已落地",
-    "scope": "Tibo 已确认本轮重置全部生效。",
-    "sourceExcerpt": "It is all propagated.",
-    "sourceTranslation": "已经全部生效了。",
-    "context": "Tibo 引用了 Day 20 的时间回复，确认本轮额度重置已经全部生效。",
-    "note": "完成确认帖发表于北京时间 10 月 25 日 14:06:16。该时间为公开确认时间，具体后台执行时刻未公布；此前预告与时间回复继续保留。"
+    "headline": "第 21 天额度重置已落地",
+    "scope": "站长账号已实测额度恢复。",
+    "sourceExcerpt": "But today is a reset.",
+    "sourceTranslation": "不过今天是重置日。",
+    "context": "Tibo 表示 Day 21 是重置日，站长现已亲自确认账号额度恢复。此前 Day 20 的完成记录继续保留。",
+    "note": "落地依据为站长账号实测。日期采用本站实测记录时间；原帖发表于北京时间 10 月 26 日 13:21:22，具体重置时刻未公布。"
   },
   "zh-TW": {
-    "headline": "第 20 天額度重置已落地",
-    "scope": "Tibo 已確認本輪重置全部生效。",
-    "sourceExcerpt": "It is all propagated.",
-    "sourceTranslation": "已經全部生效了。",
-    "context": "Tibo 引用了 Day 20 的時間回覆，確認本輪額度重置已經全部生效。",
-    "note": "完成確認帖發佈於台北時間 10 月 25 日 14:06:16。該時間為公開確認時間，具體後台執行時間未公布；先前預告與時間回覆繼續保留。"
+    "headline": "第 21 天額度重置已落地",
+    "scope": "站長帳戶已實測額度恢復。",
+    "sourceExcerpt": "But today is a reset.",
+    "sourceTranslation": "不過今天是重置日。",
+    "context": "Tibo 表示 Day 21 是重置日，站長現已親自確認帳戶額度恢復。先前 Day 20 的完成記錄繼續保留。",
+    "note": "落地依據為站長帳戶實測。日期採用本站實測記錄時間；原帖發佈於台北時間 10 月 26 日 13:21:22，具體重置時間未公布。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-10-26-day21-observed': {"context":"Tibo named Day 21 as a reset day, and the site owner verified restored usage on their account.","note":"Time shown is the site observation record time, not the backend execution time. The original post has no scheduled time; no separate public completion confirmation was found in this read. This observation does not establish simultaneous completion for all accounts."},
     'reset-2026-10-25-day20-confirmed': {"context":"Tibo quoted the Day 20 timing reply and confirmed that the usage reset had fully propagated.","note":"The date is the public confirmation timestamp, not the backend execution time. The earlier midnight PST wording gave an estimated deadline of October 25 at 08:00 UTC, or 07:00 if PDT was intended. Eligible plans and usage windows were not separately specified."},
     'reset-2026-10-24-day18-observed': {"context":"The Day 18 usage reset has landed, verified on the site owner’s account.","note":"The date is the site observation record time. The original announcement and timing reply are retained."},
     'reset-2026-10-23-day17-observed': {"context":"Tibo announced the Day 17 reset and expected it before 10am PST. The site owner has now verified restored usage.","note":"Time shown is the site’s observation record time, not the exact reset time. Verified on the site owner’s account. Tibo has not posted a separate completion confirmation; the exact reset time is unknown."},
@@ -183,6 +184,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-10-26-day21-observed': {"context":"Tibo 表示 Day 21 是重置日，站长随后亲自确认账号额度已恢复。","note":"所示时间为本站实测记录时间，不代表后台精确执行时刻。原帖未给出预定时刻，本轮未读到另行完成确认；单账号实测不证明所有账号同步完成。"},
     'reset-2026-10-25-day20-confirmed': {"context":"Tibo 引用 Day 20 的时间回复，确认本轮额度重置已全部生效。","note":"所示时间为完成确认帖发布时间，不代表后台精确执行时刻。此前 midnight PST 的预计截止为北京时间 10 月 25 日 16:00，若指 PDT 则为 15:00；原帖未另行列明适用套餐及额度窗口。"},
     'reset-2026-10-24-day18-observed': {"context":"第 18 天额度重置已落地，站长账号已实测恢复。","note":"所示时间为本站实测记录时间，原预告与时间回复保留供回看。"},
     'reset-2026-10-23-day17-observed': {"context":"Tibo 此前预告 Day 17 重置将在 PST 上午 10 点前落地，站长现已实测额度恢复。","note":"所示时间为本站实测记录时间，不代表精确重置时刻。本站依据站长账号实测更新。Tibo 暂未另发完成确认帖，具体重置时刻未知。"},
@@ -214,6 +216,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-10-26-day21-observed': {"context":"Tibo 表示 Day 21 是重置日，站長隨後親自確認帳戶額度已恢復。","note":"所示時間為本站實測記錄時間，不代表後台精確執行時間。原帖未給出預定時間，本輪未讀到另行完成確認；單一帳戶實測不證明所有帳戶同步完成。"},
     'reset-2026-10-25-day20-confirmed': {"context":"Tibo 引用 Day 20 的時間回覆，確認本輪額度重置已全部生效。","note":"所示時間為完成確認帖發佈時間，不代表後台精確執行時間。先前 midnight PST 的預計截止為台北時間 10 月 25 日 16:00，若指 PDT 則為 15:00；原帖未另行列明適用方案及額度視窗。"},
     'reset-2026-10-24-day18-observed': {"context":"第 18 天額度重置已落地，站長帳戶已實測恢復。","note":"所示時間為本站實測記錄時間，原預告與時間回覆保留供回看。"},
     'reset-2026-10-23-day17-observed': {"context":"Tibo 此前預告 Day 17 重置將在 PST 上午 10 點前落地，站長現已實測額度恢復。","note":"所示時間為本站實測記錄時間，不代表精確重置時間。本站依據站長帳戶實測更新。Tibo 暫未另發完成確認帖，具體重置時間未知。"},
