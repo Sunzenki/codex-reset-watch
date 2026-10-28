@@ -1,5 +1,40 @@
 [
   {
+    "id": "reset-2026-10-28-day23-confirmed",
+    "targetAt": "2026-10-28T06:29:38.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "And it's done.",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "And it's done. See you tomorrow for some good news.",
+      "translation": "完成了。明天见，还有一些好消息。",
+      "url": "https://x.com/thsottiaux/status/2115330127886463244",
+      "postedAt": "2026-10-28T06:29:38.000Z"
+    },
+    "previousAnnouncement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset. Still much requested though!",
+      "translation": "第 23 天：呼声很高的 iCloud 邮件与日历插件。开玩笑的，今天是重置日。不过大家确实期待已久！",
+      "url": "https://x.com/thsottiaux/status/2115273064481218829",
+      "postedAt": "2026-10-28T02:42:53.000Z"
+    },
+    "timingSource": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Lands by midnight PST.",
+      "translation": "将在 PST 午夜前落地。",
+      "url": "https://x.com/thsottiaux/status/2115273253711409208",
+      "postedAt": "2026-10-28T02:43:38.000Z"
+    },
+    "announcedTargetAt": "2026-10-28T08:00:00.000Z",
+    "outcome": "as_announced",
+    "note": "Tibo quoted the Day 23 timing reply and confirmed the reset was done. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified; individual accounts may differ.",
+    "recordedAt": "2026-10-28T06:41:45.052Z",
+    "eventType": "reset",
+    "resetType": "reset",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-10-26-day21-observed",
     "targetAt": "2026-10-26T06:21:03.358Z",
     "precision": "estimated",

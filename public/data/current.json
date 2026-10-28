@@ -1,13 +1,19 @@
 {
-  "kind": "reset",
-  "status": "estimated",
-  "headline": "Day 23 usage reset announced",
-  "resetAt": "2026-10-28T08:00:00.000Z",
-  "sourceTimezone": "PST (UTC-8)",
-  "deadlineEstimated": true,
-  "originalTimeText": "Lands by midnight PST.",
-  "scope": "Day 23 usage reset announced; eligible plans and usage windows were not specified.",
+  "kind": "reset_confirmed",
+  "status": "confirmed",
+  "headline": "Day 23 usage reset has landed",
+  "resetAt": null,
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "And it's done.",
+  "scope": "Tibo confirmed that the Day 23 usage reset was done.",
   "announcement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "And it's done. See you tomorrow for some good news.",
+    "translation": "完成了。明天见，还有一些好消息。",
+    "url": "https://x.com/thsottiaux/status/2115330127886463244",
+    "postedAt": "2026-10-28T06:29:38.000Z"
+  },
+  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset. Still much requested though!",
     "translation": "第 23 天：呼声很高的 iCloud 邮件与日历插件。开玩笑的，今天是重置日。不过大家确实期待已久！",
@@ -21,6 +27,6 @@
     "url": "https://x.com/thsottiaux/status/2115273253711409208",
     "postedAt": "2026-10-28T02:43:38.000Z"
   },
-  "updatedAt": "2026-10-28T03:47:50.349Z",
-  "note": "At posting time it was October 27 in US Pacific time. The countdown interprets midnight as the end of that day: October 28 at 08:00 UTC under literal PST (UTC-8), or 07:00 UTC if local PDT was intended. This is an estimated deadline, not a confirmed execution time. No completion confirmation was found in the posts reviewed."
+  "updatedAt": "2026-10-28T06:41:45.052Z",
+  "note": "Tibo quoted the Day 23 timing reply and confirmed the reset was done. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified; individual accounts may differ."
 }

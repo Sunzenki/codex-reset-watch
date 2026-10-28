@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo’s 28-day plan: Codex daily update index",
-  "summary": "Follow Codex and ChatGPT Work features and usage resets. Days 1–23 are covered; Day 23 announces a reset by midnight PST, with completion still unconfirmed.",
+  "summary": "Follow Codex and ChatGPT Work features and usage resets. Days 1–23 are covered; Tibo has confirmed the Day 23 reset is done.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-28T03:47:50.349Z",
+  "updatedAt": "2026-10-28T06:41:45.052Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-28T03:47:50.349Z"
+    "checkedAt": "2026-10-28T06:41:45.052Z"
   },
   "sources": [
     {
@@ -80,6 +80,10 @@
     {
       "label": "Tibo: midnight PST reply",
       "url": "https://x.com/thsottiaux/status/2115273253711409208"
+    },
+    {
+      "label": "Tibo: Day 23 completion confirmation",
+      "url": "https://x.com/thsottiaux/status/2115330127886463244"
     }
   ],
   "coverAlt": "Codex 28-day plan illustration: a seven-column, four-row calendar for features and resets.",
@@ -103,7 +107,7 @@ The [Day 18 usage reset has also landed](/guides/tibo-day-18-reset-announced/). 
 
 [Day 22 introduces GPT-6.1 Terra](/guides/tibo-day-22-gpt-6-1-terra/) for writing, visual understanding and computer use. This is a feature day; the article separates model efficiency from an allowance reset.
 
-[Day 23 announces another reset](/guides/tibo-day-23-reset-announced/) by midnight PST. The countdown uses an estimated deadline, and the reset is awaiting confirmation.
+[Day 23’s reset has landed](/guides/tibo-day-23-reset-announced/). Tibo confirmed completion on October 28 at 06:29:38 UTC; the article retains the earlier midnight PST estimate.
 
 Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account; Day 18 has also landed. Day 19 is a feature day; Day 20 is a reset with public completion confirmation. Later days will receive articles when their updates can be verified.
 
