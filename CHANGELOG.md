@@ -10,13 +10,6 @@
 
 ## 未发布
 
-### 2026-10-28 — Day 23 额度重置预告
-
-- **依据与改动**：在 Chrome 核对 Tibo 的 Day 23 主帖及“Lands by midnight PST.”回复；首页三语显示预计截止，字面 PST 为 10 月 28 日 08:00 UTC（北京时间 16:00），若指 PDT 则为 07:00 UTC（15:00）。这是预告，未见公开完成确认；详见 [采编记录](docs/tibo-28-days-source-review.md)。
-- **资讯与范围**：新增三语 Day 23 文章及目录入口，说明作者引用的 ChatGPT iCloud 插件公告；目录为 23/28、13 功能日、12 重置相关日，84 篇正式稿。历史和 Day 21 实测记录保留，后台通知草稿更新，未发送真实通知。
-- **本地验证**：三语草稿审读后以 2026-10-28T03:48:42.219Z 作为首次发布批次；正式构建、120 页资讯 SEO/本地 HTTP、文档和差异检查通过，`pnpm test:push` 离线检查三语草稿通过。三语首页、历史、目录及 Day 23 在 1440px / 375px 共 24 组无溢出或破图，首页显示倒计时和待确认说明；84 篇、23/28 分类统计与保留的历史 JSON 核对通过。证据见忽略的 experiments/day23/local-checks.json、browser-checks.json、mobile-home.png。
-- **发布状态**：本地检查通过，待提交、推送与生产核验；真实通知未发送。
-
 ### 2026-10-16 — 明确浏览器提醒说明
 
 - **改动**：未开启提醒时显示“通过浏览器接收重置通知。”，繁中为“透過瀏覽器接收重置通知。”，英文为“Get reset notifications in your browser.”；字段改名 reminderHint，避免与来源说明混用。已开启及异常状态文案、订阅逻辑不变。
@@ -88,6 +81,13 @@
 - **遗留事项**：本地静态预览未运行推送后端，目前显示“重试连接”及正式站入口；已提出将本地固定不可用状态改为更明确提示，该 UI 调整尚未实施。不可在后续交接时写成已完成。
 
 ## 已发布
+
+### 2026-10-28 — Day 23 额度重置预告
+
+- **依据与改动**：在 Chrome 核对 Tibo 的 Day 23 主帖及“Lands by midnight PST.”回复；首页三语显示预计截止，字面 PST 为 10 月 28 日 08:00 UTC（北京时间 16:00），若指 PDT 则为 07:00 UTC（15:00）。这是预告，未见公开完成确认；详见 [采编记录](docs/tibo-28-days-source-review.md)。
+- **资讯与范围**：新增三语 Day 23 文章及目录入口，说明作者引用的 ChatGPT iCloud 插件公告；目录为 23/28、13 功能日、12 重置相关日，84 篇正式稿。历史和 Day 21 实测记录保留，后台通知草稿更新，未发送真实通知。
+- **本地验证**：三语草稿审读后以 2026-10-28T03:48:42.219Z 作为首次发布批次；正式构建、120 页资讯 SEO/本地 HTTP、文档和差异检查通过，`pnpm test:push` 离线检查三语草稿通过。三语首页、历史、目录及 Day 23 在 1440px / 375px 共 24 组无溢出或破图，首页显示倒计时和待确认说明；84 篇、23/28 分类统计与保留的历史 JSON 核对通过。证据见忽略的 experiments/day23/local-checks.json、browser-checks.json、mobile-home.png。
+- **提交与生产核验**：内容提交 f4c4788688895e08e8e9becc59f0ea60a8f44293 已推送 main；Cloudflare Production 部署 2f6dc35a-d616-4b2c-bfd3-ebed79ffdaf5 对应该提交，GitHub 检查于 2026-10-28T03:52:54Z 成功。三语首页、历史、资讯列表、目录、Day 23/22 共 18 个路由的 H1、结构化数据及列表行与本地一致；current/history/push-message JSON、main-hQlzfZJU.js / main-BG7ZNkq-.css 及 robots/sitemap/llms/ads 匹配本地。120 页资讯 SEO/生产 HTTP 检查通过；浏览器确认中文首页预告和倒计时、置顶目录 Day 23 与 23/28。证据见忽略的 experiments/day23/production-checks.json；真实通知未发送。
 
 ### 2026-10-27 — Day 22：GPT-6.1 Terra 三语资讯
 
