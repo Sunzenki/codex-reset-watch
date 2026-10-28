@@ -1,19 +1,26 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "Day 21 usage reset has landed",
-  "resetAt": null,
-  "sourceTimezone": "Site observation timestamp (UTC)",
-  "originalTimeText": "But today is a reset.",
-  "scope": "Day 21 usage reset verified on the site owner’s account.",
+  "kind": "reset",
+  "status": "estimated",
+  "headline": "Day 23 usage reset announced",
+  "resetAt": "2026-10-28T08:00:00.000Z",
+  "sourceTimezone": "PST (UTC-8)",
+  "deadlineEstimated": true,
+  "originalTimeText": "Lands by midnight PST.",
+  "scope": "Day 23 usage reset announced; eligible plans and usage windows were not specified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 21/ Wonder what happens the remaining seven days. But today is a reset.",
-    "translation": "第 21 天：不知道剩下七天会发生什么。不过今天是重置日。",
-    "url": "https://x.com/thsottiaux/status/2114588174249071102",
-    "postedAt": "2026-10-26T05:21:22.000Z"
+    "text": "Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset. Still much requested though!",
+    "translation": "第 23 天：呼声很高的 iCloud 邮件与日历插件。开玩笑的，今天是重置日。不过大家确实期待已久！",
+    "url": "https://x.com/thsottiaux/status/2115273064481218829",
+    "postedAt": "2026-10-28T02:42:53.000Z"
   },
-  "updatedAt": "2026-10-26T06:21:03.358Z",
-  "note": "The site owner confirmed restored usage on their own account. The recorded time is the site observation record time, not the exact reset time. Tibo’s post says today is a reset, without specifying an execution time, eligible plans or usage windows; no separate completion confirmation was found in this read.",
-  "confirmationBasis": "owner_observed"
+  "timingSource": {
+    "source": "Tibo (@thsottiaux) / X reply",
+    "text": "Lands by midnight PST.",
+    "translation": "将在 PST 午夜前落地。",
+    "url": "https://x.com/thsottiaux/status/2115273253711409208",
+    "postedAt": "2026-10-28T02:43:38.000Z"
+  },
+  "updatedAt": "2026-10-28T03:47:50.349Z",
+  "note": "At posting time it was October 27 in US Pacific time. The countdown interprets midnight as the end of that day: October 28 at 08:00 UTC under literal PST (UTC-8), or 07:00 UTC if local PDT was intended. This is an estimated deadline, not a confirmed execution time. No completion confirmation was found in the posts reviewed."
 }

@@ -125,27 +125,27 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Day 21 usage reset has landed",
-    "scope": "Usage has been restored on the site owner’s account.",
-    "sourceExcerpt": "But today is a reset.",
-    "context": "Tibo named Day 21 as a reset day. The site owner has verified restored usage on their account; the Day 20 record remains in history.",
-    "note": "Completion is based on the site owner’s account observation. The date is the site observation record time; the original post was published on October 26 at 05:21:22 UTC. The exact reset time was not given."
+    "headline": "Day 23 usage reset announced",
+    "sourceExcerpt": "today is a reset.",
+    "scope": "Eligible plans and usage windows were not specified.",
+    "context": "Tibo announced Day 23 as a reset day and replied “Lands by midnight PST.” Day 21 remains in the history archive.",
+    "note": "The post was published on October 27 in Pacific time. The countdown uses the coming midnight under literal PST: October 28 at 08:00 UTC. If local PDT was intended, it is 07:00 UTC. This is an estimated deadline; completion is not yet confirmed."
   },
   "zh-CN": {
-    "headline": "第 21 天额度重置已落地",
-    "scope": "站长账号已实测额度恢复。",
-    "sourceExcerpt": "But today is a reset.",
-    "sourceTranslation": "不过今天是重置日。",
-    "context": "Tibo 表示 Day 21 是重置日，站长现已亲自确认账号额度恢复。此前 Day 20 的完成记录继续保留。",
-    "note": "落地依据为站长账号实测。日期采用本站实测记录时间；原帖发表于北京时间 10 月 26 日 13:21:22，具体重置时刻未公布。"
+    "headline": "第 23 天额度重置已预告",
+    "sourceExcerpt": "today is a reset.",
+    "sourceTranslation": "今天是重置日。",
+    "scope": "原帖未列明适用套餐及具体额度窗口。",
+    "context": "Tibo 宣布 Day 23 是重置日，随后回复“Lands by midnight PST.”。Day 21 的实测记录继续保留在历史中。",
+    "note": "发帖时美西为 10 月 27 日，午夜按当天结束理解。倒计时按字面 PST 换算至北京时间 10 月 28 日 16:00；若泛指当地 PDT，则为 15:00。这是预计截止时间，目前尚未确认落地。"
   },
   "zh-TW": {
-    "headline": "第 21 天額度重置已落地",
-    "scope": "站長帳戶已實測額度恢復。",
-    "sourceExcerpt": "But today is a reset.",
-    "sourceTranslation": "不過今天是重置日。",
-    "context": "Tibo 表示 Day 21 是重置日，站長現已親自確認帳戶額度恢復。先前 Day 20 的完成記錄繼續保留。",
-    "note": "落地依據為站長帳戶實測。日期採用本站實測記錄時間；原帖發佈於台北時間 10 月 26 日 13:21:22，具體重置時間未公布。"
+    "headline": "第 23 天額度重置已預告",
+    "sourceExcerpt": "today is a reset.",
+    "sourceTranslation": "今天是重置日。",
+    "scope": "原帖未列明適用方案及具體額度視窗。",
+    "context": "Tibo 宣布 Day 23 是重置日，隨後回覆「Lands by midnight PST.」。Day 21 的實測記錄繼續保留在歷史中。",
+    "note": "發帖時美西為 10 月 27 日，午夜按當天結束理解。倒數按字面 PST 換算至台北時間 10 月 28 日 16:00；若泛指當地 PDT，則為 15:00。這是預計截止時間，目前尚未確認落地。"
   }
 };
 

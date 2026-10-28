@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-26-day21-reset-landed",
+  "eventId": "2026-10-28-day23-reset-announced",
   "messages": {
     "en": {
-      "title": "Day 21 usage reset has landed",
-      "body": "The Day 21 reset has landed, verified on the site owner’s account. Check your usage allowance and get back to work!",
+      "title": "Day 23 usage reset announced",
+      "body": "Tibo expects a reset by midnight PST: Oct 28, 08:00 UTC (07:00 if PDT was intended). Completion is not yet confirmed.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "第 21 天额度重置已落地",
-      "body": "第 21 天额度重置已落地，站长账号已实测恢复。快去看看你的额度，可以继续开工啦！",
+      "title": "第 23 天额度重置已预告",
+      "body": "Tibo 预计在 PST 午夜前重置，即北京时间 10 月 28 日 16:00 前；若指 PDT 则为 15:00。尚未确认落地。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "第 21 天額度重置已落地",
-      "body": "第 21 天額度重置已落地，站長帳戶已實測恢復。快去看看你的額度，可以繼續開工啦！",
+      "title": "第 23 天額度重置已預告",
+      "body": "Tibo 預計在 PST 午夜前重置，即台北時間 10 月 28 日 16:00 前；若指 PDT 則為 15:00。尚未確認落地。",
       "path": "/zh-TW/"
     }
   }

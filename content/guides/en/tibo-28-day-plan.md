@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo’s 28-day plan: Codex daily update index",
-  "summary": "Follow Codex and ChatGPT Work features and usage resets. Days 1–22 are covered; Day 22 brings GPT-6.1 Terra, with availability, API prices and usage conditions explained.",
+  "summary": "Follow Codex and ChatGPT Work features and usage resets. Days 1–23 are covered; Day 23 announces a reset by midnight PST, with completion still unconfirmed.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-26T19:52:27.779Z",
+  "updatedAt": "2026-10-28T03:47:50.349Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-26T19:52:27.779Z"
+    "checkedAt": "2026-10-28T03:47:50.349Z"
   },
   "sources": [
     {
@@ -72,6 +72,14 @@
     {
       "label": "Tibo: Day 22, Terra returns",
       "url": "https://x.com/thsottiaux/status/2114800277677092936"
+    },
+    {
+      "label": "Tibo: Day 23 reset announcement",
+      "url": "https://x.com/thsottiaux/status/2115273064481218829"
+    },
+    {
+      "label": "Tibo: midnight PST reply",
+      "url": "https://x.com/thsottiaux/status/2115273253711409208"
     }
   ],
   "coverAlt": "Codex 28-day plan illustration: a seven-column, four-row calendar for features and resets.",
@@ -94,6 +102,8 @@ The [Day 18 usage reset has also landed](/guides/tibo-day-18-reset-announced/). 
 [Day 21’s reset has landed](/guides/tibo-day-21-reset-landed/), verified on the site owner’s account. The post gives no scheduled execution time, so this entry goes straight to a landed state without a countdown.
 
 [Day 22 introduces GPT-6.1 Terra](/guides/tibo-day-22-gpt-6-1-terra/) for writing, visual understanding and computer use. This is a feature day; the article separates model efficiency from an allowance reset.
+
+[Day 23 announces another reset](/guides/tibo-day-23-reset-announced/) by midnight PST. The countdown uses an estimated deadline, and the reset is awaiting confirmation.
 
 Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account; Day 18 has also landed. Day 19 is a feature day; Day 20 is a reset with public completion confirmation. Later days will receive articles when their updates can be verified.
 
