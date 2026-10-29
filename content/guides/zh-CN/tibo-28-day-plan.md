@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天计划：Codex 每日更新目录",
-  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–23；Day 23 重置已获 Tibo 公开完成确认。",
+  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–24；Day 24 为美国 Pro 用户测试 dot 短信。",
   "locale": "zh-CN",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-28T06:41:45.052Z",
+  "updatedAt": "2026-10-29T08:37:40.578Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-28T06:41:45.052Z"
+    "checkedAt": "2026-10-29T08:37:40.578Z"
   },
   "sources": [
     {
@@ -84,6 +84,14 @@
     {
       "label": "Tibo：Day 23 完成确认",
       "url": "https://x.com/thsottiaux/status/2115330127886463244"
+    },
+    {
+      "label": "Tibo: Day 24",
+      "url": "https://x.com/thsottiaux/status/2115622002581188681"
+    },
+    {
+      "label": "ChatGPT: Message your dot",
+      "url": "https://learn.chatgpt.com/docs/dots/channels"
     }
   ],
   "coverAlt": "Codex 28 天计划示意：七列四行日历与功能、重置分类。",
@@ -108,6 +116,8 @@
 [Day 22 发布 GPT-6.1 Terra](/zh-CN/guides/tibo-day-22-gpt-6-1-terra/)，主打写作、视觉理解和电脑操作。本日归为功能更新，文章分别说明模型用量效率与额度重置。
 
 [Day 23 额度重置已落地](/zh-CN/guides/tibo-day-23-reset-announced/)，Tibo 于北京时间 10 月 28 日 14:29:38 发帖确认完成；文章保留此前的 PST 午夜预告和时间换算。
+
+[Day 24 支持给 dot 发短信](/zh-CN/guides/tibo-day-24-text-your-dot/)，通过 iMessage 或安卓 RCS 一对一交流，目前向美国 Pro 用户逐步开放测试。
 
 点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地，第 18 天额度重置也已落地。第 19 天为功能更新，第 20 天重置已获公开完成确认。后续日期有可核实内容后再补文章。
 

@@ -16,8 +16,17 @@
     {
       "label": "Codex：账号用量面板",
       "url": "https://chatgpt.com/codex/settings/usage"
+    },
+    {
+      "label": "OpenAI: API credits for ChatGPT subscribers",
+      "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits"
+    },
+    {
+      "label": "OpenAI: ChatGPT Pro tiers",
+      "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-29T08:37:40.578Z"
 }
 ---
 
@@ -44,6 +53,8 @@
 | 使用 API key 继续本地任务 | API 项目权限、额度和单独计费；按 API 价格计算 |
 
 credits 和 API key 都涉及各自的计费规则。评估之前先确认你准备使用哪条路径；订阅里的剩余百分比不能直接换算成 API 余额。本文提供核对入口，不代替账号购买或修改工作区预算。
+
+订阅附带的 [API credits](/zh-CN/guides/chatgpt-pro-business-api-credits/) 是另一项权益：不能增加登录状态下的 Codex 限制，也不能用于通过 API key 使用 Codex。符合条件的现有 Pro 200 用户还应查看[旧额度过渡说明](/zh-CN/guides/pro-200-grandfathered-allowance-october-2026/)。
 
 ## 为下一次比较留下可用记录
 

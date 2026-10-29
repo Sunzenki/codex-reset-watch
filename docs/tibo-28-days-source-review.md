@@ -166,3 +166,10 @@
 - **来源与时间**：用户提供[完成帖](https://x.com/thsottiaux/status/2115330127886463244)。2026-10-28T06:39Z–06:41Z 使用 agent-reach / Jina Reader 实际读取原帖正文、发布时间及所引用的 Day 23 时间回复；原文为“And it's done. See you tomorrow for some good news.”，发表于 06:29:38Z，即北京时间和台北时间 14:29:38。引用关系指向先前的“Lands by midnight PST.”回复；公开确认时间不等于后台执行时刻。
 - **证据边界**：作者确认完成，但未列明套餐、用量窗口或所有账号的到账情况。Reader 可见 [Brian](https://x.com/briandecoded/status/2115330361114632291) 和 [Yashas](https://x.com/YashasGunderia/status/2115330326759358692) 分别表示或询问自己尚未收到；这是未独立核实的个人反馈，不推断全站故障，也不将作者确认扩大为每个账号同步恢复。作者提及明天有好消息，未公开具体内容。
 - **同步方式**：首页切换 reset_confirmed，新增 confirmation 历史记录并保留原预告、时间回复和预计截止；就地更新 Day 23 三语文章及置顶目录，保留首次发布日期与系列日期。目录仍为 23/28、13 功能日、12 重置相关日。后台草稿更新为完成态，真实通知未发送；验证、部署与线上状态见变更日志。
+
+## 2026-10-29 — Day 24 dot 短信
+
+- **选题与来源**：帮助读者判断能否使用新渠道，并说明一对一边界和操作入口。2026-10-29 约 08:25–08:38 UTC 使用用户授权的 Chrome 查看 [Tibo 主页](https://x.com/thsottiaux)、[Day 24 原帖](https://x.com/thsottiaux/status/2115622002581188681)及可见回复，核对 [ChatGPT 官方公告](https://x.com/ChatGPT/status/2115496387613786374)和[官方短信说明](https://learn.chatgpt.com/docs/dots/channels)。agent-reach 的 Reader 返回来源侧 401，未将其当作已读原帖的依据。
+- **事实与范围**：主帖时间为 2026-10-29T01:49:26Z，即北京时间 09:49:26、美西 10 月 28 日；介绍文字、照片和语音消息。官方文档明确美国 Pro 用户测试、iMessage/安卓 RCS、一对一、手机号验证、无需授权其他短信对话，以及群聊和电话等尚不支持。未独立操作账号实测，不假定其他地区或套餐已开放。原帖没有声明重置，归为 feature。
+- **评论与未发信息**：[eddiboi](https://x.com/eddiboi/status/2115622167152918749) 询问地区限制和重置，[Screeendev](https://x.com/Screeendev/status/2115622281368186914) 提及欧盟及 Plus 不可用；这些是个人反馈，适用范围以官方文档为准，不推广为所有人的体验。Tibo 的[关于 Chat 与 Work 的回复](https://x.com/thsottiaux/status/2115588390414581916)称团队仍在工作、尚未推出，不将计划当作已交付功能。
+- **同步范围**：新增三语日文章并更新原置顶目录，保留首次日期；由字段派生 24/28、14 功能日、12 重置相关日。首页 current、history 和通知草稿不因功能公告改变，未发送真实通知；验证和发布阶段见变更日志。

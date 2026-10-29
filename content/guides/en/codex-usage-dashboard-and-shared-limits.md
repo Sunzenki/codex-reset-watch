@@ -16,8 +16,17 @@
     {
       "label": "Codex: account usage dashboard",
       "url": "https://chatgpt.com/codex/settings/usage"
+    },
+    {
+      "label": "OpenAI: API credits for ChatGPT subscribers",
+      "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits"
+    },
+    {
+      "label": "OpenAI: ChatGPT Pro tiers",
+      "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-29T08:37:40.578Z"
 }
 ---
 
@@ -44,6 +53,8 @@ Before comparing two tasks, record the model, speed setting, scope and any other
 | Use an API key for local work | API project access, limits and separate usage-based billing |
 
 Credits and API-key access have their own billing rules. Identify the intended path before comparing costs; a subscription percentage does not translate directly into an API balance. This guide does not purchase credits or change a workspace budget.
+
+Subscriber [API credits](/guides/chatgpt-pro-business-api-credits/) are a separate benefit: they do not increase signed-in Codex limits and cannot pay for Codex usage through API keys. Eligible existing Pro 200 users should also check the [allowance transition](/guides/pro-200-grandfathered-allowance-october-2026/).
 
 ## Keep a useful comparison record
 

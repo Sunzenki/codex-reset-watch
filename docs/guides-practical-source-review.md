@@ -68,3 +68,10 @@
 没有将历史 0.163.0 说成当前所有客户端的最新版本，也未把官方历史故障标记扩展为所有账号当前正常。X 系列仍按底稿的核对时点归档，未补造全量重抓或未证实的储备到账、直播与长期缓存结论。上线前正式构建和 93 页本地 SEO/HTTP 已通过；生产 SHA 与页面结果以变更日志中的本次部署证据为准。
 
 首次发布及后续列表/分类 SEO 增补均已部署；三语生产列表、目录、日文章及用量教程完成桌面/手机核验，正式站 93 页 SEO/HTTP 检查通过。当前公开稿件为 63 份 published；上方 preview 与“未部署”描述保留为对应审计阶段的历史记录，当前发布证据见 [变更日志](../CHANGELOG.md)。未进行 Google 实际收录或真实用户性能验收。
+
+## 2026-10-29 API 赠额、Pro 200 过渡与 CLI 发行版
+
+- **选题与增量**：面向正在核对 Codex/Work 用量的订阅者，拆分 API 赠额与订阅额度，说明 Pro 200 旧额度的期限和资格；面向 CLI 用户归纳当前稳定版对工作流有用的变化。已有用量教程只描述一般计费路径，增加两篇新稿的内链及 API 赠额排除范围；旧 CLI 文章记录 0.163.0 的特定变更，新版有独立变化。
+- **实际读取**：2026-10-29 约 08:25–08:38 UTC 在 Chrome 查看 [OpenAIDevs](https://x.com/OpenAIDevs)、[ChatGPT](https://x.com/ChatGPT)、[OpenAI](https://x.com/OpenAI) 的可见主页；打开 [API 赠额官方指南](https://developers.openai.com/api/docs/guides/chatgpt-api-credits)、[Pro 套餐说明](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)、[Work/Codex 用量说明](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)及 [Codex 0.165.0 发行说明](https://github.com/openai/codex/releases/tag/rust-v0.165.0)。也检查状态总览、Business 更新及 API 更新日志；状态总览不能证明每个用户无问题。
+- **证据边界**：官方 API 文档列出七天、同邮箱、双重 owner、金额、周期与 API key Codex 排除；未实际领取或修改账户。Pro 200 旧额度保留至 10 月 29 日，官方未给切换时刻或降幅，不能写已发生、午夜或减半。官方用量页仍明确 Pro 没有五小时限制，保留旧教程相关表述。0.165.0 在核对时标为最新稳定版，实验性 API 与客户端功能分开；未实际安装或声称实测。
+- **版本与链接**：Pro 帮助页显示两天前更新；CLI GitHub 发行页标示 10 月 27 日，API/短信文档按上述读取时间确认。三语摘要、表格、资格、排除范围与内链逐项对照；发布及检查状态见变更日志。

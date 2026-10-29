@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天計畫：Codex 每日更新目錄",
-  "summary": "逐日檢視 Codex 與 ChatGPT Work 的功能變化、額度重置及適用範圍。已整理 Day 1–23；Day 23 重置已獲 Tibo 公開完成確認。",
+  "summary": "逐日檢視 Codex 與 ChatGPT Work 的功能變化、額度重置及適用範圍。已整理 Day 1–24；Day 24 為美國 Pro 使用者測試 dot 簡訊。",
   "locale": "zh-TW",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-28T06:41:45.052Z",
+  "updatedAt": "2026-10-29T08:37:40.578Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-28T06:41:45.052Z"
+    "checkedAt": "2026-10-29T08:37:40.578Z"
   },
   "sources": [
     {
@@ -84,6 +84,14 @@
     {
       "label": "Tibo：Day 23 完成確認",
       "url": "https://x.com/thsottiaux/status/2115330127886463244"
+    },
+    {
+      "label": "Tibo: Day 24",
+      "url": "https://x.com/thsottiaux/status/2115622002581188681"
+    },
+    {
+      "label": "ChatGPT: Message your dot",
+      "url": "https://learn.chatgpt.com/docs/dots/channels"
     }
   ],
   "coverAlt": "Codex 28 天計畫示意：七列四行日曆與功能、重置分類。",
@@ -108,6 +116,8 @@
 [Day 22 發佈 GPT-6.1 Terra](/zh-TW/guides/tibo-day-22-gpt-6-1-terra/)，主打寫作、視覺理解和電腦操作。本日歸為功能更新，文章分別說明模型用量效率與額度重置。
 
 [Day 23 額度重置已落地](/zh-TW/guides/tibo-day-23-reset-announced/)，Tibo 於台北時間 10 月 28 日 14:29:38 發帖確認完成；文章保留先前的 PST 午夜預告和時間換算。
+
+[Day 24 支援傳訊息給 dot](/zh-TW/guides/tibo-day-24-text-your-dot/)，透過 iMessage 或 Android RCS 一對一交流，目前逐步向美國 Pro 使用者開放測試。
 
 點選日期檢視當天變化、適用條件、原帖與相關問答。「已整理」表示已有獨立說明；第 3 天儲備重置仍為預告，第 15 天標為直播與重置，第 17 天額度重置已實測落地，第 18 天額度重置也已落地。第 19 天為功能更新，第 20 天重置已獲公開完成確認。後續日期有可核實內容後再補文章。
 
