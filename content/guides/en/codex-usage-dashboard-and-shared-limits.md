@@ -26,7 +26,7 @@
       "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
     }
   ],
-  "updatedAt": "2026-10-29T08:37:40.578Z"
+  "updatedAt": "2026-10-29T17:16:29.851Z"
 }
 ---
 
@@ -54,7 +54,7 @@ Before comparing two tasks, record the model, speed setting, scope and any other
 
 Credits and API-key access have their own billing rules. Identify the intended path before comparing costs; a subscription percentage does not translate directly into an API balance. This guide does not purchase credits or change a workspace budget.
 
-Subscriber [API credits](/guides/chatgpt-pro-business-api-credits/) are a separate benefit: they do not increase signed-in Codex limits and cannot pay for Codex usage through API keys. Eligible existing Pro 200 users should also check the [allowance transition](/guides/pro-200-grandfathered-allowance-october-2026/).
+Subscriber [API credits](/guides/chatgpt-pro-business-api-credits/) are a separate benefit: they do not increase signed-in Codex limits and cannot pay for Codex usage through API keys. Pro 200 users should also check the [canceled allowance reduction](/guides/pro-200-grandfathered-allowance-october-2026/).
 
 ## Keep a useful comparison record
 

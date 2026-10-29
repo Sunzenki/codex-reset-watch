@@ -26,7 +26,7 @@
       "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
     }
   ],
-  "updatedAt": "2026-10-29T08:37:40.578Z"
+  "updatedAt": "2026-10-29T17:16:29.851Z"
 }
 ---
 
@@ -54,7 +54,7 @@
 
 credits 和 API key 都涉及各自的計費規則。評估之前先確認你準備使用哪條路徑；訂閱裡的剩餘百分比不能直接換算成 API 餘額。本文提供核對入口，不代替帳號購買或修改工作區預算。
 
-訂閱附帶的 [API credits](/zh-TW/guides/chatgpt-pro-business-api-credits/) 是另一項權益：不能增加登入狀態下的 Codex 限制，也不能用於透過 API key 使用 Codex。符合條件的現有 Pro 200 使用者還應查看[舊額度過渡說明](/zh-TW/guides/pro-200-grandfathered-allowance-october-2026/)。
+訂閱附帶的 [API credits](/zh-TW/guides/chatgpt-pro-business-api-credits/) 是另一項權益：不能增加登入狀態下的 Codex 限制，也不能用於透過 API key 使用 Codex。Pro 200 使用者還可查看[取消降額後的額度說明](/zh-TW/guides/pro-200-grandfathered-allowance-october-2026/)。
 
 ## 為下一次比較留下可用記錄
 

@@ -2,8 +2,8 @@
 {
   "id": "pro-200-grandfathered-allowance-october-2026",
   "slug": "pro-200-grandfathered-allowance-october-2026",
-  "title": "Pro 200 旧额度保留至 10 月 29 日：哪些用户受影响",
-  "summary": "OpenAI 表示符合条件的现有 Pro 200 订阅者可在订阅有效时保留旧额度至 10 月 29 日；具体切换时刻和降幅未公布。",
+  "title": "Pro 200 取消原定降额：新旧订阅额度如何统一",
+  "summary": "OpenAI 已取消 Pro 200 原定降额：原高额度保持不变，原低额度翻倍至同一水平。",
   "locale": "zh-CN",
   "category": "updates",
   "publishedAt": "2026-10-29T08:38:44.182Z",
@@ -16,21 +16,36 @@
     {
       "label": "OpenAI: Work and Codex usage",
       "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
+    },
+    {
+      "label": "Tibo: Day 25 announcement",
+      "url": "https://x.com/thsottiaux/status/2115850175868727621"
+    },
+    {
+      "label": "Tibo: Earlier Pro 200 announcement",
+      "url": "https://x.com/thsottiaux/status/2104823812042940713"
+    }
+  ],
+  "updatedAt": "2026-10-29T17:16:29.851Z",
+  "corrections": [
+    {
+      "date": "2026-10-29T17:16:29.851Z",
+      "text": "本文此前根据当时官方说明，称 Pro 200 旧额度将在 10 月 29 日后降至较低水平。OpenAI 随后取消该调整；现已更新标题、摘要和正文。"
     }
   ]
 }
 ---
 
-[OpenAI 的 Pro 套餐说明](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)表示，符合条件的现有 Pro 200 订阅者，在订阅有效期间可继续使用原有套餐额度，**直至 2026 年 10 月 29 日**。此日期之后会转为较低的包含额度，价格仍为每月 200 美元。
+OpenAI 已**取消 Pro 200 的 Work 和 Codex 原定降额**。[更新后的 Pro 说明](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)表示，原本享有较高额度的账号继续保留该额度；原本使用较低额度的账号会翻倍至同一水平。新旧 Pro 200 订阅现在采用相同的 Work 和 Codex 额度，月费仍为 200 美元。
 
-## 哪些账号符合过渡条件
+## 与此前的计划相比，变了什么
 
-资格窗口为 2026 年 9 月 22 日起至**9 月 29 日美西时间上午 10 点**：账号只要曾在此期间有有效的 Pro 200 订阅，就符合这项过渡条件。OpenAI 说明，符合这一历史条件的同一账号重新订阅后，只要 Pro 200 仍有效，也可以在过渡期内保留旧额度。不符合条件的新订阅直接使用调整后的额度。
+OpenAI 之前说明，符合条件的现有订阅者可保留旧额度至 2026 年 10 月 29 日，之后转为较低额度。Tibo 也在[此前原帖](https://x.com/thsottiaux/status/2104823812042940713)中解释，新计算方式按 API 美元支出衡量大约是旧方案的一半。OpenAI 现在明确取消了 9 月 29 日邮件中宣布的降额，取代本文原先写的 10 月 29 日过渡安排。
 
-官方给出了 10 月 29 日这个日期，但没有说明后续切换的具体时刻、时区或额度降幅。不要把某个时区的午夜或其他账号反馈的百分比当成官方保证。OpenAI 表示会向受影响用户发送包含更多信息的邮件。
+已经享有较高 Work 和 Codex 额度的用户是**保留原额度**，并非在高额度上再次翻倍；原本额度较低的用户则提升到同一水平。OpenAI 说现有订阅会自动获得调整，无需等待续费，也无需取消后重新订阅。其他套餐变化见 [Day 25 原帖](https://x.com/thsottiaux/status/2115850175868727621)及本站 [Day 25 指南](/zh-CN/guides/tibo-day-25-pro-usage-allowance/)。
 
-## 如何确认自己的情况
+## 核对自己的额度
 
-查看自己的套餐、收到的受影响用户邮件以及[设置 → 用量](https://chatgpt.com/codex/settings/usage)。Work 和 Codex 共享套餐用量，实际消耗取决于模型、任务与设置。临时重置只恢复适用窗口，不会永久恢复旧套餐额度；比较窗口的方法可查看[用量指南](/zh-CN/guides/codex-usage-dashboard-and-shared-limits/)。
+在[设置 → 用量](https://chatgpt.com/codex/settings/usage)查看实际使用的账号与工作区。Work 和 Codex 共享套餐额度；模型、上下文、推理强度与设置会影响消耗。Chat 的 GPT-6 Pro 每周消息限制另算：Pro 200 原低额度提高到与高额度一致，原高额度维持不变。
 
-符合条件的订阅者还可领取[API credits](/zh-CN/guides/chatgpt-pro-business-api-credits/)，但这一权益不会增加登录状态下的 Codex 限制，也不能用于通过 API key 使用 Codex。
+[订阅 API credits](/zh-CN/guides/chatgpt-pro-business-api-credits/)是独立权益，不会增加登录状态下的 Codex 限制，也不能用于通过 API key 使用 Codex。重置只刷新适用窗口，本身不会改变套餐额度。

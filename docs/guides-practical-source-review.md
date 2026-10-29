@@ -75,3 +75,9 @@
 - **实际读取**：2026-10-29 约 08:25–08:38 UTC 在 Chrome 查看 [OpenAIDevs](https://x.com/OpenAIDevs)、[ChatGPT](https://x.com/ChatGPT)、[OpenAI](https://x.com/OpenAI) 的可见主页；打开 [API 赠额官方指南](https://developers.openai.com/api/docs/guides/chatgpt-api-credits)、[Pro 套餐说明](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)、[Work/Codex 用量说明](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)及 [Codex 0.165.0 发行说明](https://github.com/openai/codex/releases/tag/rust-v0.165.0)。也检查状态总览、Business 更新及 API 更新日志；状态总览不能证明每个用户无问题。
 - **证据边界**：官方 API 文档列出七天、同邮箱、双重 owner、金额、周期与 API key Codex 排除；未实际领取或修改账户。Pro 200 旧额度保留至 10 月 29 日，官方未给切换时刻或降幅，不能写已发生、午夜或减半。官方用量页仍明确 Pro 没有五小时限制，保留旧教程相关表述。0.165.0 在核对时标为最新稳定版，实验性 API 与客户端功能分开；未实际安装或声称实测。
 - **版本与链接**：Pro 帮助页显示两天前更新；CLI GitHub 发行页标示 10 月 27 日，API/短信文档按上述读取时间确认。三语摘要、表格、资格、排除范围与内链逐项对照；发布及检查状态见变更日志。
+
+## 2026-10-30 Pro 200 文章更正
+
+2026-10-29 17:13–17:18 UTC 重新读取 [Tibo Day 25](https://x.com/thsottiaux/status/2115850175868727621) 与[更新后的 Pro 套餐说明](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)。OpenAI 已取消此前 9 月 29 日邮件宣布的 Pro 200 降额；此前高额度不变，较低额度翻倍并与之统一，现有订阅自动调整。上方 10 月 29 日的核验记录是当时资料的历史快照，不是现行规则。
+
+原三语文章的标题、摘要和正文此前把 10 月 29 日后的降额写为预期规则；本轮保留 URL 和首次发布时间，更新内容并填写更正记录。用量指南的旧过渡链接改为取消降额后的说明；不把套餐额度、重置及订阅 API 赠额混为一谈。详情、验证及发布状态见系列底稿和变更日志。

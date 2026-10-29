@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天计划：Codex 每日更新目录",
-  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–24；Day 24 为美国 Pro 用户测试 dot 短信。",
+  "summary": "逐日查看 Codex 与 ChatGPT Work 的功能变化、额度重置及适用范围。已整理 Day 1–25；Day 25 更新 Pro 额度并取消 Pro 200 降额。",
   "locale": "zh-CN",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-29T08:37:40.578Z",
+  "updatedAt": "2026-10-29T17:16:29.851Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-29T08:37:40.578Z"
+    "checkedAt": "2026-10-29T17:16:29.851Z"
   },
   "sources": [
     {
@@ -92,6 +92,14 @@
     {
       "label": "ChatGPT: Message your dot",
       "url": "https://learn.chatgpt.com/docs/dots/channels"
+    },
+    {
+      "label": "Tibo: Day 25 announcement",
+      "url": "https://x.com/thsottiaux/status/2115850175868727621"
+    },
+    {
+      "label": "OpenAI: ChatGPT Pro tiers",
+      "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
     }
   ],
   "coverAlt": "Codex 28 天计划示意：七列四行日历与功能、重置分类。",
@@ -118,6 +126,8 @@
 [Day 23 额度重置已落地](/zh-CN/guides/tibo-day-23-reset-announced/)，Tibo 于北京时间 10 月 28 日 14:29:38 发帖确认完成；文章保留此前的 PST 午夜预告和时间换算。
 
 [Day 24 支持给 dot 发短信](/zh-CN/guides/tibo-day-24-text-your-dot/)，通过 iMessage 或安卓 RCS 一对一交流，目前向美国 Pro 用户逐步开放测试。
+
+[Day 25 调整 Pro 用量](/zh-CN/guides/tibo-day-25-pro-usage-allowance/)：Pro 100、500 的 Work 和 Codex 额度翻倍，Pro 200 原定降额取消。
 
 点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地，第 18 天额度重置也已落地。第 19 天为功能更新，第 20 天重置已获公开完成确认。后续日期有可核实内容后再补文章。
 
