@@ -89,7 +89,7 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 | `reached` | 预告时间已经到达，但未确认发生 |
 | `superseded` | 旧预告已被后续消息修正或替代 |
 
-`kind` 描述事件形态，`status` 描述证据或进度，二者不能混用。`rollout_observed` 和 `reset_confirmed` 都可以使用 `status: "confirmed"` 与 `resetAt: null`；不要为了显示倒计时虚构时间。
+`kind` 描述事件形态，`status` 描述证据或进度，二者不能混用。储备重置仅有预告且未给到账时间时，使用 `banked_reset`、`monitoring`、`resetAt: null`；状态文案写“已预告”，不能推断正在发放。首页说明由当前事件文案提供，不沿用历史事件的固定日期。`rollout_observed` 和 `reset_confirmed` 都可以使用 `status: "confirmed"` 与 `resetAt: null`；不要为了显示倒计时虚构时间。
 
 站长实测重置落地时使用 `reset_confirmed` 与 `confirmationBasis: "owner_observed"`；首页日期栏显示本站实测记录时间 `updatedAt`，公开原帖时间单独保留。页面标题可简写“额度重置已落地”，实测依据在来源说明交代；历史采用 `timeBasis: "observation"`，不把未知执行时刻填成预告截止时间。
 

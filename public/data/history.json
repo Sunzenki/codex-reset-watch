@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-10-31-day27-28-banked-announced",
+    "targetAt": "2026-10-31T05:42:26.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Next two days will be resets… banked…",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 26/ You can now easily switch between multiple accounts on mobile, and coming soon to desktop too. Next two days will be resets… banked… do with this what you may 👀.",
+      "translation": "第 26 天：现在可以在手机端轻松切换多个账号，桌面端也即将支持。接下来两天会有重置……储备重置……你们看着安排吧 👀。",
+      "url": "https://x.com/thsottiaux/status/2116405414921384099",
+      "postedAt": "2026-10-31T05:42:26.000Z"
+    },
+    "outcome": "unverified",
+    "note": "One announcement covers the next two series days, Day 27 and Day 28. The archive date is the post timestamp, not either delivery time. Eligibility, expiration and account availability were not confirmed.",
+    "recordedAt": "2026-10-31T11:23:35.738Z",
+    "eventType": "announcement",
+    "resetType": "banked",
+    "timeBasis": "announcement"
+  },
+  {
     "id": "reset-2026-10-28-day23-confirmed",
     "targetAt": "2026-10-28T06:29:38.000Z",
     "precision": "confirmed",

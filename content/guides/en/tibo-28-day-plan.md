@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo’s 28-day plan: Codex daily update index",
-  "summary": "Follow Codex and ChatGPT Work features and usage resets. Days 1–25 are covered; Day 25 changes Pro usage allowances.",
+  "summary": "Days 1–26 of the Codex and ChatGPT Work plan are covered. Day 26 adds mobile account switching and previews banked resets for the next two days.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-29T17:16:29.851Z",
+  "updatedAt": "2026-10-31T11:23:35.738Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-29T17:16:29.851Z"
+    "checkedAt": "2026-10-31T11:23:35.738Z"
   },
   "sources": [
     {
@@ -100,6 +100,10 @@
     {
       "label": "OpenAI: ChatGPT Pro tiers",
       "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
+    },
+    {
+      "label": "Tibo: Day 26",
+      "url": "https://x.com/thsottiaux/status/2116405414921384099"
     }
   ],
   "coverAlt": "Codex 28-day plan illustration: a seven-column, four-row calendar for features and resets.",
@@ -128,6 +132,8 @@ The [Day 18 usage reset has also landed](/guides/tibo-day-18-reset-announced/). 
 [Day 24 adds texting your dot](/guides/tibo-day-24-text-your-dot/) through iMessage or Android RCS, rolling out in beta to Pro users in the United States.
 
 [Day 25 changes Pro usage allowances](/guides/tibo-day-25-pro-usage-allowance/): Pro 100 and 500 get more Work and Codex usage, and the planned Pro 200 reduction is canceled.
+
+[Day 26 adds mobile account switching](/guides/tibo-day-26-mobile-accounts-and-banked-resets/). Tibo also previews banked resets for Day 27 and Day 28; delivery details remain pending.
 
 Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account; Day 18 has also landed. Day 19 is a feature day; Day 20 is a reset with public completion confirmation. Later days will receive articles when their updates can be verified.
 

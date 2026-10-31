@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天計畫：Codex 每日更新目錄",
-  "summary": "逐日檢視 Codex 與 ChatGPT Work 的功能變化、額度重置及適用範圍。已整理 Day 1–25；Day 25 更新 Pro 額度並取消 Pro 200 降額。",
+  "summary": "已整理 Day 1–26 的 Codex 與 ChatGPT Work 更新。Day 26 支援手機切換帳戶，並預告 Day 27、28 為儲備重置日。",
   "locale": "zh-TW",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-29T17:16:29.851Z",
+  "updatedAt": "2026-10-31T11:23:35.738Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-29T17:16:29.851Z"
+    "checkedAt": "2026-10-31T11:23:35.738Z"
   },
   "sources": [
     {
@@ -100,6 +100,10 @@
     {
       "label": "OpenAI: ChatGPT Pro tiers",
       "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers"
+    },
+    {
+      "label": "Tibo: Day 26",
+      "url": "https://x.com/thsottiaux/status/2116405414921384099"
     }
   ],
   "coverAlt": "Codex 28 天計畫示意：七列四行日曆與功能、重置分類。",
@@ -128,6 +132,8 @@
 [Day 24 支援傳訊息給 dot](/zh-TW/guides/tibo-day-24-text-your-dot/)，透過 iMessage 或 Android RCS 一對一交流，目前逐步向美國 Pro 使用者開放測試。
 
 [Day 25 調整 Pro 用量](/zh-TW/guides/tibo-day-25-pro-usage-allowance/)：Pro 100、500 的 Work 和 Codex 額度翻倍，Pro 200 原定降額取消。
+
+[Day 26 支援手機版切換帳戶](/zh-TW/guides/tibo-day-26-mobile-accounts-and-banked-resets/)，並預告 Day 27、28 為儲備重置日；具體到帳時間及條件尚未公布。
 
 點選日期檢視當天變化、適用條件、原帖與相關問答。「已整理」表示已有獨立說明；第 3 天儲備重置仍為預告，第 15 天標為直播與重置，第 17 天額度重置已實測落地，第 18 天額度重置也已落地。第 19 天為功能更新，第 20 天重置已獲公開完成確認。後續日期有可核實內容後再補文章。
 

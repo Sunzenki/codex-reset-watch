@@ -1,32 +1,18 @@
 {
-  "kind": "reset_confirmed",
-  "status": "confirmed",
-  "headline": "Day 23 usage reset has landed",
+  "kind": "banked_reset",
+  "status": "monitoring",
+  "headline": "Tibo's Day 27/28 | Two banked resets",
   "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "And it's done.",
-  "scope": "Tibo confirmed that the Day 23 usage reset was done.",
+  "sourceTimezone": "Not specified",
+  "originalTimeText": "Next two days will be resets… banked…",
+  "scope": "Banked resets announced for the next two series days, Day 27 and Day 28. Eligible accounts, delivery times and expiration were not specified.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "And it's done. See you tomorrow for some good news.",
-    "translation": "完成了。明天见，还有一些好消息。",
-    "url": "https://x.com/thsottiaux/status/2115330127886463244",
-    "postedAt": "2026-10-28T06:29:38.000Z"
+    "text": "Day 26/ You can now easily switch between multiple accounts on mobile, and coming soon to desktop too. Next two days will be resets… banked… do with this what you may 👀.",
+    "translation": "第 26 天：现在可以在手机端轻松切换多个账号，桌面端也即将支持。接下来两天会有重置……储备重置……你们看着安排吧 👀。",
+    "url": "https://x.com/thsottiaux/status/2116405414921384099",
+    "postedAt": "2026-10-31T05:42:26.000Z"
   },
-  "previousAnnouncement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 23/ Much requested iCloud Main & Calendar plugins. Just kidding, today is a reset. Still much requested though!",
-    "translation": "第 23 天：呼声很高的 iCloud 邮件与日历插件。开玩笑的，今天是重置日。不过大家确实期待已久！",
-    "url": "https://x.com/thsottiaux/status/2115273064481218829",
-    "postedAt": "2026-10-28T02:42:53.000Z"
-  },
-  "timingSource": {
-    "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Lands by midnight PST.",
-    "translation": "将在 PST 午夜前落地。",
-    "url": "https://x.com/thsottiaux/status/2115273253711409208",
-    "postedAt": "2026-10-28T02:43:38.000Z"
-  },
-  "updatedAt": "2026-10-28T06:41:45.052Z",
-  "note": "Tibo quoted the Day 23 timing reply and confirmed the reset was done. The recorded time is the public confirmation timestamp, not the exact backend execution time. Eligible plans and usage windows were not specified; individual accounts may differ."
+  "updatedAt": "2026-10-31T11:23:35.738Z",
+  "note": "The Day 26 post was published on October 30 in US Pacific time. In the series calendar the next two days are Day 27 (October 31 PT) and Day 28 (November 1 PT). This is an announcement, not confirmation of delivery; no exact countdown or account eligibility is inferred."
 }
