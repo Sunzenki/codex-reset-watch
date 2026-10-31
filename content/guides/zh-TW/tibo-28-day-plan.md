@@ -7,7 +7,7 @@
   "locale": "zh-TW",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-31T11:23:35.738Z",
+  "updatedAt": "2026-10-31T11:42:37.418Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,7 +18,19 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-31T11:23:35.738Z"
+    "checkedAt": "2026-10-31T11:23:35.738Z",
+    "announcements": [
+      {
+        "day": 27,
+        "kind": "banked",
+        "sourceDay": 26
+      },
+      {
+        "day": 28,
+        "kind": "banked",
+        "sourceDay": 26
+      }
+    ]
   },
   "sources": [
     {

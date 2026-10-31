@@ -117,8 +117,9 @@ test('Tibo 系列与四篇实用稿的三语版本保留事实、来源及同语
   for (const locale of ['en', 'zh-CN', 'zh-TW']) {
     const first = selectList(articles, locale, 'all', 1);
     assert.equal(first.visible.length, 8);
-    assert.ok(practicalIds.every((id) => first.visible.some((article) => article.id === id)));
-    assert.deepEqual([...new Set(first.visible.map((article) => article.category))].sort(), ['incidents', 'news', 'tutorials', 'updates']);
+    const listed = Array.from({ length: first.totalPages }, (_, page) => selectList(articles, locale, 'all', page + 1).visible).flat();
+    assert.ok(practicalIds.every((id) => listed.some((article) => article.id === id)));
+    assert.deepEqual([...new Set(listed.map((article) => article.category))].sort(), ['incidents', 'news', 'tutorials', 'updates']);
   }
 });
 
@@ -232,6 +233,22 @@ test('系列关系拒绝重复日、孤立日文章和不完整字段，正式�
   assert.throws(() => compileArticle(source({ seriesDay: 29 })), /需要 seriesId/);
   assert.throws(() => compileArticle(source({ series: { ...series, checkedAt: '2026-10-21' } })), /带时区/);
   assert.deepEqual(createManifest([index, daily, { ...daily, id: 'day-two', slug: 'day-two', seriesDay: 2 }], true).articles.filter((item) => item.seriesId).map((item) => item.seriesDay), [2, 1]);
+});
+
+test('储备预告显示在目标日并保留来源日链接，独立日文章覆盖预告', () => {
+  const previewSeries = { ...series, announcements: [{ day: 27, kind: 'banked', sourceDay: 26 }, { day: 28, kind: 'banked', sourceDay: 26 }] };
+  const sourceArticle = compileArticle(source({ seriesId: series.id, seriesDay: 26, seriesKinds: ['feature'], announcedAt: '2026-10-31T05:42:26Z' }));
+  const calendar = seriesCalendar(previewSeries, [sourceArticle], 'zh-CN');
+  assert.equal(calendar.filter((item) => item.article).length, 1);
+  assert.equal(calendar[26].article, undefined);
+  assert.equal(calendar[26].announcement.kind, 'banked');
+  assert.equal(calendar[27].sourceArticle, sourceArticle);
+  const day27 = { ...sourceArticle, seriesDay: 27, seriesKinds: ['reset'] };
+  const updated = seriesCalendar(previewSeries, [sourceArticle, day27], 'zh-CN');
+  assert.equal(updated[26].article, day27);
+  assert.equal(updated[26].announcement, undefined);
+  assert.equal(updated[27].announcement.kind, 'banked');
+  assert.throws(() => compileArticle(source({ series: { ...series, announcements: [{ day: 29, kind: 'banked', sourceDay: 26 }] } })), /announcements/);
 });
 
 test('系列显示日按日历归档，原帖跨 UTC 日期和本站发布日期不改变系列日', () => {

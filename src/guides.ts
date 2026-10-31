@@ -13,7 +13,7 @@ export type GuideArticle = {
   sources: { label: string; url: string }[];
   corrections: { date: string; text: string }[];
   toc: { id: string; text: string }[];
-  series?: { id: string; startDate: string; days: number; timeZone: string; checkedAt: string };
+  series?: { id: string; startDate: string; days: number; timeZone: string; checkedAt: string; announcements?: { day: number; kind: 'banked'; sourceDay: number }[] };
   seriesId?: string; seriesDay?: number; seriesKinds?: ('feature' | 'reset' | 'banked' | 'broadcast')[]; announcedAt?: string;
 };
 export const guideManifest = data as { previewMode: boolean; articles: GuideArticle[] };

@@ -14,6 +14,8 @@ export function seriesCalendar(series, articles, locale) {
   const checkedDate = new Intl.DateTimeFormat('en-CA', { timeZone: series.timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(series.checkedAt));
   return Array.from({ length: series.days }, (_, index) => {
     const dateKey = seriesDate(series, index + 1);
-    return { day: index + 1, date: dateKey, article: days.find((article) => article.seriesDay === index + 1), pending: dateKey <= checkedDate };
+    const article = days.find((article) => article.seriesDay === index + 1);
+    const announcement = !article ? series.announcements?.find((item) => item.day === index + 1) : undefined;
+    return { day: index + 1, date: dateKey, article, announcement, sourceArticle: announcement ? days.find((item) => item.seriesDay === announcement.sourceDay) : undefined, pending: dateKey <= checkedDate };
   });
 }

@@ -70,7 +70,7 @@
     "seriesKind": {
       "feature": "功能更新",
       "reset": "额度重置",
-      "banked": "储备预告",
+      "banked": "储备重置预告",
       "broadcast": "官方直播"
     },
     "prepared": "预览稿日期",
@@ -140,7 +140,9 @@
           "API 计费"
         ]
       }
-    }
+    },
+    "seriesBankedAwaiting": "Tibo 已预告，到账待确认。",
+    "seriesAnnouncementSource": "查看 Day {day} 预告"
   },
   "zh-TW": {
     "title": "資訊指南",
@@ -213,7 +215,7 @@
     "seriesKind": {
       "feature": "功能更新",
       "reset": "配額重置",
-      "banked": "儲備預告",
+      "banked": "儲備重置預告",
       "broadcast": "官方直播"
     },
     "prepared": "預覽稿日期",
@@ -283,7 +285,9 @@
           "API 計費"
         ]
       }
-    }
+    },
+    "seriesBankedAwaiting": "Tibo 已預告，到帳待確認。",
+    "seriesAnnouncementSource": "查看 Day {day} 預告"
   },
   "en": {
     "title": "News & guides",
@@ -356,7 +360,7 @@
     "seriesKind": {
       "feature": "Feature",
       "reset": "Limit reset",
-      "banked": "Banked announcement",
+      "banked": "Banked reset announced",
       "broadcast": "Official stream"
     },
     "prepared": "Preview draft",
@@ -426,6 +430,8 @@
           "API billing"
         ]
       }
-    }
+    },
+    "seriesBankedAwaiting": "Announced by Tibo; availability unverified.",
+    "seriesAnnouncementSource": "See the Day {day} announcement"
   }
 }

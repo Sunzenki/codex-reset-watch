@@ -51,8 +51,8 @@
 .series-cell.has-banked::before{background:#8259a3}
 .series-cell.has-feature.has-banked::before{background:linear-gradient(90deg,#367ca8 50%,#8259a3 50%)}
 .series-cell.has-broadcast.has-reset::before{background:linear-gradient(90deg,#8259a3 50%,#bb711d 50%)}
-.series-cell:not(.has-article){background:#f4f1eb;border-color:#d9d3c9}
-.series-cell:not(.has-article)::before{background:#c8c2b6}
+.series-cell:not(.has-article):not(.has-announcement){background:#f4f1eb;border-color:#d9d3c9}
+.series-cell:not(.has-article):not(.has-announcement)::before{background:#c8c2b6}
 .series-day-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 9px;width:100%;margin-bottom:11px}
 .series-day-heading>strong{font-size:16px;line-height:1.4;color:#754652}
 .series-day-heading>time{font-size:11px;line-height:1.5;color:#686370;margin-left:auto}
