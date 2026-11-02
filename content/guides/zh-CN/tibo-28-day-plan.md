@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo 的 28 天计划：Codex 每日更新目录",
-  "summary": "已整理 Day 1–26 的 Codex 与 ChatGPT Work 更新。Day 26 支持手机切换账号，并预告 Day 27、28 为储备重置日。",
+  "summary": "28 天内容已整理完毕。Day 27、28 的两张储备重置均已到账，站长已确认；目录区分功能更新、重置相关日与实际到账状态。",
   "locale": "zh-CN",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-31T11:42:37.418Z",
+  "updatedAt": "2026-11-02T01:54:40.461Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,19 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-31T11:23:35.738Z",
-    "announcements": [
-      {
-        "day": 27,
-        "kind": "banked",
-        "sourceDay": 26
-      },
-      {
-        "day": 28,
-        "kind": "banked",
-        "sourceDay": 26
-      }
-    ]
+    "checkedAt": "2026-11-02T01:54:40.461Z"
   },
   "sources": [
     {
@@ -116,6 +104,14 @@
     {
       "label": "Tibo: Day 26",
       "url": "https://x.com/thsottiaux/status/2116405414921384099"
+    },
+    {
+      "label": "Tibo：Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254"
+    },
+    {
+      "label": "Tibo：Day 28，Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764"
     }
   ],
   "coverAlt": "Codex 28 天计划示意：七列四行日历与功能、重置分类。",
@@ -145,8 +141,10 @@
 
 [Day 25 调整 Pro 用量](/zh-CN/guides/tibo-day-25-pro-usage-allowance/)：Pro 100、500 的 Work 和 Codex 额度翻倍，Pro 200 原定降额取消。
 
-[Day 26 支持手机端切换账号](/zh-CN/guides/tibo-day-26-mobile-accounts-and-banked-resets/)，并预告 Day 27、28 为储备重置日；具体到账时间及条件尚未公布。
+[Day 26 支持手机端切换账号](/zh-CN/guides/tibo-day-26-mobile-accounts-and-banked-resets/)，当时预告后两天的储备重置。
 
-点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地，第 18 天额度重置也已落地。第 19 天为功能更新，第 20 天重置已获公开完成确认。后续日期有可核实内容后再补文章。
+[Day 27 第一张储备重置](/zh-CN/guides/tibo-day-27-banked-reset-received/)与 [Day 28 第二张](/zh-CN/guides/tibo-day-28-banked-reset-finale/)均已到账，站长已确认。Tibo 以“Banked 1/2”和“Day 28/ Banked 2/2”结束本轮 28 天连载；收到储备是获得可留待使用的机会，不等于已经使用。
+
+点击日期查看当天变化、适用条件、原帖与相关问答。“已整理”表示已有独立说明；第 3 天储备重置仍为预告，第 15 天标为直播与重置，第 17 天额度重置已实测落地，第 18 天额度重置也已落地。第 19 天为功能更新，第 20 天重置已获公开完成确认。现已补齐 28 天独立文章；整理完毕不等于所有历史预告都已确认执行。
 
 日历按美国太平洋时间（PT）排日期，随夏令时变化；各日说明另外列出主要消息的 UTC 时间。列表显示本站实际发布日期；系列日期保留在文章详情与日历中，目录头部显示计划起始日。来源的 UTC 发帖时间另列在各日说明中；第 9 天保留“最后编辑”的时间含义。

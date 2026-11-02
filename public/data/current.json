@@ -1,18 +1,26 @@
 {
   "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "Tibo's Day 27/28 | Two banked resets",
+  "status": "confirmed",
+  "observationBasis": "owner_account",
+  "headline": "Tibo's Day 27/28 | Two resets received",
   "resetAt": null,
-  "sourceTimezone": "Not specified",
-  "originalTimeText": "Next two days will be resets… banked…",
-  "scope": "Banked resets announced for the next two series days, Day 27 and Day 28. Eligible accounts, delivery times and expiration were not specified.",
+  "sourceTimezone": "UTC (X timestamp)",
+  "originalTimeText": "Day 28/ Banked 2/2",
+  "scope": "The 28-day plan has ended. Both banked resets have arrived on the site owner’s account.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 26/ You can now easily switch between multiple accounts on mobile, and coming soon to desktop too. Next two days will be resets… banked… do with this what you may 👀.",
-    "translation": "第 26 天：现在可以在手机端轻松切换多个账号，桌面端也即将支持。接下来两天会有重置……储备重置……你们看着安排吧 👀。",
-    "url": "https://x.com/thsottiaux/status/2116405414921384099",
-    "postedAt": "2026-10-31T05:42:26.000Z"
+    "text": "Day 28/ Banked 2/2",
+    "translation": "第 28 天：储备重置，第 2 次／共 2 次。",
+    "url": "https://x.com/thsottiaux/status/2117035794678546764",
+    "postedAt": "2026-11-01T23:27:20.000Z"
   },
-  "updatedAt": "2026-10-31T11:23:35.738Z",
-  "note": "The Day 26 post was published on October 30 in US Pacific time. In the series calendar the next two days are Day 27 (October 31 PT) and Day 28 (November 1 PT). This is an announcement, not confirmation of delivery; no exact countdown or account eligibility is inferred."
+  "previousAnnouncement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Banked 1/2",
+    "translation": "储备重置，第 1 次／共 2 次。",
+    "url": "https://x.com/thsottiaux/status/2116692529970311254",
+    "postedAt": "2026-11-01T00:43:20.000Z"
+  },
+  "updatedAt": "2026-11-02T01:54:40.461Z",
+  "note": "Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."
 }

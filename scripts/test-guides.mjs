@@ -105,7 +105,7 @@ test('Tibo 系列与四篇实用稿的三语版本保留事实、来源及同语
     const versions = articles.filter((article) => article.id === original.id);
     assert.deepEqual(versions.map((article) => article.locale).sort(), ['en', 'zh-CN', 'zh-TW']);
     for (const article of versions) {
-      for (const key of ['category', 'publishedAt', 'updatedAt', 'status', 'series', 'seriesId', 'seriesDay', 'seriesKinds', 'announcedAt']) assert.deepEqual(article[key], original[key], `${article.id}/${article.locale}/${key}`);
+      for (const key of ['category', 'publishedAt', 'updatedAt', 'status', 'series', 'seriesId', 'seriesDay', 'seriesKinds', 'announcedAt', 'bankedStatus']) assert.deepEqual(article[key], original[key], `${article.id}/${article.locale}/${key}`);
       const externalSources = (value) => value.sources.filter((source) => source.url.startsWith('https://')).map((source) => source.url);
       assert.deepEqual(externalSources(article), externalSources(original), article.id);
       assert.equal(article.toc.length, original.toc.length, `${article.id}: translated sections`);
@@ -249,6 +249,12 @@ test('储备预告显示在目标日并保留来源日链接，独立日文章�
   assert.equal(updated[26].announcement, undefined);
   assert.equal(updated[27].announcement.kind, 'banked');
   assert.throws(() => compileArticle(source({ series: { ...series, announcements: [{ day: 29, kind: 'banked', sourceDay: 26 }] } })), /announcements/);
+});
+
+test('储备到账状态进入清单，功能日不能冒充已收到储备', () => {
+  const banked = { seriesId: series.id, seriesDay: 28, seriesKinds: ['banked'], announcedAt: '2026-11-01T23:27:20Z', bankedStatus: 'received' };
+  assert.equal(compileArticle(source(banked)).bankedStatus, 'received');
+  assert.throws(() => compileArticle(source({ ...banked, seriesKinds: ['feature'] })), /bankedStatus/);
 });
 
 test('系列显示日按日历归档，原帖跨 UTC 日期和本站发布日期不改变系列日', () => {

@@ -3,11 +3,11 @@
   "id": "tibo-28-day-plan",
   "slug": "tibo-28-day-plan",
   "title": "Tibo’s 28-day plan: Codex daily update index",
-  "summary": "Days 1–26 of the Codex and ChatGPT Work plan are covered. Day 26 adds mobile account switching and previews banked resets for the next two days.",
+  "summary": "All 28 days are covered. Day 27 and Day 28 delivered the two banked resets; the site owner has confirmed receipt. Feature updates and reset-related days remain distinct.",
   "locale": "en",
   "category": "updates",
   "publishedAt": "2026-10-21T20:51:53Z",
-  "updatedAt": "2026-10-31T11:42:37.418Z",
+  "updatedAt": "2026-11-02T01:54:40.461Z",
   "status": "published",
   "pinned": true,
   "pinOrder": 0,
@@ -18,19 +18,7 @@
     "startDate": "2026-10-05",
     "days": 28,
     "timeZone": "America/Los_Angeles",
-    "checkedAt": "2026-10-31T11:23:35.738Z",
-    "announcements": [
-      {
-        "day": 27,
-        "kind": "banked",
-        "sourceDay": 26
-      },
-      {
-        "day": 28,
-        "kind": "banked",
-        "sourceDay": 26
-      }
-    ]
+    "checkedAt": "2026-11-02T01:54:40.461Z"
   },
   "sources": [
     {
@@ -116,6 +104,14 @@
     {
       "label": "Tibo: Day 26",
       "url": "https://x.com/thsottiaux/status/2116405414921384099"
+    },
+    {
+      "label": "Tibo: Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254"
+    },
+    {
+      "label": "Tibo: Day 28, Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764"
     }
   ],
   "coverAlt": "Codex 28-day plan illustration: a seven-column, four-row calendar for features and resets.",
@@ -145,8 +141,10 @@ The [Day 18 usage reset has also landed](/guides/tibo-day-18-reset-announced/). 
 
 [Day 25 changes Pro usage allowances](/guides/tibo-day-25-pro-usage-allowance/): Pro 100 and 500 get more Work and Codex usage, and the planned Pro 200 reduction is canceled.
 
-[Day 26 adds mobile account switching](/guides/tibo-day-26-mobile-accounts-and-banked-resets/). Tibo also previews banked resets for Day 27 and Day 28; delivery details remain pending.
+[Day 26 adds mobile account switching](/guides/tibo-day-26-mobile-accounts-and-banked-resets/).
 
-Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account; Day 18 has also landed. Day 19 is a feature day; Day 20 is a reset with public completion confirmation. Later days will receive articles when their updates can be verified.
+[Day 27’s first banked reset](/guides/tibo-day-27-banked-reset-received/) and [Day 28’s second](/guides/tibo-day-28-banked-reset-finale/) have arrived on the site owner’s account. Tibo’s “Banked 1/2” and “Day 28/ Banked 2/2” close the 28-day series. Receipt saves an opportunity for later use; it is not automatic redemption.
+
+Open a day to read its changes, conditions, original posts and relevant questions. “Covered” means an individual article is available. Day 3 remains a banked-reset announcement; Day 15 is classified as a broadcast and reset; Day 17 is a usage reset verified on the site owner’s account; Day 18 has also landed. Day 19 is a feature day; Day 20 is a reset with public completion confirmation. All 28 days now have individual articles; coverage does not imply every historical announcement was confirmed as delivered.
 
 Calendar dates follow US Pacific time (PT), including daylight saving changes. Daily articles separately list important post times in UTC. Lists show the site’s actual publication date. Series dates remain in article details and this calendar; this index’s header uses the plan’s start date. Day 9 retains the distinction between the post’s last edit time and its original publication time.

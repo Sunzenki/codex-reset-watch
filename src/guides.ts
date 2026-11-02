@@ -14,7 +14,7 @@ export type GuideArticle = {
   corrections: { date: string; text: string }[];
   toc: { id: string; text: string }[];
   series?: { id: string; startDate: string; days: number; timeZone: string; checkedAt: string; announcements?: { day: number; kind: 'banked'; sourceDay: number }[] };
-  seriesId?: string; seriesDay?: number; seriesKinds?: ('feature' | 'reset' | 'banked' | 'broadcast')[]; announcedAt?: string;
+  seriesId?: string; seriesDay?: number; seriesKinds?: ('feature' | 'reset' | 'banked' | 'broadcast')[]; announcedAt?: string; bankedStatus?: 'announced' | 'received';
 };
 export const guideManifest = data as { previewMode: boolean; articles: GuideArticle[] };
 export const guideCopy = copy;

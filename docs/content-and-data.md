@@ -95,6 +95,8 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 切换下一轮预告时保留上一轮历史。最近记录中，`eventType: "reset"`、`timeBasis: "observation"`、`outcome: "as_announced"` 的实测落地记录显示“已完成”，具体依据仍由详情说明。预计截止时间及带日号的落地静态标题从本轮消息读取 Day；完成帖未写日号时，从保留的 `previousAnnouncement` 读取，与运行时标题保持一致，不沿用旧事件的固定日号。
 
+储备到账由站长确认时，继续使用 `kind: "banked_reset"`，设置 `status: "confirmed"`、`observationBasis: "owner_account"` 和 `resetAt: null`。账号收到储备不等于使用或自动恢复用量；公开发帖时间与实际到账时刻分开。每张储备可独立归档为 `eventType: "banked"`，以确认帖时间作 `targetAt` 时使用 `timeBasis: "confirmation"`，备注说明其并非后台发放时间。
+
 运行时 H1 由 `src/main.tsx` 的状态分支和 `src/i18n.ts` 的当前事件文案共同决定，无 JavaScript 静态快照由 `scripts/postbuild-seo.mjs` 生成。JSON 中的 `headline` 不能被视为唯一标题来源。
 
 ## 4. 历史记录数据模型

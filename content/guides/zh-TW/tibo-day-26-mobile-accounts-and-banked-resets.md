@@ -26,12 +26,23 @@
     {
       "label": "OpenAI：Codex 重置說明",
       "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
+    },
+    {
+      "label": "Tibo：Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254"
+    },
+    {
+      "label": "Tibo：Day 28，Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764"
     }
-  ]
+  ],
+  "updatedAt": "2026-11-02T01:54:40.461Z"
 }
 ---
 
 [Tibo 的 Day 26 原帖](https://x.com/thsottiaux/status/2116405414921384099)介紹手機版多帳戶切換，並預告**接下來兩天將有儲備重置**，對應系列中的 Day 27 和 Day 28。原帖還沒有確認這兩次儲備已經到帳。
+
+後續更新：[Day 27](/zh-TW/guides/tibo-day-27-banked-reset-received/)與 [Day 28](/zh-TW/guides/tibo-day-28-banked-reset-finale/)已分別記錄兩張儲備到帳，站長已確認。上文保留的是 Day 26 當時的預告。
 
 ## 手機版如何切換帳戶
 

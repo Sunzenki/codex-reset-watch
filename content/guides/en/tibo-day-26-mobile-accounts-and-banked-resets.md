@@ -26,12 +26,23 @@
     {
       "label": "OpenAI: How resets work in Codex",
       "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
+    },
+    {
+      "label": "Tibo: Banked 1/2",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254"
+    },
+    {
+      "label": "Tibo: Day 28, Banked 2/2",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764"
     }
-  ]
+  ],
+  "updatedAt": "2026-11-02T01:54:40.461Z"
 }
 ---
 
 [Tibo’s Day 26 post](https://x.com/thsottiaux/status/2116405414921384099) says mobile users can switch accounts and previews **banked resets for the next two days**. These are Day 27 and Day 28 in the series; the post does not confirm either grant has arrived.
+
+Update: [Day 27](/guides/tibo-day-27-banked-reset-received/) and [Day 28](/guides/tibo-day-28-banked-reset-finale/) now record the two received banked resets. The site owner has confirmed receipt; the original post above remains the earlier preview.
 
 ## Switch accounts on mobile
 

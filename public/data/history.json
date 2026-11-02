@@ -1,5 +1,45 @@
 [
   {
+    "id": "reset-2026-11-02-day28-banked-received",
+    "targetAt": "2026-11-01T23:27:20.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Day 28/ Banked 2/2",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Day 28/ Banked 2/2",
+      "translation": "第 28 天：储备重置，第 2 次／共 2 次。",
+      "url": "https://x.com/thsottiaux/status/2117035794678546764",
+      "postedAt": "2026-11-01T23:27:20.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Banked reset 2 of 2, assigned to series Day 28. The site owner confirmed both grants arrived. The date is the public post time, not the backend grant or redemption time. Eligibility and expiration are account-specific.",
+    "recordedAt": "2026-11-02T01:54:40.461Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "confirmation"
+  },
+  {
+    "id": "reset-2026-11-01-day27-banked-received",
+    "targetAt": "2026-11-01T00:43:20.000Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Banked 1/2",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Banked 1/2",
+      "translation": "储备重置，第 1 次／共 2 次。",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254",
+      "postedAt": "2026-11-01T00:43:20.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "Banked reset 1 of 2, assigned to series Day 27. The site owner confirmed both grants arrived. The date is the public post time, not the backend grant or redemption time. Eligibility and expiration are account-specific.",
+    "recordedAt": "2026-11-02T01:54:40.461Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-10-31-day27-28-banked-announced",
     "targetAt": "2026-10-31T05:42:26.000Z",
     "precision": "confirmed",
@@ -12,8 +52,8 @@
       "url": "https://x.com/thsottiaux/status/2116405414921384099",
       "postedAt": "2026-10-31T05:42:26.000Z"
     },
-    "outcome": "unverified",
-    "note": "One announcement covers the next two series days, Day 27 and Day 28. The archive date is the post timestamp, not either delivery time. Eligibility, expiration and account availability were not confirmed.",
+    "outcome": "as_announced",
+    "note": "One announcement covers Day 27 and Day 28. Its archive date remains the original post time, not a grant time. Follow-up Banked 1/2 and Day 28/ Banked 2/2 posts are recorded separately, and the site owner has confirmed receipt of both. The original preview specified no eligibility or expiration.",
     "recordedAt": "2026-10-31T11:23:35.738Z",
     "eventType": "announcement",
     "resetType": "banked",

@@ -142,7 +142,9 @@
       }
     },
     "seriesBankedAwaiting": "Tibo 已预告，到账待确认。",
-    "seriesAnnouncementSource": "查看 Day {day} 预告"
+    "seriesAnnouncementSource": "查看 Day {day} 预告",
+    "seriesBankedReceived": "储备重置已到账",
+    "seriesBankedLegend": "储备重置"
   },
   "zh-TW": {
     "title": "資訊指南",
@@ -287,7 +289,9 @@
       }
     },
     "seriesBankedAwaiting": "Tibo 已預告，到帳待確認。",
-    "seriesAnnouncementSource": "查看 Day {day} 預告"
+    "seriesAnnouncementSource": "查看 Day {day} 預告",
+    "seriesBankedReceived": "儲備重置已到帳",
+    "seriesBankedLegend": "儲備重置"
   },
   "en": {
     "title": "News & guides",
@@ -432,6 +436,8 @@
       }
     },
     "seriesBankedAwaiting": "Announced by Tibo; availability unverified.",
-    "seriesAnnouncementSource": "See the Day {day} announcement"
+    "seriesAnnouncementSource": "See the Day {day} announcement",
+    "seriesBankedReceived": "Banked reset received",
+    "seriesBankedLegend": "Banked reset"
   }
 }

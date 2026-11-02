@@ -53,6 +53,7 @@ export function compileArticle(source, name = 'article.md') {
   if (data.series?.announcements !== undefined && (!Array.isArray(data.series.announcements) || data.series.announcements.some((item) => !item || !Number.isInteger(item.day) || item.day < 1 || item.day > data.series.days || item.kind !== 'banked' || !Number.isInteger(item.sourceDay) || item.sourceDay < 1 || item.sourceDay > data.series.days) || new Set(data.series.announcements.map((item) => item.day)).size !== data.series.announcements.length)) fail('series.announcements 需要不重复的有效日号、banked 类型与来源日号 sourceDay');
   if (data.seriesId !== undefined && (typeof data.seriesId !== 'string' || !/^[a-z0-9-]+$/.test(data.seriesId) || !Number.isInteger(data.seriesDay) || data.seriesDay < 1 || data.seriesDay > 28 || !Array.isArray(data.seriesKinds) || !data.seriesKinds.length || new Set(data.seriesKinds).size !== data.seriesKinds.length || data.seriesKinds.some((kind) => !['feature', 'reset', 'banked', 'broadcast'].includes(kind)) || !isIsoTime(data.announcedAt))) fail('系列日文章需要 seriesId、1–28 的 seriesDay、seriesKinds 与带时区的 announcedAt');
   if ((data.seriesDay !== undefined || data.seriesKinds !== undefined || data.announcedAt !== undefined) && !data.seriesId) fail('系列日字段需要 seriesId');
+  if (data.bankedStatus !== undefined && (!data.seriesId || !data.seriesKinds.includes('banked') || !['announced', 'received'].includes(data.bankedStatus))) fail('bankedStatus 只用于储备日文章，值为 announced 或 received');
   if (data.series && data.seriesId) fail('系列目录和日文章不能同时设置');
   for (const key of ['cover', 'bannerCover']) if (data[key] !== undefined && (typeof data[key] !== 'string' || !/^\/images\/[a-zA-Z0-9/_-]+\.(png|webp|jpg|jpeg)$/.test(data[key]) || !existsSync(join(ROOT, 'public', data[key])))) fail(`${key} 必须是 public/images 中实际存在的图片`);
   if (data.bannerCover && !data.cover) fail('bannerCover 需要配套的 cover 手机封面');
@@ -94,6 +95,7 @@ export function compileArticle(source, name = 'article.md') {
     ...(data.coverAlt ? { coverAlt: data.coverAlt } : {}), ...(data.coverWidth ? { coverWidth: data.coverWidth } : {}), ...(data.coverHeight ? { coverHeight: data.coverHeight } : {}),
     ...(data.series ? { series: data.series } : {}),
     ...(data.seriesId ? { seriesId: data.seriesId, seriesDay: data.seriesDay, seriesKinds: data.seriesKinds, announcedAt: data.announcedAt } : {}),
+    ...(data.bankedStatus ? { bankedStatus: data.bankedStatus } : {}),
   };
 }
 

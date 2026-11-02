@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-10-31-day27-28-banked-announced",
+  "eventId": "2026-11-02-day27-28-banked-received",
   "messages": {
     "en": {
-      "title": "Day 27 and 28 banked resets announced",
-      "body": "Tibo previews banked resets for the next two series days. Delivery times, eligible accounts and expiration remain unspecified.",
+      "title": "Day 27/28: both banked resets received",
+      "body": "The 28-day plan has ended. Both grants have arrived on the site owner’s account; check your own Available balance and expiry before use.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "Day 27、28 储备重置已预告",
-      "body": "Tibo 预告接下来两个系列日将有储备重置，具体到账时刻、适用账号及有效期尚未公布。",
+      "title": "Day 27/28 两张储备重置均已到账",
+      "body": "28 天计划收官，站长已确认两张储备均到账。收到不等于已经使用，请查看自己账号的可用张数和有效期。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "Day 27、28 儲備重置已預告",
-      "body": "Tibo 預告接下來兩個系列日將有儲備重置，具體到帳時間、適用帳戶及有效期尚未公布。",
+      "title": "Day 27/28 兩張儲備重置均已到帳",
+      "body": "28 天計畫收官，站長已確認兩張儲備均到帳。收到不等於已經使用，請查看自己帳戶的可用張數和有效期。",
       "path": "/zh-TW/"
     }
   }
