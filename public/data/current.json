@@ -1,26 +1,25 @@
 {
   "kind": "banked_reset",
-  "status": "confirmed",
-  "observationBasis": "owner_account",
-  "headline": "Tibo's Day 27/28 | Two resets received",
+  "status": "monitoring",
+  "headline": "Possible Thursday banked reset",
   "resetAt": null,
-  "sourceTimezone": "UTC (X timestamp)",
-  "originalTimeText": "Day 28/ Banked 2/2",
-  "scope": "The 28-day plan has ended. Both banked resets have arrived on the site owner’s account.",
+  "sourceTimezone": null,
+  "originalTimeText": "Thursday",
+  "scope": "Tibo hints at a banked reset on Thursday, November 12.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X post",
-    "text": "Day 28/ Banked 2/2",
-    "translation": "第 28 天：储备重置，第 2 次／共 2 次。",
-    "url": "https://x.com/thsottiaux/status/2117035794678546764",
-    "postedAt": "2026-11-01T23:27:20.000Z"
+    "source": "Tibo (@thsottiaux) / X reply",
+    "text": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
+    "translation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。",
+    "url": "https://x.com/thsottiaux/status/2120410480204525936",
+    "postedAt": "2026-11-11T06:57:08.000Z"
   },
   "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "Banked 1/2",
-    "translation": "储备重置，第 1 次／共 2 次。",
-    "url": "https://x.com/thsottiaux/status/2116692529970311254",
-    "postedAt": "2026-11-01T00:43:20.000Z"
+    "text": "It’s been a while without resets. Maybe I should come back out of the basement",
+    "translation": "好一阵子没重置了。也许我该从地下室出来了。",
+    "url": "https://x.com/thsottiaux/status/2120410006273380750",
+    "postedAt": "2026-11-11T06:55:15.000Z"
   },
-  "updatedAt": "2026-11-02T01:54:40.461Z",
-  "note": "Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."
+  "updatedAt": "2026-11-11T07:39:27.403Z",
+  "note": "Tibo’s wording is tentative (Perhaps). Thursday is interpreted as November 12 in this week’s context, without a precise delivery timestamp. No eligibility, expiration or receipt is confirmed."
 }

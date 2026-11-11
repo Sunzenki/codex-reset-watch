@@ -22,11 +22,11 @@ export const ui = {
     deadlineStatus: 'Announced · deadline estimated', deadlineLabel: 'Estimated deadline', deadlineReached: 'Estimated deadline reached · awaiting confirmation',
     status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' }, dateConfirmedStatus: 'Tuesday confirmed · time estimated',
     outcome: { unverified: 'Not independently verified', as_announced: 'No later correction found', revised: 'Later revised', cancelled: 'Announcement cancelled' },
-    nextLabel: 'Next rate-limit reset', bankedLabel: 'Banked reset update', bankedLoadingStatus: 'Announced · availability unverified', bankedObservedStatus: 'Availability verified', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
+    nextLabel: 'Next rate-limit reset', bankedLabel: 'Banked reset update', bankedLoadingStatus: 'Preview · awaiting follow-up', bankedObservedStatus: 'Availability verified', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
     targetZone: 'UTC', localTime: 'Your local time', countdown: 'Time until the expected reset', bankedCountdown: 'Time until the banked reset is expected to become available',
     units: { days: 'days', hours: 'hours', minutes: 'min', seconds: 'sec' },
     railStart: 'Post published', railEnd: 'Expected reset', bankedRailEnd: 'Expected availability', waitingTitle: 'Waiting for the next verified public update',
-    waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Waiting for availability confirmation', bankedPendingBody: "Exact delivery timing has not been announced. Once a banked reset is available, you can choose when to use it before it expires.", untimedStatus: 'Announced · awaiting confirmation', untimedHintTitle: 'Waiting for reset confirmation', untimedHintBody: 'Tibo has announced the reset. Timing and method are still pending; completion has not been confirmed.',
+    waitingBody: 'Until a time is announced, this site does not predict the next reset from past intervals.', reachedTitle: 'The announced time has arrived', reachedBody: 'The countdown reaching zero does not confirm that the reset has landed. CRW is waiting for a public confirmation or a clearly scoped observation.', bankedReachedHeadline: 'Expected banked-reset availability time reached', bankedReachedTitle: 'The approximate delivery time has arrived', bankedReachedBody: 'This does not confirm that the banked-reset button is available. A banked reset is an optional reset opportunity the user may choose to activate; it is not a forced system reset.', bankedPendingTitle: 'Waiting for availability confirmation', bankedPendingBody: "A banked reset can be saved for later use; receiving one does not automatically refresh usage.", untimedStatus: 'Announced · awaiting confirmation', untimedHintTitle: 'Waiting for reset confirmation', untimedHintBody: 'Tibo has announced the reset. Timing and method are still pending; completion has not been confirmed.',
     bankedReportedStatus: 'Users have received it', bankedReportedTitle: 'Users have received it', bankedReportedBody: 'Check your usage page for an available reset.', bankedReportedBasis: 'User account screenshot',
     bankedObservedTitle: 'A banked reset is now available', bankedObservedBody: 'Banked resets are saved for later use. Receiving one does not refresh usage; redeem it before the expiry shown in your account.', bankedObservationBasis: 'Verified in the reset interface',
     rolloutTimingTitle: 'Fresh resets and the 5-hour window have been observed on some Plus accounts', rolloutTimingBody: 'Tibo gave no exact rollout time, and there is no public confirmation that every Plus account changed at once.',
@@ -57,11 +57,11 @@ export const ui = {
     deadlineStatus: '已预告 · 截止时间为推算', deadlineLabel: '预计截止时间', deadlineReached: '预计截止时间已到，待确认',
     status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' }, dateConfirmedStatus: '周二已确认 · 时间为推算',
     outcome: { unverified: '暂未验证', as_announced: '未发现后续修正', revised: '后续已修正', cancelled: '预告已取消' },
-    nextLabel: '下一次额度重置', bankedLabel: '储备重置最新消息', bankedLoadingStatus: '已预告 · 到账待确认', bankedObservedStatus: '已实测到账', latestLabel: '额度规则最新动态', confirmedLabel: '最新确认的额度重置', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
+    nextLabel: '下一次额度重置', bankedLabel: '储备重置最新消息', bankedLoadingStatus: '预告 · 待后续确认', bankedObservedStatus: '已实测到账', latestLabel: '额度规则最新动态', confirmedLabel: '最新确认的额度重置', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
     targetZone: '北京时间（UTC+8）', localTime: '你的本地时间', countdown: '距离预告重置时间', bankedCountdown: '距离储备重置机会预计到账',
     units: { days: '天', hours: '时', minutes: '分', seconds: '秒' },
     railStart: '原帖发布', railEnd: '预计重置', bankedRailEnd: '预计到账', waitingTitle: '等待下一条经过核对的公开预告',
-    waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '等待到账确认', bankedPendingBody: "具体到账时刻尚未公布。储备重置到账后，可在有效期内自行选择何时使用。", untimedStatus: '已宣布 · 待确认落实', untimedHintTitle: '等待重置落地确认', untimedHintBody: 'Tibo 已宣布重置，具体时间与方式待公布，目前尚未确认落实。',
+    waitingBody: '在时间出现之前，不根据历史记录推测下一次重置。', reachedTitle: '预告时间已到，等待落地确认', reachedBody: '倒计时归零本身不能证明重置已经发生；本站将等待公开确认或范围明确的实际观察。', bankedReachedHeadline: '储备重置机会的预计到账时间已到', bankedReachedTitle: '近似到账时间已到', bankedReachedBody: '这不能证明储备重置按钮已经出现。banked reset 是用户可自行选择点击使用的重置机会，不是系统强制重置额度。', bankedPendingTitle: '等待到账确认', bankedPendingBody: "储备重置可留待使用，到账不会自动恢复用量。", untimedStatus: '已宣布 · 待确认落实', untimedHintTitle: '等待重置落地确认', untimedHintBody: 'Tibo 已宣布重置，具体时间与方式待公布，目前尚未确认落实。',
     bankedReportedStatus: '已有用户收到', bankedReportedTitle: '已有用户收到', bankedReportedBody: '可在额度页面查看是否有可用的重置机会。', bankedReportedBasis: '用户到账截图',
     bankedObservedTitle: '储备重置已可使用', bankedObservedBody: '储备重置可留待使用，到账不会自动恢复用量；请在账号显示的有效期内使用。', bankedObservationBasis: '额度重置页面实测',
     rolloutTimingTitle: '部分用户的 Plus 账号已观察到新重置和 5 小时窗口', rolloutTimingBody: 'Tibo 未给出具体落地时刻，目前也没有公开信息证明所有 Plus 账号在同一时间完成变更。',
@@ -92,11 +92,11 @@ export const ui = {
     deadlineStatus: '已預告 · 截止時間為推算', deadlineLabel: '預計截止時間', deadlineReached: '預計截止時間已到，待確認',
     status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' }, dateConfirmedStatus: '週二已確認 · 時間為推算',
     outcome: { unverified: '暫未驗證', as_announced: '未發現後續修正', revised: '後續已修正', cancelled: '預告已取消' },
-    nextLabel: '下一次額度重置', bankedLabel: '儲備重置最新消息', bankedLoadingStatus: '已預告 · 到帳待確認', bankedObservedStatus: '已實測到帳', latestLabel: '額度規則最新動態', confirmedLabel: '最新確認的額度重置', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',
+    nextLabel: '下一次額度重置', bankedLabel: '儲備重置最新消息', bankedLoadingStatus: '預告 · 待後續確認', bankedObservedStatus: '已實測到帳', latestLabel: '額度規則最新動態', confirmedLabel: '最新確認的額度重置', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',
     targetZone: '台北時間（UTC+8）', localTime: '你的本地時間', countdown: '距離預告重置時間', bankedCountdown: '距離儲備重置機會預計到帳',
     units: { days: '天', hours: '時', minutes: '分', seconds: '秒' },
     railStart: '原帖發佈', railEnd: '預計重置', bankedRailEnd: '預計到帳', waitingTitle: '等待下一則經過核對的公開預告',
-    waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '等待到帳確認', bankedPendingBody: "具體到帳時間尚未公布。儲備重置到帳後，可在有效期內自行選擇何時使用。", untimedStatus: '已宣布 · 待確認落實', untimedHintTitle: '等待重置落地確認', untimedHintBody: 'Tibo 已宣布重置，具體時間與方式待公布，目前尚未確認落實。',
+    waitingBody: '在時間公佈之前，不根據歷史記錄推測下一次重置。', reachedTitle: '預告時間已到，等待落地確認', reachedBody: '倒數歸零本身不能證明重置已經發生；本站將等待公開確認或範圍明確的實際觀察。', bankedReachedHeadline: '儲備重置機會的預計到帳時間已到', bankedReachedTitle: '近似到帳時間已到', bankedReachedBody: '這不能證明儲備重置按鈕已經出現。banked reset 是使用者可自行選擇點擊使用的重置機會，不是系統強制重置額度。', bankedPendingTitle: '等待到帳確認', bankedPendingBody: "儲備重置可留待使用，到帳不會自動恢復用量。", untimedStatus: '已宣布 · 待確認落實', untimedHintTitle: '等待重置落地確認', untimedHintBody: 'Tibo 已宣布重置，具體時間與方式待公布，目前尚未確認落實。',
     bankedReportedStatus: '已有使用者收到', bankedReportedTitle: '已有使用者收到', bankedReportedBody: '可在額度頁面查看是否有可用的重置機會。', bankedReportedBasis: '使用者到帳截圖',
     bankedObservedTitle: '儲備重置已可使用', bankedObservedBody: '儲備重置可留待使用，到帳不會自動恢復用量；請在帳戶顯示的有效期內使用。', bankedObservationBasis: '額度重置頁面實測',
     rolloutTimingTitle: '部分使用者的 Plus 帳號已觀察到新重置與 5 小時視窗', rolloutTimingBody: 'Tibo 未提供具體落地時間，目前也沒有公開資訊證明所有 Plus 帳號在同一時間完成變更。',
@@ -125,33 +125,34 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Tibo's Day 27/28 | Two resets received",
-    "scope": "The 28-day plan has ended. Both banked resets have arrived on the site owner’s account.",
-    "context": "Tibo posted “Banked 1/2” and then “Day 28/ Banked 2/2”. The site owner has confirmed receipt of both banked resets.",
-    "note": "Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed.",
-    "sourceExcerpt": "Day 28/ Banked 2/2"
+    "headline": "Possible Thursday banked reset",
+    "scope": "Tibo hints at a banked reset on Thursday, November 12.",
+    "context": "In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.",
+    "note": "“Perhaps” leaves this tentative. Eligible accounts and expiry have not been announced. This record preserves the hint; receipt has not been confirmed.",
+    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset."
   },
   "zh-CN": {
-    "headline": "Tibo's Day 27/28 两次储备重置已到账",
-    "scope": "28 天计划收官，站长已确认两张储备重置均已到账。",
-    "context": "Tibo 先发布“Banked 1/2”，随后以“Day 28/ Banked 2/2”收官；站长已确认两次储备重置均已到账。",
-    "note": "所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。",
-    "sourceExcerpt": "Day 28/ Banked 2/2",
-    "sourceTranslation": "第 28 天：储备重置，第 2 次／共 2 次。"
+    "headline": "周四或有储备重置",
+    "scope": "Tibo 暗示周四（11 月 12 日）或有储备重置。",
+    "context": "Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。",
+    "note": "原话用了 Perhaps（或许），目前仍属线索。适用账号及有效期待后续消息，尚未确认到账。",
+    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
+    "sourceTranslation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。"
   },
   "zh-TW": {
-    "headline": "Tibo's Day 27/28 兩次儲備重置已到帳",
-    "scope": "28 天計畫收官，站長已確認兩張儲備重置均已到帳。",
-    "context": "Tibo 先發佈「Banked 1/2」，隨後以「Day 28/ Banked 2/2」收官；站長已確認兩次儲備重置均已到帳。",
-    "note": "所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。",
-    "sourceExcerpt": "Day 28/ Banked 2/2",
-    "sourceTranslation": "第 28 天：儲備重置，第 2 次／共 2 次。"
+    "headline": "週四或有儲備重置",
+    "scope": "Tibo 暗示週四（11 月 12 日）或有儲備重置。",
+    "context": "Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。",
+    "note": "原話用了 Perhaps（或許），目前仍屬線索。適用帳戶及有效期待後續訊息，尚未確認到帳。",
+    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
+    "sourceTranslation": "我覺得週四很有 Codex 的感覺。也許也是來一次儲備重置的好時機。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-11-11-thursday-banked-hint': {"context":"In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.","note":"“Perhaps” leaves this tentative. Eligible accounts and expiry have not been announced. This record preserves the hint; receipt has not been confirmed."},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo posted “Day 28/ Banked 2/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo posted “Banked 1/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo’s Day 26 post previews banked resets for the next two series days, Day 27 and Day 28.","note":"The archive uses the post time, not the grant time. The next series dates are October 31 and November 1 PT. Eligible accounts, exact delivery times and expiration were not specified; Both later banked posts are now recorded; receipt was confirmed by the site owner."},
@@ -188,6 +189,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。","note":"原话用了 Perhaps（或许），目前仍属线索。适用账号及有效期待后续消息，尚未确认到账。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 发布“Day 28/ Banked 2/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo 发布“Banked 1/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo 在 Day 26 原帖中预告，接下来的 Day 27、28 将有储备重置。","note":"记录时间为原帖发布时间，不是发放时间。后两个系列日对应美西 10 月 31 日和 11 月 1 日；适用账号、具体到账时间和有效期未说明，后续两次储备已分别记录，站长已确认到账。"},
@@ -224,6 +226,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。","note":"原話用了 Perhaps（或許），目前仍屬線索。適用帳戶及有效期待後續訊息，尚未確認到帳。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 發佈「Day 28/ Banked 2/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo 發佈「Banked 1/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo 在 Day 26 原帖中預告，接下來的 Day 27、28 將有儲備重置。","note":"記錄時間為原帖發佈時間，不是發放時間。後兩個系列日對應美西 10 月 31 日和 11 月 1 日；適用帳戶、具體到帳時間和有效期未說明，後續兩次儲備已分別記錄，站長已確認到帳。"},
