@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-11-13-thursday-banked-observed",
+    "targetAt": "2026-11-13T10:57:25.352Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (site observation record)",
+    "originalTimeText": "Site owner confirmed receipt",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X reply",
+      "text": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
+      "translation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。",
+      "url": "https://x.com/thsottiaux/status/2120410480204525936",
+      "postedAt": "2026-11-11T06:57:08.000Z"
+    },
+    "outcome": "as_announced",
+    "note": "The site owner confirmed receipt of the Thursday banked reset. The archive uses the site’s observation-record time, not the backend delivery time or a redemption time.",
+    "recordedAt": "2026-11-13T10:57:25.352Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "observation"
+  },
+  {
     "id": "reset-2026-11-11-thursday-banked-hint",
     "targetAt": "2026-11-11T06:57:08.000Z",
     "precision": "confirmed",
@@ -12,8 +32,8 @@
       "url": "https://x.com/thsottiaux/status/2120410480204525936",
       "postedAt": "2026-11-11T06:57:08.000Z"
     },
-    "outcome": "unverified",
-    "note": "A tentative Thursday banked-reset hint, not a receipt confirmation. The archive timestamp is the public reply time, not a delivery deadline. Thursday is recorded at day level only.",
+    "outcome": "as_announced",
+    "note": "The tentative Thursday preview is retained. The site owner subsequently confirmed receipt on November 13; see the later banked-reset observation record.",
     "recordedAt": "2026-11-11T07:39:27.403Z",
     "eventType": "announcement",
     "resetType": "banked",

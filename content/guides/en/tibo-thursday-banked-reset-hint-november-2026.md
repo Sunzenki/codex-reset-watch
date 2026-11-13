@@ -2,8 +2,8 @@
 {
   "id": "tibo-thursday-banked-reset-hint-nov-2026",
   "slug": "tibo-thursday-banked-reset-hint-november-2026",
-  "title": "Tibo hints at a possible Thursday banked reset",
-  "summary": "Tibo mentions Thursday and a possible banked reset. CRW records the weekday without a countdown; the wording remains tentative.",
+  "title": "Thursday banked reset received: site owner confirms arrival",
+  "summary": "The site owner has confirmed that the banked reset previewed for Thursday has arrived. This article preserves the earlier posts and distinguishes receipt from redemption.",
   "locale": "en",
   "category": "news",
   "publishedAt": "2026-11-11T07:39:27.403Z",
@@ -21,15 +21,22 @@
       "label": "OpenAI: Banked reset guide",
       "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
     }
-  ]
+  ],
+  "updatedAt": "2026-11-13T10:57:25.352Z"
 }
 ---
 
+## Receipt update
+
+On November 13, the site owner confirmed that this banked reset had arrived. CRW has updated the homepage and history on that basis. The recorded update time identifies when the confirmation was logged; the exact backend delivery time is unknown.
+
+The following is the earlier November 11 preview.
+
 [Tibo says it has been a while without resets](https://x.com/thsottiaux/status/2120410006273380750). In his [own follow-up](https://x.com/thsottiaux/status/2120410480204525936), he mentions Thursday and adds that it may also be a good time for a banked reset.
 
-## Thursday is the useful detail
+## Earlier Thursday preview
 
-In the context of this week, Thursday corresponds to **November 12**. CRW keeps that day-level reference without a countdown. Tibo uses “Perhaps”; eligible accounts and expiry have not been announced, and there is no receipt confirmation in these posts. The “codexy” wording gives no specific model or feature name.
+In the context of this week, Thursday corresponds to **November 12**. CRW keeps that day-level reference without a countdown. Tibo used “Perhaps”; those preview posts did not specify eligible accounts or expiry and did not themselves confirm receipt. The “codexy” wording gives no specific model or feature name.
 
 [OpenAI’s guide](https://help.openai.com/en/articles/20001498-how-resets-work-in-codex) describes a banked reset as an opportunity saved for later use. Receiving one does not automatically refresh usage; its account-specific expiry matters when choosing when to redeem it.
 

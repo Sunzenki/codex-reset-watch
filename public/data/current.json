@@ -1,11 +1,11 @@
 {
   "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "Possible Thursday banked reset",
+  "status": "confirmed",
+  "headline": "Thursday banked reset received",
   "resetAt": null,
   "sourceTimezone": null,
   "originalTimeText": "Thursday",
-  "scope": "Tibo hints at a banked reset on Thursday, November 12.",
+  "scope": "The site owner has confirmed receipt of the banked reset previewed for Thursday.",
   "announcement": {
     "source": "Tibo (@thsottiaux) / X reply",
     "text": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
@@ -20,6 +20,7 @@
     "url": "https://x.com/thsottiaux/status/2120410006273380750",
     "postedAt": "2026-11-11T06:55:15.000Z"
   },
-  "updatedAt": "2026-11-11T07:39:27.403Z",
-  "note": "Tibo’s wording is tentative (Perhaps). Thursday is interpreted as November 12 in this week’s context, without a precise delivery timestamp. No eligibility, expiration or receipt is confirmed."
+  "updatedAt": "2026-11-13T10:57:25.352Z",
+  "note": "The receipt update comes from the site owner’s confirmation on November 13. Its recorded time is not the exact backend delivery time. Check your own account for availability and expiry.",
+  "observationBasis": "owner_account"
 }

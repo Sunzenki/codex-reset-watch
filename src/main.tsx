@@ -278,7 +278,7 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const tone = isLatestUpdate || isBankedLoading ? 'positive' : effectiveStatus === 'estimated' ? 'warning' : effectiveStatus === 'confirmed' ? 'positive' : effectiveStatus === 'reached' ? 'reached' : 'neutral';
 
   const journal = journalCopy[locale];
-  const displayAt = isOwnerObserved ? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
+  const displayAt = isOwnerObserved || (isBankedObserved && !isBankedReported) ? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
   const headline = isResetConfirmed ? content.headline : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale);
   const titleParts = headline.match(/^((?:Tibo['’]s )?Day\s+\d+(?:\/\d+)?|第\s*\d+\s*天)\s*[|｜]?\s*(.+)$/);
   const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];

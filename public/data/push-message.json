@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-11-11-thursday-banked-hint",
+  "eventId": "2026-11-13-thursday-banked-received",
   "messages": {
     "en": {
-      "title": "Possible Thursday banked reset",
-      "body": "Tibo hints at a banked reset on Thursday, November 12. The wording is tentative; receipt is unconfirmed.",
+      "title": "Thursday banked reset received",
+      "body": "The site owner has confirmed receipt of this banked reset. Check your account’s available balance and expiry before use.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "周四或有储备重置",
-      "body": "Tibo 暗示周四（11 月 12 日）或有储备重置。 原话为“或许”，尚未确认到账。",
+      "title": "周四储备重置已到账",
+      "body": "站长已确认本轮储备重置到账。可在自己账号查看可用储备及有效期，再决定何时使用。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "週四或有儲備重置",
-      "body": "Tibo 暗示週四（11 月 12 日）或有儲備重置。 原話為「或許」，尚未確認到帳。",
+      "title": "週四儲備重置已到帳",
+      "body": "站長已確認本輪儲備重置到帳。可在自己帳戶查看可用儲備及有效期，再決定何時使用。",
       "path": "/zh-TW/"
     }
   }

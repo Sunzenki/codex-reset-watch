@@ -125,25 +125,25 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Possible Thursday banked reset",
-    "scope": "Tibo hints at a banked reset on Thursday, November 12.",
-    "context": "In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.",
-    "note": "“Perhaps” leaves this tentative. Eligible accounts and expiry have not been announced. This record preserves the hint; receipt has not been confirmed.",
+    "headline": "Thursday banked reset received",
+    "scope": "The site owner has confirmed receipt of the banked reset previewed for Thursday.",
+    "context": "The site owner has now confirmed receipt. Tibo’s linked Thursday reply is the earlier preview.",
+    "note": "The receipt update comes from the site owner’s confirmation on November 13. Its recorded time is not the exact backend delivery time. Check your own account for availability and expiry.",
     "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset."
   },
   "zh-CN": {
-    "headline": "周四或有储备重置",
-    "scope": "Tibo 暗示周四（11 月 12 日）或有储备重置。",
-    "context": "Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。",
-    "note": "原话用了 Perhaps（或许），目前仍属线索。适用账号及有效期待后续消息，尚未确认到账。",
+    "headline": "周四储备重置已到账",
+    "scope": "站长已确认，周四预告的本轮储备重置已到账。",
+    "context": "站长现已确认本轮储备重置到账。所附 Tibo 周四回复保留为此前的预告来源。",
+    "note": "本次到账状态依据站长于 11 月 13 日提供的确认。记录时间不代表后台精确发放时刻；请以自己账号的可用储备及有效期为准。",
     "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
     "sourceTranslation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。"
   },
   "zh-TW": {
-    "headline": "週四或有儲備重置",
-    "scope": "Tibo 暗示週四（11 月 12 日）或有儲備重置。",
-    "context": "Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。",
-    "note": "原話用了 Perhaps（或許），目前仍屬線索。適用帳戶及有效期待後續訊息，尚未確認到帳。",
+    "headline": "週四儲備重置已到帳",
+    "scope": "站長已確認，週四預告的本輪儲備重置已到帳。",
+    "context": "站長現已確認本輪儲備重置到帳。所附 Tibo 週四回覆保留為先前的預告來源。",
+    "note": "本次到帳狀態依據站長於 11 月 13 日提供的確認。記錄時間不代表後台精確發放時間；請以自己帳戶的可用儲備及有效期為準。",
     "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
     "sourceTranslation": "我覺得週四很有 Codex 的感覺。也許也是來一次儲備重置的好時機。"
   }
@@ -152,7 +152,8 @@ export const currentCopy: Record<Locale, { headline: string; scope: string; cont
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
-    'reset-2026-11-11-thursday-banked-hint': {"context":"In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.","note":"“Perhaps” leaves this tentative. Eligible accounts and expiry have not been announced. This record preserves the hint; receipt has not been confirmed."},
+    'reset-2026-11-13-thursday-banked-observed': {"context":"The site owner has now confirmed receipt. Tibo’s linked Thursday reply is the earlier preview.","note":"The site owner confirmed receipt of the Thursday banked reset. The archive uses the site’s observation-record time, not the backend delivery time or a redemption time."},
+    'reset-2026-11-11-thursday-banked-hint': {"context":"In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.","note":"The tentative Thursday preview is retained. The site owner subsequently confirmed receipt on November 13; see the later banked-reset observation record."},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo posted “Day 28/ Banked 2/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo posted “Banked 1/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo’s Day 26 post previews banked resets for the next two series days, Day 27 and Day 28.","note":"The archive uses the post time, not the grant time. The next series dates are October 31 and November 1 PT. Eligible accounts, exact delivery times and expiration were not specified; Both later banked posts are now recorded; receipt was confirmed by the site owner."},
@@ -189,7 +190,8 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
-    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。","note":"原话用了 Perhaps（或许），目前仍属线索。适用账号及有效期待后续消息，尚未确认到账。"},
+    'reset-2026-11-13-thursday-banked-observed': {"context":"站长现已确认本轮储备重置到账。所附 Tibo 周四回复保留为此前的预告来源。","note":"站长已确认周四预告的储备重置到账。所示日期为本站记录确认的时间，不是后台发放时刻或使用储备的时间。"},
+    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。","note":"保留原有周四线索；站长已于 11 月 13 日确认到账，后续情况见新增的储备到账记录。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 发布“Day 28/ Banked 2/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo 发布“Banked 1/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo 在 Day 26 原帖中预告，接下来的 Day 27、28 将有储备重置。","note":"记录时间为原帖发布时间，不是发放时间。后两个系列日对应美西 10 月 31 日和 11 月 1 日；适用账号、具体到账时间和有效期未说明，后续两次储备已分别记录，站长已确认到账。"},
@@ -226,7 +228,8 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
-    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。","note":"原話用了 Perhaps（或許），目前仍屬線索。適用帳戶及有效期待後續訊息，尚未確認到帳。"},
+    'reset-2026-11-13-thursday-banked-observed': {"context":"站長現已確認本輪儲備重置到帳。所附 Tibo 週四回覆保留為先前的預告來源。","note":"站長已確認週四預告的儲備重置到帳。所示日期為本站記錄確認的時間，不是後台發放時間或使用儲備的時間。"},
+    'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。","note":"保留原有週四線索；站長已於 11 月 13 日確認到帳，後續情況見新增的儲備到帳紀錄。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 發佈「Day 28/ Banked 2/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},
     'reset-2026-11-01-day27-banked-received': {"context":"Tibo 發佈「Banked 1/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},
     'reset-2026-10-31-day27-28-banked-announced': {"context":"Tibo 在 Day 26 原帖中預告，接下來的 Day 27、28 將有儲備重置。","note":"記錄時間為原帖發佈時間，不是發放時間。後兩個系列日對應美西 10 月 31 日和 11 月 1 日；適用帳戶、具體到帳時間和有效期未說明，後續兩次儲備已分別記錄，站長已確認到帳。"},
