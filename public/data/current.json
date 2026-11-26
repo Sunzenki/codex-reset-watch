@@ -1,18 +1,25 @@
 {
   "kind": "banked_reset",
-  "status": "monitoring",
-  "headline": "One banked reset announced",
+  "status": "confirmed",
+  "headline": "Compensation banked reset is available",
   "resetAt": null,
   "sourceTimezone": null,
-  "originalTimeText": null,
-  "scope": "Tibo says Go, Plus, Pro, and Business users will each get one banked reset after a GPT-6.2 usage-metering fix.",
+  "originalTimeText": "Banked reset is online",
+  "scope": "Tibo confirmed the GPT-6.2 compensation reset is available. The announcement covers one banked reset per Go, Plus, Pro, or Business user.",
   "announcement": {
+    "source": "Tibo (@thsottiaux) / X post",
+    "text": "Banked reset is online",
+    "translation": "储备重置已到账",
+    "url": "https://x.com/thsottiaux/status/2125853628250599730",
+    "postedAt": "2026-11-26T07:26:16.082Z"
+  },
+  "updatedAt": "2026-11-26T07:59:29.000Z",
+  "note": "The timestamp is when Tibo posted the confirmation. Check the Usage page in your account for your available reset and its expiry.",
+  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
     "text": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
     "translation": "我们会向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。",
     "url": "https://x.com/thsottiaux/status/2125784147889393806",
     "postedAt": "2026-11-26T02:50:10.673Z"
-  },
-  "updatedAt": "2026-11-26T04:58:16.000Z",
-  "note": "The post gives no delivery time or expiry date. Check your account’s Usage settings for availability and expiry."
+  }
 }

@@ -272,6 +272,9 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const isBankedLoading = isBankedReset && data.status === 'monitoring' && Boolean(data.announcement);
   const isBankedReported = isBankedReset && data.observationBasis === 'user_report';
   const isBankedObserved = isBankedReset && (data.observationBasis === 'owner_account' || isBankedReported);
+  const isBankedConfirmed = isBankedReset && data.status === 'confirmed'
+    && !data.resetAt && Boolean(data.announcement) && !data.observationBasis;
+  const isBankedAvailable = isBankedConfirmed || isBankedObserved;
   const isUntimedHint = data.kind === 'reset' && data.status === 'monitoring' && !data.resetAt && Boolean(data.announcement);
   const isLatestUpdate = isRolloutObserved || isResetConfirmed;
   const isReached = effectiveStatus === 'reached' && !isLatestUpdate;
@@ -281,14 +284,27 @@ function CurrentPage({ locale }: { locale: Locale }) {
   const displayAt = isOwnerObserved || (isBankedObserved && !isBankedReported) ? data.updatedAt : data.resetAt ?? data.announcement?.postedAt ?? data.updatedAt;
   const headline = isResetConfirmed ? content.headline : data.deadlineEstimated ? isReached ? copy.deadlineReached : content.headline : data.dateConfirmed && !isReached ? content.headline : isBankedReset ? isReached ? copy.bankedReachedHeadline : content.headline : isLatestUpdate || isUntimedHint ? content.headline : resetHeadline(effectiveStatus, data.resetAt, locale);
   const titleParts = headline.match(/^((?:Tibo['’]s )?Day\s+\d+(?:\/\d+)?|第\s*\d+\s*天)\s*[|｜]?\s*(.+)$/);
-  const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus : isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedStatus : isRolloutObserved ? copy.rolloutStatus : isBankedObserved ? (isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus) : isBankedLoading ? copy.bankedLoadingStatus : isUntimedHint ? copy.untimedStatus : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];
-  const body = isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : journal.confirmation : isRolloutObserved ? copy.rolloutTimingBody : isBankedObserved ? isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody : isReached ? copy.reachedBody : isUntimedHint ? copy.untimedHintBody : isBankedLoading ? copy.bankedPendingBody : copy.waitingBody;
+  const bankedStatus = isBankedConfirmed ? copy.bankedConfirmedStatus
+    : isBankedReported ? copy.bankedReportedStatus : copy.bankedObservedStatus;
+  const statusLabel = data.deadlineEstimated ? isReached ? copy.deadlineReached : copy.deadlineStatus
+    : isResetConfirmed ? isOwnerObserved ? copy.ownerResetTitle : copy.resetConfirmedStatus
+    : isRolloutObserved ? copy.rolloutStatus
+    : isBankedAvailable ? bankedStatus
+    : isBankedLoading ? copy.bankedLoadingStatus
+    : isUntimedHint ? copy.untimedStatus
+    : data.dateConfirmed && !isReached ? copy.dateConfirmedStatus : copy.status[effectiveStatus];
+  const body = isResetConfirmed ? isOwnerObserved ? copy.ownerResetBody : journal.confirmation
+    : isRolloutObserved ? copy.rolloutTimingBody
+    : isBankedAvailable ? isBankedReported ? copy.bankedReportedBody : copy.bankedObservedBody
+    : isReached ? copy.reachedBody
+    : isUntimedHint ? copy.untimedHintBody
+    : isBankedLoading ? copy.bankedPendingBody : copy.waitingBody;
 
   return <main id="content" className="journal-page">
     <section className="journal-entry" aria-labelledby="latest-title">
       <JournalDate value={displayAt} locale={locale} />
       <div className="journal-story">
-        <div className={`status-chip ${tone}`}>{isLatestUpdate || isBankedObserved ? <CheckCircle size={17} weight="fill" aria-hidden="true" /> : <Clock size={17} aria-hidden="true" />}{statusLabel}</div>
+        <div className={`status-chip ${tone}`}>{isLatestUpdate || isBankedAvailable ? <CheckCircle size={17} weight="fill" aria-hidden="true" /> : <Clock size={17} aria-hidden="true" />}{statusLabel}</div>
         <h1 id="latest-title">{titleParts ? <><span className={titleParts[1].startsWith('Tibo') ? undefined : 'journal-title-prefix'}>{titleParts[1]}</span>{' '}<span>{titleParts[2]}</span></> : headline}</h1>
         <p className="journal-scope">{content.scope}</p>
         {!isResetConfirmed && !isReached && remaining && data.resetAt ? <div className="journal-countdown">
@@ -529,6 +545,9 @@ function HistoryItem({ record, locale }: { record: HistoryRecord; locale: Locale
   const copy = ui[locale];
   const date = new Date(record.targetAt);
   const localized = historyCopy[locale][record.id];
+  const confirmedBankedReceipt = record.eventType === 'banked'
+    && record.timeBasis === 'confirmation' && record.outcome === 'as_announced';
+  const result = confirmedBankedReceipt ? copy.bankedConfirmedStatus : copy.outcome[record.outcome];
   const dateBlock = new Intl.DateTimeFormat(localeConfig[locale].intl, {
     month: '2-digit', day: '2-digit', timeZone: localeConfig[locale].timeZone,
   }).format(date);
@@ -539,7 +558,7 @@ function HistoryItem({ record, locale }: { record: HistoryRecord; locale: Locale
     <div className="date-block"><strong>{dateBlock}</strong><span>{weekday}</span></div>
     <div className="timeline-mark"><i /></div>
     <div className="record-card">
-      <div className="record-top"><span className={`precision ${record.precision}`}>{record.precision === 'confirmed' ? copy.precise : copy.approximate}</span><span>{copy.outcome[record.outcome]}</span></div>
+      <div className="record-top"><span className={`precision ${record.precision}`}>{record.precision === 'confirmed' ? copy.precise : copy.approximate}</span><span>{result}</span></div>
       <h3>{dateTime(record.targetAt, locale, true)}</h3>
       <p className="original-time">{copy.original}: {record.originalTimeText} · {localizedSourceTimezone(record.originalTimezone, locale)}</p>
       <p className="source-byline"><span>{copy.source}</span><strong>{record.announcement.source}</strong></p>

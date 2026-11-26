@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-11-26-gpt-6-2-compensation-banked-received",
+    "targetAt": "2026-11-26T07:26:16.082Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "Banked reset is online",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "Banked reset is online",
+      "translation": "储备重置已到账",
+      "url": "https://x.com/thsottiaux/status/2125853628250599730",
+      "postedAt": "2026-11-26T07:26:16.082Z"
+    },
+    "outcome": "as_announced",
+    "note": "The archive records the time of Tibo’s confirmation post. Check your account for availability and expiry.",
+    "recordedAt": "2026-11-26T07:59:29.000Z",
+    "eventType": "banked",
+    "resetType": "banked",
+    "timeBasis": "confirmation"
+  },
+  {
     "id": "reset-2026-11-26-gpt-6-2-compensation-banked-announced",
     "targetAt": "2026-11-26T02:50:10.673Z",
     "precision": "confirmed",
@@ -12,8 +32,8 @@
       "url": "https://x.com/thsottiaux/status/2125784147889393806",
       "postedAt": "2026-11-26T02:50:10.673Z"
     },
-    "outcome": "unverified",
-    "note": "The date is the time of the announcement. Delivery and expiry were not specified, and receipt is awaiting confirmation.",
+    "outcome": "as_announced",
+    "note": "This announcement established the eligible plans and was followed by Tibo’s confirmation at 07:26 UTC on November 26. See the separate confirmation record.",
     "recordedAt": "2026-11-26T04:58:16.000Z",
     "eventType": "announcement",
     "resetType": "banked",

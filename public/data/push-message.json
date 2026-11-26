@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-11-26-gpt-6-2-compensation-banked-announced",
+  "eventId": "2026-11-26-gpt-6-2-compensation-banked-received",
   "messages": {
     "en": {
-      "title": "One banked reset announced",
-      "body": "Tibo announced one banked reset each for Go, Plus, Pro, and Business. Delivery timing was not specified.",
+      "title": "Compensation banked reset is available",
+      "body": "Tibo confirmed the GPT-6.2 compensation banked reset is available. Check your Usage settings for the reset and its expiry.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "一次储备重置已预告",
-      "body": "Tibo 宣布向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。到账时间待公布。",
+      "title": "补偿储备重置已到账",
+      "body": "Tibo 已确认 GPT-6.2 补偿储备重置到账。可在自己账号的用量设置里查看可用储备及有效期。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "一次儲備重置已預告",
-      "body": "Tibo 宣布向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。到帳時間待公布。",
+      "title": "補償儲備重置已到帳",
+      "body": "Tibo 已確認 GPT-6.2 補償儲備重置到帳。可在自己帳戶的用量設定查看可用儲備及有效期限。",
       "path": "/zh-TW/"
     }
   }

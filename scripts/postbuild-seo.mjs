@@ -72,6 +72,14 @@ function confirmedHeadline(locale) {
   return `${timestamp} ${hasLandingTime ? '落地' : locale === 'zh-TW' ? '確認' : '确认'}：${copy.confirmedResetHeadline}`;
 }
 
+const hasBankedConfirmation = current.kind === 'banked_reset' && current.status === 'confirmed'
+  && !current.resetAt && Boolean(current.announcement) && !current.observationBasis;
+const bankedConfirmedHeadline = {
+  en: 'Compensation banked reset is available',
+  'zh-CN': '补偿储备重置已到账',
+  'zh-TW': '補償儲備重置已到帳',
+};
+
 function currentHeadline(locale) {
   const copy = locales[locale];
   if (current.deadlineEstimated) {
@@ -85,6 +93,7 @@ function currentHeadline(locale) {
   if (current.kind === 'banked_reset') {
     if (current.observationBasis === 'user_report') return {"en":"DevDay banked reset is here","zh-CN":"DevDay 储备重置来了","zh-TW":"DevDay 儲備重置來了"}[locale];
     if (current.observationBasis === 'owner_account') return copy.bankedObserved;
+    if (hasBankedConfirmation) return bankedConfirmedHeadline[locale];
     if (!current.resetAt) return copy.bankedPending;
     if (Date.now() >= Date.parse(current.resetAt)) return copy.bankedReached;
     const time = displayDate(current.resetAt, locale);
@@ -131,7 +140,12 @@ function structuredData(route) {
   if (route.kind === 'home' && current.announcement) {
     webpage.citation = current.announcement.url;
     webpage.mainEntity = {
-      '@type': 'CreativeWork', name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset' : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update' : current.kind === 'banked_reset' ? ['owner_account', 'user_report'].includes(current.observationBasis) ? 'Banked reset availability observation' : 'Current banked-reset announcement' : current.status === 'monitoring' && !current.resetAt ? 'Latest announced Codex usage reset' : 'Current Codex reset estimate',
+      '@type': 'CreativeWork',
+      name: current.kind === 'reset_confirmed' ? 'Latest confirmed Codex usage reset'
+        : current.kind === 'rollout_observed' ? 'Latest Codex rate-limit rollout update'
+        : hasBankedConfirmation ? 'Banked reset availability confirmed'
+        : current.kind === 'banked_reset' ? current.observationBasis ? 'Banked reset availability observation' : 'Current banked-reset announcement'
+        : current.status === 'monitoring' && !current.resetAt ? 'Latest announced Codex usage reset' : 'Current Codex reset estimate',
       datePublished: current.announcement.postedAt, dateModified: current.updatedAt,
       temporalCoverage: current.resetAt ?? undefined, citation: current.announcement.url,
     };

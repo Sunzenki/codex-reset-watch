@@ -22,7 +22,7 @@ export const ui = {
     deadlineStatus: 'Announced · deadline estimated', deadlineLabel: 'Estimated deadline', deadlineReached: 'Estimated deadline reached · awaiting confirmation',
     status: { monitoring: 'Watching for updates', estimated: 'Approximate time', confirmed: 'Time confirmed', reached: 'Expected time reached', superseded: 'Estimate revised' }, dateConfirmedStatus: 'Tuesday confirmed · time estimated',
     outcome: { unverified: 'Not independently verified', as_announced: 'No later correction found', revised: 'Later revised', cancelled: 'Announcement cancelled' },
-    nextLabel: 'Next rate-limit reset', bankedLabel: 'Banked reset update', bankedLoadingStatus: 'Preview · awaiting follow-up', bankedObservedStatus: 'Availability verified', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
+    nextLabel: 'Next rate-limit reset', bankedLabel: 'Banked reset update', bankedLoadingStatus: 'Preview · awaiting follow-up', bankedConfirmedStatus: 'Availability confirmed', bankedObservedStatus: 'Availability verified', latestLabel: 'Latest rate-limit rollout update', confirmedLabel: 'Latest confirmed usage reset', rolloutStatus: 'Rollout observed', resetConfirmedStatus: 'Reset confirmed', scopeSuffix: 'Human-curated and unofficial. Not affiliated with OpenAI.',
     targetZone: 'UTC', localTime: 'Your local time', countdown: 'Time until the expected reset', bankedCountdown: 'Time until the banked reset is expected to become available',
     units: { days: 'days', hours: 'hours', minutes: 'min', seconds: 'sec' },
     railStart: 'Post published', railEnd: 'Expected reset', bankedRailEnd: 'Expected availability', waitingTitle: 'Waiting for the next verified public update',
@@ -57,7 +57,7 @@ export const ui = {
     deadlineStatus: '已预告 · 截止时间为推算', deadlineLabel: '预计截止时间', deadlineReached: '预计截止时间已到，待确认',
     status: { monitoring: '持续关注中', estimated: '近似时间', confirmed: '时间已确认', reached: '预告时间已到', superseded: '预告已被修正' }, dateConfirmedStatus: '周二已确认 · 时间为推算',
     outcome: { unverified: '暂未验证', as_announced: '未发现后续修正', revised: '后续已修正', cancelled: '预告已取消' },
-    nextLabel: '下一次额度重置', bankedLabel: '储备重置最新消息', bankedLoadingStatus: '预告 · 待后续确认', bankedObservedStatus: '已实测到账', latestLabel: '额度规则最新动态', confirmedLabel: '最新确认的额度重置', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
+    nextLabel: '下一次额度重置', bankedLabel: '储备重置最新消息', bankedLoadingStatus: '预告 · 待后续确认', bankedConfirmedStatus: '已确认到账', bankedObservedStatus: '已实测到账', latestLabel: '额度规则最新动态', confirmedLabel: '最新确认的额度重置', rolloutStatus: '已观察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站为人工整理，非 OpenAI 官方信息。',
     targetZone: '北京时间（UTC+8）', localTime: '你的本地时间', countdown: '距离预告重置时间', bankedCountdown: '距离储备重置机会预计到账',
     units: { days: '天', hours: '时', minutes: '分', seconds: '秒' },
     railStart: '原帖发布', railEnd: '预计重置', bankedRailEnd: '预计到账', waitingTitle: '等待下一条经过核对的公开预告',
@@ -92,7 +92,7 @@ export const ui = {
     deadlineStatus: '已預告 · 截止時間為推算', deadlineLabel: '預計截止時間', deadlineReached: '預計截止時間已到，待確認',
     status: { monitoring: '持續關注中', estimated: '近似時間', confirmed: '時間已確認', reached: '預告時間已到', superseded: '預告已被修正' }, dateConfirmedStatus: '週二已確認 · 時間為推算',
     outcome: { unverified: '暫未驗證', as_announced: '未發現後續修正', revised: '後續已修正', cancelled: '預告已取消' },
-    nextLabel: '下一次額度重置', bankedLabel: '儲備重置最新消息', bankedLoadingStatus: '預告 · 待後續確認', bankedObservedStatus: '已實測到帳', latestLabel: '額度規則最新動態', confirmedLabel: '最新確認的額度重置', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',
+    nextLabel: '下一次額度重置', bankedLabel: '儲備重置最新消息', bankedLoadingStatus: '預告 · 待後續確認', bankedConfirmedStatus: '已確認到帳', bankedObservedStatus: '已實測到帳', latestLabel: '額度規則最新動態', confirmedLabel: '最新確認的額度重置', rolloutStatus: '已觀察到落地', resetConfirmedStatus: '重置已完成', scopeSuffix: '本站為人工整理，並非 OpenAI 官方資訊。',
     targetZone: '台北時間（UTC+8）', localTime: '你的本地時間', countdown: '距離預告重置時間', bankedCountdown: '距離儲備重置機會預計到帳',
     units: { days: '天', hours: '時', minutes: '分', seconds: '秒' },
     railStart: '原帖發佈', railEnd: '預計重置', bankedRailEnd: '預計到帳', waitingTitle: '等待下一則經過核對的公開預告',
@@ -125,34 +125,32 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "One banked reset announced",
-    "scope": "Tibo says Go, Plus, Pro, and Business users will each get one banked reset after a GPT-6.2 usage-metering fix.",
-    "context": "Tibo says a launch error caused GPT-6.2 Astra and Sol to draw too little from most users’ plan allowances. The error has been fixed, and OpenAI will not charge for the difference on past usage.",
-    "note": "The post gives no delivery time or expiry date. Check your account’s Usage settings for availability and expiry.",
-    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business."
+    "headline": "Compensation banked reset is available",
+    "scope": "Tibo confirmed the GPT-6.2 compensation reset is available. The announcement covers one banked reset per Go, Plus, Pro, or Business user.",
+    "context": "OpenAI fixed the GPT-6.2 Astra and Sol usage-metering error. Tibo then confirmed that the previously announced compensation reset was available.",
+    "note": "The timestamp is when Tibo posted the confirmation. Check the Usage page in your account for your available reset and its expiry."
   },
   "zh-CN": {
-    "headline": "一次储备重置已预告",
-    "scope": "Tibo 宣布，GPT-6.2 用量计算修正后，Go、Plus、Pro 和 Business 用户将各获一次储备重置。",
-    "context": "Tibo 表示，GPT-6.2 Astra 和 Sol 上线时的计算错误让大多数用户少扣了套餐用量。错误已修正，过去少计的用量不会补收差额。",
-    "note": "原帖未给出到账时间和有效期。可在账号的用量设置里查看是否到账以及何时到期。",
-    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
-    "sourceTranslation": "我们会向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。"
+    "headline": "补偿储备重置已到账",
+    "scope": "Tibo 已确认 GPT-6.2 补偿储备重置到账。此前公告明确，Go、Plus、Pro 和 Business 用户各获一次。",
+    "context": "OpenAI 已修正 GPT-6.2 Astra 和 Sol 的用量计算错误。Tibo 随后发帖，确认此前预告的补偿储备已到账。",
+    "note": "所示时间为 Tibo 发帖确认时间。可在自己账号的用量设置里查看可用储备及有效期。",
+    "sourceTranslation": "储备重置已到账"
   },
   "zh-TW": {
-    "headline": "一次儲備重置已預告",
-    "scope": "Tibo 宣布，GPT-6.2 用量計算修正後，Go、Plus、Pro 和 Business 使用者將各獲一次儲備重置。",
-    "context": "Tibo 表示，GPT-6.2 Astra 和 Sol 上線時的計算錯誤讓多數使用者少扣了方案用量。錯誤已修正，過去少計的用量不會補收差額。",
-    "note": "原文未公布到帳時間與有效期限。可在帳戶的用量設定查看是否到帳及到期時間。",
-    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
-    "sourceTranslation": "我們會向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。"
+    "headline": "補償儲備重置已到帳",
+    "scope": "Tibo 已確認 GPT-6.2 補償儲備重置到帳。先前公告指出，Go、Plus、Pro 和 Business 使用者各獲一次。",
+    "context": "OpenAI 已修正 GPT-6.2 Astra 和 Sol 的用量計算錯誤。Tibo 隨後發文，確認先前預告的補償儲備已到帳。",
+    "note": "所示時間為 Tibo 發文確認的時間。可在自己帳戶的用量設定查看可用儲備及有效期限。",
+    "sourceTranslation": "儲備重置已到帳"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
-    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo announced one banked reset each for Go, Plus, Pro, and Business after correcting how GPT-6.2 Astra and Sol count toward plan allowances.","note":"The date is the time of the announcement. Delivery and expiry were not specified, and receipt is awaiting confirmation."},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-received': {"context":"Tibo confirmed availability of the GPT-6.2 compensation reset announced earlier for Go, Plus, Pro, and Business.","note":"The archive records the time of Tibo’s confirmation post. Check your account for availability and expiry."},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo announced one banked reset each for Go, Plus, Pro, and Business after correcting how GPT-6.2 Astra and Sol count toward plan allowances.","note":"This announcement established the eligible plans and was followed by Tibo’s confirmation at 07:26 UTC on November 26. See the separate confirmation record."},
     'reset-2026-11-13-thursday-banked-observed': {"context":"The site owner has now confirmed receipt. Tibo’s linked Thursday reply is the earlier preview.","note":"The site owner confirmed receipt of the Thursday banked reset. The archive uses the site’s observation-record time, not the backend delivery time or a redemption time."},
     'reset-2026-11-11-thursday-banked-hint': {"context":"In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.","note":"The tentative Thursday preview is retained. The site owner subsequently confirmed receipt on November 13; see the later banked-reset observation record."},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo posted “Day 28/ Banked 2/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
@@ -191,7 +189,8 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
-    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的套餐用量计算后，宣布向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。","note":"本条按公告发布时间归档。原帖未给出到账时间和有效期，到账待确认。"},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-received': {"context":"Tibo 确认 GPT-6.2 补偿储备已到账。此前公告的范围为 Go、Plus、Pro 和 Business 用户各一次。","note":"本条以 Tibo 的确认帖发布时间归档。可在自己的用量设置里查看可用储备及有效期。"},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的套餐用量计算后，宣布向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。","note":"此帖为本轮补偿预告。Tibo 已于 11 月 26 日 15:26（UTC+8）发帖确认到账，详见同日的到账记录。"},
     'reset-2026-11-13-thursday-banked-observed': {"context":"站长现已确认本轮储备重置到账。所附 Tibo 周四回复保留为此前的预告来源。","note":"站长已确认周四预告的储备重置到账。所示日期为本站记录确认的时间，不是后台发放时刻或使用储备的时间。"},
     'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。","note":"保留原有周四线索；站长已于 11 月 13 日确认到账，后续情况见新增的储备到账记录。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 发布“Day 28/ Banked 2/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
@@ -230,7 +229,8 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
-    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的方案用量計算後，宣布向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。","note":"本筆依公告發布時間歸檔。原文未公布到帳時間與有效期限，到帳待確認。"},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-received': {"context":"Tibo 確認 GPT-6.2 補償儲備已到帳。先前公告的範圍為 Go、Plus、Pro 和 Business 使用者各一次。","note":"本筆依 Tibo 確認文的發布時間歸檔。可在自己的用量設定查看可用儲備及有效期限。"},
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的方案用量計算後，宣布向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。","note":"這是本次補償的預告。Tibo 已於 11 月 26 日 15:26（UTC+8）發文確認到帳，詳見同日的到帳紀錄。"},
     'reset-2026-11-13-thursday-banked-observed': {"context":"站長現已確認本輪儲備重置到帳。所附 Tibo 週四回覆保留為先前的預告來源。","note":"站長已確認週四預告的儲備重置到帳。所示日期為本站記錄確認的時間，不是後台發放時間或使用儲備的時間。"},
     'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。","note":"保留原有週四線索；站長已於 11 月 13 日確認到帳，後續情況見新增的儲備到帳紀錄。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 發佈「Day 28/ Banked 2/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},

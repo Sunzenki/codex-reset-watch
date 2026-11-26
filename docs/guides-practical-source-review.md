@@ -87,3 +87,5 @@
 - 11 月 26 日约 04:57–05:00 UTC 在 Chrome 读取并复查 [Tibo 原帖](https://x.com/thsottiaux/status/2125784147889393806)、可见回复及作者近期回复。X 帖子 ID 的时间戳为 02:50:10.673 UTC，对应 Chrome 显示的 UTC+8 10:50。原帖称 GPT-6.2 Astra 和 Sol 的套餐用量少计已修正，过去用量不会补收差额，其他模型未受影响。40% 和 25% 是相较上周触达用量上限的速度对比。
 - Tibo 宣布 Go、Plus、Pro 和 Business 各获一次补偿储备。核对时仅有预告，发放时间及有效期未公布，新增历史以发帖时间归档。[OpenAI 重置说明](https://help.openai.com/en/articles/20001498-how-resets-work-in-codex)支持桌面和网页查询入口及储备使用机制。
 - 读者可据三语资讯判断用量变化、资格和查询路径。本站把这一轮作为独立事件登记，提交及生产核验见变更日志。
+
+- 同日约 07:57 UTC 在 Chrome 核对 [Tibo 到账确认帖](https://x.com/thsottiaux/status/2125853628250599730)，原文为 “Banked reset is online”。帖子 ID 的时间戳为 07:26:16.082 UTC，Chrome 显示 UTC+8 15:26。报道将此时刻标为发帖确认时间。适用套餐取自先前预告，有效期以账号显示为准。

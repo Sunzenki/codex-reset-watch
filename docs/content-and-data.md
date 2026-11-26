@@ -100,6 +100,8 @@ CRW 是非官方、人工整理的信息站。正式记录应尽量指向公开�
 
 运行时 H1 由 `src/main.tsx` 的状态分支和 `src/i18n.ts` 的当前事件文案共同决定，无 JavaScript 静态快照由 `scripts/postbuild-seo.mjs` 生成。JSON 中的 `headline` 不能被视为唯一标题来源。
 
+作者发帖确认储备已发放时，使用 `banked_reset`、`status: "confirmed"` 与 `resetAt: null`，将确认帖放在 `announcement`，原预告可保存在 `previousAnnouncement`。无账号观察时省略 `observationBasis`。首页显示“已确认到账”，日期栏使用确认帖发布时间；历史另加 `banked` / `confirmation` 记录，并在原预告补注后续结果。
+
 ## 4. 历史记录数据模型
 
 权威文件：`public/data/history.json`。每条记录需要：
