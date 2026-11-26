@@ -1,5 +1,25 @@
 [
   {
+    "id": "reset-2026-11-26-gpt-6-2-compensation-banked-announced",
+    "targetAt": "2026-11-26T02:50:10.673Z",
+    "precision": "confirmed",
+    "originalTimezone": "UTC (X timestamp)",
+    "originalTimeText": "we’ll be adding one banked reset",
+    "announcement": {
+      "source": "Tibo (@thsottiaux) / X post",
+      "text": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
+      "translation": "我们会向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。",
+      "url": "https://x.com/thsottiaux/status/2125784147889393806",
+      "postedAt": "2026-11-26T02:50:10.673Z"
+    },
+    "outcome": "unverified",
+    "note": "The date is the time of the announcement. Delivery and expiry were not specified, and receipt is awaiting confirmation.",
+    "recordedAt": "2026-11-26T04:58:16.000Z",
+    "eventType": "announcement",
+    "resetType": "banked",
+    "timeBasis": "announcement"
+  },
+  {
     "id": "reset-2026-11-13-thursday-banked-observed",
     "targetAt": "2026-11-13T10:57:25.352Z",
     "precision": "confirmed",

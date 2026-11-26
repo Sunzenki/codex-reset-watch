@@ -1,26 +1,18 @@
 {
   "kind": "banked_reset",
-  "status": "confirmed",
-  "headline": "Thursday banked reset received",
+  "status": "monitoring",
+  "headline": "One banked reset announced",
   "resetAt": null,
   "sourceTimezone": null,
-  "originalTimeText": "Thursday",
-  "scope": "The site owner has confirmed receipt of the banked reset previewed for Thursday.",
+  "originalTimeText": null,
+  "scope": "Tibo says Go, Plus, Pro, and Business users will each get one banked reset after a GPT-6.2 usage-metering fix.",
   "announcement": {
-    "source": "Tibo (@thsottiaux) / X reply",
-    "text": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
-    "translation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。",
-    "url": "https://x.com/thsottiaux/status/2120410480204525936",
-    "postedAt": "2026-11-11T06:57:08.000Z"
-  },
-  "previousAnnouncement": {
     "source": "Tibo (@thsottiaux) / X post",
-    "text": "It’s been a while without resets. Maybe I should come back out of the basement",
-    "translation": "好一阵子没重置了。也许我该从地下室出来了。",
-    "url": "https://x.com/thsottiaux/status/2120410006273380750",
-    "postedAt": "2026-11-11T06:55:15.000Z"
+    "text": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
+    "translation": "我们会向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。",
+    "url": "https://x.com/thsottiaux/status/2125784147889393806",
+    "postedAt": "2026-11-26T02:50:10.673Z"
   },
-  "updatedAt": "2026-11-13T10:57:25.352Z",
-  "note": "The receipt update comes from the site owner’s confirmation on November 13. Its recorded time is not the exact backend delivery time. Check your own account for availability and expiry.",
-  "observationBasis": "owner_account"
+  "updatedAt": "2026-11-26T04:58:16.000Z",
+  "note": "The post gives no delivery time or expiry date. Check your account’s Usage settings for availability and expiry."
 }

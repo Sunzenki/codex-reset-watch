@@ -1,19 +1,19 @@
 {
-  "eventId": "2026-11-13-thursday-banked-received",
+  "eventId": "2026-11-26-gpt-6-2-compensation-banked-announced",
   "messages": {
     "en": {
-      "title": "Thursday banked reset received",
-      "body": "The site owner has confirmed receipt of this banked reset. Check your account’s available balance and expiry before use.",
+      "title": "One banked reset announced",
+      "body": "Tibo announced one banked reset each for Go, Plus, Pro, and Business. Delivery timing was not specified.",
       "path": "/"
     },
     "zh-CN": {
-      "title": "周四储备重置已到账",
-      "body": "站长已确认本轮储备重置到账。可在自己账号查看可用储备及有效期，再决定何时使用。",
+      "title": "一次储备重置已预告",
+      "body": "Tibo 宣布向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。到账时间待公布。",
       "path": "/zh-CN/"
     },
     "zh-TW": {
-      "title": "週四儲備重置已到帳",
-      "body": "站長已確認本輪儲備重置到帳。可在自己帳戶查看可用儲備及有效期，再決定何時使用。",
+      "title": "一次儲備重置已預告",
+      "body": "Tibo 宣布向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。到帳時間待公布。",
       "path": "/zh-TW/"
     }
   }

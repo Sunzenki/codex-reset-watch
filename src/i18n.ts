@@ -125,33 +125,34 @@ export const ui = {
 
 export const currentCopy: Record<Locale, { headline: string; scope: string; context: string; note: string; sourceExcerpt?: string; sourceTranslation?: string }> = {
   "en": {
-    "headline": "Thursday banked reset received",
-    "scope": "The site owner has confirmed receipt of the banked reset previewed for Thursday.",
-    "context": "The site owner has now confirmed receipt. Tibo’s linked Thursday reply is the earlier preview.",
-    "note": "The receipt update comes from the site owner’s confirmation on November 13. Its recorded time is not the exact backend delivery time. Check your own account for availability and expiry.",
-    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset."
+    "headline": "One banked reset announced",
+    "scope": "Tibo says Go, Plus, Pro, and Business users will each get one banked reset after a GPT-6.2 usage-metering fix.",
+    "context": "Tibo says a launch error caused GPT-6.2 Astra and Sol to draw too little from most users’ plan allowances. The error has been fixed, and OpenAI will not charge for the difference on past usage.",
+    "note": "The post gives no delivery time or expiry date. Check your account’s Usage settings for availability and expiry.",
+    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business."
   },
   "zh-CN": {
-    "headline": "周四储备重置已到账",
-    "scope": "站长已确认，周四预告的本轮储备重置已到账。",
-    "context": "站长现已确认本轮储备重置到账。所附 Tibo 周四回复保留为此前的预告来源。",
-    "note": "本次到账状态依据站长于 11 月 13 日提供的确认。记录时间不代表后台精确发放时刻；请以自己账号的可用储备及有效期为准。",
-    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
-    "sourceTranslation": "我觉得周四很有 Codex 的感觉。也许也是来一次储备重置的好时机。"
+    "headline": "一次储备重置已预告",
+    "scope": "Tibo 宣布，GPT-6.2 用量计算修正后，Go、Plus、Pro 和 Business 用户将各获一次储备重置。",
+    "context": "Tibo 表示，GPT-6.2 Astra 和 Sol 上线时的计算错误让大多数用户少扣了套餐用量。错误已修正，过去少计的用量不会补收差额。",
+    "note": "原帖未给出到账时间和有效期。可在账号的用量设置里查看是否到账以及何时到期。",
+    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
+    "sourceTranslation": "我们会向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。"
   },
   "zh-TW": {
-    "headline": "週四儲備重置已到帳",
-    "scope": "站長已確認，週四預告的本輪儲備重置已到帳。",
-    "context": "站長現已確認本輪儲備重置到帳。所附 Tibo 週四回覆保留為先前的預告來源。",
-    "note": "本次到帳狀態依據站長於 11 月 13 日提供的確認。記錄時間不代表後台精確發放時間；請以自己帳戶的可用儲備及有效期為準。",
-    "sourceExcerpt": "Thursday is feeling codexy to me. Perhaps also a good time for a banked reset.",
-    "sourceTranslation": "我覺得週四很有 Codex 的感覺。也許也是來一次儲備重置的好時機。"
+    "headline": "一次儲備重置已預告",
+    "scope": "Tibo 宣布，GPT-6.2 用量計算修正後，Go、Plus、Pro 和 Business 使用者將各獲一次儲備重置。",
+    "context": "Tibo 表示，GPT-6.2 Astra 和 Sol 上線時的計算錯誤讓多數使用者少扣了方案用量。錯誤已修正，過去少計的用量不會補收差額。",
+    "note": "原文未公布到帳時間與有效期限。可在帳戶的用量設定查看是否到帳及到期時間。",
+    "sourceExcerpt": "we’ll be adding one banked reset for everyone on Go, Plus, Pro, and Business.",
+    "sourceTranslation": "我們會向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。"
   }
 };
 
 type RecordCopy = { context: string; note: string };
 export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
   en: {
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo announced one banked reset each for Go, Plus, Pro, and Business after correcting how GPT-6.2 Astra and Sol count toward plan allowances.","note":"The date is the time of the announcement. Delivery and expiry were not specified, and receipt is awaiting confirmation."},
     'reset-2026-11-13-thursday-banked-observed': {"context":"The site owner has now confirmed receipt. Tibo’s linked Thursday reply is the earlier preview.","note":"The site owner confirmed receipt of the Thursday banked reset. The archive uses the site’s observation-record time, not the backend delivery time or a redemption time."},
     'reset-2026-11-11-thursday-banked-hint': {"context":"In a reply to his post about the absence of resets, Tibo mentions Thursday and says it may be a good time for a banked reset.","note":"The tentative Thursday preview is retained. The site owner subsequently confirmed receipt on November 13; see the later banked-reset observation record."},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo posted “Day 28/ Banked 2/2”; the site owner confirmed receipt of both banked resets.","note":"Post times identify the public announcements, not the exact delivery times. The posts do not specify eligible plans or expiration. Receiving a banked reset does not refresh usage until it is redeemed."},
@@ -190,6 +191,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: 'A banked reset had been added to every account.', note: 'Users needed to claim this banked reset on desktop or web to restore weekly usage. The post timestamp is used.' },
   },
   'zh-CN': {
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的套餐用量计算后，宣布向 Go、Plus、Pro 和 Business 用户各发放一次储备重置。","note":"本条按公告发布时间归档。原帖未给出到账时间和有效期，到账待确认。"},
     'reset-2026-11-13-thursday-banked-observed': {"context":"站长现已确认本轮储备重置到账。所附 Tibo 周四回复保留为此前的预告来源。","note":"站长已确认周四预告的储备重置到账。所示日期为本站记录确认的时间，不是后台发放时刻或使用储备的时间。"},
     'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在“好一阵子没重置了”的原帖下，提到周四，并表示也许适合来一次储备重置。","note":"保留原有周四线索；站长已于 11 月 13 日确认到账，后续情况见新增的储备到账记录。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 发布“Day 28/ Banked 2/2”；站长已确认两张储备均到账。","note":"所示发帖时间不等于后台精确发放时刻。原帖未列明适用套餐与有效期，请以账号显示为准。收到储备不等于已经使用，也不会自动恢复用量。"},
@@ -228,6 +230,7 @@ export const historyCopy: Record<Locale, Record<string, RecordCopy>> = {
     'reset-2026-07-14-banked': { context: '为庆祝里程碑，我们已经向每个人的账户添加了一次储备重置。', note: '这是 banked reset，需要用户在桌面端或网页端自行使用以恢复每周额度。记录时间采用原帖发布时间。' },
   },
   'zh-TW': {
+    'reset-2026-11-26-gpt-6-2-compensation-banked-announced': {"context":"Tibo 在修正 GPT-6.2 Astra 和 Sol 的方案用量計算後，宣布向 Go、Plus、Pro 和 Business 使用者各發放一次儲備重置。","note":"本筆依公告發布時間歸檔。原文未公布到帳時間與有效期限，到帳待確認。"},
     'reset-2026-11-13-thursday-banked-observed': {"context":"站長現已確認本輪儲備重置到帳。所附 Tibo 週四回覆保留為先前的預告來源。","note":"站長已確認週四預告的儲備重置到帳。所示日期為本站記錄確認的時間，不是後台發放時間或使用儲備的時間。"},
     'reset-2026-11-11-thursday-banked-hint': {"context":"Tibo 在「好一陣子沒重置了」的原帖下，提到週四，並表示也許適合來一次儲備重置。","note":"保留原有週四線索；站長已於 11 月 13 日確認到帳，後續情況見新增的儲備到帳紀錄。"},
     'reset-2026-11-02-day28-banked-received': {"context":"Tibo 發佈「Day 28/ Banked 2/2」；站長已確認兩張儲備均到帳。","note":"所示發帖時間不等於後台精確發放時間。原帖未列明適用方案與有效期，請以帳戶顯示為準。收到儲備不等於已經使用，也不會自動恢復用量。"},
